@@ -1,4 +1,4 @@
-Schemas
+CybOX Schema Repository
 =======
 
-CybOX Schemas and Schema Development
+This repository will house both the development and release versions of the CybOX XML schemas.
