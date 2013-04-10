@@ -10,4 +10,4 @@ improving consistency, efficiency, interoperability and overall situational awar
 
 Please visit the [CybOX Web Site](http://cybox.mitre.org) for more information about the CybOX Language.
 
-The CybOX Language operates under the [CybOX Terms of User](http://cybox.mitre.org/about/termsofuse.html).
+The CybOX Language operates under the [CybOX Terms of Use](http://cybox.mitre.org/about/termsofuse.html).
