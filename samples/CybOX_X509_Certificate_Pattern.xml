@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="
+    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#X509CertificateObject-2 ../objects/X509_Certificate_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-72b7b0b3-a95f-4bb8-b42b-f5f86e1370b9">
+        <cybox:Description>
+            This Observable specifies an example pattern against an X509 Certificate Object,
+            testing both the certificate issuer and subject.
+        </cybox:Description>
+        <cybox:Object id="example:Object-551e35af-6f73-4182-ae42-8803b56781ed">
+            <cybox:Properties xsi:type="X509CertificateObj:X509CertificateObjectType">
+                <X509CertificateObj:Certificate>
+                    <X509CertificateObj:Issuer condition="Contains">www.example.com</X509CertificateObj:Issuer>
+                    <X509CertificateObj:Subject condition="FitsPattern" pattern_type="Regex">(\w+\s)*doe|doe@example\.com</X509CertificateObj:Subject>
+                </X509CertificateObj:Certificate>
+            </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>

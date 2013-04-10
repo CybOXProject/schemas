@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+    xmlns:PDFFileObj="http://cybox.mitre.org/objects#PDFFileObject-1"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="
+    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#PDFFileObject-1 ../objects/PDF_File_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-9c132c3c-fc65-41c9-a0f9-ea146dc61cd0">
+        <cybox:Description>
+            This Observable specifies an example instance of a PDF File Object.
+        </cybox:Description>
+        <cybox:Object id="example:Object-3e6f7315-9591-4f84-ba51-7b8c44ce5d36">
+            <cybox:Properties xsi:type="PDFFileObj:PDFFileObjectType">
+                <FileObj:File_Name>test.pdf</FileObj:File_Name>
+                <FileObj:Size_In_Bytes>25523</FileObj:Size_In_Bytes>
+                <PDFFileObj:Version>1.4</PDFFileObj:Version>
+                <PDFFileObj:Indirect_Objects>
+                    <PDFFileObj:Indirect_Object>
+                        <PDFFileObj:ID>
+                            <PDFFileObj:Object_Number>1</PDFFileObj:Object_Number>
+                            <PDFFileObj:Generation_Number>0</PDFFileObj:Generation_Number>
+                        </PDFFileObj:ID>
+                        <PDFFileObj:Contents>
+                            <PDFFileObj:Non_Stream_Contents>
+                                <![CDATA[
+                                << /Type /Catalog
+                                /Outlines 2 0 R
+                                >>
+                                ]]>
+                            </PDFFileObj:Non_Stream_Contents>
+                        </PDFFileObj:Contents>
+                    </PDFFileObj:Indirect_Object>
+                    <PDFFileObj:Indirect_Object>
+                        <PDFFileObj:ID>
+                            <PDFFileObj:Object_Number>2</PDFFileObj:Object_Number>
+                            <PDFFileObj:Generation_Number>0</PDFFileObj:Generation_Number>
+                        </PDFFileObj:ID>
+                        <PDFFileObj:Contents>
+                            <PDFFileObj:Non_Stream_Contents>
+                                <![CDATA[
+                                << /Type Outlines
+                                /Count 0
+                                >>
+                                ]]>
+                            </PDFFileObj:Non_Stream_Contents>
+                        </PDFFileObj:Contents>
+                    </PDFFileObj:Indirect_Object>
+                </PDFFileObj:Indirect_Objects>
+                <PDFFileObj:Cross_Reference_Tables>
+                    <PDFFileObj:Cross_Reference_Table>
+                        <PDFFileObj:Subsections>
+                            <PDFFileObj:Subsection>
+                                <PDFFileObj:First_Object_Number>0</PDFFileObj:First_Object_Number>
+                                <PDFFileObj:Number_Of_Objects>3</PDFFileObj:Number_Of_Objects>
+                                <PDFFileObj:Cross_Reference_Entries>
+                                    <PDFFileObj:Cross_Reference_Entry>
+                                        <PDFFileObj:Byte_Offset>0</PDFFileObj:Byte_Offset>
+                                        <PDFFileObj:Generation_Number>65535</PDFFileObj:Generation_Number>
+                                    </PDFFileObj:Cross_Reference_Entry>
+                                    <PDFFileObj:Cross_Reference_Entry>
+                                        <PDFFileObj:Byte_Offset>9</PDFFileObj:Byte_Offset>
+                                        <PDFFileObj:Generation_Number>0</PDFFileObj:Generation_Number>
+                                    </PDFFileObj:Cross_Reference_Entry>
+                                    <PDFFileObj:Cross_Reference_Entry>
+                                        <PDFFileObj:Byte_Offset>74</PDFFileObj:Byte_Offset>
+                                        <PDFFileObj:Generation_Number>0</PDFFileObj:Generation_Number>
+                                    </PDFFileObj:Cross_Reference_Entry>
+                                </PDFFileObj:Cross_Reference_Entries>
+                            </PDFFileObj:Subsection>
+                        </PDFFileObj:Subsections>
+                    </PDFFileObj:Cross_Reference_Table>
+                </PDFFileObj:Cross_Reference_Tables>
+                <PDFFileObj:Trailers>
+                    <PDFFileObj:Trailer>
+                        <PDFFileObj:Size>3</PDFFileObj:Size>
+                        <PDFFileObj:Root>
+                            <PDFFileObj:Object_Number>1</PDFFileObj:Object_Number>
+                            <PDFFileObj:Generation_Number>0</PDFFileObj:Generation_Number>
+                        </PDFFileObj:Root>
+                        <PDFFileObj:Last_Cross_Reference_Offset>408</PDFFileObj:Last_Cross_Reference_Offset>
+                    </PDFFileObj:Trailer>
+                </PDFFileObj:Trailers>
+            </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>

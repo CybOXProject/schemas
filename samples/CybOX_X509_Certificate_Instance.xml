@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="
+    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#X509CertificateObject-2 ../objects/X509_Certificate_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-342df9c7-b309-4297-b3ce-ab3954ccb9db">
+        <cybox:Description>
+            This Observable specifies an example instance of a X509 Certificate Object.
+        </cybox:Description>
+        <cybox:Object id="example:Object-a677503f-b20b-44d0-a50f-fc055bb0e255">
+            <cybox:Properties xsi:type="X509CertificateObj:X509CertificateObjectType">
+                <X509CertificateObj:Certificate>
+                    <X509CertificateObj:Version>1</X509CertificateObj:Version>
+                    <X509CertificateObj:Serial_Number>1234</X509CertificateObj:Serial_Number>
+                    <X509CertificateObj:Signature_Algorithm>md5WithRSAEncryption</X509CertificateObj:Signature_Algorithm>
+                    <X509CertificateObj:Issuer>C=US, ST=California, O=www.example.com, OU=new, CN=new</X509CertificateObj:Issuer>
+                    <X509CertificateObj:Validity>
+                        <X509CertificateObj:Not_Before>2013-04-08T12:00:00</X509CertificateObj:Not_Before>
+                        <X509CertificateObj:Not_After>2014-04-07T23:59:59</X509CertificateObj:Not_After>
+                    </X509CertificateObj:Validity>
+                    <X509CertificateObj:Subject>C=US, ST=Maryland, L=Baltimore, O=John Doe, OU=ExampleCorp, CN=www.example.com/emailAddress=doe@example.com</X509CertificateObj:Subject>
+                    <X509CertificateObj:Subject_Public_Key>
+                        <X509CertificateObj:Public_Key_Algorithm>rsaEncryption</X509CertificateObj:Public_Key_Algorithm>
+                        <X509CertificateObj:RSA_Public_Key>
+                            <X509CertificateObj:Modulus>
+                                00:b2:21:98:0a:c4:bc:62:b5:25:ac:ea:b0:c8:bb:
+                                33:35:19:d5:0c:64:b9:99:41:b7:96:fc:f3:31:e1:
+                                17:34:d0:8e:56:12:44:ad:22:eb:e8:1c:9c:5b:66:
+                                70:33:52:45:c9:ec:4f:12:51:70:39:dc:53:85:17:
+                                16:67:6e:ee:f4:d5:6f:d5:ca:b3:47:5e:1b:0c:8d:
+                                c5:cc:2b:6b:c1:90:d7:77:31:0d:bf:7a:c7:47:12:
+                                8f:a0:21:c7:4c:d0:16:33:00:c1:0f:d7:b8:80:e3:
+                                d2:d3:6b:c1:ea:9e:5c:5c:ea:7d:88:a1:10:bc:b8:
+                                e8:35:1c:9e:27:52:7e:22:4d
+                            </X509CertificateObj:Modulus>
+                            <X509CertificateObj:Exponent>65537</X509CertificateObj:Exponent>
+                        </X509CertificateObj:RSA_Public_Key>
+                    </X509CertificateObj:Subject_Public_Key>
+                </X509CertificateObj:Certificate>
+                <X509CertificateObj:Certificate_Signature>
+                    <X509CertificateObj:Signature_Algorithm>md5WithRSAEncryption</X509CertificateObj:Signature_Algorithm>
+                    <X509CertificateObj:Signature>  
+                        22:fd:12:5f:c5:af:cc:0a:ab:87:6d:fb:24:5f:b6:59:5d:9d:
+                        92:2e:4a:1b:8b:ac:7d:99:17:5d:cd:19:f6:ad:ef:63:2f:92:
+                        ad:2f:4b:cf:0a:52:90:bc:2c:0e:28:03:be:ac:15:8e:3c:15:
+                        1d:a2:40:03:f7:ef:6a:15:09:79:a9:46:ed:b7:16:1b:41:72:
+                        0d:19:ab:33:d3:9a:df:ab:97:50:65:f2:5e:33:a1:ee:33:1d:
+                        5d:ac:11:bb:63:33:cb:cc:6d:5d:01:85:b5:6d:c8:f3:d9:f7:
+                        8f:0e:fc:ba:1f:34:e9:96:6e:6c:cf:f2:ef:3c:bf:1a:b5:22:
+                        68:5d
+                    </X509CertificateObj:Signature>
+                </X509CertificateObj:Certificate_Signature>
+            </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>

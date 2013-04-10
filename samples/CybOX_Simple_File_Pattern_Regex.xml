@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="
+    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#FileObject-2 ../objects/File_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-9769042a-294d-4f2c-963b-579702df0472">
+        <cybox:Description>
+            This observables specifies a pattern for a file with a file name that fits a certain pattern.
+            The file name starts with &apos;bad_file&apos;, ends with &apos;.exe&apos;, and has
+            between two and five numbers in it.
+        </cybox:Description>
+        <cybox:Object id="example:Object-dae8802e-b0df-4989-9ac3-d816b153842b">
+            <cybox:Properties xsi:type="FileObj:FileObjectType">
+                <FileObj:File_Name pattern_type="Regex">bad_file[0-9]{2,5}\.exe</FileObj:File_Name>
+            </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>

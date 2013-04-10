@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject-2"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="
+    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#ArtifactObject-2 ../objects/Artifact_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-cdcf44b5-317b-4ae5-99e0-b601fe90fe3d">
+        <cybox:Description>
+            This Observable specifies an example pattern against an Artifact object,
+            testing the contents of the artifact for a particular byte string that 
+            represents a URL captured in a PCAP.
+        </cybox:Description>
+        <cybox:Object id="example:Object-2c7bef9b-9eb7-4d3b-833f-49b70b3c4956">
+            <cybox:Properties xsi:type="ArtifactObj:ArtifactObjectType" type="Network Traffic">
+                <ArtifactObj:Raw_Artifact condition="Contains">777777076578616D706C6503636F6D</ArtifactObj:Raw_Artifact>
+            </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>

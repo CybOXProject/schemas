@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#AddressObject-2 ../objects/Address_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-0b9af309-0d5a-4c44-bdd7-aea3d99f13b6">
+        <cybox:Object id="example:Object-15be6630-c2df-4bf9-8750-3f45ca9e19cf">
+            <cybox:Properties xsi:type="AddressObj:AddressObjectType" category="ipv6-addr">
+                <AddressObj:Address_Value pattern_type="Regex" apply_condition="ANY">2001:0db8:0000:0000:0000:ff00:0042:832[0-9]</AddressObj:Address_Value>
+            </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>

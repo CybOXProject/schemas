@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:cybox="http://cybox.mitre.org/cybox-2" 
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2" 
+    xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2" 
+    xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+    xmlns:example="http://example.com"
+    xsi:schemaLocation="http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#FileObject-2 ../objects/File_Object.xsd
+    http://cybox.mitre.org/default_vocabularies-2 ../cybox_default_vocabularies.xsd" 
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-a727a717-1852-4c79-9a16-2f3a8b4632c2">
+        <cybox:Event id="example:Event-44578866-b0c5-4551-84dd-0f1f02f8210f">
+            <cybox:Actions>
+                <cybox:Action id="example:Action-a18a058c-effa-4060-b8be-25e1b1ade75f" action_status="Success" context="Host" timestamp="2013-04-08T09:22:00.0Z">
+                    <cybox:Type xsi:type="cyboxVocabs:ActionTypeVocab-1.0">Create</cybox:Type>
+                    <cybox:Name xsi:type="cyboxVocabs:ActionNameVocab-1.0">Create File</cybox:Name>
+                    <cybox:Associated_Objects>
+                        <cybox:Associated_Object id="example:Object-5ec92e95-a31f-470b-97c4-aa9046189fbb">
+                            <cybox:Properties xsi:type="FileObj:FileObjectType">
+                                <FileObj:File_Name>foobar.dll</FileObj:File_Name>
+                                <FileObj:File_Path>C:\Windows\system32</FileObj:File_Path>
+                                <FileObj:Hashes>
+                                    <cyboxCommon:Hash>
+                                        <cyboxCommon:Type>MD5</cyboxCommon:Type>
+                                        <cyboxCommon:Simple_Hash_Value datatype="hexBinary">6E48C348D742A931EC2CE90ABD7DAC6A</cyboxCommon:Simple_Hash_Value>
+                                    </cyboxCommon:Hash>
+                                </FileObj:Hashes>
+                            </cybox:Properties>
+                            <cybox:Association_Type xsi:type="cyboxVocabs:ActionObjectAssociationTypeVocab-1.0">Affected</cybox:Association_Type>
+                        </cybox:Associated_Object>
+                    </cybox:Associated_Objects>
+                </cybox:Action>
+            </cybox:Actions>
+        </cybox:Event>
+    </cybox:Observable>
+</cybox:Observables>

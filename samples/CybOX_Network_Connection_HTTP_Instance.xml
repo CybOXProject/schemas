@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
+    xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2"
+    xmlns:SocketAddressObj="http://cybox.mitre.org/objects#SocketAddressObject-1"
+    xmlns:NetworkConnectionObj="http://cybox.mitre.org/objects#NetworkConnectionObject-2"
+    xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="
+    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#NetworkConnectionObject-2 ../objects/Network_Connection_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-1b427720-98d7-4735-b125-754c7e08f285">
+        <cybox:Description>
+            This Observable specifies an example instance of a Network Connection Object with an HTTP Session.
+        </cybox:Description>
+        <cybox:Object id="example:Object-d1fdd983-530b-489f-9ab8-ed3cb5212c35">
+            <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                <NetworkConnectionObj:Layer3_Protocol datatype="string">IPv4</NetworkConnectionObj:Layer3_Protocol>
+                <NetworkConnectionObj:Layer4_Protocol datatype="string">TCP</NetworkConnectionObj:Layer4_Protocol>
+                <NetworkConnectionObj:Layer7_Protocol datatype="string">HTTP</NetworkConnectionObj:Layer7_Protocol>
+                <NetworkConnectionObj:Source_Socket_Address>
+                    <SocketAddressObj:IP_Address>
+                        <AddressObj:Address_Value>192.168.1.15</AddressObj:Address_Value>
+                    </SocketAddressObj:IP_Address>
+                    <SocketAddressObj:Port>
+                        <PortObj:Port_Value>5525</PortObj:Port_Value>
+                    </SocketAddressObj:Port>
+                </NetworkConnectionObj:Source_Socket_Address>
+                <NetworkConnectionObj:Destination_Socket_Address>
+                    <SocketAddressObj:IP_Address>
+                        <AddressObj:Address_Value>198.49.123.10</AddressObj:Address_Value>
+                    </SocketAddressObj:IP_Address>
+                    <SocketAddressObj:Port>
+                        <PortObj:Port_Value>80</PortObj:Port_Value>
+                    </SocketAddressObj:Port>
+                </NetworkConnectionObj:Destination_Socket_Address>
+                <NetworkConnectionObj:Layer7_Connections>
+                    <NetworkConnectionObj:HTTP_Session>
+                        <HTTPSessionObj:HTTP_Request_Response>
+                            <HTTPSessionObj:HTTP_Client_Request>
+                                <HTTPSessionObj:HTTP_Request_Line>
+                                    <HTTPSessionObj:HTTP_Method datatype="string">GET</HTTPSessionObj:HTTP_Method>
+                                    <HTTPSessionObj:Version>HTTP/1.1</HTTPSessionObj:Version>
+                                </HTTPSessionObj:HTTP_Request_Line>
+                                <HTTPSessionObj:HTTP_Request_Header>
+                                    <HTTPSessionObj:Parsed_Header>
+                                        <HTTPSessionObj:Accept_Encoding>gzip</HTTPSessionObj:Accept_Encoding>
+                                        <HTTPSessionObj:Connection>close</HTTPSessionObj:Connection>
+                                    </HTTPSessionObj:Parsed_Header>
+                                </HTTPSessionObj:HTTP_Request_Header>
+                            </HTTPSessionObj:HTTP_Client_Request>
+                            <HTTPSessionObj:HTTP_Server_Response>
+                                <HTTPSessionObj:HTTP_Status_Line>
+                                    <HTTPSessionObj:Version>HTTP/1.1</HTTPSessionObj:Version>
+                                    <HTTPSessionObj:Status_Code>200</HTTPSessionObj:Status_Code>
+                                    <HTTPSessionObj:Reason_Phrase>OK</HTTPSessionObj:Reason_Phrase>
+                                </HTTPSessionObj:HTTP_Status_Line>
+                                <HTTPSessionObj:HTTP_Response_Header>
+                                    <HTTPSessionObj:Parsed_Header>
+                                        <HTTPSessionObj:Server>Apache</HTTPSessionObj:Server>
+                                        <HTTPSessionObj:Transfer_Encoding>chunked</HTTPSessionObj:Transfer_Encoding>
+                                    </HTTPSessionObj:Parsed_Header>
+                                </HTTPSessionObj:HTTP_Response_Header>
+                            </HTTPSessionObj:HTTP_Server_Response>
+                        </HTTPSessionObj:HTTP_Request_Response>
+                    </NetworkConnectionObj:HTTP_Session>
+                </NetworkConnectionObj:Layer7_Connections>
+            </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>

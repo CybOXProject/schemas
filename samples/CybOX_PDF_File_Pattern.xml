@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:PDFFileObj="http://cybox.mitre.org/objects#PDFFileObject-1"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="
+    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#PDFFileObject-1 ../objects/PDF_File_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-343961d3-8e62-4150-a701-4ade0afd1f69">
+        <cybox:Description>
+            This Observable specifies an example of a pattern against a PDF File Object, specifically
+            the Version and JS_Count metadata entry.
+        </cybox:Description>
+        <cybox:Object id="example:Object-72d46b20-4048-427c-a077-d601c2874348">
+            <cybox:Properties xsi:type="PDFFileObj:PDFFileObjectType">
+                <PDFFileObj:Metadata>
+                    <PDFFileObj:Keyword_Counts>
+                        <PDFFileObj:JS_Count>
+                            <PDFFileObj:Non_Obfuscated_Count condition="GreaterThanOrEqual">3</PDFFileObj:Non_Obfuscated_Count>
+                        </PDFFileObj:JS_Count>
+                    </PDFFileObj:Keyword_Counts>
+                </PDFFileObj:Metadata>
+                <PDFFileObj:Version condition="GreaterThan">1.2</PDFFileObj:Version>
+            </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>

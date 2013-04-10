@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
+    xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2"
+    xmlns:SocketAddressObj="http://cybox.mitre.org/objects#SocketAddressObject-1"
+    xmlns:NetworkConnectionObj="http://cybox.mitre.org/objects#NetworkConnectionObject-2"
+    xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="
+    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#NetworkConnectionObject-2 ../objects/Network_Connection_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0">
+    <cybox:Observable id="example:Observable-1b427720-98d7-4735-b125-754c7e08f285">
+        <cybox:Description>
+            This Observable specifies an example pattern written against a Network Connection Object
+            with an HTTP Session, specifically the Network Protocols, Destination Socket IP Address and Port,
+            and HTTP Request Method and Value.
+        </cybox:Description>
+        <cybox:Object id="example:Object-d1fdd983-530b-489f-9ab8-ed3cb5212c35">
+            <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                <NetworkConnectionObj:Layer3_Protocol datatype="string" condition="Equals">IPv4</NetworkConnectionObj:Layer3_Protocol>
+                <NetworkConnectionObj:Layer4_Protocol datatype="string" condition="Equals">TCP</NetworkConnectionObj:Layer4_Protocol>
+                <NetworkConnectionObj:Layer7_Protocol datatype="string" condition="Equals">HTTP</NetworkConnectionObj:Layer7_Protocol>
+                <NetworkConnectionObj:Destination_Socket_Address>
+                    <SocketAddressObj:IP_Address>
+                        <AddressObj:Address_Value datatype="string" condition="StartsWith">198.49</AddressObj:Address_Value>
+                    </SocketAddressObj:IP_Address>
+                    <SocketAddressObj:Port>
+                        <PortObj:Port_Value condition="Equals">80</PortObj:Port_Value>
+                    </SocketAddressObj:Port>
+                </NetworkConnectionObj:Destination_Socket_Address>
+                <NetworkConnectionObj:Layer7_Connections>
+                    <NetworkConnectionObj:HTTP_Session>
+                        <HTTPSessionObj:HTTP_Request_Response>
+                            <HTTPSessionObj:HTTP_Client_Request>
+                                <HTTPSessionObj:HTTP_Request_Line>
+                                    <HTTPSessionObj:HTTP_Method datatype="string" condition="Equals">GET</HTTPSessionObj:HTTP_Method>
+                                    <HTTPSessionObj:Value condition="Contains">.asp</HTTPSessionObj:Value>
+                                </HTTPSessionObj:HTTP_Request_Line>
+                            </HTTPSessionObj:HTTP_Client_Request>
+                        </HTTPSessionObj:HTTP_Request_Response>
+                    </NetworkConnectionObj:HTTP_Session>
+                </NetworkConnectionObj:Layer7_Connections>
+            </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>
