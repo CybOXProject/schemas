@@ -194,17 +194,17 @@
 		<xs:annotation>
 			<xs:documentation>The FrequencyType is a type representing the specification of a frequency for a given action or event.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="rate" type="xs:float" use="required">
+		<xs:attribute name="rate" type="xs:float" use="optional">
 			<xs:annotation>
 				<xs:documentation>This field specifies the rate for this defined frequency.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="units" type="xs:string" use="required">
+		<xs:attribute name="units" type="xs:string" use="optional">
 			<xs:annotation>
 				<xs:documentation>This field specifies the units for this defined frequency.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="scale" type="xs:string" use="required">
+		<xs:attribute name="scale" type="xs:string" use="optional">
 			<xs:annotation>
 				<xs:documentation>This field specifies the time scale for this defined frequency.</xs:documentation>
 			</xs:annotation>
