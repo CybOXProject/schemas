@@ -1821,7 +1821,7 @@
 					<xs:union memberTypes="cyboxVocabs:EventTypeEnum-1.0.1"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Event Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#EventTypeVocab-1.0.1"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd#EventTypeVocab-1.0.1"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
