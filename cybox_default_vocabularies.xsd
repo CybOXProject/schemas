@@ -1811,9 +1811,222 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="EventTypeVocab-1.0">
+	<xs:complexType name="EventTypeVocab-1.0.1">
 		<xs:annotation>
 			<xs:documentation>The EventTypeVocab is the default CybOX vocabulary for Event types, captured via the EventType/Type element in the CybOX Core.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxVocabs:EventTypeEnum-1.0.1"/>
+				</xs:simpleType>
+				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Event Types"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#EventTypeVocab-1.0.1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="EventTypeEnum-1.0.1">
+		<xs:annotation>
+			<xs:documentation>EventTypeEnum is a (non-exhaustive) enumeration of cyber observable event types.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="File Ops (CRUD)">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with file operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Registry Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with registry operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Memory Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with memory operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Process Mgt">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with process management.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Thread Mgt">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with thread management.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Service Mgt">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with service management.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Session Mgt">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with session management.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="API Calls">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with API calls.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Port Scan">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with port scanning.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IP Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with IP Operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DNS Lookup Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with DNS Lookup operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Socket Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with thread management.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IPC">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with thread management.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Configuration Management">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with configuration management.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="User/Password Mgt">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with user/password management.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Account Ops (App Layer)">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with account operations at the application layer.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HTTP Traffic">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with HTTP traffic.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="App Layer Traffic">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with Application Layer traffic.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packet Traffic">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with packet traffic.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Data Flow">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with data flow.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Anomaly Events">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with anomaly events.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Technical Compliance">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with Technical compliance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Procedural Compliance">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with procedural compliance.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GUI/KVM">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with the GUI/Kernel-based Virtual Machine (KVM).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Autorun">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with Autorun.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="USB/Media Detection">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with USB and/or Media detection.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SQL">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with the SQL language.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DHCP">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with the Dynamic Host Configuration Protocol (DHCP).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Redirection">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with redirection.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Authentication Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with authentication operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Authorization (ACL)">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with authorization via Access Control Lists (ACL).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Privilege Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with privilege operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Basic System Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with basic system operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Signature Detection">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with signature detection.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Auto-update Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with auto-update operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Application Logic">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with application logic.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Email Ops">
+				<xs:annotation>
+					<xs:documentation>Specifies the class of events dealing with e-mail operations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EventTypeVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>
+				The EventTypeVocab is the default CybOX vocabulary for Event types, captured via the EventType/Type element in the CybOX Core.
+				
+				NOTE: As of CybOX Version 2.0.1, this version of the EventTypeVocab is deprecated. Please use EventTypeVocab-1.0.1 instead.			
+			</xs:documentation>
+			<xs:appinfo>
+				<xs:deprecated>true</xs:deprecated>
+			</xs:appinfo>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -1827,7 +2040,14 @@
 	</xs:complexType>
 	<xs:simpleType name="EventTypeEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>EventTypeEnum is a (non-exhaustive) enumeration of cyber observable event types.</xs:documentation>
+			<xs:documentation>
+				EventTypeEnum is a (non-exhaustive) enumeration of cyber observable event types.
+				
+				NOTE: As of CybOX Version 2.0.1, this version of the EventTypeEnum is deprecated. Please use EventTypeEnum-1.0.1 instead.			
+			</xs:documentation>
+			<xs:appinfo>
+				<xs:deprecated>true</xs:deprecated>
+			</xs:appinfo>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="File Ops (CRUD)">
