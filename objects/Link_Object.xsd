@@ -24,7 +24,7 @@
         <xs:complexContent>
             <xs:extension base="URIObj:URIObjectType">
                 <xs:sequence>
-                    <xs:element name="URL_Label" type="cyboxCommon:StringObjectPropertyType">
+                    <xs:element name="URL_Label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation>The URL_Label field specifies the label of the link.</xs:documentation>
                         </xs:annotation>
