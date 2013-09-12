@@ -198,27 +198,27 @@
 	</xs:complexType>
 	<xs:complexType name="TimeType">
 		<xs:annotation>
-			<xs:documentation>The TimeType specifies various time properties for a cyber observation source.</xs:documentation>
+			<xs:documentation>The TimeType specifies various time properties for this construct.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Start_Time" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Start_Time field is optional and describes the starting time for this cyber observation source instance.</xs:documentation>
+					<xs:documentation>The Start_Time field is optional and describes the starting time for this construct.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="End_Time" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The End_Time field is optional and describes the ending time for this cyber observation source instance.</xs:documentation>
+					<xs:documentation>The End_Time field is optional and describes the ending time for this construct.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Produced_Time" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Produced_Time field is optional and describes the time that this cyber observation source instance was produced.</xs:documentation>
+					<xs:documentation>The Produced_Time field is optional and describes the time that this construct was produced.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Received_Time" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Received_Time field is optional and describes the time that this cyber observation source instance was received.</xs:documentation>
+					<xs:documentation>The Received_Time field is optional and describes the time that this construct was received.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
