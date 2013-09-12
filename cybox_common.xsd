@@ -77,7 +77,7 @@
 		</xs:attribute>
 		<xs:attribute name="name" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>The name field is optional and enables the assignment of a relevant name to a this Discovery Method.</xs:documentation>
+				<xs:documentation>The name field is optional and enables the assignment of a relevant name to this Discovery Method.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
