@@ -819,7 +819,7 @@
 		<xs:sequence>
 			<xs:element name="Property" type="xs:string" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Property elemet specifies a single property that was enumerated as a result of the action on the object.</xs:documentation>
+					<xs:documentation>The Property element specifies a single property that was enumerated as a result of the action on the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
