@@ -2046,7 +2046,7 @@
 				NOTE: As of CybOX Version 2.0.1, this version of the EventTypeEnum is deprecated. Please use EventTypeEnum-1.0.1 instead.			
 			</xs:documentation>
 			<xs:appinfo>
-				<xs:deprecated>true</xs:deprecated>
+				<deprecated>true</deprecated>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
