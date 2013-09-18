@@ -35,17 +35,17 @@
 		</xs:sequence>
 		<xs:attribute name="cybox_major_version" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>The major_version field specifies the major version of the CybOX language utlized for this set of Observables.</xs:documentation>
+				<xs:documentation>The cybox_major_version field specifies the major version of the CybOX language utlized for this set of Observables.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="cybox_minor_version" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>The minor_version field specifies the minor version of the CybOX language utlized for this set of Observables.</xs:documentation>
+				<xs:documentation>The cybox_minor_version field specifies the minor version of the CybOX language utlized for this set of Observables.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="cybox_update_version" type="xs:string" use="optional">
 			<xs:annotation>
-				<xs:documentation>The update_version field specifies the update version of the CybOX language utlized for this set of Observables. This field MUST be used when using an update version of CybOX.</xs:documentation>
+				<xs:documentation>The cybox_update_version field specifies the update version of the CybOX language utlized for this set of Observables. This field MUST be used when using an update version of CybOX.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
