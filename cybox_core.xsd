@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/cybox-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/cybox-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
 			<schema>CybOX Core</schema>
-			<version>2.0</version>
-			<date>04/08/2013 9:00:00 AM</date>
+			<version>2.0.1</version>
+			<date>09/30/2013 9:00:00 AM</date>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Core.</short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -35,12 +35,17 @@
 		</xs:sequence>
 		<xs:attribute name="cybox_major_version" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>The major_version field specifies the major version of the CybOX language utlized for this set of Observables.</xs:documentation>
+				<xs:documentation>The cybox_major_version field specifies the major version of the CybOX language utlized for this set of Observables.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="cybox_minor_version" type="xs:string" use="required">
 			<xs:annotation>
-				<xs:documentation>The minor_version field specifies the minor version of the CybOX language utlized for this set of Observables.</xs:documentation>
+				<xs:documentation>The cybox_minor_version field specifies the minor version of the CybOX language utlized for this set of Observables.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="cybox_update_version" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The cybox_update_version field specifies the update version of the CybOX language utlized for this set of Observables. This field MUST be used when using an update version of CybOX.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -146,7 +151,7 @@
 				<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>The Type field uses a standardized controlled vocabulary to capture what type of Event this is.</xs:documentation>
-						<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is EventTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd.
+						<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is EventTypeVocab-1.0.1 in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
 							Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
 					</xs:annotation>
 				</xs:element>
@@ -194,17 +199,17 @@
 		<xs:annotation>
 			<xs:documentation>The FrequencyType is a type representing the specification of a frequency for a given action or event.</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="rate" type="xs:float" use="required">
+		<xs:attribute name="rate" type="xs:float" use="optional">
 			<xs:annotation>
 				<xs:documentation>This field specifies the rate for this defined frequency.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="units" type="xs:string" use="required">
+		<xs:attribute name="units" type="xs:string" use="optional">
 			<xs:annotation>
 				<xs:documentation>This field specifies the units for this defined frequency.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="scale" type="xs:string" use="required">
+		<xs:attribute name="scale" type="xs:string" use="optional">
 			<xs:annotation>
 				<xs:documentation>This field specifies the time scale for this defined frequency.</xs:documentation>
 			</xs:annotation>
@@ -241,7 +246,7 @@
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Type field is optional and utilizes a standardized controlled vocabulary to specify the basic type of the action that was performed.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd.
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
 						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.
 					</xs:documentation>
 				</xs:annotation>
@@ -249,7 +254,7 @@
 			<xs:element name="Name" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Name field is optional and utilizes a standardized controlled vocabulary to identify/characterize the specific name of the action that was performed.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd.
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
 						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.
 					</xs:documentation>
 				</xs:annotation>
@@ -412,7 +417,7 @@
 			<xs:element name="Argument_Name" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Defined_Argument_Name field is optional and utilizes a standardized controlled vocabulary to identify/characterize the specific action argument utilized.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionArgumentNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd.
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionArgumentNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
 						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.
 					</xs:documentation>
 				</xs:annotation>
@@ -446,7 +451,7 @@
 					<xs:element name="Association_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Association_Type field utilizes a standardized controlled vocabulary to specify the kind of association this Object holds for this Action.</xs:documentation>
-							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionObjectAssociationTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd.
+							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionObjectAssociationTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
 								Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.
 							</xs:documentation>
 						</xs:annotation>
@@ -507,7 +512,7 @@
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Type field utilizes a standardized controlled vocabulary to describe the nature of the relationship between this Action and the related Action.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionRelationshipTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd.
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionRelationshipTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
 						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -542,7 +547,7 @@
 			<xs:element name="State" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The State field enables the description of the current state of the object, through a standardized controlled vocabulary.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectStateVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd.
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectStateVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
 						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>					
 				</xs:annotation>
 			</xs:element>
@@ -568,7 +573,7 @@
 			</xs:element>
 			<xs:element name="Defined_Effect" type="cybox:DefinedEffectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Defined_Effect construct is an abstract placeholder for various predefined Object Effect types (e.g. DataReadEffect, ValuesEnumeratedEffect or StateChangeEffect) that can be instantiated in its place through extension of the DefinedEffectType. This mechanism enables the specification of a broad range of types of potential complex action effects on Objects. The set of Defined_Effect types (extending the DefeinedEffectType) are maintained as part of the core CybOX schema.</xs:documentation>
+					<xs:documentation>The Defined_Effect construct is an abstract placeholder for various predefined Object Effect types (e.g. DataReadEffect, ValuesEnumeratedEffect or StateChangeEffect) that can be instantiated in its place through extension of the DefinedEffectType. This mechanism enables the specification of a broad range of types of potential complex action effects on Objects. The set of Defined_Effect types (extending the DefinedEffectType) are maintained as part of the core CybOX schema.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Discovery_Method" type="cyboxCommon:MeasureSourceType" minOccurs="0">
@@ -620,7 +625,7 @@
 					<xs:element name="Relationship" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Relationship field uses a standardized controlled vocabulary to capture the nature of the relationship between this Object and the Related_Object.</xs:documentation>
-							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectRelationshipVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd.
+							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectRelationshipVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
 								Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -819,7 +824,7 @@
 		<xs:sequence>
 			<xs:element name="Property" type="xs:string" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Property elemet specifies a single property that was enumerated as a result of the action on the object.</xs:documentation>
+					<xs:documentation>The Property element specifies a single property that was enumerated as a result of the action on the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

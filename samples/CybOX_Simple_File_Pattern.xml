@@ -9,7 +9,7 @@
     http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
     http://cybox.mitre.org/objects#FileObject-2 ../objects/File_Object.xsd
     http://cybox.mitre.org/default_vocabularies-2 ../cybox_default_vocabularies.xsd"
-    cybox_major_version="2" cybox_minor_version="0">
+    cybox_major_version="2" cybox_minor_version="0" cybox_update_version="1">
     <cybox:Observable id="example:Observable-58115a77-e24a-42b5-bb29-7bd66fa9655f">
         <cybox:Description>This observable specifies a specific file observation.</cybox:Description>
         <cybox:Object id="example:Object-17e97e7c-d3e6-4139-891b-291576dc5d41">

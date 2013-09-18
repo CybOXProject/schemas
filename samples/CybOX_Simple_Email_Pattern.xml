@@ -14,13 +14,13 @@
     http://cybox.mitre.org/objects#FileObject-2 ../objects/File_Object.xsd
     http://cybox.mitre.org/objects#EmailMessageObject-2 ../objects/Email_Message_Object.xsd
     http://cybox.mitre.org/default_vocabularies-2 ../cybox_default_vocabularies.xsd" 
-    cybox_major_version="2" cybox_minor_version="0">
+    cybox_major_version="2" cybox_minor_version="0" cybox_update_version="1">
     <cybox:Observable id="example:Obervable-298376a2-cf65-4778-9894-ed9a95b5441d">
         <cybox:Object id="example:Object-f9769431-db6b-448f-b34e-72eb3c3e07d1">
             <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                 <EmailMessageObj:Header>
                     <EmailMessageObj:From category="e-mail">
-                        <AddrObj:Address_Value condition="Equals" apply_condition="ANY">attacker@example.com,attacker1@example.com,attacker@bad.example.com</AddrObj:Address_Value>
+                        <AddrObj:Address_Value condition="Equals" apply_condition="ANY">attacker@example.com##comma##attacker1@example.com##comma##attacker@bad.example.com</AddrObj:Address_Value>
                     </EmailMessageObj:From>
                     <EmailMessageObj:Subject condition="Equals" >New modifications to the specification</EmailMessageObj:Subject>
                 </EmailMessageObj:Header>
