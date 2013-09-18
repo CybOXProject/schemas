@@ -9,7 +9,7 @@
     xsi:schemaLocation="http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
     http://cybox.mitre.org/objects#FileObject-2 ../objects/File_Object.xsd
     http://cybox.mitre.org/default_vocabularies-2 ../cybox_default_vocabularies.xsd" 
-    cybox_major_version="2" cybox_minor_version="0">
+    cybox_major_version="2" cybox_minor_version="0" cybox_update_version="1">
     <cybox:Observable id="example:Observable-a727a717-1852-4c79-9a16-2f3a8b4632c2">
         <cybox:Event id="example:Event-44578866-b0c5-4551-84dd-0f1f02f8210f">
             <cybox:Actions>
