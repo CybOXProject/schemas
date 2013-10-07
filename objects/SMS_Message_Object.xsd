@@ -23,9 +23,14 @@
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="Sender" type="cyboxCommon:StringObjectPropertyType">
+					<xs:element minOccurs="0" name="Sender_Phone_Number" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The Sender field specifies the identity of the sender who sent the SMS message.</xs:documentation>
+							<xs:documentation>The Sender_Phone_Number field specifies the phone number of the sender of the SMS message.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Recipient_Phone_Number" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Sender_Phone_Number field specifies the phone number of the recipient of the SMS message.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="Subject" type="cyboxCommon:StringObjectPropertyType">
