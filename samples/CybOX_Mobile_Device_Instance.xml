@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example Instance of Mobile Device Object  
+     10/07/2013-->
+<cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2"
+    xmlns:DeviceObj="http://cybox.mitre.org/objects#DeviceObject-2"
+    xmlns:MobileDeviceObj="http://cybox.mitre.org/objects#MobileDeviceObject-2"
+    xmlns:example="http://example.com/"
+    xsi:schemaLocation="
+    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
+    http://cybox.mitre.org/objects#SystemObj-2 ../objects/System_Object.xsd
+    http://cybox.mitre.org/objects#MobileDeviceObj-2 ../objects/Mobile_Device_Object.xsd"
+    cybox_major_version="2" cybox_minor_version="0" cybox_update_version="1">
+    <cybox:Observable id="example:Observable-0b9af310-0d5a-4c44-bdd7-aea3d99f13b6">
+        <cybox:Object id="example:Object-15be6630-b2df-4bf9-8750-3f45ca9e19cf">
+        <cybox:Properties xsi:type="MobileDeviceObj:MobileDeviceObjectType">
+            <DeviceObj:Serial_Number>123456789</DeviceObj:Serial_Number>
+            <DeviceObj:System_Details xsi:type="SystemObj:SystemObjectType">
+                <SystemObj:Network_Interface_List>
+                    <SystemObj:Network_Interface>
+                        <SystemObj:Description>Wifi Interface</SystemObj:Description>
+                        <SystemObj:MAC>01:23:45:67:89:ab</SystemObj:MAC>
+                    </SystemObj:Network_Interface>
+                    <SystemObj:Network_Interface>
+                        <SystemObj:Description>Bluetooth Interface</SystemObj:Description>
+                        <SystemObj:MAC>02:44:CC:DD:EE:ab</SystemObj:MAC>
+                    </SystemObj:Network_Interface>
+                </SystemObj:Network_Interface_List>
+                <SystemObj:OS>
+                    <SystemObj:Build_Number>4.1.2</SystemObj:Build_Number>
+                    <SystemObj:Platform>
+                        <cyboxCommon:Description>Android</cyboxCommon:Description>
+                    </SystemObj:Platform>
+                </SystemObj:OS>
+            </DeviceObj:System_Details>
+            <MobileDeviceObj:IMSI>310150123456789</MobileDeviceObj:IMSI>
+            <MobileDeviceObj:IMEI>AA-BBBBBB-CCCCCC-EE</MobileDeviceObj:IMEI>
+            <MobileDeviceObj:ICCID>MMCC IINN NNNN NNNN NN C x</MobileDeviceObj:ICCID>
+            <MobileDeviceObj:Firmware_Version>1.165.50</MobileDeviceObj:Firmware_Version>
+        </cybox:Properties>
+        </cybox:Object>
+    </cybox:Observable>
+</cybox:Observables>
