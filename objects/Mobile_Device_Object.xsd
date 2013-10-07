@@ -39,11 +39,6 @@
 							<xs:documentation>The ICCID field specifies the Integrated Circuit Card Identifier (ICCID) value associated with the SIM card used by the mobile device.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Firmware_Version" type="cyboxCommon:StringObjectPropertyType">
-						<xs:annotation>
-							<xs:documentation>The Firmware_Version field specifies the version of the firmware running on the mobile device.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
