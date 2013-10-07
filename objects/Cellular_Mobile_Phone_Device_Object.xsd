@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:MobilePhoneDeviceObj="http://cybox.mitre.org/objects#MobilePhoneDeviceObject-2" xmlns:MobileDeviceObj="http://cybox.mitre.org/objects#MobileDeviceObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#MobilePhoneDeviceObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:CellularMobilePhoneDeviceObj="http://cybox.mitre.org/objects#CellularMobilePhoneDeviceObject-2" xmlns:CellularMobileDeviceObj="http://cybox.mitre.org/objects#CellularMobileDeviceObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#CellularMobilePhoneDeviceObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
@@ -11,18 +11,18 @@
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
-	<xs:import namespace="http://cybox.mitre.org/objects#MobileDeviceObject-2" schemaLocation="Mobile_Device_Object.xsd"/>
-	<xs:element name="Mobile_Phone_Device" type="MobilePhoneDeviceObj:MobilePhoneDeviceObjectType">
+	<xs:import namespace="http://cybox.mitre.org/objects#CellularMobileDeviceObject-2" schemaLocation="Cellular_Mobile_Device_Object.xsd"/>
+	<xs:element name="Mobile_Phone_Device" type="CellularMobilePhoneDeviceObj:CellularMobilePhoneDeviceObjectType">
 		<xs:annotation>
-			<xs:documentation>The Mobile_Phone_Device_Object object is intended to characterize a specific mobile phone device.</xs:documentation>
+			<xs:documentation>The Mobile_Phone_Device_Object object is intended to characterize a specific cellular mobile phone device.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="MobilePhoneDeviceObjectType">
+	<xs:complexType name="CellularMobilePhoneDeviceObjectType">
 		<xs:annotation>
-			<xs:documentation>The MobilePhoneDeviceObjectType type is intended to characterize a specific mobile phone.</xs:documentation>
+			<xs:documentation>The MobilePhoneDeviceObjectType type is intended to characterize a specific cellular mobile phone.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="MobileDeviceObj:MobileDeviceObjectType">
+			<xs:extension base="CellularMobileDeviceObj:CellularMobileDeviceObjectType">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="Phone_Number" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>

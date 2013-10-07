@@ -12,14 +12,14 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#DeviceObject-2" schemaLocation="Device_Object.xsd"/>
-	<xs:element name="Mobile_Device" type="DeviceObj:DeviceObjectType">
+	<xs:element name="Cellular_Mobile_Device" type="DeviceObj:DeviceObjectType">
 		<xs:annotation>
-			<xs:documentation>The Mobile_Device_Object object is intended to characterize a specific mobile device, such as a mobile phone or tablet.</xs:documentation>
+			<xs:documentation>The Cellular_Device_Object object is intended to characterize a specific cellular mobile device, such as a mobile phone or tablet.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="MobileDeviceObjectType">
+	<xs:complexType name="CellularMobileDeviceObjectType">
 		<xs:annotation>
-			<xs:documentation>The MobileDeviceObjectType type is intended to characterize a specific mobile device, such as a mobile phone or tablet.</xs:documentation>
+			<xs:documentation>The CellularMobileDeviceObjectType type is intended to characterize a specific cellular mobile device, such as a mobile phone or tablet.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="DeviceObj:DeviceObjectType">
