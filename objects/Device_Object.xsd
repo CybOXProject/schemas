@@ -48,6 +48,11 @@
 							<xs:documentation>The Serial_Number field specifies the serial number of the Device.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element minOccurs="0" name="System_Details" type="cyboxCommon:ObjectPropertiesType">
+						<xs:annotation>
+							<xs:documentation>The System_Details field captures the details of the system that may be present on the device. It uses the ObjectProperties type from CybOX Common to allow for the usage of various object for representing the system.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
