@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:DeviceObj="http://cybox.mitre.org/objects#DeviceObject-2" xmlns:MobileDeviceObj="http://cybox.mitre.org/objects#MobileDeviceObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#MobileDeviceObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:DeviceObj="http://cybox.mitre.org/objects#DeviceObject-2" xmlns:CellularMobileDeviceObj="http://cybox.mitre.org/objects#CellularMobileDeviceObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#CellularMobileDeviceObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
-			<schema>Mobile_Device_Object</schema>
+			<schema>Cellular_Mobile_Device_Object</schema>
 			<version>0.1</version>
 			<date>10/07/2013 9:00:00 AM</date>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
