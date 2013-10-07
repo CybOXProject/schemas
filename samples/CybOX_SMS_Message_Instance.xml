@@ -13,7 +13,8 @@
     <cybox:Observable id="example:Observable-0b9af310-0d5a-4c44-bdd7-aea3d99f13b6">
         <cybox:Object id="example:Object-15be6630-b2df-4bf9-8750-3f45ca9e19cf">
         <cybox:Properties xsi:type="SMSMessageObj:SMSMessageObjectType">
-            <SMSMessageObj:Sender>155555555555</SMSMessageObj:Sender>
+            <SMSMessageObj:Sender_Phone_Number>155555555555</SMSMessageObj:Sender_Phone_Number>
+            <SMSMessageObj:Recipient_Phone_Number>1222222222222</SMSMessageObj:Recipient_Phone_Number>
             <SMSMessageObj:Subject>Winner!</SMSMessageObj:Subject>
             <SMSMessageObj:Body>You've won a free car!</SMSMessageObj:Body>
             <SMSMessageObj:Timestamp>2013-10-06T09:30:10Z</SMSMessageObj:Timestamp>
