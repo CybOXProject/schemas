@@ -18,7 +18,7 @@
 	</xs:element>
 	<xs:complexType name="WindowsNetworkShareObjectType" mixed="false">
 		<xs:annotation>
-			<xs:documentation>he WindowsNetworkShareObjectType type is intended to characterize Windows network shares.</xs:documentation>
+			<xs:documentation>The WindowsNetworkShareObjectType type is intended to characterize Windows network shares.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
