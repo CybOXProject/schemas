@@ -616,7 +616,7 @@
 			</xs:element>
 			<xs:element name="ICMPv6" type="PacketObj:ICMPv6PacketType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>ICMPv6 is the implementation of the ICMP for INv6. ICMPv6 performs error reporting and diagnostic functions.</xs:documentation>
+					<xs:documentation>ICMPv6 is the implementation of the ICMP for IPv6. ICMPv6 performs error reporting and diagnostic functions.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
