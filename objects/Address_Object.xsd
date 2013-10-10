@@ -104,7 +104,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="ipv6-addr">
 				<xs:annotation>
-					<xs:documentation>The IPV4-addr value specifies an IPV6 address.</xs:documentation>
+					<xs:documentation>The IPV6-addr value specifies an IPV6 address.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="ipv6-net">
