@@ -74,7 +74,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="cidr">
 				<xs:annotation>
-					<xs:documentation>The CIDR value specifies an address in Classless Interdomain Routing notation (the IP address and its associated routing prefix).</xs:documentation>
+					<xs:documentation>The CIDR value specifies an address in Classless Inter-domain Routing notation (the IP address and its associated routing prefix).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="e-mail">

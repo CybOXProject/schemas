@@ -210,7 +210,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="TIME_WAIT">
 				<xs:annotation>
-					<xs:documentation>Indicates the TIME-WAIT connection state--i.e. waiting for for enough time to pass to be sure the remote TCP received the acknowledgment of its connection termination request.</xs:documentation>
+					<xs:documentation>Indicates the TIME-WAIT connection state--i.e. waiting for enough time to pass to be sure the remote TCP received the acknowledgment of its connection termination request.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DELETING_TCB">
@@ -546,7 +546,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="rsync">
 				<xs:annotation>
-					<xs:documentation>Specifies the rsync otocol.</xs:documentation>
+					<xs:documentation>Specifies the rsync potocol.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="RTP">
@@ -581,7 +581,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="TUP">
 				<xs:annotation>
-					<xs:documentation>Specifies the Telephonse User Part protocol.</xs:documentation>
+					<xs:documentation>Specifies the Telephone User Part protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="TCAP">

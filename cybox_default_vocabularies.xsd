@@ -1323,7 +1323,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Queue APC in Thread">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of querying the Asynchronized Procedure Call (APC) in the context of a thread.</xs:documentation>
+					<xs:documentation>Specifies the defined action of querying the Asynchronous Procedure Call (APC) in the context of a thread.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Read File">
@@ -2253,7 +2253,7 @@
 	</xs:complexType>
 	<xs:simpleType name="ObjectRelationshipEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>ObjectRelationshipEnum is a (non-exhaustive) enumeration of interobject relationships.</xs:documentation>
+			<xs:documentation>ObjectRelationshipEnum is a (non-exhaustive) enumeration of inter-object relationships.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Created">

@@ -131,7 +131,7 @@
 				</xs:sequence>
 				<xs:attribute name="is_packed" type="xs:boolean">
 					<xs:annotation>
-						<xs:documentation>The ispacked field is used to indicate whether the file is packed or not.</xs:documentation>
+						<xs:documentation>The is_packed field is used to indicate whether the file is packed or not.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>

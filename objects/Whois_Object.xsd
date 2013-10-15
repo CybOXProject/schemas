@@ -270,7 +270,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Unsigned">
 				<xs:annotation>
-					<xs:documentation>The Unsigned value signfies that the domain name associated with the Whois entry is not digitally signed</xs:documentation>
+					<xs:documentation>The Unsigned value signifies that the domain name associated with the Whois entry is not digitally signed</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -423,7 +423,7 @@
 
 	<xs:simpleType name="RegionalRegistryTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The RegionalRegistryTypeEnum is an enumeration of Regional Internet Registries (RIRs) names, represente via their respective acronyms.</xs:documentation>
+			<xs:documentation>The RegionalRegistryTypeEnum is an enumeration of Regional Internet Registries (RIRs) names, represented via their respective acronyms.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AfriNIC">

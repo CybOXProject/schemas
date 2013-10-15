@@ -57,7 +57,7 @@
 					</xs:element>
 					<xs:element name="Argument_List" type="ProcessObj:ArgumentListType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Argument_List field is optional and specifies a list of arguments utlized in intiating the process.</xs:documentation>
+							<xs:documentation>The Argument_List field is optional and specifies a list of arguments utilized in initiating the process.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Environment_Variable_List" type="cyboxCommon:EnvironmentVariableListType" minOccurs="0">
@@ -172,12 +172,12 @@
 	</xs:complexType>
 	<xs:complexType name="ArgumentListType">
 		<xs:annotation>
-			<xs:documentation>The ArgumentListType is intended to specify a list of arguments utlized in intiating the process.</xs:documentation>
+			<xs:documentation>The ArgumentListType is intended to specify a list of arguments utilized in initiating the process.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Argument" type="cyboxCommon:StringObjectPropertyType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Argument field is optional and specifies a single argument utlized in intiating the process.</xs:documentation>
+					<xs:documentation>The Argument field is optional and specifies a single argument utilized in initiating the process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

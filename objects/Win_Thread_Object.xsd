@@ -108,12 +108,12 @@
 			</xs:enumeration>
 			<xs:enumeration value="Ready">
 				<xs:annotation>
-					<xs:documentation>A state that indicates the thread is waiting to use a processor because no processor is free. The thread is preapared to run on the next available processor.</xs:documentation>
+					<xs:documentation>A state that indicates the thread is waiting to use a processor because no processor is free. The thread is prepared to run on the next available processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Running">
 				<xs:annotation>
-					<xs:documentation>A state that indicates the thread is currently using a prcoessor.</xs:documentation>
+					<xs:documentation>A state that indicates the thread is currently using a processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Standby">

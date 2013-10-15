@@ -82,7 +82,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_DISKTREE_SPECIAL">
 				<xs:annotation>
-					<xs:documentation>Specifies that the shared device is a disk drive with special share reserved for interprocess communcation (IPC$) or remote administration of the server (ADMIN$). Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
+					<xs:documentation>Specifies that the shared device is a disk drive with special share reserved for interprocess communication (IPC$) or remote administration of the server (ADMIN$). Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_DISKTREE_TEMPORARY">
@@ -92,7 +92,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_DISKTREE_SPECIAL_TEMPORARY">
 				<xs:annotation>
-					<xs:documentation>Specifies that the shared device is a disk drive with special share reserved for interprocess communcation (IPC$) or remote administration of the server (ADMIN$) and serves a temporary share. Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
+					<xs:documentation>Specifies that the shared device is a disk drive with special share reserved for interprocess communication (IPC$) or remote administration of the server (ADMIN$) and serves a temporary share. Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_PRINTQ">
@@ -102,7 +102,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_PRINTQ_SPECIAL">
 				<xs:annotation>
-					<xs:documentation>Specifies that the shared device is a disk drive with special share reserved for interprocess communcation (IPC$) or remote administration of the server (ADMIN$). Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
+					<xs:documentation>Specifies that the shared device is a disk drive with special share reserved for interprocess communication (IPC$) or remote administration of the server (ADMIN$). Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_PRINTQ_TEMPORARY">
@@ -112,7 +112,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_PRINTQ_SPECIAL_TEMPORARY">
 				<xs:annotation>
-					<xs:documentation>Specifies that the shared device is a print queue with special share reserved for interprocess communcation (IPC$) or remote administration of the server (ADMIN$) and serves a temporary share. Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
+					<xs:documentation>Specifies that the shared device is a print queue with special share reserved for interprocess communication (IPC$) or remote administration of the server (ADMIN$) and serves a temporary share. Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_DEVICE">
@@ -122,7 +122,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_DEVICE_SPECIAL">
 				<xs:annotation>
-					<xs:documentation>Specifies that the shared device is a communications device with special share reserved for interprocess communcation (IPC$) or remote administration of the server (ADMIN$). Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
+					<xs:documentation>Specifies that the shared device is a communications device with special share reserved for interprocess communication (IPC$) or remote administration of the server (ADMIN$). Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_DEVICE_TEMPORARY">
@@ -132,7 +132,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_DEVICE_SPECIAL_TEMPORARY">
 				<xs:annotation>
-					<xs:documentation>Specifies that the shared device is a communications device with special share reserved for interprocess communcation (IPC$) or remote administration of the server (ADMIN$) and serves a temporary share. Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
+					<xs:documentation>Specifies that the shared device is a communications device with special share reserved for interprocess communication (IPC$) or remote administration of the server (ADMIN$) and serves a temporary share. Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_IPC">
@@ -142,7 +142,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_IPC_SPECIAL">
 				<xs:annotation>
-					<xs:documentation>Specifies that the shared device is an Interprocess Communication (IPC) device with special share reserved for interprocess communcation (IPC$) or remote administration of the server (ADMIN$). Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
+					<xs:documentation>Specifies that the shared device is an Interprocess Communication (IPC) device with special share reserved for interprocess communication (IPC$) or remote administration of the server (ADMIN$). Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_IPC_TEMPORARY">
@@ -152,7 +152,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="STYPE_IPC_SPECIAL_TEMPORARY">
 				<xs:annotation>
-					<xs:documentation>Specifies that the shared device is an Interprocess Communication (IPC) device with special share reserved for interprocess communcation (IPC$) or remote administration of the server (ADMIN$) and serves a temporary share. Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
+					<xs:documentation>Specifies that the shared device is an Interprocess Communication (IPC) device with special share reserved for interprocess communication (IPC$) or remote administration of the server (ADMIN$) and serves a temporary share. Can also refer to administrative shares such as C$, D$, E$, and so forth. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/bb525391(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

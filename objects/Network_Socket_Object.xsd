@@ -120,7 +120,7 @@
 			</xs:element>
 			<xs:element name="SO_LINGER" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specfies if the system attempts delivery of or discards any buffered data when a close() is issued.</xs:documentation>
+					<xs:documentation>Specifies if the system attempts delivery of or discards any buffered data when a close() is issued.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SO_DONTLINGER" type="xs:boolean" minOccurs="0">
@@ -516,7 +516,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="IPPROTO_RM">
 				<xs:annotation>
-					<xs:documentation>Indicates the Reliable Multicating protocol.</xs:documentation>
+					<xs:documentation>Indicates the Reliable Multicasting protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

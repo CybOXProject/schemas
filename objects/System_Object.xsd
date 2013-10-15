@@ -81,7 +81,7 @@
 					</xs:element>
 					<xs:element name="Timezone_Standard" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Timezone_Standard field specifies the time zone used by the system, wihtout taking daylight savings time (DST) into account.</xs:documentation>
+							<xs:documentation>The Timezone_Standard field specifies the time zone used by the system, without taking daylight savings time (DST) into account.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Total_Physical_Memory" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">

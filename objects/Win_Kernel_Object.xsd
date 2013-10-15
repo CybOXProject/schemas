@@ -83,7 +83,7 @@
 	</xs:complexType>
 	<xs:complexType name="IDTEntryListType">
 		<xs:annotation>
-			<xs:documentation>The IDTEntryListType type specifies a listing of the entries in the Interrupt Descriptor Table (IDT). The IDT is specific to the I386 architecture, indicating where the Prtoetcted mode Interrupt Service Routines (ISR) are located. See http://wiki.osdev.org/Interrupt_Descriptor_Table </xs:documentation>
+			<xs:documentation>The IDTEntryListType type specifies a listing of the entries in the Interrupt Descriptor Table (IDT). The IDT is specific to the I386 architecture, indicating where the Protected mode Interrupt Service Routines (ISR) are located. See http://wiki.osdev.org/Interrupt_Descriptor_Table </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="IDT_Entry" type="WinKernelObj:IDTEntryType" maxOccurs="unbounded">

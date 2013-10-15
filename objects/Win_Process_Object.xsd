@@ -33,7 +33,7 @@
 					</xs:element>
 					<xs:element name="Priority" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Priority field speciifes the current priority of the process in Windows.</xs:documentation>
+							<xs:documentation>The Priority field specifies the current priority of the process in Windows.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Section_List" type="WinProcessObj:MemorySectionListType" minOccurs="0" maxOccurs="1">

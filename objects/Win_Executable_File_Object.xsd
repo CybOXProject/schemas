@@ -100,7 +100,7 @@
 			</xs:element>
 			<xs:element name="PE_File_API" type="cyboxCommon:LongObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>PE_File_API specifed the checksum computed by IMAGHELP.DLL.</xs:documentation>
+					<xs:documentation>PE_File_API specified the checksum computed by IMAGHELP.DLL.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PE_File_Raw" type="cyboxCommon:LongObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -178,7 +178,7 @@
 			</xs:element>
 			<xs:element name="Max" type="cyboxCommon:FloatObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the largest possible value for the entropy computation (eg., this would be 8 if the entropy computations is based on bits of information).</xs:documentation>
+					<xs:documentation>Specifies the largest possible value for the entropy computation (e.g., this would be 8 if the entropy computations is based on bits of information).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -327,7 +327,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEExportedFunctionType">
 		<xs:annotation>
-			<xs:documentation>PEExportType sepcifies the type describing exported functions.</xs:documentation>
+			<xs:documentation>PEExportType specifies the type describing exported functions.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Function_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -499,7 +499,7 @@
 			</xs:element>
 			<xs:element name="Number_Of_Linenumbers" type="cyboxCommon:NonNegativeIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the number of line number entreis for the section. Should be 0.</xs:documentation>
+					<xs:documentation>Specifies the number of line number entries for the section. Should be 0.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Characteristics" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -526,7 +526,7 @@
 			</xs:element>
 			<xs:element name="e_cp" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the the number of pages required to hold the file. For example, if the file contains 1024 bytes, and we assume the file has pages of a size of 512 bytes, this word would contain 0x0002; if the file contains 1025 bytes, this word would contain 0x0003.</xs:documentation>
+					<xs:documentation>Specifies the number of pages required to hold the file. For example, if the file contains 1024 bytes, and we assume the file has pages of a size of 512 bytes, this word would contain 0x0002; if the file contains 1025 bytes, this word would contain 0x0003.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="e_crlc" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -606,7 +606,7 @@
 			</xs:element>
 			<xs:element name="e_lfanew" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the file adress of the of the new exe header. In particular, it is a 4-byte offset into the file where the PE file header is located. It is necessary to use this offset to locate the PE header in the file.</xs:documentation>
+					<xs:documentation>Specifies the file address of the of the new exe header. In particular, it is a 4-byte offset into the file where the PE file header is located. It is necessary to use this offset to locate the PE header in the file.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Hashes" type="cyboxCommon:HashListType" minOccurs="0">
@@ -633,7 +633,7 @@
 			</xs:element>
 			<xs:element name="File_Header" type="WinExecutableFileObj:PEFileHeaderType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The File_Header property refers to the PE file header (somtimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
+					<xs:documentation>The File_Header property refers to the PE file header (sometimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Optional_Header" type="WinExecutableFileObj:PEOptionalHeaderType" minOccurs="0">
@@ -655,7 +655,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEFileHeaderType">
 		<xs:annotation>
-			<xs:documentation>The PEFileHeaderType type refers to the PE file header (somtimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
+			<xs:documentation>The PEFileHeaderType type refers to the PE file header (sometimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Machine" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -903,7 +903,7 @@
 			</xs:element>
 			<xs:element name="Number_Of_Rva_And_Sizes" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifieshe number of data-directory entries in the remainder of the optional header.</xs:documentation>
+					<xs:documentation>Specifies the number of data-directory entries in the remainder of the optional header.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data_Directory" type="WinExecutableFileObj:DataDirectoryType" minOccurs="0">

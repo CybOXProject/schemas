@@ -47,7 +47,7 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="Cross_Reference_Tables" type="PDFFileObj:PDFXRefTableListType">
 						<xs:annotation>
-							<xs:documentation>The Cross_Reference_Tables field captures the cross-reference tables included in the PDF file, used for faciliting random access of indirect PDF objects.</xs:documentation>
+							<xs:documentation>The Cross_Reference_Tables field captures the cross-reference tables included in the PDF file, used for facilitating random access of indirect PDF objects.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="Trailers" type="PDFFileObj:PDFTrailerListType">

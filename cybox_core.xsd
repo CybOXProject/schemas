@@ -82,7 +82,7 @@
 			<xs:choice minOccurs="0">
 				<xs:element ref="cybox:Object" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The Object construct identifies and specificies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
+						<xs:documentation>The Object construct identifies and specifies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="cybox:Event" minOccurs="0">
@@ -680,7 +680,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Properties_Enumerated">
 				<xs:annotation>
-					<xs:documentation>Specifies that the associated Action had an effect on the Object of enumeraring properies from it.</xs:documentation>
+					<xs:documentation>Specifies that the associated Action had an effect on the Object of enumerating properties from it.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Values_Enumerated">
@@ -973,7 +973,7 @@
 		<xs:sequence>
 			<xs:element name="Object" type="cybox:ObjectType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Object construct identifies and specificies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
+					<xs:documentation>The Object construct identifies and specifies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
