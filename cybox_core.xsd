@@ -15,6 +15,10 @@
 		<xs:annotation>
 			<xs:documentation>The Observables construct represents a collection of cyber observables.</xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-id">
+			<xs:selector xpath=".//*"></xs:selector>
+			<xs:field xpath="@id"></xs:field>
+		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ObservablesType">
 		<xs:annotation>
