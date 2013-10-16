@@ -1537,9 +1537,39 @@
 					<xs:documentation>Specifies an argument called API.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Application Name">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Application Name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Database Name">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Database Name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Privilege Name">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Privilege Name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Proxy Name">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Proxy Name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Proxy Bypass">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Proxy Bypass.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Creation Flags">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Creation Flags.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Flags">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Flags.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Access Mode">
@@ -1567,6 +1597,11 @@
 					<xs:documentation>Specifies an argument called Destination Address.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Base Address">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Base Address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Starting Address">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Starting Address.</xs:documentation>
@@ -1575,6 +1610,11 @@
 			<xs:enumeration value="Size (bytes)">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Size (bytes).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Number of Bytes Per Send">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Number of Bytes Per Send.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Control Parameter">
@@ -1667,6 +1707,11 @@
 					<xs:documentation>Specifies an argument called Request Size.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Requested Version">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Requested Version.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Service Type">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Service Type.</xs:documentation>
@@ -1677,9 +1722,9 @@
 					<xs:documentation>Specifies an argument called Service State.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Group Name">
+			<xs:enumeration value="Service Name">
 				<xs:annotation>
-					<xs:documentation>Specifies an argument called Group Name.</xs:documentation>
+					<xs:documentation>Specifies an argument called Service Name.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Hostname">
@@ -1697,6 +1742,11 @@
 					<xs:documentation>Specifies an argument called Sleep Time (ms).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Delay Time (ms)">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Delay Time (ms).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Code Address">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Code Address.</xs:documentation>
@@ -1710,6 +1760,41 @@
 			<xs:enumeration value="Server">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Server.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Reason">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Reason.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="System Metric Index">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called System Metric Index.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Initial Owner">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Initial Owner.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Error Control">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Initial Owner.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Username">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Username.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Password">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Password.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Command">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Command.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
