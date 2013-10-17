@@ -106,7 +106,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="NetworkConnectionObj:Layer3ProtocolEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="required">
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
@@ -123,7 +123,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="NetworkConnectionObj:Layer4ProtocolEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="required">
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
@@ -140,7 +140,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="NetworkConnectionObj:Layer7ProtocolEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="required">
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
