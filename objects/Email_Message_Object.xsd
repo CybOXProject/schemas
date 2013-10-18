@@ -216,6 +216,11 @@
 					<xs:documentation>The By field captures the 'by' portion of the Received line, if applicable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Via" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Via field captures the 'via' portion of the Received line, if applicable</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="With" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The With field captures the 'with' portion of the Received line, if applicable.</xs:documentation>
