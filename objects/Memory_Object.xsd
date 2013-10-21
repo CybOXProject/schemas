@@ -53,6 +53,11 @@
 							<xs:documentation>The Region_Start_Address field specifies the starting address of the particular memory region.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="Region_End_Address" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Region_End_Address field specifies the ending address of the particular memory region</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Extracted_Features" type="cyboxCommon:ExtractedFeaturesType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A description of features extracted from this memory region.</xs:documentation>
@@ -72,6 +77,11 @@
 				<xs:attribute name="is_protected" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>The is_protected field specifies whether or not the particular memory object is protected (read/write only from the process that allocated it).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="is_volatile" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_volatile field specifies whether or not the particular memory object is volatile</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
