@@ -12,7 +12,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/objects#GUIObject-2" schemaLocation="GUI_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
-	<xs:element name="GUI_Window" type="GUIWindowObj:GUIWindowObjectType" nillable="true">
+	<xs:element name="GUI_Window" type="GUIWindowObj:GUIWindowObjectType">
 		<xs:annotation>
 			<xs:documentation>The GUI_Window object is intended to characterize GUI windows.</xs:documentation>
 		</xs:annotation>

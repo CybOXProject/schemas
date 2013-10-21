@@ -13,7 +13,7 @@
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#PortObject-2" schemaLocation="Port_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#NetworkConnectionObject-2" schemaLocation="Network_Connection_Object.xsd"/>
-	<xs:element name="Process" type="ProcessObj:ProcessObjectType" nillable="true">
+	<xs:element name="Process" type="ProcessObj:ProcessObjectType">
 		<xs:annotation>
 			<xs:documentation>The Process object is intended to characterize system processes.</xs:documentation>
 		</xs:annotation>
@@ -25,7 +25,7 @@
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element name="PID" type="cyboxCommon:UnsignedIntegerObjectPropertyType" nillable="true" minOccurs="0">
+					<xs:element name="PID" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The PID field specifies the Process ID, or PID, of the process.</xs:documentation>
 						</xs:annotation>
@@ -40,7 +40,7 @@
 							<xs:documentation>The Creation_Time field specifies the local date/time at which the process was created.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Parent_PID" type="cyboxCommon:UnsignedIntegerObjectPropertyType" nillable="true" minOccurs="0">
+					<xs:element name="Parent_PID" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Parent_PID field specifies the process ID (PID) of the parent process (i.e. the process that spawned this one), if applicable.</xs:documentation>
 						</xs:annotation>

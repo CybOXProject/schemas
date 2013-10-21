@@ -38,17 +38,17 @@
 							<xs:documentation>The Type field specifies the handle type, which is equivalent to the type of Windows object that the handle refers to. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Object_Address" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0">
+					<xs:element name="Object_Address" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Object_Address field specifies the address of the Windows object that the handle refers to.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Access_Mask" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0">
+					<xs:element name="Access_Mask" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Access_Mask field specifies the access bitmask of the handle.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Pointer_Count" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Pointer_Count" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Pointer_Count field specifies the count of pointer references to the Windows object that the handle refers to.</xs:documentation>
 						</xs:annotation>

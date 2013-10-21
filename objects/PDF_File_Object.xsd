@@ -18,7 +18,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#FileObject-2" schemaLocation="File_Object.xsd"/>
-	<xs:element name="PDF_File" type="PDFFileObj:PDFFileObjectType" nillable="true">
+	<xs:element name="PDF_File" type="PDFFileObj:PDFFileObjectType">
 		<xs:annotation>
 			<xs:documentation>The PDF_File element is intended to characterize the structural and metadata information regarding a single PDF file.</xs:documentation>
 		</xs:annotation>

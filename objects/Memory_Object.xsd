@@ -33,12 +33,12 @@
 							<xs:documentation>The Name field specifies the name of the particular memory object, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Region_Size" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Region_Size" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Region_Size field specifies the size of the particular memory region, in bytes.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Region_Start_Address" type="cyboxCommon:HexBinaryObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Region_Start_Address" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Region_Start_Address field specifies the starting address of the particular memory region.</xs:documentation>
 						</xs:annotation>
