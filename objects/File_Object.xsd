@@ -134,6 +134,11 @@
 						<xs:documentation>The ispacked field is used to indicate whether the file is packed or not.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="is_masqueraded" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_masqueraded field specifies whether the file is masqueraded as another type of file; e.g., a PDF file that has had its extension changed to TXT to masquerade itself as a text file.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
