@@ -33,14 +33,29 @@
 							<xs:documentation>The Name field specifies the name of the particular memory object, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="Memory_Source" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The name of the source file or segment that produced the bytes that make the particular memory object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Region_Size" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Region_Size field specifies the size of the particular memory region, in bytes.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="Block_Type" type="MemoryObj:BlockType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Block_Type field specifies the block type of a particular memory object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Region_Start_Address" type="cyboxCommon:HexBinaryObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Region_Start_Address field specifies the starting address of the particular memory region.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Region_End_Address" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Region_End_Address field specifies the ending address of the particular memory region.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Extracted_Features" type="cyboxCommon:ExtractedFeaturesType" minOccurs="0">
@@ -64,7 +79,64 @@
 						<xs:documentation>The is_protected field specifies whether or not the particular memory object is protected (read/write only from the process that allocated it).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="is_volatile" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_volatile field specifies whether or not the particular memory object is volatile</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="BlockType">
+		<xs:annotation>
+			<xs:documentation>BlockType specifies memory block types, via a union of the BlockTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
+				<xs:simpleType>
+					<xs:union memberTypes="MemoryObj:BlockTypeEnum xs:string"/>
+				</xs:simpleType>
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
+					<xs:annotation>
+						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:simpleType name="BlockTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The BlockTypeEnum is a non-exhaustive enumeration of memory block types</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Initialized">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is initialized</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uninitialized">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is uninitialized</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Overlay">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is an overlay</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bit-mapped">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is bit-mapped</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Byte-mapped">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is byte-mapped</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
 </xs:schema>
