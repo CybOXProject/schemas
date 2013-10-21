@@ -13,7 +13,7 @@
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#AddressObject-2" schemaLocation="Address_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#PortObject-2" schemaLocation="Port_Object.xsd"/>
-	<xs:element name="Socket_Address" type="SocketAddressObj:SocketAddressObjectType" nillable="true">
+	<xs:element name="Socket_Address" type="SocketAddressObj:SocketAddressObjectType">
 		<xs:annotation>
 			<xs:documentation>The Socket_Address element is intended to characterize a single socket address.</xs:documentation>
 		</xs:annotation>

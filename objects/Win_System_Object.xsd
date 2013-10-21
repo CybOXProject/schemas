@@ -13,7 +13,7 @@
 	<xs:import namespace="http://cybox.mitre.org/objects#WinHandleObject-2" schemaLocation="Win_Handle_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#SystemObject-2" schemaLocation="System_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
-	<xs:element name="Windows_System" type="WinSystemObj:WindowsSystemObjectType" nillable="true">
+	<xs:element name="Windows_System" type="WinSystemObj:WindowsSystemObjectType">
 		<xs:annotation>
 			<xs:documentation>Windows_System object is intended to characterize Windows systems.</xs:documentation>
 		</xs:annotation>

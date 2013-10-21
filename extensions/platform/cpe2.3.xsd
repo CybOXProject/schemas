@@ -28,7 +28,7 @@
         <xs:complexContent> 
             <xs:extension base="cyboxCommon:PlatformSpecificationType"> 
                 <xs:sequence> 
-                    <xs:element ref="cpe23:platform-specification" >
+                    <xs:element ref="cpe23:platform-specification">
                         <xs:annotation>
                             <xs:documentation>The platform-specification element, defined in the CPE 2.3 Applicability Language schema, supports a structured characterization of a platform or combination of platforms.</xs:documentation>
                         </xs:annotation>

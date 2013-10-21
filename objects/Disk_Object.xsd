@@ -12,7 +12,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#DiskPartitionObject-2" schemaLocation="Disk_Partition_Object.xsd"/>
-	<xs:element name="Disk" type="DiskObj:DiskObjectType" nillable="true">
+	<xs:element name="Disk" type="DiskObj:DiskObjectType>
 		<xs:annotation>
 			<xs:documentation>The Disk object is intended to characterize a disk drive.</xs:documentation>
 		</xs:annotation>
@@ -29,7 +29,7 @@
 							<xs:documentation>The Disk_Name field specifies the name of the disk.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Disk_Size" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Disk_Size" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Disk_Size field specifies the size of the disk, in bytes.</xs:documentation>
 						</xs:annotation>
@@ -58,7 +58,7 @@
 			<xs:documentation>The PartionListType type specifies a list of partitions.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Partition" type="DiskPartitionObj:DiskPartitionObjectType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="Partition" type="DiskPartitionObj:DiskPartitionObjectType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The Partition field specifies a single partition that resides on the disk.</xs:documentation>
 				</xs:annotation>
