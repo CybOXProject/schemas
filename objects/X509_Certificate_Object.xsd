@@ -29,6 +29,11 @@
 							<xs:documentation>Certificate represents the contents of an X.509 certificate, including items such as issuer, subject, and others.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element minOccurs="0" name="Raw_Certificate" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Raw_Certificate field captures the raw content of an X.509 certificate including the -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- lines.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element minOccurs="0" name="Certificate_Signature" type="X509CertificateObj:X509CertificateSignatureType">
 						<xs:annotation>
 							<xs:documentation>Certificate Signature contains the signature and signature algorithm of this X.509 certificate.</xs:documentation>
