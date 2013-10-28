@@ -580,7 +580,7 @@
 			<xs:documentation>The HostFieldType captures the details of the HTTP request Host header field.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="1" name="Domain_Name" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="Domain_Name" type="URIObj:URIObjectType">
 				<xs:annotation>
 					<xs:documentation>The Domain_Name field specifies the domain name of the server.</xs:documentation>
 				</xs:annotation>
