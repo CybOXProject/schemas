@@ -33,7 +33,7 @@
 							<xs:documentation>The Language field specifies the language of the product, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Product" type="cyboxCommon:StringObjectPropertyType">
+					<xs:element name="Product" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Product field specifies the name of the product. This field is required.</xs:documentation>
 						</xs:annotation>
@@ -43,7 +43,7 @@
 							<xs:documentation>The Update field specifies the update/revision of the product, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Vendor" type="cyboxCommon:StringObjectPropertyType">
+					<xs:element name="Vendor" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Vendor field specifies the name of the product vendor. This field is required.</xs:documentation>
 						</xs:annotation>
