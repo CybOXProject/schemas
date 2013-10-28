@@ -242,7 +242,7 @@
 			<xs:documentation>Specifies an entry-point jump code used by a packer.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="Depth" type="cyboxCommon:IntegerObjectPropertyType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="Depth" type="cyboxCommon:IntegerObjectPropertyType"/>
 			<xs:element maxOccurs="1" minOccurs="0" name="Opcodes" type="cyboxCommon:StringObjectPropertyType"/>
 		</xs:sequence>
 	</xs:complexType>
