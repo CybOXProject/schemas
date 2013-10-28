@@ -38,7 +38,7 @@
 							<xs:documentation>The Mount_Point field specifies the mount point of the partition.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Partition_ID" type="cyboxCommon:IntegerObjectPropertyType">
+					<xs:element name="Partition_ID" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Partition_ID field specifies the numerical identifier of the partition.</xs:documentation>
 						</xs:annotation>
