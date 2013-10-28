@@ -76,7 +76,7 @@
 			<xs:documentation>The KerberosType type specifies the Kerberos authentication protocol specific Object properties for the Windows computer account.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Delegation" type="WinComputerAccountObj:KerberosDelegationType">
+			<xs:element name="Delegation" type="WinComputerAccountObj:KerberosDelegationType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Delegation field specifies the Kerberos delegation used for the Windows computer account.</xs:documentation>
 				</xs:annotation>
