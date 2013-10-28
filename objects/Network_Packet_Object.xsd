@@ -166,7 +166,7 @@
 					<xs:documentation>Harware_Addr_Size represents the byte size of the hardware address. For Ethernet or other IEEE 802 MAC addresses, the value is 6.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Protol_Addr_Size" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+			<xs:element name="Proto_Addr_Size" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Proto_Addr_Size represents the byte size of the protocol address. IPv4 addresses = 4.</xs:documentation>
 				</xs:annotation>
@@ -1157,7 +1157,7 @@
 					<xs:documentation>Follows RFC2402. The IP Authentication Header is used to provide connectionless integrity and data origin authentication for IP datagrams and to provide protection against replays. http://www.ietf.org/rfc/rfc2402.txt</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Excapsulating_Security_Payload" type="PacketObj:ExcapsulatingSecurityPayloadType" minOccurs="0">
+			<xs:element name="Encapsulating_Security_Payload" type="PacketObj:EncapsulatingSecurityPayloadType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Follows RFC2406. ESP is used to provide confidentiality, data origin authentication, connectionless integrity, an anti-replay service (a form of partial sequence integrity), and limited traffic flow confidentiality. </xs:documentation>
 				</xs:annotation>
@@ -2808,7 +2808,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ExcapsulatingSecurityPayloadType">
+	<xs:complexType name="EncapsulatingSecurityPayloadType">
 		<xs:annotation>
 			<xs:documentation>ESP is used to provide confidentiality, data origin authentication, connectionless integrity, an anti-replay service (a form of partial sequence integrity), and limited traffic flow confidentiality. http://www.ietf.org/rfc/rfc2406.txt</xs:documentation>
 		</xs:annotation>
