@@ -223,7 +223,7 @@
 			<xs:documentation>The IP_Info type specifies information about the IP address and its associated subnet mask used by a network interface.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IP_Address" type="AddressObj:AddressObjectType" minOccurs="1" maxOccurs="1">
+			<xs:element name="IP_Address" type="AddressObj:AddressObjectType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The IP_Address field specifies an IP address.</xs:documentation>
 				</xs:annotation>
