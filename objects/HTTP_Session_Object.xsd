@@ -546,7 +546,7 @@
 					<xs:documentation>The Length field captures the length of the HTTP message body, in bytes. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Message_Body" type="cyboxCommon:StringObjectPropertyType">
+			<xs:element name="Message_Body" minOccurs="0" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The Message_Body field captures the data contained in the HTTP message body.</xs:documentation>
 				</xs:annotation>
