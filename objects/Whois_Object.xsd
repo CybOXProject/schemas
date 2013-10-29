@@ -25,6 +25,11 @@
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
+					<xs:element name="Lookup_Date" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Lookup_Date field specifies the date and time that the Whois record was queried.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Domain_Name" type="URIObj:URIObjectType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Domain_Name field specifies the corresponding domain name for this whois entry</xs:documentation>
@@ -98,6 +103,11 @@
 					<xs:element name="Contact_Info" type="WhoisObj:WhoisContactType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Contact_Info element represents contact info that would be returned from a contact lookup</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Remarks" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Remarks field specifies any remarks associated with this Whois entry.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -311,9 +321,19 @@
 					<xs:documentation>The phone number of the contact</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Fax_Number" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The fax number of the contact</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Address" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The address of the contact</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Organization" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name of the organization this contact works for or is assoicated with</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
