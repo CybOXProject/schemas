@@ -30,6 +30,11 @@
 							<xs:documentation>The Description field provides a mechanism to specify a structured text description of this DNS_Entry.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="Queried_Date" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Queried_Date field specifies the date and time at which this DNS record was returned from a query.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Domain_Name" type="URIObj:URIObjectType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Domain_Name field specifies the name of the domain to which the DNS cache entry points.</xs:documentation>
