@@ -1071,13 +1071,16 @@
 					<xs:documentation>IPv6 headers is a simplification of the IPv4 header.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:sequence minOccurs="0">
-				<xs:element name="Ext_Headers" type="PacketObj:IPv6ExtHeaderType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Ext_Headers" type="PacketObj:IPv6ExtHeaderType" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
 						<xs:documentation>In IPv6, optional internet-layer information is encoded in separate headers that may be placed between the IPv6 header and the upper-layer header in a packet. http://tools.ietf.org/html/rfc2460</xs:documentation>
 					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
+			</xs:element>
+			<xs:element name="Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The data portion of an IP packet. Actual field values will probably be specified in the elements of the different network layers, but we provide a field here to capture any data as necessary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IPv6HeaderType">
