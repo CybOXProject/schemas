@@ -587,9 +587,944 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="ActionNameVocab-1.0">
+	<xs:complexType name="ActionNameVocab-1.1">
 		<xs:annotation>
 			<xs:documentation>The ActionNameVocab is the default CybOX vocabulary for Action Types, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxVocabs:ActionNameEnum-1.1"/>
+				</xs:simpleType>
+				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action Names"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#DefinedActionNameVocab-1.1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ActionNameEnum-1.1">
+		<xs:annotation>
+			<xs:documentation>The ActionNameEnum type is an enumeration of defined action names.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Accept Socket Connection">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of accepting a socket connection.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add Connection to Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a connection to an existing network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a new network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add System Call Hook">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a new system call hook.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add User">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a new user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add Windows Hook">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a new Windows hook.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add Scheduled Task">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a scheduled task.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Allocate Virtual Memory in Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of allocating virtual memory in a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bind Address to Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of binding an address to a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Change Service Configuration">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of changing the service configuration.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Check for Remote Debugger">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of checking for a remote debugger.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Close Port">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of closing a port.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Close Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of closing a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Close Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of closing a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Configure Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of configuring a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to IP">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to an IP address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to a network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to URL">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to a URL.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Control Driver">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of controlling a driver.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Control Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of controlling a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copy File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of copying a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Dialog Box">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a dialog box.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Event">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating an event.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create File Alternate Data Stream">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating an alternate data stream in a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create File Mapping">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new file mapping.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create File Symbolic Link">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a file symbolic link.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Hidden File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a hidden file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Mailslot">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a mailslot.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Module">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a module.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Mutex">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a mutex.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Process as User">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a process as user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Registry Key Value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a registry key value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Remote Thread in Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a remote thread in a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Symbolic Link">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a symbolic link.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Thread">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a thread.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Registry Key Value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a registry key value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete User">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Disconnect from Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of disconnecting from a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Disconnect from Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of disconnecting from a network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Disconnect from Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of disconnecting from a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Download File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of downloading a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate DLLs">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating DLLs.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Network Shares">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating network shares.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Protocols">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating protocols.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Registry Key Subkeys">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating registry key subkeys.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Registry Key Values">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating registry key values.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Threads in Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating threads in a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Processes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating processes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Services">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating services.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate System Handles">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating system handles.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Threads">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating threads.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Users">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating users.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Windows">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating windows.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Find File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of finding a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Find Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of finding a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Flush Process Instruction Cache">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of flushing the Process Instruction Cache.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Free Library">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of freeing a library.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Free Process Virtual Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of freeing virtual memory from a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Disk Free Space">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the amount of free space available on a disk.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Disk Type">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the disk type.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Elapsed System Up Time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the elapsed system up-time.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get File Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting file attributes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Function Address">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the function address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Global Flags">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting system global flags.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Host By Address">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting host by address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Host By Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting host by name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Host Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the host name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Library File Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the library file name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Library Handle">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the library handle.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get NetBIOS Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the NetBIOS name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Process Current Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the process's current directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Process Environment Variable">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the process environment variable.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Process Startup Information">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the process startup information.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Processes Snapshot">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the processes snapshot.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Registry Key Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the attributes of a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Service Status">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the service status.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Global Flags">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the system global flags.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Local Time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the local time on a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Host Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the system host name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System NetBIOS Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the NetBIOS name of a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Network Parameters">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the system network parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the system time.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Thread Context">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the thread context.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Thread Username">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the thread username.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get User Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the attributes of a user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Username">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting a username.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Windows Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting a windows directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Windows System Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting a windows System directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Windows Temporary Files Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the Windows Temporary Files Directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Hide Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of hiding a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Impersonate Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of impersonating a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Impersonate Thread">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of impersonating a thread.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Inject Memory Page">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of injecting a memory page into a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Kill Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of killing a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Kill Thread">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of killing a thread.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Kill Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of killing a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Listen on Port">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of listening on a specific port.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Listen on Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of listening on a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Load and Call Driver">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of loading and calling a driver.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Load Driver">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of loading a driver.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Load Library">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of loading a library.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Load Module">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of loading a module.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Lock File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of locking a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Logon as User">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of logging on as a user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Map File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of mapping a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Map Library">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of mapping a library.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Map View of File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of mapping a view of a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Registry Key Value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a registry key value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Monitor Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of monitoring a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Move File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of moving a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open File Mapping">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a file mapping.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Mutex">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a mutex.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Port">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a port.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Service Control Manager">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a service control manager.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Protect Virtual Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of protecting virtual memory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Query Disk Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of querying disk attributes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Query DNS">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of querying DNS.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Query Process Virtual Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of querying process virtual memory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Queue APC in Thread">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of querying the Asynchronous Procedure Call (APC) in the context of a thread.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read From Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading from a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read From Process Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading from process memory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read Registry Key Value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading a registry key value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Receive Data on Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of receiving data on a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Receive Email Message">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of receiving an email message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Release Mutex">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of releasing a mutex.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Rename File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of renaming a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Revert Thread to Self">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reverting a thread to its self.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Control Code to File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a control code to a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Control Code to Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a control code to a pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Control Code to Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending control code to a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Data on Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending data on a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Data to Address on Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending data to the address on a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send DNS Query">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a DNS query.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Email Message">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an email message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send ICMP Request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an ICMP request.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Reverse DNS Query">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a reverse DNS query.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set File Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting file attributes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set NetBIOS Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the NetBIOS name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set Process Current Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the process current directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set Process Environment Variable">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the process environment variable.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set System Global Flags">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting system global flags.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set System Host Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the system host name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set System Time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the system time.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set Thread Context">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the thread context.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Show Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of showing a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Shutdown System">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of shutting down a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sleep Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sleeping a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sleep System">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sleeping a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Start Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of starting a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unload Driver">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unloading a driver.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unlock File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unlocking a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unmap File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unmapping a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unload Module">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unloading a module.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Upload File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of uploading a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Write to File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of writing to a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Write to Process Virtual Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of writing to process virtual memory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ActionNameVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>
+				The ActionNameVocab is the default CybOX vocabulary for Action Types, captured via the ActionType/Name element in CybOX Core.
+			
+				NOTE: As of CybOX Version 2.1, this version of the ActionNameVocab is deprecated. Please use ActionNameVocab-1.1 instead.
+			</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">

@@ -12,7 +12,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#WinHandleObject-2" schemaLocation="Win_Handle_Object.xsd"/>
-	<xs:element name="Windows_Thread" type="WinThreadObj:WindowsThreadObjectType" nillable="true">
+	<xs:element name="Windows_Thread" type="WinThreadObj:WindowsThreadObjectType">
 		<xs:annotation>
 			<xs:documentation>The Windows_Threat object is intended to characterize Windows process threads. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms684852(v=vs.85).aspx</xs:documentation>
 		</xs:annotation>

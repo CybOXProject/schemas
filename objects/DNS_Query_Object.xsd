@@ -25,6 +25,11 @@
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
+					<xs:element name="Transaction_ID" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Transaction_ID field specifies the Transaction ID value of the DNS query message header.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Question" type="DNSQueryObj:DNSQuestionType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Question field specifies the DNS question component of the DNS query.</xs:documentation>
