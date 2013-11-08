@@ -24,7 +24,7 @@
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element name="Handle" type="WinHandleObj:WindowsHandleListType" minOccurs="0">
+					<xs:element name="Handle" type="WinHandleObj:WindowsHandleObjectType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Handle field specifies the open Windows handle to the mailslot. It imports and uses the WindowsHandleObjectType from the CybOX Windows Handle Object.</xs:documentation>
 						</xs:annotation>
