@@ -16,8 +16,8 @@
 			<xs:documentation>The Observables construct represents a collection of cyber observables.</xs:documentation>
 		</xs:annotation>
 		<xs:unique name="unique-observables-id">
-			<xs:selector xpath=".//*"></xs:selector>
-			<xs:field xpath="@id"></xs:field>
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
 		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ObservablesType">
@@ -58,8 +58,8 @@
 			<xs:documentation>The Observable construct represents a description of a single cyber observable.</xs:documentation>
 		</xs:annotation>
 		<xs:unique name="unique-observable-id">
-			<xs:selector xpath=".//*"></xs:selector>
-			<xs:field xpath="@id"></xs:field>
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
 		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ObservableType">
@@ -150,8 +150,8 @@
 			<xs:documentation>The Event construct enables specification of a cyber observable event that is dynamic in nature with specific action(s) taken against specific cyber relevant objects (e.g. a file is deleted, a registry key is created or an HTTP Get Request is received).</xs:documentation>
 		</xs:annotation>
 		<xs:unique name="unique-event-id">
-			<xs:selector xpath=".//*"></xs:selector>
-			<xs:field xpath="@id"></xs:field>
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
 		</xs:unique>
 	</xs:element>
 	<xs:complexType name="EventType">
@@ -238,8 +238,8 @@
 			<xs:documentation>The Action construct enables description/specification of a single cyber observable action. </xs:documentation>
 		</xs:annotation>
 		<xs:unique name="unique-action-id">
-			<xs:selector xpath=".//*"></xs:selector>
-			<xs:field xpath="@id"></xs:field>
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
 		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ActionsType">
@@ -300,7 +300,7 @@
 					<xs:documentation>The Associated_Objects construct is optional and enables the description/specification of cyber Objects relevant (either initiating or affected by) this Action.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Relationships" type="cybox:RelationshipsType" minOccurs="0">
+			<xs:element name="Relationships" type="cybox:ActionRelationshipsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Relationships construct is optional and enables description of other cyber observable actions that are related to this Action.</xs:documentation>
 				</xs:annotation>
@@ -508,14 +508,14 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="RelationshipsType">
+	<xs:complexType name="ActionRelationshipsType">
 		<xs:annotation>
-			<xs:documentation>The RelationshipsType enables description of other cyber observable actions that are related to this Action.</xs:documentation>
+			<xs:documentation>The ActionRelationshipsType captures 1-n relationships between an Action and another Action.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Relationship" type="cybox:ActionRelationshipType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Relationship construct is optional and enables description of a single other cyber observable action that is related to this Action.</xs:documentation>
+					<xs:documentation>The Relationship construct is required and enables description of a single other cyber observable Action that is related to this Action.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -555,8 +555,8 @@
 			<xs:documentation>The Object construct identifies and specificies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
 		</xs:annotation>
 		<xs:unique name="unique-object-id">
-			<xs:selector xpath=".//*"></xs:selector>
-			<xs:field xpath="@id"></xs:field>
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
 		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ObjectType">
@@ -568,7 +568,7 @@
 				<xs:annotation>
 					<xs:documentation>The State field enables the description of the current state of the object, through a standardized controlled vocabulary.</xs:documentation>
 					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectStateVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>					
+						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
@@ -899,8 +899,8 @@
 			<xs:documentation>The Property element represents the specification of a single Object Property</xs:documentation>
 		</xs:annotation>
 		<xs:unique name="unique-property-id">
-			<xs:selector xpath=".//*"></xs:selector>
-			<xs:field xpath="@id"></xs:field>
+			<xs:selector xpath=".//*"/>
+			<xs:field xpath="@id"/>
 		</xs:unique>
 	</xs:element>
 	<!---->
