@@ -1215,97 +1215,97 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Cursor">
 				<xs:annotation>
-					<xs:documentation>The resource specified is a cursor or animated cursor defined by naming it and specifying the name of the file that contains it. (To use a particular cursor, the application requests it by name.)</xs:documentation>
+					<xs:documentation>Specifies a resource that is a cursor or animated cursor defined by naming it and specifying the name of the file that contains it. (To use a particular cursor, the application requests it by name.)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Bitmap">
 				<xs:annotation>
-					<xs:documentation>The resource specified is a bitmap defined by naming it and specifying the name of the file that contains it. (To use a particular cursor, the application requests it by name.)</xs:documentation>
+					<xs:documentation>Specifies a resource that is a bitmap defined by naming it and specifying the name of the file that contains it. (To use a particular cursor, the application requests it by name.)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Icon">
 				<xs:annotation>
-					<xs:documentation>The resource specified is an icon or animated icon by naming it and specifying the name of the file that contains it. (To use a particular icon, the application requests it by name.)</xs:documentation>
+					<xs:documentation>Specifies a resource that is an icon or animated icon by naming it and specifying the name of the file that contains it. (To use a particular icon, the application requests it by name.)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Menu">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines the appearance and function of a menu. Does not define help or regular identifiers, nor uses the MFT_* type and MFS_* state flags.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures the appearance and function of a menu. Does not define help or regular identifiers, nor uses the MFT_* type and MFS_* state flags.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="MenuEX">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines the appearance and function of a menu, which can also utilize help or regular identifiers, as well as the MFT_* type and MFS_* state flags. </xs:documentation>
+					<xs:documentation>Specifies a resource that captures the appearance and function of a menu, which can also utilize help or regular identifiers, as well as the MFT_* type and MFS_* state flags. </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Popup">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines a menu item that can contain menu items and submenus.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures a menu item that can contain menu items and submenus.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Dialog">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines a template that an application can use to create dialog boxes. This type is considered obsolete in Windows and newer applications use the DIALOGEX resource.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures a template that an application can use to create dialog boxes. This type is considered obsolete in Windows and newer applications use the DIALOGEX resource.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DialogEX">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines a template that newer applications can use to create dialog boxes.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures a template that newer applications can use to create dialog boxes.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="String">
 				<xs:annotation>
-					<xs:documentation/>
+					<xs:documentation>Specifies a resource that is a string.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="StringTable">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines string resources. String resources are Unicode or ASCII strings that can be loaded from the executable file.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures string tables. String resources are Unicode or ASCII strings that can be loaded from the executable file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Fontdir">
 				<xs:annotation>
-					<xs:documentation/>
+					<xs:documentation>Specifies a resource that is a font directory </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Font">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines the name of a file that contains a font.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures the name of a file that contains a font.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Accelerators">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines menu accelerator keys.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures menu accelerator keys.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="RCData">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines data resources. Data resources let you include binary data in the executable file.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures data resources. Data resources let you include binary data in the executable file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="MessageTable">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines a message table by naming it and specifying the name of the file that contains it. The file is a binary resource file generated by the message compiler.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures a message table by naming it and specifying the name of the file that contains it. The file is a binary resource file generated by the message compiler.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="GroupCursor">
 				<xs:annotation>
-					<xs:documentation/>
+					<xs:documentation>Specifies a resource that is a group cursor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="GroupIcon">
 				<xs:annotation>
-					<xs:documentation/>
+					<xs:documentation>Specifies a resource that is a group icon.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="VersionInfo">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines version-information. Vontains information such as the version number, intended operating system, and so on.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures version-information. Contains information such as the version number, intended operating system, and so on.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DLGInclude">
 				<xs:annotation>
-					<xs:documentation/>
+					<xs:documentation>Specifies a resource that is a dialog include.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="PlugPlay">
@@ -1330,27 +1330,22 @@
 			</xs:enumeration>
 			<xs:enumeration value="AniCursor">
 				<xs:annotation>
-					<xs:documentation/>
+					<xs:documentation>Specifies a resource that is an animated cursor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="AniIcon">
 				<xs:annotation>
-					<xs:documentation/>
+					<xs:documentation>Specifies a resource that is an animated icon.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="HTML">
 				<xs:annotation>
-					<xs:documentation>The resource specified defines an HTML file.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures an HTML file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Manifest">
 				<xs:annotation>
-					<xs:documentation/>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Other">
-				<xs:annotation>
-					<xs:documentation>The resource specified defines a different object than those listed. This resource type can also be considered User-Defined, i.e. defines a resource that contains application-specific data, as noted in MSDN.</xs:documentation>
+					<xs:documentation>Specifies a resource that captures a manifest file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
