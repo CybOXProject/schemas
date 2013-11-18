@@ -2316,4 +2316,78 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="Layer4ProtocolType">
+		<xs:annotation>
+			<xs:documentation>Layer4ProtocolType specifies Layer 4 protocol types, via a union of the Layer4ProtocolEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxCommon:Layer4ProtocolEnum xs:string"/>
+				</xs:simpleType>
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
+					<xs:annotation>
+						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="Layer4ProtocolEnum">
+		<xs:annotation>
+			<xs:documentation>Layer4ProtocolEnum is a non-exhaustive enumeration of Layer 4 (transport) layer protocols.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TCP">
+				<xs:annotation>
+					<xs:documentation>Specifies the Transmission Control Protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UDP">
+				<xs:annotation>
+					<xs:documentation>Specifies the User Datagram Protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AH">
+				<xs:annotation>
+					<xs:documentation>Specifies the Authentication Header protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ESP">
+				<xs:annotation>
+					<xs:documentation>Specifies the Encapsulating Security Payload protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GRE">
+				<xs:annotation>
+					<xs:documentation>Specifies the Generic Routing Encapsulation protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IL">
+				<xs:annotation>
+					<xs:documentation>Specifies the Internet Link protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SCTP">
+				<xs:annotation>
+					<xs:documentation>Specifies the Stream Control Transmission Protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sinec H1">
+				<xs:annotation>
+					<xs:documentation>Specifies the Siemens Sinec H1 protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SPX">
+				<xs:annotation>
+					<xs:documentation>Specifies the Sequenced Packet Exchange protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DCCP">
+				<xs:annotation>
+					<xs:documentation>Specifies the Datagram Congestion Control Protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
