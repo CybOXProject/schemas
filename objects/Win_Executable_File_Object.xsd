@@ -1348,6 +1348,11 @@
 					<xs:documentation>Specifies a resource that captures a manifest file.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="MessageTableEntry">
+				<xs:annotation>
+					<xs:documentation>Specifies a resource that captures a message table entry.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
