@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#X509CertificateObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2"
+	xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+	targetNamespace="http://cybox.mitre.org/objects#X509CertificateObject-2"
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
 	<xs:annotation>
-
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
 			<schema>X509_Certificate_Object</schema>
@@ -203,7 +206,7 @@
 					<xs:documentation>The Authority_Key_Identifier field captures the identifier that provides a means of identifying the public key corresponding to the private key used to sign a certificate. Also equivalent to the object ID (OID) value of 2.5.29.35.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Subject_Alternative_Name" type="cyboxCommon:StringObjectPropertyType">
+			<xs:element minOccurs="0" name="Subject_Alternative_Names" type="X509CertificateObj:GeneralNamesType">
 				<xs:annotation>
 					<xs:documentation>The Subject_Alternative_Name field captures the additional identities to be bound to the subject of the certificate. Also equivalent to the object ID (OID) value of 2.5.29.17.</xs:documentation>
 				</xs:annotation>
@@ -272,4 +275,79 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="GeneralNamesType">
+		<xs:sequence>
+			<xs:element name="Name" type="X509CertificateObj:GeneralNameType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The GeneralNamesType defines a list of GeneralNameType instances, each of which aligns with GeneralName construct defined by RFC3280.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeneralNameType">
+		<xs:annotation>
+			<xs:documentation>The GeneralNameType defines a field to be used as a Subject Alternative Name within an X509V3ExtensionsType instance.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="cyboxCommon:StringObjectPropertyType">
+				<xs:attribute name="name_type" type="X509CertificateObj:GeneralNameTypeEnum">
+					<xs:annotation>
+						<xs:documentation>The name_type attribute specifies the type of the GeneralName instance. This attribute is optional but when used must declare one of the terms defined by the GeneralNameTypeEnum enumeration.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="GeneralNameTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The GeneralTypeEnum defines GeneralName types as defined by RFC3280 in section 4.2.1.7</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="otherName">
+				<xs:annotation>
+					<xs:documentation>Specifies a GeneralName type of otherName.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="rfc822Name">
+				<xs:annotation>
+					<xs:documentation>Specifies a GeneralName type of rfc822Name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="dNSName">
+				<xs:annotation>
+					<xs:documentation>Specifies a GeneralName type of dNSName.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="x400Address">
+				<xs:annotation>
+					<xs:documentation>Specifies a GeneralName type of x400Address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="directoryName">
+				<xs:annotation>
+					<xs:documentation>Specifies a GeneralName type of directoryName.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ediPartyName">
+				<xs:annotation>
+					<xs:documentation>Specifies a GeneralName type of ediPartyName.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="uniformResourceIdentifier">
+				<xs:annotation>
+					<xs:documentation>Specifies a GeneralName type of uniformResourceIdentifier.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="iPAddress">
+				<xs:annotation>
+					<xs:documentation>Specifies a GeneralName type of iPAddress.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="registeredID">
+				<xs:annotation>
+					<xs:documentation>Specifies a GeneralName type of registeredID.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
