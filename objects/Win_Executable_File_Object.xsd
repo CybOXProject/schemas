@@ -112,7 +112,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEExportsType">
 		<xs:annotation>
-			<xs:documentation>PEExportsType specifies the PE File exports data section. The exports data section contains information about symbols exported by the PE File (a DLL) which can be dynamically loaded by other executables. This type abstracts, and its components, abstract the Windows structures.</xs:documentation>
+			<xs:documentation>The PEExportsType specifies the PE File exports data section. The exports data section contains information about symbols exported by the PE File (a DLL) which can be dynamically loaded by other executables. This type abstracts, and its components, abstract the Windows structures.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Exported_Functions" type="WinExecutableFileObj:PEExportedFunctionsType" minOccurs="0" maxOccurs="1">
@@ -139,7 +139,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEExportedFunctionsType">
 		<xs:annotation>
-			<xs:documentation>PEExportedFunctionsType specifies a list of PE exported functions</xs:documentation>
+			<xs:documentation>The PEExportedFunctionsType specifies a list of PE exported functions</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Exported_Function" type="WinExecutableFileObj:PEExportedFunctionType" maxOccurs="unbounded">
@@ -151,7 +151,7 @@
 	</xs:complexType>
 	<xs:complexType name="PESectionListType">
 		<xs:annotation>
-			<xs:documentation>Specifies a list of sections that appear in the PE file.</xs:documentation>
+			<xs:documentation>The PESectionListType captures a list of sections that appear in the PE file.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Section" type="WinExecutableFileObj:PESectionType" minOccurs="1" maxOccurs="unbounded">
@@ -163,7 +163,7 @@
 	</xs:complexType>
 	<xs:complexType name="EntropyType">
 		<xs:annotation>
-			<xs:documentation>Specifies the result of an entropy computation.</xs:documentation>
+			<xs:documentation>The EntropyType captures the result of an entropy computation.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="cyboxCommon:FloatObjectPropertyType" minOccurs="0">
@@ -217,7 +217,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEImportedFunctionsType">
 		<xs:annotation>
-			<xs:documentation>A list of PE imported functions</xs:documentation>
+			<xs:documentation>The PEImportedFunctionsType captures a list of functions imported by the PE file.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Imported_Function" type="WinExecutableFileObj:PEImportedFunctionType" maxOccurs="unbounded">
@@ -352,7 +352,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEExportedFunctionType">
 		<xs:annotation>
-			<xs:documentation>PEExportType specifies the type describing exported functions.</xs:documentation>
+			<xs:documentation>The PEExportType specifies the type describing exported functions.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Function_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -374,7 +374,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEResourceListType">
 		<xs:annotation>
-			<xs:documentation>PEResourceListType specifies a list of resources found in the PE file.</xs:documentation>
+			<xs:documentation>The PEResourceListType specifies a list of resources found in the PE file.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" ref="WinExecutableFileObj:Resource">
@@ -386,7 +386,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEImportedFunctionType">
 		<xs:annotation>
-			<xs:documentation>PEImportedFunctionType specifies the type describing imported functions.</xs:documentation>
+			<xs:documentation>The PEImportedFunctionType specifies the type describing imported functions.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Function_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -418,7 +418,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEImportListType">
 		<xs:annotation>
-			<xs:documentation>PEImportListType specifies a list of functions in an import data section.</xs:documentation>
+			<xs:documentation>The PEImportListType specifies a list of functions in an import data section.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Import" type="WinExecutableFileObj:PEImportType" maxOccurs="unbounded">
@@ -643,7 +643,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEHeadersType">
 		<xs:annotation>
-			<xs:documentation>PEHeaderType specifies the headers found in PE and COFF files.</xs:documentation>
+			<xs:documentation>The PEHeadersType specifies the headers found in PE and COFF files.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="DOS_Header" type="WinExecutableFileObj:DOSHeaderType" minOccurs="0">
@@ -727,7 +727,7 @@
 	</xs:complexType>
 	<xs:complexType name="SubsystemType">
 		<xs:annotation>
-			<xs:documentation>SubsystemTypes specifies subsystem types via a union of the SubsystemTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+			<xs:documentation>The SubsystemType specifies subsystem types via a union of the SubsystemTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -744,7 +744,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEType">
 		<xs:annotation>
-			<xs:documentation>PEType specifies PE file types via a union of the PETypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+			<xs:documentation>The PEType specifies PE file types via a union of the PETypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -761,7 +761,7 @@
 	</xs:complexType>
 	<xs:complexType name="SectionType">
 		<xs:annotation>
-			<xs:documentation>SectionTypes specifies PE section types via a union of the SectionTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+			<xs:documentation>The SectionType specifies PE section types via a union of the SectionTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1059,7 +1059,7 @@
 	</xs:complexType>
 	<xs:simpleType name="SectionTypeEnum">
 		<xs:annotation>
-			<xs:documentation>SectionTypeEnum enumerates the types of PE sections in an executable. See http://www.silurian.com/inspect/peformat.htm for more information. These sections can be viewed in a Disassembler, such as IDA and more specifically in the freeware CFF Explorer.</xs:documentation>
+			<xs:documentation>The SectionTypeEnum enumerates the types of PE sections in an executable. See http://www.silurian.com/inspect/peformat.htm for more information. These sections can be viewed in a Disassembler, such as IDA and more specifically in the freeware CFF Explorer.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Text">
@@ -1111,7 +1111,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="SubsystemTypeEnum">
 		<xs:annotation>
-			<xs:documentation>SubsystemTypeEnum enumerates the types of subsystems in Windows an executable can be compatible for, according to winnt.h and more specifically, the Subsystem value of the IMAGE_OPTIONAL_HEADER structure. See http://source.winehq.org/source/include/winnt.h and http://msdn.microsoft.com/en-us/library/windows/desktop/ms680339(v=vs.85).aspx for more information.</xs:documentation>
+			<xs:documentation>The SubsystemTypeEnum enumerates the types of subsystems in Windows an executable can be compatible for, according to winnt.h and more specifically, the Subsystem value of the IMAGE_OPTIONAL_HEADER structure. See http://source.winehq.org/source/include/winnt.h and http://msdn.microsoft.com/en-us/library/windows/desktop/ms680339(v=vs.85).aspx for more information.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Unknown">
@@ -1188,7 +1188,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="PETypeEnum">
 		<xs:annotation>
-			<xs:documentation>PETypeEnum enumerates the characteristics flags for the executable file in question. These are detailed in winnt.h.</xs:documentation>
+			<xs:documentation>The PETypeEnum enumerates the characteristics flags for the executable file in question. These are detailed in winnt.h.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Executable">
