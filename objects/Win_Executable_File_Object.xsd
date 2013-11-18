@@ -242,9 +242,34 @@
 					<xs:documentation>The Name field specifies the name of the resource used by the PE binary.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Size" type="cyboxCommon:PositiveIntegerObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Size field specifies the size of the resource, in bytes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Virtual_Address" type="cyboxCommon:HexBinaryObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Virtual_Address field specifies the relative virtual address (RVA) of the resource data.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Language" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Language field specifies the name of the language (LANG) defined for the resource, if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="Sub_Language" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Sub_Language field specifies the name of the sub language (SUBLANG) defined for the resource, if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Hashes" type="cyboxCommon:HashListType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Hashes field is used to include any hash values computed using the specified PE binary resource as input.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Data" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Data field captures the actual data contained in the resource, most commonly as a base64-encoded string encapsulated in a CDATA (<![CDATA[]]>) section.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
