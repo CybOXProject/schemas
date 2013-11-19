@@ -25,12 +25,12 @@
 				<xs:sequence>
 					<xs:element name="Description" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Description property is used for providing a description of the account, if applicable.</xs:documentation>
+							<xs:documentation>The Description field is used for providing a description of the account, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Domain" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Domain property is used for specifying the domain that the account belongs to.</xs:documentation>
+							<xs:documentation>The Domain field is used for specifying the domain that the account belongs to.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Creation_Date" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">

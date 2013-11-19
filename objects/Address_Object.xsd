@@ -30,12 +30,12 @@
 					</xs:element>
 					<xs:element name="VLAN_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The VLAN_Name property specifies the name of the Virtual LAN to which the address belongs.</xs:documentation>
+							<xs:documentation>The VLAN_Name field specifies the name of the Virtual LAN to which the address belongs.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="VLAN_Num" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The VLAN_Num property specifies the number of the Virtual LAN to which the address belongs.</xs:documentation>
+							<xs:documentation>The VLAN_Num field specifies the number of the Virtual LAN to which the address belongs.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
