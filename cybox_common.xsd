@@ -1201,7 +1201,7 @@
 		</xs:attribute>
 		<xs:attribute name="is_case_sensitive" type="xs:boolean" default="true">
 			<xs:annotation>
-				<xs:documentation>The is_case_sensitive attribute is optional and should be used </xs:documentation>
+				<xs:documentation>The is_case_sensitive field is optional and should be used when specifying the case-sensitivity of a pattern which uses an Equals, DoesNotEqual, Contains, DoesNotContain, StartsWith, EndsWith, or FitsPattern condition. The default value for this field is "true" which indicates that pattern evaluations are to be considered case-sensitive.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="apply_condition" type="cyboxCommon:ConditionApplicationEnum" default="ANY">
