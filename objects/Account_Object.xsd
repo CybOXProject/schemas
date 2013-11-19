@@ -40,7 +40,12 @@
 					</xs:element>
 					<xs:element name="Modified_Date" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Modified_Date field specifies the date and time that the account was last modified</xs:documentation>
+							<xs:documentation>The Modified_Date field specifies the date and time that the account was last modified.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Last_Accessed_Time" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Last_Accessed_Time field specifies the date and time that the account was last accessed.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
