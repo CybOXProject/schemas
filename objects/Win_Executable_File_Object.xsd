@@ -56,17 +56,17 @@
 					</xs:element>
 					<xs:element name="Headers" type="WinExecutableFileObj:PEHeadersType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Headers property contains fields for characterizing aspects the various types of PE headers.</xs:documentation>
+							<xs:documentation>The Headers field contains fields for characterizing aspects the various types of PE headers.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Imports" type="WinExecutableFileObj:PEImportListType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Imports property characterizes the PE Import Table of the binary.</xs:documentation>
+							<xs:documentation>The Imports field characterizes the PE Import Table of the binary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="PE_Checksum" type="WinExecutableFileObj:PEChecksumType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The PE_Checksum property specifies the checksum of the PE file.</xs:documentation>
+							<xs:documentation>The PE_Checksum field specifies the checksum of the PE file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Resources" type="WinExecutableFileObj:PEResourceListType" minOccurs="0">
@@ -435,7 +435,7 @@
 		<xs:sequence>
 			<xs:element name="Section_Header" type="WinExecutableFileObj:PESectionHeaderStructType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Section_Header property contains characteristics of the section's section header structure.</xs:documentation>
+					<xs:documentation>The Section_Header field contains characteristics of the section's section header structure.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data_Hashes" type="cyboxCommon:HashListType" minOccurs="0">
@@ -648,17 +648,17 @@
 		<xs:sequence>
 			<xs:element name="DOS_Header" type="WinExecutableFileObj:DOSHeaderType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The DOS_Header property refers to the MS-DOS PE header and its associated characteristics.</xs:documentation>
+					<xs:documentation>The DOS_Header field refers to the MS-DOS PE header and its associated characteristics.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Signature" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Signature property specifies the 4-bytes sugnature that identifies the file as a PE file.</xs:documentation>
+					<xs:documentation>The Signature field specifies the 4-bytes sugnature that identifies the file as a PE file.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="File_Header" type="WinExecutableFileObj:PEFileHeaderType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The File_Header property refers to the PE file header (sometimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
+					<xs:documentation>The File_Header field refers to the PE file header (sometimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Optional_Header" type="WinExecutableFileObj:PEOptionalHeaderType" minOccurs="0">

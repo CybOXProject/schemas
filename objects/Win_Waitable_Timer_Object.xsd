@@ -41,7 +41,7 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="Type" type="WinWaitableTimerObj:WaitableTimerType">
 						<xs:annotation>
-							<xs:documentation>The Type property specifies the type of the windows waitable timer object.</xs:documentation>
+							<xs:documentation>The Type field specifies the type of the windows waitable timer object.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>

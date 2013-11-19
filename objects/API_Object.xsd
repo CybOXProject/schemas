@@ -25,27 +25,27 @@
 				<xs:sequence>
 					<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Description property is intended for use in providing a brief description of the API.</xs:documentation>
+							<xs:documentation>The Description field is intended for use in providing a brief description of the API.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Function_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The function_name property contains the exact name of the API function called, e.g. CreateFileEx.</xs:documentation>
+							<xs:documentation>The function_name field contains the exact name of the API function called, e.g. CreateFileEx.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Normalized_Function_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The normalized_function_name property contains the normalized name of the API function called, e.g. CreateFile.</xs:documentation>
+							<xs:documentation>The normalized_function_name field contains the normalized name of the API function called, e.g. CreateFile.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Platform" type="cyboxCommon:PlatformSpecificationType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Platform property specifies the relevant platform for this API.</xs:documentation>
+							<xs:documentation>The Platform field specifies the relevant platform for this API.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Address" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Address property contains the address of the API call in the binary.</xs:documentation>
+							<xs:documentation>The Address field contains the address of the API call in the binary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
