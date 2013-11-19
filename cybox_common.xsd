@@ -1199,6 +1199,11 @@
 				<xs:documentation>This field is optional and defines the relevant condition to apply to the value.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="is_case_sensitive" type="xs:boolean" default="true">
+			<xs:annotation>
+				<xs:documentation>The is_case_sensitive attribute is optional and should be used </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:attribute name="apply_condition" type="cyboxCommon:ConditionApplicationEnum" default="ANY">
 			<xs:annotation>
 				<xs:documentation>This field indicates how a condition should be applied when the field body contains a list of values. (Its value is moot if the field value contains only a single value - both possible values for this field would have the same behavior.) If this field is set to ANY, then a pattern is considered to be matched if the provided condition successfully evaluates for any of the values in the field body. If the field is set to ALL, then the patern only matches if the provided condition successfully evaluates for every value in the field body.</xs:documentation>
