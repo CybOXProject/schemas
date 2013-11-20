@@ -5060,10 +5060,13 @@
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:simpleType name="AuthenticationTypeEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>The AuthenticationTypeEnum is a (non-exhaustive) enumeration of authentication types for accounts. This is leveraged by the Account Object.</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Password">
 				<xs:annotation>
-					<xs:documentation>The Password value pecifies password based authentication.</xs:documentation>
+					<xs:documentation>The Password value specifies password based authentication.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Cryptographic Key">
@@ -5073,12 +5076,17 @@
 			</xs:enumeration>
 			<xs:enumeration value="Biometrics">
 				<xs:annotation>
-					<xs:documentation>The Biometrics value specifies biometrics based authentication.</xs:documentation>
+					<xs:documentation>The Biometrics value specifies biometrics based authentication. Examples include fingerprint or retina readers.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Smart Card">
+			<xs:enumeration value="Physical Token">
 				<xs:annotation>
-					<xs:documentation>The Smart Card value specifies smart card based authentication.</xs:documentation>
+					<xs:documentation>The Physical Token value specifies authentication requiring physical or hardware tokens. Examples include smart cards, bluetooth tokens, and usb tokens.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Multifactor">
+				<xs:annotation>
+					<xs:documentation>The Multifactor authentication value specifies multifactor authentication.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -5098,6 +5106,9 @@
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:simpleType name="AuthenticationTokenProtectionMechanismTypeEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>The AuthenticationTokenProtectionMechanismTypeEnum is a (non-exhaustive) enumeration of methods for the protection of authentication tokens.</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Plaintext">
 				<xs:annotation>
