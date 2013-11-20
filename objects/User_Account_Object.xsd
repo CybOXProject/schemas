@@ -59,11 +59,6 @@
 							<xs:documentation>The Username field specifies the particular username of the user account.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Password" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The Password field specifies the literal password of the user account</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="User_Password_Age" type="cyboxCommon:DurationObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The User_Password_Age field specifies the current age of the user account's password.</xs:documentation>

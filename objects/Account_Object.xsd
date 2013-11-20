@@ -33,6 +33,11 @@
 							<xs:documentation>The Domain field is used for specifying the domain that the account belongs to.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="Authentication" type="AccountObj:AuthenticationType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Authentication field specifies authentication information associated with this account.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Creation_Date" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Creation_Date field specifies the date and time that the account was created.</xs:documentation>
@@ -61,5 +66,36 @@
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AuthenticationType">
+		<xs:annotation>
+			<xs:documentation>The AuthenticationType type specifies authentication information for an account.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Authentication_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Authentication_Type field specifies the type of authentication required by this Account.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is AuthenticationTypeVocab-1.0 in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/stix_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism, specify a vocabulary name and reference using the attributes, or simply use this as a string field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Authentication_Token_Protection_Mechanism" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Authentication_Token_Protection_Mechanism field specifies the method of protecting authentication tokens for this account.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is AuthenticationTokenProtectionMechanismTypeVocab-1.0 in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/stix_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism, specify a vocabulary name and reference using the attributes, or simply use this as a string field.</xs:documentation>	
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Password" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Password field specifies the password for this account.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Structured_Authentication_Mechanism" minOccurs="0" type="xs:anyType">
+				<xs:annotation>
+					<xs:documentation>The Structured_Authentication_Mechanism field provides authors a field for specifying authentication mechanism information in a structured language outside of CybOX.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
