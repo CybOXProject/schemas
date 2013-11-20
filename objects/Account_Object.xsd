@@ -75,14 +75,14 @@
 			<xs:element name="Authentication_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Authentication_Type field specifies the type of authentication required by this Account.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is AuthenticationTypeVocab-1.0 in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/stix_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is AuthenticationTypeVocab-1.0 in the http://cybox.mitre.org/objects#AccountObject-2 namespace.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism, specify a vocabulary name and reference using the attributes, or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Authentication_Token_Protection_Mechanism" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Authentication_Token_Protection_Mechanism field specifies the method of protecting authentication tokens for this account.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is AuthenticationTokenProtectionMechanismTypeVocab-1.0 in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/stix_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is AuthenticationTokenProtectionMechanismTypeVocab-1.0 in the http://cybox.mitre.org/objects#AccountObject-2 namespace.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism, specify a vocabulary name and reference using the attributes, or simply use this as a string field.</xs:documentation>	
 				</xs:annotation>
 			</xs:element>
@@ -91,11 +91,121 @@
 					<xs:documentation>The Password field specifies the password for this account.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Structured_Authentication_Mechanism" minOccurs="0" type="xs:anyType">
+			<xs:element name="Structured_Authentication_Mechanism" minOccurs="0" type="AccountObj:StructuredAuthenticationMechanismType">
 				<xs:annotation>
-					<xs:documentation>The Structured_Authentication_Mechanism field provides authors a field for specifying authentication mechanism information in a structured language outside of CybOX.</xs:documentation>
+					<xs:documentation>The Structured_Authentication_Mechanism field provides authors a field for describing authentication mechanism information in a structured language defined outside of CybOX.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="AuthenticationTypeVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The AuthenticationTypeVocab is the default CybOX vocabulary for authentication types, used in the AuthenticationType/Authentication_Type found in the Account Object schema.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="AccountObj:AuthenticationTypeEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Authentication Types"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/objects/Account/2.1/Account_Object.xsd#AuthenticationTypeVocab-1.0"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="StructuredAuthenticationMechanismType">
+		<xs:annotation>
+			<xs:documentation>Characterizes the description of an authentication mechanism, such as biometrics-based authentication.</xs:documentation>	
+			<xs:documentation>In addition to capturing basic information, this type is intended to be extended to enable the structured description of an authentication mechanism using the XML Schema extension feature. No extension is provided by CybOX to support this, however those wishing to represent structured authentication mechanism information may develop such an extension.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Description field provides an unstructured description of an individual StructuredAuthenticationMechanismType instance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="AuthenticationTypeEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>The AuthenticationTypeEnum is a (non-exhaustive) enumeration of authentication types for accounts. This is leveraged by the Account Object.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="No Authentication">
+				<xs:annotation>
+					<xs:documentation>The No Authentication value specifies that there is no authentication mechanism in place.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Password">
+				<xs:annotation>
+					<xs:documentation>The Password value specifies password based authentication.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Cryptographic Key">
+				<xs:annotation>
+					<xs:documentation>The Cryptographic Key value specifies cryptographic key based authentication.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Biometrics">
+				<xs:annotation>
+					<xs:documentation>The Biometrics value specifies biometrics based authentication. Examples include fingerprint or retina readers.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Physical Token">
+				<xs:annotation>
+					<xs:documentation>The Physical Token value specifies authentication requiring physical or hardware tokens. Examples include smart cards, bluetooth tokens, and usb tokens.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Multifactor">
+				<xs:annotation>
+					<xs:documentation>The Multifactor authentication value specifies multifactor authentication.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AuthenticationTokenProtectionMechanismTypeVocab-1.0">
+		<xs:annotation>
+			<xs:documentation>The AuthenticationTokenProtectionMechanismTypeVocab is the default CybOX vocabulary for authentication token protection mechanisms, used in the AuthenticationType/Authentication_Token_Protection_Mechanism found in the Account Object schema.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="AccountObj:AuthenticationTokenProtectionMechanismTypeEnum-1.0"/>
+				</xs:simpleType>
+				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Authentication Token Protection Mechanism Types"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/objects/Account/2.1/Account_Object.xsd#AuthenticationTokenProtectionMechanismTypeVocab-1.0"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="AuthenticationTokenProtectionMechanismTypeEnum-1.0">
+		<xs:annotation>
+			<xs:documentation>The AuthenticationTokenProtectionMechanismTypeEnum is a (non-exhaustive) enumeration of methods for the protection of authentication tokens.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Plaintext">
+				<xs:annotation>
+					<xs:documentation>The Plaintext value denotes that the authentication tokens are stored as plaintext.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Hashed">
+				<xs:annotation>
+					<xs:documentation>The Hashed value denotes that the stored authentication tokens have been hashed once, but not salted.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Salted Hash">
+				<xs:annotation>
+					<xs:documentation>The Salted Hash value denotes that the stored authentication tokens have been hashed with a salt.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Iterative Hash">
+				<xs:annotation>
+					<xs:documentation>The Iterative Hash value denotes that the stored authentication tokens have been hashed using an iterative hashing algorithm.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encrypted">
+				<xs:annotation>
+					<xs:documentation>The Encrypted value denotes that the stored authentication tokens have been encrypted and thus, can be decrypted.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
