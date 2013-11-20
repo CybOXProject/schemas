@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by SEAN BARNUM (THE MITRE CORPORATION) -->
 <xs:schema xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cybox.mitre.org/common-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
@@ -1554,6 +1555,34 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<!---->
+	<xs:complexType name="LocationAbstractType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>
+				The LocationAbstractType is used to express geographic location information.
+				
+				This type is extended through the xsi:type mechanism. The default type is CIQAddress3.0InstanceType in the http://cybox.mitre.org/extensions/Address#CIQAddress3.0-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address_3.0/1.0/ciq_address_3.0.xsd.	
+				
+				Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field of this type.				</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Name field allows for expression of an location through a simple name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:QName">
+			<xs:annotation>
+				<xs:documentation>Specifies a unique ID for this Location.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="idref" type="xs:QName">
+			<xs:annotation>
+				<xs:documentation>Specifies a reference to a unique ID defined elsewhere.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!---->
 	<xs:complexType name="ExtractedFeaturesType">
 		<xs:annotation>
 			<xs:documentation>The ExtractedFeaturesType is a type representing a description of features extracted from an object such as a file.</xs:documentation>
@@ -2325,7 +2354,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="cyboxCommon:Layer4ProtocolEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" use="optional" fixed="string">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
