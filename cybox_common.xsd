@@ -174,12 +174,12 @@
 		<xs:sequence>
 			<xs:element name="Start_Date" type="cyboxCommon:DateWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field contains the start date for this contributor's involvement. </xs:documentation>
+					<xs:documentation>This field contains the start date for this contributor's involvement. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="End_Date" type="cyboxCommon:DateWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field contains the end date for this contributor's involvement. </xs:documentation>
+					<xs:documentation>This field contains the end date for this contributor's involvement. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -203,22 +203,22 @@
 		<xs:sequence>
 			<xs:element name="Start_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Start_Time field is optional and describes the starting time for this construct.</xs:documentation>
+					<xs:documentation>The Start_Time field is optional and describes the starting time for this construct. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="End_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The End_Time field is optional and describes the ending time for this construct.</xs:documentation>
+					<xs:documentation>The End_Time field is optional and describes the ending time for this construct. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Produced_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Produced_Time field is optional and describes the time that this construct was produced.</xs:documentation>
+					<xs:documentation>The Produced_Time field is optional and describes the time that this construct was produced. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Received_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Received_Time field is optional and describes the time that this construct was received.</xs:documentation>
+					<xs:documentation>The Received_Time field is optional and describes the time that this construct was received. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -562,7 +562,7 @@
 			</xs:element>
 			<xs:element name="Compilation_Date" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field identifies the compilation date for the build of the tool.</xs:documentation>
+					<xs:documentation>This field identifies the compilation date for the build of the tool. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Build_Configuration" type="cyboxCommon:BuildConfigurationType" minOccurs="0">
@@ -716,7 +716,7 @@
 			</xs:element>
 			<xs:element name="Start_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field specifies when the tool was run.</xs:documentation>
+					<xs:documentation>This field specifies when the tool was run. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -904,7 +904,7 @@
 	</xs:complexType>
 	<xs:complexType name="DateObjectPropertyType">
 		<xs:annotation>
-			<xs:documentation>The DateObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Date. This type will be assigned to any property of a CybOX object that should contain content of type Date and enables the use of relevant metadata for the property.</xs:documentation>
+			<xs:documentation>The DateObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Date. This type will be assigned to any property of a CybOX object that should contain content of type Date and enables the use of relevant metadata for the property. In order to avoid ambiguity, it is strongly suggested that any date representation in this field include a timezone. As with the rest of the field, this should be formatted per the xs:date specification.</xs:documentation>
 			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 			<xs:documentation>For fields of this type using CybOX patterning, it is strongly suggested that the condition (pattern type) is limited to one of Equals, DoesNotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, ExclusiveBetween, or InclusiveBetween. The use of other conditions may lead to ambiguity or unexpected results. When evaluating data against a pattern, the evaluator should take into account the precision of the field (as given by the precision attribute) and any timezone information that is available to perform a data-aware comparison. The usage of simple string comparisons is discouraged due to ambiguities in how precision and timezone information is processed.</xs:documentation>
 		</xs:annotation>
@@ -939,7 +939,7 @@
 	</xs:complexType>
 	<xs:complexType name="DateTimeObjectPropertyType">
 		<xs:annotation>
-			<xs:documentation>The DateTimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type DateTime. This type will be assigned to any property of a CybOX object that should contain content of type DateTime and enables the use of relevant metadata for the property.</xs:documentation>
+			<xs:documentation>The DateTimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type DateTime. This type will be assigned to any property of a CybOX object that should contain content of type DateTime and enables the use of relevant metadata for the property.  In order to avoid ambiguity, it is strongly suggested that any dateTime representation in this field include a timezone. As with the rest of the field, this should be formatted per the xs:dateTime specification.</xs:documentation>
 			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 			<xs:documentation>For fields of this type using CybOX patterning, it is strongly suggested that the condition (pattern type) is limited to one of Equals, DoesNotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, ExclusiveBetween, or InclusiveBetween. The use of other conditions may lead to ambiguity or unexpected results. When evaluating data against a pattern, the evaluator should take into account the precision of the field (as given by the precision attribute) and any timezone information that is available to perform a data-aware comparison. The usage of simple string comparisons is discouraged due to ambiguities in how precision and timezone information is processed.</xs:documentation>
 		</xs:annotation>
@@ -1154,7 +1154,7 @@
 	</xs:complexType>
 	<xs:complexType name="TimeObjectPropertyType">
 		<xs:annotation>
-			<xs:documentation>The TimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type time. This type will be assigned to any property of a CybOX object that should contain content of type Time and enables the use of relevant metadata for the property.</xs:documentation>
+			<xs:documentation>The TimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type time. This type will be assigned to any property of a CybOX object that should contain content of type Time and enables the use of relevant metadata for the property.  In order to avoid ambiguity, it is strongly suggested that any time representation in this field include a specification of the timezone. As with the rest of the field, this should be formatted per the xs:time specification.</xs:documentation>
 			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 			<xs:documentation>For fields of this type using CybOX patterning, it is strongly suggested that the condition (pattern type) is limited to one of Equals, DoesNotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, ExclusiveBetween, or InclusiveBetween. The use of other conditions may lead to ambiguity or unexpected results. When evaluating data against a pattern, the evaluator should take into account the precision of the field (as given by the precision attribute) and any timezone information that is available to perform a data-aware comparison. The usage of simple string comparisons is discouraged due to ambiguities in how precision and timezone information is processed.</xs:documentation>
 		</xs:annotation>
@@ -2221,6 +2221,7 @@
 	<xs:complexType name="DateWithPrecisionType">
 		<xs:annotation>
 			<xs:documentation>This type is used as a replacement for the standard xs:date type but allows for the representation of the precision of the date. If the precision is given, consumers must ignore the portions of this field that is more precise than the given precision.</xs:documentation>
+			<xs:documentation>In order to avoid ambiguity, it is strongly suggested that all dates include a specification of the timezone.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:date">
@@ -2236,6 +2237,7 @@
 	<xs:complexType name="DateTimeWithPrecisionType">
 		<xs:annotation>
 			<xs:documentation>This type is used as a replacement for the standard xs:dateTime type but allows for the representation of the precision of the dateTime. If the precision is given, consumers must ignore the portions of this field that is more precise than the given precision.</xs:documentation>
+			<xs:documentation>In order to avoid ambiguity, it is strongly suggested that all dateTimes include a specification of the timezone.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:dateTime">

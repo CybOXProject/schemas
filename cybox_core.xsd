@@ -338,7 +338,7 @@
 		</xs:attribute>
 		<xs:attribute name="timestamp" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation>The timestamp field represents the local or relative time at which the action occurred or was observed. </xs:documentation>
+				<xs:documentation>The timestamp field represents the local or relative time at which the action occurred or was observed. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="timestamp_precision" type="cyboxCommon:DateTimePrecisionEnum">
