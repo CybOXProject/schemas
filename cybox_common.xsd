@@ -1632,7 +1632,7 @@
 			</xs:element>
 			<xs:element name="Language" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Language field specifies the language the string is written in, e.g. English.</xs:documentation>
+					<xs:documentation>The Language field specifies the language the string is written in, e.g. English. For consistency, we strongly recommend using the ISO 639-2 language code, if available. Please see http://www.loc.gov/standards/iso639-2/php/code_list.php for a list of ISO 639-2 codes.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="English_Translation" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
