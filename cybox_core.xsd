@@ -341,6 +341,11 @@
 				<xs:documentation>The timestamp field represents the local or relative time at which the action occurred or was observed. </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="timestamp_precision" type="cyboxCommon:DateTimePrecisionEnum">
+			<xs:annotation>
+				<xs:documentation>Represents the precision of the associated timestamp value. If omitted, the default is "second", meaning the timestamp is precise to the full field value.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:simpleType name="ActionStatusTypeEnum">
 		<xs:annotation>

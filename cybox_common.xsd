@@ -172,12 +172,12 @@
 			<xs:documentation>The DateRangeType specifies a range of dates.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Start_Date" type="xs:date" minOccurs="0">
+			<xs:element name="Start_Date" type="cyboxCommon:DateWithPrecisionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This field contains the start date for this contributor's involvement. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="End_Date" type="xs:date" minOccurs="0">
+			<xs:element name="End_Date" type="cyboxCommon:DateWithPrecisionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This field contains the end date for this contributor's involvement. </xs:documentation>
 				</xs:annotation>
@@ -201,22 +201,22 @@
 			<xs:documentation>The TimeType specifies various time properties for this construct.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Start_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Start_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Start_Time field is optional and describes the starting time for this construct.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="End_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="End_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The End_Time field is optional and describes the ending time for this construct.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Produced_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Produced_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Produced_Time field is optional and describes the time that this construct was produced.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Received_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Received_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Received_Time field is optional and describes the time that this construct was received.</xs:documentation>
 				</xs:annotation>
@@ -560,7 +560,7 @@
 					<xs:documentation>This field describes the compilers utilized during this build of this application.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Compilation_Date" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Compilation_Date" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This field identifies the compilation date for the build of the tool.</xs:documentation>
 				</xs:annotation>
@@ -714,7 +714,7 @@
 					<xs:documentation>This field specifies the command line string used to run the tool.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Start_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Start_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This field specifies when the tool was run.</xs:documentation>
 				</xs:annotation>
@@ -2166,6 +2166,89 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
+	<!---->
+	<xs:complexType name="DateWithPrecisionType">
+		<xs:annotation>
+			<xs:documentation>This type is used as a replacement for the standard xs:date type but allows for the representation of the precision of the date. If the precision is given, consumers must ignore the portions of this field that is more precise than the given precision.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:date">
+				<xs:attribute name="precision" type="cyboxCommon:DatePrecisionEnum" default="day">
+					<xs:annotation>
+						<xs:documentation>The precision of the associated date. If omitted, the default is "day", meaning the full field value.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!---->
+	<xs:complexType name="DateTimeWithPrecisionType">
+		<xs:annotation>
+			<xs:documentation>This type is used as a replacement for the standard xs:dateTime type but allows for the representation of the precision of the dateTime. If the precision is given, consumers must ignore the portions of this field that is more precise than the given precision.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:dateTime">
+				<xs:attribute name="precision" type="cyboxCommon:DateTimePrecisionEnum" default="second">
+					<xs:annotation>
+						<xs:documentation>The precision of the associated dateTime. If omitted, the default is "second", meaning the full field value (including fractional seconds).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!---->
+	<xs:simpleType name="DatePrecisionEnum">
+		<xs:annotation>
+			<xs:documentation>Possible values for representing date precision.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="year">
+				<xs:annotation>
+					<xs:documentation>Date is precise to the given year.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="month">
+				<xs:annotation>
+					<xs:documentation>Date is precise to the given month.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="day">
+				<xs:annotation>
+					<xs:documentation>Date is precise to the given day.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!---->
+	<xs:simpleType name="TimePrecisionEnum">
+		<xs:annotation>
+			<xs:documentation>Possible values for representing time precision.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="hour">
+				<xs:annotation>
+					<xs:documentation>DateTime is precise to the given hour.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="minute">
+				<xs:annotation>
+					<xs:documentation>DateTime is precise to the given minute.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="second">
+				<xs:annotation>
+					<xs:documentation>DateTime is precise to the given second (including fractional seconds).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!---->
+	<xs:simpleType name="DateTimePrecisionEnum">
+		<xs:annotation>
+			<xs:documentation>Possible values for representing time precision.</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="cyboxCommon:DatePrecisionEnum cyboxCommon:TimePrecisionEnum" />
+	</xs:simpleType>
 	<!---->
 	<xs:complexType name="SIDType">
 		<xs:annotation>
