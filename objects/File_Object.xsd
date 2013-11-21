@@ -242,7 +242,7 @@
 			<xs:documentation>Specifies an entry-point jump code used by a packer.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="Depth" type="cyboxCommon:IntegerObjectPropertyType"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="Depth" type="cyboxCommon:IntegerObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The frequency that a jump instruction is found to be immediately followed by another jump instruction within the PE(Portable Executable) entry point.</xs:documentation>
 				</xs:annotation>
