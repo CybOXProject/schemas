@@ -86,9 +86,14 @@
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism, specify a vocabulary name and reference using the attributes, or simply use this as a string field.</xs:documentation>	
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Password" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+			<xs:element name="Authentication_Token" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Password field specifies the password for this account.</xs:documentation>
+					<xs:documentation>The Authentication_Token field specifies the token required to authentication this account. Examples include a password or an encryption key.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Token_PIN" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Token_PIN field specifies a PIN that may be associated with the Authentication_Token field value or used to "unlock" the value stored within Authentication_Token. For example, the Token_PIN may be a key used to decrypt a private key stored within the Authentication_Token field, or a PIN used to unlock a smart card.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Structured_Authentication_Mechanism" minOccurs="0" type="AccountObj:StructuredAuthenticationMechanismType">
