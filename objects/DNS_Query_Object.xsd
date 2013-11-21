@@ -74,7 +74,7 @@
 			<xs:documentation>The DNSQuestionType specifies the components of a DNS Question, including the domain name queried, type, and class.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="QName" type="URIObj:URIObjectType">
+			<xs:element name="QName" type="URIObj:URIObjectType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The QName field specifies the domain name being queried.</xs:documentation>
 				</xs:annotation>

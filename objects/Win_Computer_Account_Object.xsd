@@ -76,7 +76,7 @@
 			<xs:documentation>The KerberosType type specifies the Kerberos authentication protocol specific Object properties for the Windows computer account.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Delegation" type="WinComputerAccountObj:KerberosDelegationType">
+			<xs:element name="Delegation" type="WinComputerAccountObj:KerberosDelegationType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Delegation field specifies the Kerberos delegation used for the Windows computer account.</xs:documentation>
 				</xs:annotation>
@@ -93,12 +93,12 @@
 			<xs:documentation>The Delegation field specifies the Kerberos delegation used for the Windows computer account.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Bitmask" type="cyboxCommon:HexBinaryObjectPropertyType">
+			<xs:element name="Bitmask" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Bitmask field specifies the bitmask used in the Kerberos delegation for the Windows computer account.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Service" type="WinComputerAccountObj:KerberosServiceType">
+			<xs:element name="Service" type="WinComputerAccountObj:KerberosServiceType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Service field specifies the properties of the Kerberos delegation service for the Windows computer account.</xs:documentation>
 				</xs:annotation>

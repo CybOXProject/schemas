@@ -48,7 +48,7 @@
 							<xs:documentation>The EVR field specifies the epoch, version, and release fields of the package as a single version string.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="1" maxOccurs="1">
+					<xs:element name="Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Name field specifies the name of the package.</xs:documentation>
 						</xs:annotation>

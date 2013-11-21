@@ -38,7 +38,7 @@
 							<xs:documentation>The Max_Uses field specifies the maximum number of concurrent connections to the network share.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Netname" type="cyboxCommon:StringObjectPropertyType" minOccurs="1">
+					<xs:element name="Netname" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Netname field specifies the network name of the network share.</xs:documentation>
 						</xs:annotation>

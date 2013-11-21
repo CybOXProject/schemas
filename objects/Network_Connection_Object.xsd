@@ -48,7 +48,7 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="Source_Socket_Address" type="SocketAddressObj:SocketAddressObjectType">
 						<xs:annotation>
-							<xs:documentation>The Source_Socket_Address field specifies the source socket address, consisting of an IP Address and port number, used in the connection.</xs:documentation>
+							<xs:documentation>The Source_Socket_Address field specifies the source socket address, consisting of an IP Address and port number, used in the connection. Both the IP Address and port number are optional, so any combination of the two may be used when specifying the source socket address.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element maxOccurs="1" minOccurs="0" name="Source_TCP_State" type="NetworkConnectionObj:TCPStateEnum">
@@ -58,7 +58,7 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="Destination_Socket_Address" type="SocketAddressObj:SocketAddressObjectType">
 						<xs:annotation>
-							<xs:documentation>The Destination_Socket_Address field specifies the destination socket address, consisting of an IP Address and port number, used in the connection.</xs:documentation>
+							<xs:documentation>The Destination_Socket_Address field specifies the destination socket address, consisting of an IP Address and port number, used in the connection. Both the IP Address and port number are optional, so any combination of the two may be used when specifying the destination socket address.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element maxOccurs="1" minOccurs="0" name="Destination_TCP_State" type="NetworkConnectionObj:TCPStateEnum">
