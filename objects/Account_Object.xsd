@@ -98,6 +98,19 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="StructuredAuthenticationMechanismType">
+		<xs:annotation>
+			<xs:documentation>Characterizes the description of an authentication mechanism, such as biometrics-based authentication.</xs:documentation>	
+			<xs:documentation>In addition to capturing basic information, this type is intended to be extended to enable the structured description of an authentication mechanism using the XML Schema extension feature. No extension is provided by CybOX to support this, however those wishing to represent structured authentication mechanism information may develop such an extension.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Description field provides an unstructured description of an individual StructuredAuthenticationMechanismType instance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="AuthenticationTypeVocab-1.0">
 		<xs:annotation>
 			<xs:documentation>The AuthenticationTypeVocab is the default CybOX vocabulary for authentication types, used in the AuthenticationType/Authentication_Type found in the Account Object schema.</xs:documentation>
@@ -111,19 +124,6 @@
 				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/objects/Account/2.1/Account_Object.xsd#AuthenticationTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
-	</xs:complexType>
-	<xs:complexType name="StructuredAuthenticationMechanismType">
-		<xs:annotation>
-			<xs:documentation>Characterizes the description of an authentication mechanism, such as biometrics-based authentication.</xs:documentation>	
-			<xs:documentation>In addition to capturing basic information, this type is intended to be extended to enable the structured description of an authentication mechanism using the XML Schema extension feature. No extension is provided by CybOX to support this, however those wishing to represent structured authentication mechanism information may develop such an extension.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The Description field provides an unstructured description of an individual StructuredAuthenticationMechanismType instance.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="AuthenticationTypeEnum-1.0">
 		<xs:annotation>
