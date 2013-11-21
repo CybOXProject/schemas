@@ -38,7 +38,7 @@
 			<xs:documentation>The DNSCacheEntryType type is intended to characterize a single entry in a system's DNS cache.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="DNS_Entry" type="DNSRecordObj:DNSRecordObjectType">
+			<xs:element name="DNS_Entry" type="DNSRecordObj:DNSRecordObjectType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The DNS_Entry field specifies the relevant DNS entry (including Domain Name and IP Address) for this DNS Cache Entry.</xs:documentation>
 				</xs:annotation>
