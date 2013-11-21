@@ -300,7 +300,7 @@
 					<xs:documentation>The X-Requested-With field specifies the non-standard HTTP Request X-Requested-With field, which is typically used to identify Ajax requests.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="X_Requested_For" type="cyboxCommon:StringObjectPropertyType">
+			<xs:element minOccurs="0" name="X_Forwarded_For" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The X-Forwarded-For field specifies the non-standard HTTP Request X-Forwarded-For field, which is typically used to identify the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer.</xs:documentation>
 				</xs:annotation>
