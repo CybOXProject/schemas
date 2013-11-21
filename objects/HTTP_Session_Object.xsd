@@ -449,7 +449,7 @@
 					<xs:documentation>The Proxy-Authenticate field specifies the HTTP Response Proxy-Authenticate header field, which defines the type of authentication necessary to access the proxy.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Refresh" type="cyboxCommon:IntegerObjectPropertyType">
+			<xs:element minOccurs="0" name="Refresh" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The Refresh field specifies the HTTP Response Refresh header field, which specifies a given interval, in seconds, after which the current page should be refreshed.</xs:documentation>
 				</xs:annotation>
