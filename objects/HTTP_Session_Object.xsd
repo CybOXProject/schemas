@@ -305,6 +305,11 @@
 					<xs:documentation>The X-Forwarded-For field specifies the non-standard HTTP Request X-Forwarded-For field, which is typically used to identify the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="X_Forwarded_Proto" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The X-Forwarded-Proto field specifies the non-standard HTTP Response X-Forwarded-Proto field, which identifies the originating protocol of an HTTP request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="X_ATT_DeviceId" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The X-ATT-DeviceId field specifies the non-standard HTTP Request X-ATT-DeviceId field, which is typically used to identify the make, model, and firmware of AT&amp;T devices.</xs:documentation>
@@ -517,11 +522,6 @@
 			<xs:element minOccurs="0" name="X_Content_Type_Options" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The X-Content-Type-Options field specifies the non-standard HTTP Response X-Content-Type-Options field, which supports the 'nosniff' parameter to prevent the MIME-sniffing of a response away from the declared content type.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="X_Forwarded_Proto" type="cyboxCommon:StringObjectPropertyType">
-				<xs:annotation>
-					<xs:documentation>The X-Forwarded-Proto field specifies the non-standard HTTP Response X-Forwarded-Proto field, which identifies the originating protocol of an HTTP request.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="X_Powered_By" type="cyboxCommon:StringObjectPropertyType">
