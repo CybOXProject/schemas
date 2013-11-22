@@ -3941,6 +3941,11 @@
 					<xs:documentation>Specifies that the related object describes the properties of this object. This is most applicable in cases where the related object is a non-Artifact Object and this object is an Artifact Object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Redirects_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object redirects to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="ObjectStateVocab-1.0">
