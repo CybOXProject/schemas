@@ -3260,6 +3260,7 @@
 	<xs:complexType name="ObjectRelationshipVocab-1.0">
 		<xs:annotation>
 			<xs:documentation>The ObjectRelationshipVocab is the default CybOX vocabulary for Object-Object relationships, captured via the RelatedObjectType/Relationship element in CybOX Core.</xs:documentation>
+			<xs:documentation>NOTE: As of CybOX Version 2.1, this version of the ObjectRelationshipVocab is deprecated. Please use ObjectRelationshipVocab-1.1 instead.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -3939,6 +3940,707 @@
 			<xs:enumeration value="Characterized_By">
 				<xs:annotation>
 					<xs:documentation>Specifies that the related object describes the properties of this object. This is most applicable in cases where the related object is a non-Artifact Object and this object is an Artifact Object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ObjectRelationshipVocab-1.1">
+		<xs:annotation>
+			<xs:documentation>The ObjectRelationshipVocab is the default CybOX vocabulary for Object-Object relationships, captured via the RelatedObjectType/Relationship element in CybOX Core.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxVocabs:ObjectRelationshipEnum-1.1"/>
+				</xs:simpleType>
+				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Object-Object Relationships"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ObjectRelationshipVocab-1.1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ObjectRelationshipEnum-1.1">
+		<xs:annotation>
+			<xs:documentation>ObjectRelationshipEnum is a (non-exhaustive) enumeration of inter-object relationships.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Created">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object created the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Created_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was created by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Deleted">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object deleted the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Deleted_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was deleted by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modified_Properties_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object modified the properties of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Properties_Modified_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that the properties of this object were modified by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was read from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read_From_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was read from by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Wrote_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object wrote to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Written_To_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was written to by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Downloaded_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was downloaded from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Downloaded_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object downloaded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Downloaded">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object downloaded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Downloaded_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was downloaded by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uploaded">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object uploaded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uploaded_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was uploaded by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uploaded_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was uploaded to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Received_Via_Upload">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object received the related object via upload.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uploaded_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was uploaded from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sent_Via_Upload">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object sent the related object via upload.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Suspended">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object suspended the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Suspended_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was suspended by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Paused">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object paused the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Paused_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was paused by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Resumed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object resumed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Resumed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was resumed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Opened">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object opened the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Opened_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was opened by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Closed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object closed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Closed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was closed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copied_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was copied from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copied_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was copied to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copied">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object copied the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copied_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was copied by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Moved_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was moved from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Moved_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was moved to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Moved">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object moved the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Moved_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was moved by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Searched_For">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object searched for the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Searched_For_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was searched for by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Allocated">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object allocated the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Allocated_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was allocated by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Initialized_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was initialized to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Initialized_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was initialized by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sent">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object sent the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sent_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was sent by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sent_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was sent to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Received_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was received from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Received">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object received the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Received_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was received by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Mapped_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was mapped into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Mapped_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was mapped by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Properties_Queried">
+				<xs:annotation>
+					<xs:documentation>Specifies that the object queried properties of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Properties_Queried_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that the properties of this object were queried by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Values_Enumerated">
+				<xs:annotation>
+					<xs:documentation>Specifies that the object enumerated values of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Values_Enumerated_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that the values of the object were enumerated by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bound">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object bound the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bound_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was bound by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Freed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object freed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Freed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was freed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Killed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object killed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Killed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was killed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encrypted">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object encrypted the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encrypted_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was encrypted by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encrypted_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was encrypted to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encrypted_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was encrypted from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decrypted">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object decrypted the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decrypted_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was decrypted by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object packed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was packed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unpacked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object unpacked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unpacked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was unpacked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packed_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was packed from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packed_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was packed into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encoded">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object encoded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encoded_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was encoded by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decoded">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object decoded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decoded_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was decoded by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Compressed_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was compressed from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Compressed_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was compressed into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Compressed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object compressed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Compressed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was compressed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decompressed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object decompressed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decompressed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was decompressed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Joined">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object joined the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Joined_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was joined by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Merged">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object merged the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Merged_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was merged by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Locked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object locked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Locked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was locked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unlocked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object unlocked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unlocked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was unlocked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Hooked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object hooked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Hooked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was hooked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unhooked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object unhooked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unhooked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was unhooked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Monitored">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object monitored the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Monitored_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was monitored by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Listened_On">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object listened on the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Listened_On_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was listened on by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Renamed_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was renamed from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Renamed_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was renamed to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Renamed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object renamed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Renamed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was renamed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Injected_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object injected into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Injected_As">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object injected as the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Injected">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object injected the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Injected_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was injected by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Deleted_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was deleted from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Previously_Contained">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object previously contained the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Loaded_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object loaded into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Loaded_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was loaded from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was set to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was set from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Resolved_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was resolved to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Related_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is related to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dropped">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object dropped the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dropped_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was dropped by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Contains">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object contains the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Contained_Within">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is contained within the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Extracted_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was extracted from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Installed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object installed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Installed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was installed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connected_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object connected to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connected_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was connected to from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sub-domain_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is a sub-domain of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Supra-domain_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is a supra-domain of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Root_Domain_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is the root domain of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FQDN_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is an FQDN of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Parent_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is a parent of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Child_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is a child of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Characterizes">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object describes the properties of the related object. This is most applicable in cases where the related object is an Artifact Object and this object is a non-Artifact Object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Characterized_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that the related object describes the properties of this object. This is most applicable in cases where the related object is a non-Artifact Object and this object is an Artifact Object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Used">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object used the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Used_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was used by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Redirects_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object redirects to the related object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
