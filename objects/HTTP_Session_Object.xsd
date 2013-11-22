@@ -489,7 +489,7 @@
 					<xs:documentation>The Transfer-Encoding field specifies the HTTP Response Transfer-Encoding field, which defines the form of encoding used to safely transfer the entity to the user.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Vary" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="Vary" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The Vary field specifies the HTTP Response Vary field, which informs downstream proxies on how to match future request headers to decide whether the cached response can be used rather than requested a fresh one from the origin server.</xs:documentation>
 				</xs:annotation>
