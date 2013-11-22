@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:SMSMessageObj="http://cybox.mitre.org/objects#SMSMessageObject-1" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#SMSMessageObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0">
+	<xs:annotation>
+		<xs:appinfo>
+			<schema>SMS_Message_Object</schema>
+			<version>1.0.0</version>
+			<date>11/22/2013 9:00:00 AM</date>
+			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
+			<terms_of_use>Copyright (c) 2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:element name="SMS_Message" type="SMSMessageObj:SMSMessageObjectType">
+		<xs:annotation>
+			<xs:documentation>The SMS_Message object is intended to characterize Short Message Service (SMS) messages.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SMSMessageObjectType">
+		<xs:annotation>
+			<xs:documentation>The SMSMessageObjectType is intended to characterize Short Message Service (SMS) messages.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="cyboxCommon:ObjectPropertiesType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Sender_Phone_Number" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Sender_Phone_Number field specifies the phone number of the sender of the SMS message.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Recipient_Phone_Number" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Sender_Phone_Number field specifies the phone number of the recipient of the SMS message.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Subject" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Subject field specifies the subject of the SMS message.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Body" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Body field specifies the body of the SMS message.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Timestamp" type="cyboxCommon:DateTimeObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Timestamp element specifies the date/time at which the SMS message was sent.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
