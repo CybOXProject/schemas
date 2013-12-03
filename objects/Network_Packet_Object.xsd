@@ -2804,7 +2804,7 @@
 					<xs:documentation>This unsigned 32-bit field contains a monotonically increasing counter value (sequence number). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Authenication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+			<xs:element name="Authentication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This is a variable-length field that contains the Integrity Check Value (ICV) for this packet. The field must be an integer multiple of 32 bits in length.</xs:documentation>
 				</xs:annotation>
@@ -2846,7 +2846,7 @@
 					<xs:documentation>Identifies the type data contained in the payload data field. Uses the same values as the IPv4 Protocol field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Authenication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+			<xs:element name="Authentication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Authentication Data is a variable-length field containing an Integrity Check Value (ICV) computed over the ESP packet minus the Authentication Data. http://www.ietf.org/rfc/rfc2406.txt</xs:documentation>
 				</xs:annotation>
