@@ -1088,7 +1088,7 @@
 			<xs:documentation>The IPv6 header is a simplification of the IPv4 header. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IP_Version" type="PacketObj:IPVersionTypeEnum" fixed="IPv6(6)" minOccurs="0" maxOccurs="1">
+			<xs:element name="IP_Version" type="PacketObj:IPVersionType" fixed="IPv6(6)" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>4-bit Internet Protocol version number =6.</xs:documentation>
 				</xs:annotation>
