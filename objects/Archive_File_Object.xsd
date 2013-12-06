@@ -5,7 +5,7 @@
         <xs:appinfo>
             <schema>Archive_File_Object</schema>
             <version>1.0.0</version>
-            <date>12/04/2013 9:00:00 AM</date>
+            <date>12/05/2013 9:00:00 AM</date>
             <short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
             <terms_of_use>Copyright (c) 2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
         </xs:appinfo>
@@ -24,61 +24,37 @@
         <xs:complexContent>
             <xs:extension base="FileObj:FileObjectType">
                 <xs:sequence minOccurs="1">
-                    <xs:element minOccurs="0" name="Archive_Version" type="cyboxCommon:StringObjectPropertyType">
+                    <xs:element minOccurs="0" name="Type" type="ArchiveFileObj:ArchiveFileFormatType">
+                        <xs:annotation>
+                            <xs:documentation>Method used to create the archive (e.g. ZIP, RAR, TAR).</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Version" type="cyboxCommon:StringObjectPropertyType">
                         <xs:annotation>
                             <xs:documentation>Version of archive type used to create archive file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" name="Archive_File_Count" type="cyboxCommon:IntegerObjectPropertyType">
+                    <xs:element minOccurs="0" name="File_Count" type="cyboxCommon:IntegerObjectPropertyType">
                         <xs:annotation>
                             <xs:documentation>Number of files contained within the archive.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" name="Archive_Type" type="ArchiveFileObj:ArchiveFileFormatType">
+                    <xs:element minOccurs="0" name="Encryption_Algorithm" type="cyboxCommon:StringObjectPropertyType">
                         <xs:annotation>
-                            <xs:documentation>Method used to create the archive.</xs:documentation>
+                            <xs:documentation>Encryption algorithm used to encrypt archive file.  Note: For individual files within an archive that are themselves encrypted, the specifics of that encryption are defined in the FileObject for that file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" name="Archive_Encryption_Algorithm" type="cyboxCommon:StringObjectPropertyType">
-                        <xs:annotation>
-                            <xs:documentation>Encryption algorithm used to encrypt archive file.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element minOccurs="0" name="Archive_Comment" type="cyboxCommon:StringObjectPropertyType">
+                    <xs:element minOccurs="0" name="Comment" type="cyboxCommon:StringObjectPropertyType">
                         <xs:annotation>
                             <xs:documentation>Comment strings associated with archive file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>                    
-                    <xs:element minOccurs="0" name="Archived_File" type="ArchiveFileObj:ArchivedFileType">
+                    <xs:element minOccurs="0" name="Archived_File" type="FileObj:FileObjectType">
                         <xs:annotation>
-                            <xs:documentation>Enumerate files contained within the archive.</xs:documentation>
+                            <xs:documentation>FileObject definitions for the individual files contained within the archive.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="ArchivedFileType">
-        <xs:annotation>
-            <xs:documentation>Categorize files contained within an archive.</xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-            <xs:extension base="FileObj:FileObjectType">
-                <xs:element minOccurs="0" name="Archived_Encryption_Algorithm" type="cyboxCommon:StringObjectPropertyType">
-                    <xs:annotation>
-                        <xs:documentation>Encryption algorithm used to encrypt archived file.</xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element minOccurs="0" name="Archived_Compression_Algorithm" type="cyboxCommon:StringObjectPropertyType">
-                    <xs:annotation>
-                        <xs:documentation>Compression algorithm used to compress archived file.</xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element minOccurs="0" name="Archived_Comment" type="cyboxCommon:StringObjectPropertyType">
-                    <xs:annotation>
-                        <xs:documentation>Comment strings associated with archived file.</xs:documentation>
-                    </xs:annotation>
-                </xs:element>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -111,14 +87,14 @@
                             <xs:documentation>Specifies the .rar file format</xs:documentation>
                         </xs:annotation>
                     </xs:enumeration>
-                    <xs:enumeration value="GZIP">
+                    <xs:enumeration value="ISO">
                         <xs:annotation>
-                            <xs:documentation>Specifies the .gz file format</xs:documentation>
+                            <xs:documentation>Specifies the .iso file format</xs:documentation>
                         </xs:annotation>
                     </xs:enumeration>
-                    <xs:enumeration value="BZIP2">
+                    <xs:enumeration value="CAB">
                         <xs:annotation>
-                            <xs:documentation>Specifies the .bz2 file format</xs:documentation>
+                            <xs:documentation>Specifies the .cab file format</xs:documentation>
                         </xs:annotation>
                     </xs:enumeration>
                     <xs:enumeration value="TAR">
