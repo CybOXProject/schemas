@@ -48,6 +48,16 @@
 							<xs:documentation>The Serial_Number field specifies the serial number of the Device.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="Firmware_Version" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Firmware_Version field specifies the version of the firmware running on the device.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Local_System" minOccurs="0" maxOccurs="unbounded" type="cyboxCommon:ObjectPropertiesType">
+						<xs:annotation>
+							<xs:documentation>The Local_System field captures the details of a system that is present on the device. It uses the ObjectProperties type from CybOX Common to allow for the usage of various object for representing the system. For example, the WindowsSystemObjectType from the CybOX Windows System Object could be plugged in to define the properties of a Windows system running on the device.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
