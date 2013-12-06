@@ -242,7 +242,7 @@
 	</xs:complexType>
 	<xs:complexType name="ToolInformationType">
 		<xs:annotation>
-			<xs:documentation>The ToolInformationType represents a description of a single automated tool.</xs:documentation>
+			<xs:documentation>The ToolInformationType is intended to characterize the properties of a tool, including those related to instances of its use.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string" minOccurs="0">
