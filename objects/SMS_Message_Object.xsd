@@ -32,6 +32,11 @@
 							<xs:documentation>The Recipient_Phone_Number field specifies the phone number of the recipient of the SMS message.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element minOccurs="0" name="Sent_DateTime" type="cyboxCommon:DateTimeObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Sent_DateTime field specifies the date/time at which the SMS message was sent.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element minOccurs="0" name="Subject" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
 							<xs:documentation>The Subject field specifies the subject of the SMS message.</xs:documentation>
@@ -42,9 +47,24 @@
 							<xs:documentation>The Body field specifies the body of the SMS message.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Timestamp" type="cyboxCommon:DateTimeObjectPropertyType">
+					<xs:element minOccurs="0" name="Length" type="cyboxCommon:IntegerObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The Timestamp element specifies the date/time at which the SMS message was sent.</xs:documentation>
+							<xs:documentation>The Length field specifies the length of the SMS message, in characters.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Size" type="cyboxCommon:IntegerObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Size field specifies the length of the SMS message, in bits.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Alphabet" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Alphabet field specifies the name of the character encoding used in the SMS message.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Bits_Per_Character" type="cyboxCommon:PositiveIntegerObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Bits_Per_Character field specifies the number of bits used to express each character in the SMS message.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
