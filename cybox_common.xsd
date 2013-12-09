@@ -45,6 +45,17 @@
 					<xs:documentation>The Time field is optional and enables description of various time-related properties for this cyber observation source instance.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Location" type="cyboxCommon:LocationAbstractType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						The Location field specifies a relevant physical location.
+
+						This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.
+				
+						Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Tools" type="cyboxCommon:ToolsInformationType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Tools field is optional and enables description of the tools utilized for this cyber observation source.</xs:documentation>
