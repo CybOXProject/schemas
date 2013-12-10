@@ -530,6 +530,11 @@
 					<xs:documentation>Specifies the Extensible Messaging and Presence Protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Modbus">
+				<xs:annotation>
+					<xs:documentation>Specifies the Modbus Protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
