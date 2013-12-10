@@ -37,11 +37,6 @@
 							<xs:documentation>The Sent_DateTime field specifies the date/time at which the SMS message was sent.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Subject" type="cyboxCommon:StringObjectPropertyType">
-						<xs:annotation>
-							<xs:documentation>The Subject field specifies the subject of the SMS message.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element minOccurs="0" name="Body" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
 							<xs:documentation>The Body field specifies the body of the SMS message.</xs:documentation>
