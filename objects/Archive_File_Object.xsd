@@ -26,32 +26,32 @@
                 <xs:sequence minOccurs="1">
                     <xs:element minOccurs="0" name="Type" type="ArchiveFileObj:ArchiveFileFormatType">
                         <xs:annotation>
-                            <xs:documentation>Method used to create the archive (e.g. ZIP, RAR, TAR).</xs:documentation>
+                            <xs:documentation>The Type field specifies the method used to create the archive (e.g. ZIP, RAR, TAR).</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element minOccurs="0" name="Version" type="cyboxCommon:StringObjectPropertyType">
                         <xs:annotation>
-                            <xs:documentation>Version of archive type used to create archive file.</xs:documentation>
+                            <xs:documentation>The Version field specifies the archive type used to create archive file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element minOccurs="0" name="File_Count" type="cyboxCommon:IntegerObjectPropertyType">
                         <xs:annotation>
-                            <xs:documentation>Number of files contained within the archive.</xs:documentation>
+                            <xs:documentation>The File_Count field specifies the number of files contained within the archive.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element minOccurs="0" name="Encryption_Algorithm" type="cyboxCommon:StringObjectPropertyType">
                         <xs:annotation>
-                            <xs:documentation>Encryption algorithm used to encrypt archive file.  Note: For individual files within an archive that are themselves encrypted, the specifics of that encryption are defined in the FileObject for that file.</xs:documentation>
+                            <xs:documentation>The Encryption_Algorithm field specifies the algorithm used to encrypt an archive file.  Note: For individual files within an archive that are themselves encrypted, the specifics of that encryption are found in the FileObject definition for that file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element minOccurs="0" name="Comment" type="cyboxCommon:StringObjectPropertyType">
                         <xs:annotation>
-                            <xs:documentation>Comment strings associated with archive file.</xs:documentation>
+                            <xs:documentation>The Comment field specifies the comment information associated with archive file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>                    
-                    <xs:element minOccurs="0" name="Archived_File" type="FileObj:FileObjectType">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Archived_File" type="FileObj:FileObjectType">
                         <xs:annotation>
-                            <xs:documentation>FileObject definitions for the individual files contained within the archive.</xs:documentation>
+                            <xs:documentation>The Archived_File field specifies the FileObject definitions for the individual files contained within the archive.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
@@ -77,34 +77,49 @@
         <xs:list>
             <xs:simpleType>
                 <xs:restriction base="xs:string">
-                    <xs:enumeration value="ZIP">
+                    <xs:enumeration value="7-ZIP">
                         <xs:annotation>
-                            <xs:documentation>Specifies the .zip and .zipx file format</xs:documentation>
+                            <xs:documentation>Specifies the open source 7-zip file format (.7z)</xs:documentation>
                         </xs:annotation>
                     </xs:enumeration>
-                    <xs:enumeration value="RAR">
+                    <xs:enumeration value="APK">
                         <xs:annotation>
-                            <xs:documentation>Specifies the .rar file format</xs:documentation>
-                        </xs:annotation>
-                    </xs:enumeration>
-                    <xs:enumeration value="ISO">
-                        <xs:annotation>
-                            <xs:documentation>Specifies the .iso file format</xs:documentation>
+                            <xs:documentation>Specifies the Android application package format (.apk)</xs:documentation>
                         </xs:annotation>
                     </xs:enumeration>
                     <xs:enumeration value="CAB">
                         <xs:annotation>
-                            <xs:documentation>Specifies the .cab file format</xs:documentation>
+                            <xs:documentation>Specifies the Microsoft native archive format (.cab)</xs:documentation>
                         </xs:annotation>
                     </xs:enumeration>
-                    <xs:enumeration value="TAR">
+                    <xs:enumeration value="DMG">
                         <xs:annotation>
-                            <xs:documentation>Specifies the .tar file format</xs:documentation>
+                            <xs:documentation>Specifies the Apple disk image format (.dmg)</xs:documentation>
                         </xs:annotation>
                     </xs:enumeration>
-                    <xs:enumeration value="7-ZIP">
+                    <xs:enumeration value="JAR">
                         <xs:annotation>
-                            <xs:documentation>Specifies the .7z file format</xs:documentation>
+                            <xs:documentation>Specifies the Java archive format (.jar)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="RAR">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the RAR file format (.rar)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SIT">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the StuffIt file format (.sit, .sitx)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="TGZ">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the compressed TAR file format (.tar.gz, .tgz, .tar.Z, .tar.bz2)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="ZIP">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the PKZip file format (.zip, .zipx)</xs:documentation>
                         </xs:annotation>
                     </xs:enumeration>
                 </xs:restriction>
