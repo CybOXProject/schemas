@@ -33,7 +33,7 @@
 							<xs:documentation>The Domain field is used for specifying the domain that the account belongs to.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Authentication" type="AccountObj:AuthenticationType" minOccurs="0">
+					<xs:element name="Authentication" type="AccountObj:AuthenticationType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>The Authentication field specifies authentication information associated with this account.</xs:documentation>
 						</xs:annotation>
@@ -79,21 +79,16 @@
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism, specify a vocabulary name and reference using the attributes, or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Authentication_Data" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Authentication_Data field specifies the data used for the authentication type specified by the Authentication_Type field. For example, if Authentication_Type is set to "Password", this would be the actual password value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Authentication_Token_Protection_Mechanism" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Authentication_Token_Protection_Mechanism field specifies the method of protecting authentication tokens for this account.</xs:documentation>
+					<xs:documentation>The Authentication_Token_Protection_Mechanism field specifies the method (typically algorithm) of protecting authentication tokens for this account.</xs:documentation>
 					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is AuthenticationTokenProtectionMechanismTypeVocab-1.0 in the http://cybox.mitre.org/objects#AccountObject-2 namespace.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism, specify a vocabulary name and reference using the attributes, or simply use this as a string field.</xs:documentation>	
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Password" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The Password field specifies the password for an account.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Token_PIN" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The Token_PIN field specifies a PIN that may be associated with or used to unlock a hardware authentication token. For example, a smart card PIN.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Structured_Authentication_Mechanism" minOccurs="0" type="AccountObj:StructuredAuthenticationMechanismType">
@@ -155,9 +150,14 @@
 					<xs:documentation>The Biometrics value specifies biometrics based authentication. Examples include fingerprint or retina readers.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Physical Token">
+			<xs:enumeration value="Hardware Token">
 				<xs:annotation>
-					<xs:documentation>The Physical Token value specifies authentication requiring physical or hardware tokens. Examples include smart cards, bluetooth tokens, and usb tokens.</xs:documentation>
+					<xs:documentation>The Hardware Token value specifies authentication requiring physical or hardware tokens. Examples include smart cards, bluetooth tokens, and usb tokens.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Software Token">
+				<xs:annotation>
+					<xs:documentation>The Software Token value specifies an authentication device stored in software form.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Multifactor">
@@ -182,35 +182,320 @@
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:simpleType name="AuthenticationTokenProtectionMechanismTypeEnum-1.0">
-		<xs:annotation>
-			<xs:documentation>The AuthenticationTokenProtectionMechanismTypeEnum is a (non-exhaustive) enumeration of methods for the protection of authentication tokens.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Plaintext">
-				<xs:annotation>
-					<xs:documentation>The Plaintext value denotes that the authentication tokens are stored as plaintext.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Hashed">
-				<xs:annotation>
-					<xs:documentation>The Hashed value denotes that the stored authentication tokens have been hashed once, but not salted.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Salted Hash">
-				<xs:annotation>
-					<xs:documentation>The Salted Hash value denotes that the stored authentication tokens have been hashed with a salt.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Iterative Hash">
-				<xs:annotation>
-					<xs:documentation>The Iterative Hash value denotes that the stored authentication tokens have been hashed using an iterative hashing algorithm.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Encrypted">
-				<xs:annotation>
-					<xs:documentation>The Encrypted value denotes that the stored authentication tokens have been encrypted and thus, can be decrypted.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
+    	<xs:annotation>
+        	<xs:documentation>The AuthenticationTokenProtectionMechanismTypeEnum is a (non-exhaustive) enumeration of methods for the protection of authentication tokens.</xs:documentation>
+    	</xs:annotation>
+	    <xs:restriction base="xs:string">
+	        <xs:enumeration value="Plaintext">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens are stored in plaintext.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted GOST Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the GOST hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted GOST Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the GOST hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted HAVAL Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the HAVAL hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted HAVAL Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the HAVAL hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted MD2 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the MD2 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted MD2 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the MD2 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted MD4 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the MD4 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted MD4 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the MD4 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted MD5 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the MD5 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted MD5 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the MD5 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted PANAMA Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the PANAMA hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted PANAMA Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the PANAMA hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted RadioGatun Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the RadioGatun hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted RadioGatun Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the RadioGatun hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted RIPEMD Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the RIPEMD hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted RIPEMD Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the RIPEMD hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted RIPEMD-128/256 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the RIPEMD-128/256 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted RIPEMD-128/256 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the RIPEMD-128/256 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted RIPEMD-160 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the RIPEMD-160 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted RIPEMD-160 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the RIPEMD-160 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted RIPEMD-320 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the RIPEMD-320 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted RIPEMD-320 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the RIPEMD-320 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted SHA-0 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the SHA-0 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted SHA-0 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the SHA-0 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted SHA-1 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the SHA-1 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted SHA-1 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the SHA-1 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted SHA-256/224 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the SHA-256/224 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted SHA-256/224 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the SHA-256/224 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted SHA-512/384 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the SHA-512/384 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted SHA-512/384 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the SHA-512/384 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted SHA-3 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the SHA-3 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted SHA-3 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the SHA-3 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted SHA-3-224 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the SHA-3-224 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted SHA-3-224 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the SHA-3-224 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted SHA-3-256 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the SHA-3-256 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted SHA-3-256 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the SHA-3-256 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted SHA-3-384 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the SHA-3-384 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted SHA-3-384 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the SHA-3-384 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted SHA-3-512 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the SHA-3-512 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted SHA-3-512 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the SHA-3-512 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted Tiger(2)-192/160/128 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the Tiger(2)-192/160/128 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted Tiger(2)-192/160/128 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the Tiger(2)-192/160/128 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted WHIRLPOOL Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the WHIRLPOOL hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted WHIRLPOOL Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the WHIRLPOOL hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted Skein-256 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the Skein-256 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted Skein-256 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the Skein-256 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted Skein-512 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the Skein-512 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted Skein-512 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the Skein-512 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted Skein-1024 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the Skein-1024 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted Skein-1024 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the Skein-1024 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted Snefru-128 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the Snefru-128 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted Snefru-128 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the Snefru-128 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Salted Snefru-256 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been salted and hashed with the Snefru-256 hash algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Unsalted Snefru-256 Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed with the Snefru-256 hash algorithm, without salting.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Iterative Hash">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been hashed using an iterative hashing algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="AES">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been encrypted with the AES algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="Blowfish">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been encrypted with the Blowfish algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="DES">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been encrypted with the DES algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="IDEA">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been encrypted with the IDEA algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="RC4">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been encrypted with the RC4 algorithm.</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	        <xs:enumeration value="TEA">
+	            <xs:annotation>
+	                <xs:documentation>The authentication tokens have been encrypted with the Tiny Encryption Algorithm (TEA).</xs:documentation>
+	            </xs:annotation>
+	        </xs:enumeration>
+	    </xs:restriction>
 	</xs:simpleType>
 </xs:schema>
