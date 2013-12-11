@@ -65,7 +65,7 @@
 					</xs:element>
 					<xs:element name="Code_Segment" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Code_Segment field encompasses any arbitrary code segment in un-encoded (plaintext or binary) format. Code would typically be included here within a CDATA section.</xs:documentation>
+							<xs:documentation>The Code_Segment field encompasses any arbitrary code segment in unencoded (plaintext or binary) format. Code would typically be included here within a CDATA section.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Code_Segment_XOR" type="CodeObj:CodeSegmentXORType" form="qualified" minOccurs="0">
@@ -135,7 +135,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Binary_Code">
 				<xs:annotation>
-					<xs:documentation>The code represented is in the form of Binar Code</xs:documentation>
+					<xs:documentation>The code represented is in the form of binary code</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -174,7 +174,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Shellcode">
 				<xs:annotation>
-					<xs:documentation>The code represented is intended as shell code.</xs:documentation>
+					<xs:documentation>The code represented is intended as shellcode.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Exploit_Code">
@@ -189,7 +189,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Other">
 				<xs:annotation>
-					<xs:documentation>The code represented is intended for a purpose other than thos listed in this enumeration.</xs:documentation>
+					<xs:documentation>The code represented is intended for a purpose other than those listed in this enumeration.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -288,7 +288,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="PseudoCode">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written as psuedo code</xs:documentation>
+					<xs:documentation>Indicates the code is written as pseudo code</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value=".NET">

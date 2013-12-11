@@ -12,7 +12,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#AccountObject-2" schemaLocation="Account_Object.xsd"/>
-	<xs:element name="User_Account" type="UserAccountObj:UserAccountObjectType" nillable="true">
+	<xs:element name="User_Account" type="UserAccountObj:UserAccountObjectType">
 		<xs:annotation>
 			<xs:documentation>The User_Account object is intended to characterize generic user accounts.</xs:documentation>
 		</xs:annotation>
@@ -39,7 +39,7 @@
 							<xs:documentation>The Home_Directory field specifies the fully-qualified path to the home directory of the user account.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Last_Login" type="cyboxCommon:DateTimeObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Last_Login" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Last_Login field specifies the date/time that the user account was last logged into.</xs:documentation>
 						</xs:annotation>
@@ -57,6 +57,11 @@
 					<xs:element name="Username" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Username field specifies the particular username of the user account.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Password" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The Password field specifies the literal password of the user account</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="User_Password_Age" type="cyboxCommon:DurationObjectPropertyType" minOccurs="0" maxOccurs="1">

@@ -50,7 +50,7 @@
 					</xs:element>
 					<xs:element name="Version" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Version field speciifes the version of the product, if applicable.</xs:documentation>
+							<xs:documentation>The Version field specifies the version of the product, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>

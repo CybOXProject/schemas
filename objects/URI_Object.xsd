@@ -23,7 +23,7 @@
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element name="Value" type="cyboxCommon:AnyURIObjectPropertyType">
+					<xs:element name="Value" type="cyboxCommon:AnyURIObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Value field specifies the value of the URI.</xs:documentation>
 						</xs:annotation>

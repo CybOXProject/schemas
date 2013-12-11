@@ -16,7 +16,7 @@
 	<xs:import namespace="http://cybox.mitre.org/objects#SocketAddressObject-1" schemaLocation="Socket_Address_Object.xsd"/>
 	<xs:element name="Network_Flow_Object" type="NetFlowObj:NetworkFlowObjectType">
 		<xs:annotation>
-			<xs:documentation>The Network_Flow_Object object provides a summary of network traffic, expressed as flows of multiple packets instead of individual packets, without the packet payload data (i.e. the actual data that was uploaded/downloaded to and from the Dest IP to Source IP as included in ppaacket monitoring tools, such as Wireshark).</xs:documentation>
+			<xs:documentation>The Network_Flow_Object object provides a summary of network traffic, expressed as flows of multiple packets instead of individual packets, without the packet payload data (i.e. the actual data that was uploaded/downloaded to and from the Dest IP to Source IP as included in packet monitoring tools, such as Wireshark).</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="NetworkFlowObjectType">
@@ -54,12 +54,12 @@
 		<xs:sequence>
 			<xs:element name="Src_Socket_Address" type="SocketAddressObj:SocketAddressObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Represents the source IP socket addres, consisting of an IP address and port number, for the network flow expressed. Note that not all flow protocols support IPv6 addresses.</xs:documentation>
+					<xs:documentation>Represents the source IP socket address, consisting of an IP address and port number, for the network flow expressed. Note that not all flow protocols support IPv6 addresses.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Dest_Socket_Address" type="SocketAddressObj:SocketAddressObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Represents the destination IP socket addres, consisting of an IP address and port number, for the network flow expressed. Note that not all flow protocols support IPv6 addresses.</xs:documentation>
+					<xs:documentation>Represents the destination IP socket address, consisting of an IP address and port number, for the network flow expressed. Note that not all flow protocols support IPv6 addresses.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IP_Protocol" type="PacketObj:IANAAssignedIPNumbersType" minOccurs="0">
@@ -370,7 +370,7 @@
 	</xs:complexType>
 	<xs:complexType name="IPFIXOptionsTemplateRecordHeaderType">
 		<xs:annotation>
-			<xs:documentation>Defines the ehader of an options template record.</xs:documentation>
+			<xs:documentation>Defines the header of an options template record.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Template_ID" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -443,7 +443,7 @@
 	</xs:complexType>
 	<xs:complexType name="IPFIXDataRecordType">
 		<xs:annotation>
-			<xs:documentation>Data records are sent in data sets. A data record consists of only one more more Field values.</xs:documentation>
+			<xs:documentation>Data records are sent in data sets. A data record consists of only one more Field values.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Field_Value" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="unbounded">
@@ -455,7 +455,7 @@
 	</xs:complexType>
 	<xs:complexType name="NetflowV9ExportPacketType">
 		<xs:annotation>
-			<xs:documentation>Netflow v9 was developed by Cisco and provides acess to IP flow information. http://www.ietf.org/rfc/rfc3954.txt</xs:documentation>
+			<xs:documentation>Netflow v9 was developed by Cisco and provides access to IP flow information. http://www.ietf.org/rfc/rfc3954.txt</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Packet_Header" type="NetFlowObj:NetflowV9PacketHeaderType" minOccurs="0" maxOccurs="1">
@@ -466,7 +466,7 @@
 			<xs:sequence>
 				<xs:element name="Flow_Set" type="NetFlowObj:NetflowV9FlowSetType" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
-						<xs:documentation>Specifies a FlowSet, which is a collection of Flow Records that have similar structure. In an Export Packet, one or more FlowSets follow the Packet Header. There are three differnet types of FlowSets, as defined in RFC 3954: a Template FlowSet, Options Template FlowSet and Data FlowSet.</xs:documentation>
+						<xs:documentation>Specifies a FlowSet, which is a collection of Flow Records that have similar structure. In an Export Packet, one or more FlowSets follow the Packet Header. There are three different types of FlowSets, as defined in RFC 3954: a Template FlowSet, Options Template FlowSet and Data FlowSet.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
@@ -499,7 +499,7 @@
 			</xs:element>
 			<xs:element name="Sequence_Number" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Incremental sequence counter of all Export Packets sent from the current Observation Domain by the Exporter. This value MUST be cumulative, and SHOULD be used by the Collector toidentify whether any Export Packets have been missed. http://www.ietf.org/rfc/rfc3954.txt</xs:documentation>
+					<xs:documentation>Incremental sequence counter of all Export Packets sent from the current Observation Domain by the Exporter. This value MUST be cumulative, and SHOULD be used by the Collector to identify whether any Export Packets have been missed. http://www.ietf.org/rfc/rfc3954.txt</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Source_ID" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -511,7 +511,7 @@
 	</xs:complexType>
 	<xs:complexType name="NetflowV9FlowSetType">
 		<xs:annotation>
-			<xs:documentation>In an Export Packet, one or more FlowSets follow the Packet Header. There are three differnet types of FlowSets, as defined in RFC 3954: a Template FlowSet, Options Template FlowSet and Data FlowSet.</xs:documentation>
+			<xs:documentation>In an Export Packet, one or more FlowSets follow the Packet Header. There are three different types of FlowSets, as defined in RFC 3954: a Template FlowSet, Options Template FlowSet and Data FlowSet.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
 			<xs:element name="Template_Flow_Set" type="NetFlowObj:NetflowV9TemplateFlowSetType" minOccurs="0" maxOccurs="1">
@@ -759,7 +759,7 @@
 			<xs:sequence minOccurs="0" maxOccurs="unbounded">
 				<xs:element name="Scope_Field_Type" type="NetFlowObj:NetflowV9ScopeFieldType" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
-						<xs:documentation>Specifies the relevent portion of the Exporter/NetFlow process to which the Options Template Record refers. Currently defined values include 1 for System, 2 for Interface, 3 for Line Card, 4 for Cache, and 5 for Template. More information can be found in RFC 3954.</xs:documentation>
+						<xs:documentation>Specifies the relevant portion of the Exporter/NetFlow process to which the Options Template Record refers. Currently defined values include 1 for System, 2 for Interface, 3 for Line Card, 4 for Cache, and 5 for Template. More information can be found in RFC 3954.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Scope_Field_Length" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -927,7 +927,7 @@
 	</xs:complexType>
 	<xs:complexType name="OptionCollectionElementType">
 		<xs:annotation>
-			<xs:documentation>Field values are associatedwith each option in the collection of an option data record.</xs:documentation>
+			<xs:documentation>Field values are associated with each option in the collection of an option data record.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Option_Record_Field_Value" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="unbounded">
@@ -1457,7 +1457,7 @@
 			</xs:element>
 			<xs:element name="Vlan_ID_MAC_Addr" type="AddressObj:AddressObjectType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The MAC adress.</xs:documentation>
+					<xs:documentation>The MAC address.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Passive_OS_Fingerprinting" type="cyboxCommon:PlatformSpecificationType" minOccurs="0" maxOccurs="1">

@@ -11,7 +11,7 @@
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
-	<xs:element name="Mutex" type="MutexObj:MutexObjectType" nillable="true">
+	<xs:element name="Mutex" type="MutexObj:MutexObjectType">
 		<xs:annotation>
 			<xs:documentation>The Mutex object is intended to characterize generic mutual exclusion (mutex) objects.</xs:documentation>
 		</xs:annotation>

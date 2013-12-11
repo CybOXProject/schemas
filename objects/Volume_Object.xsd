@@ -45,7 +45,7 @@
 					</xs:element>
 					<xs:element name="Sectors_Per_Allocation_Unit" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Sectors_Per_Allocation_Unit field speciifes the number of disk sectors used for each allocation unit on the volume.</xs:documentation>
+							<xs:documentation>The Sectors_Per_Allocation_Unit field specifies the number of disk sectors used for each allocation unit on the volume.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Bytes_Per_Sector" type="cyboxCommon:PositiveIntegerObjectPropertyType" minOccurs="0">

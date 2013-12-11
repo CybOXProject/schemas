@@ -15,6 +15,10 @@
 		<xs:annotation>
 			<xs:documentation>The Observables construct represents a collection of cyber observables.</xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-observables-id">
+			<xs:selector xpath=".//*"></xs:selector>
+			<xs:field xpath="@id"></xs:field>
+		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ObservablesType">
 		<xs:annotation>
@@ -53,6 +57,10 @@
 		<xs:annotation>
 			<xs:documentation>The Observable construct represents a description of a single cyber observable.</xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-observable-id">
+			<xs:selector xpath=".//*"></xs:selector>
+			<xs:field xpath="@id"></xs:field>
+		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ObservableType">
 		<xs:annotation>
@@ -82,7 +90,7 @@
 			<xs:choice minOccurs="0">
 				<xs:element ref="cybox:Object" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The Object construct identifies and specificies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
+						<xs:documentation>The Object construct identifies and specifies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="cybox:Event" minOccurs="0">
@@ -141,6 +149,10 @@
 		<xs:annotation>
 			<xs:documentation>The Event construct enables specification of a cyber observable event that is dynamic in nature with specific action(s) taken against specific cyber relevant objects (e.g. a file is deleted, a registry key is created or an HTTP Get Request is received).</xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-event-id">
+			<xs:selector xpath=".//*"></xs:selector>
+			<xs:field xpath="@id"></xs:field>
+		</xs:unique>
 	</xs:element>
 	<xs:complexType name="EventType">
 		<xs:annotation>
@@ -225,6 +237,10 @@
 		<xs:annotation>
 			<xs:documentation>The Action construct enables description/specification of a single cyber observable action. </xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-action-id">
+			<xs:selector xpath=".//*"></xs:selector>
+			<xs:field xpath="@id"></xs:field>
+		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ActionsType">
 		<xs:annotation>
@@ -538,6 +554,10 @@
 		<xs:annotation>
 			<xs:documentation>The Object construct identifies and specificies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-object-id">
+			<xs:selector xpath=".//*"></xs:selector>
+			<xs:field xpath="@id"></xs:field>
+		</xs:unique>
 	</xs:element>
 	<xs:complexType name="ObjectType">
 		<xs:annotation>
@@ -680,7 +700,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Properties_Enumerated">
 				<xs:annotation>
-					<xs:documentation>Specifies that the associated Action had an effect on the Object of enumeraring properies from it.</xs:documentation>
+					<xs:documentation>Specifies that the associated Action had an effect on the Object of enumerating properties from it.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Values_Enumerated">
@@ -878,6 +898,10 @@
 		<xs:annotation>
 			<xs:documentation>The Property element represents the specification of a single Object Property</xs:documentation>
 		</xs:annotation>
+		<xs:unique name="unique-property-id">
+			<xs:selector xpath=".//*"></xs:selector>
+			<xs:field xpath="@id"></xs:field>
+		</xs:unique>
 	</xs:element>
 	<!---->
 	<xs:complexType name="ObservableCompositionType">
@@ -973,7 +997,7 @@
 		<xs:sequence>
 			<xs:element name="Object" type="cybox:ObjectType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Object construct identifies and specificies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
+					<xs:documentation>The Object construct identifies and specifies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

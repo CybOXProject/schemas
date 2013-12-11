@@ -63,7 +63,7 @@
 				</xs:attribute>
 				<xs:attribute name="suspected_malicious" type="xs:boolean">
 					<xs:annotation>
-						<xs:documentation>The suspected_malicious field is optional and conveys whether the content of the Raw_Artifact is believed to be malicoius.</xs:documentation>
+						<xs:documentation>The suspected_malicious field is optional and conveys whether the content of the Raw_Artifact is believed to be malicious.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -147,7 +147,7 @@
 		</xs:attribute>
 		<xs:attribute name="encryption_key_ref" type="xs:anyURI">
 			<xs:annotation>
-				<xs:documentation>The encryption_key_ref field is optional and specifies a reference to a remote specification of the password for unprotecting/decrypting the Raw_Artifact content. </xs:documentation>
+				<xs:documentation>The encryption_key_ref field is optional and specifies a reference to a remote specification of the password for unlocking/decrypting the Raw_Artifact content. </xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>

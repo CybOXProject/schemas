@@ -11,7 +11,7 @@
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
-	<xs:element name="File" type="FileObj:FileObjectType" nillable="true">
+	<xs:element name="File" type="FileObj:FileObjectType">
 		<xs:annotation>
 			<xs:documentation>The File object is intended to characterize a generic file.</xs:documentation>
 		</xs:annotation>
@@ -48,7 +48,7 @@
 							<xs:documentation>The File_Extension field specifies the file extension of the file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Size_In_Bytes" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0">
+					<xs:element name="Size_In_Bytes" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Size_In_Bytes field specifies the size of the file, in bytes.</xs:documentation>
 						</xs:annotation>
@@ -88,7 +88,7 @@
 							<xs:documentation>The Created_Time field specifies the date/time the file was created.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="File_Attributes_List" type="FileObj:FileAttributeType" nillable="true" minOccurs="0">
+					<xs:element name="File_Attributes_List" type="FileObj:FileAttributeType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The File_Attributes_List field specifies the particular special attributes set for the file. Since this is a platform-specific Object property, it is defined here as an abstract type and then implemented in any platform specific derived file objects.</xs:documentation>
 						</xs:annotation>
@@ -131,7 +131,12 @@
 				</xs:sequence>
 				<xs:attribute name="is_packed" type="xs:boolean">
 					<xs:annotation>
-						<xs:documentation>The ispacked field is used to indicate whether the file is packed or not.</xs:documentation>
+						<xs:documentation>The is_packed field is used to indicate whether the file is packed or not.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="is_masqueraded" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_masqueraded field specifies whether the file is masqueraded as another type of file; e.g., a PDF file that has had its extension changed to TXT to masquerade itself as a text file.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>

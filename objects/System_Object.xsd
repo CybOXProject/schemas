@@ -12,7 +12,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#AddressObject-2" schemaLocation="Address_Object.xsd"/>
-	<xs:element name="System" type="SystemObj:SystemObjectType" nillable="true">
+	<xs:element name="System" type="SystemObj:SystemObjectType">
 		<xs:annotation>
 			<xs:documentation>The System object is intended to characterize computer systems (as a combination of both software and hardware).</xs:documentation>
 		</xs:annotation>
@@ -24,7 +24,7 @@
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element name="Available_Physical_Memory" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Available_Physical_Memory" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Available_Physical_Memory field specifies the amount of physical memory available on the system, in bytes.</xs:documentation>
 						</xs:annotation>
@@ -34,7 +34,7 @@
 							<xs:documentation>The BIOS_Info field specifies information about the BIOS on the system.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Date" type="cyboxCommon:DateObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Date" type="cyboxCommon:DateObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Date field specifies the current date on the system.</xs:documentation>
 						</xs:annotation>
@@ -81,10 +81,10 @@
 					</xs:element>
 					<xs:element name="Timezone_Standard" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Timezone_Standard field specifies the time zone used by the system, wihtout taking daylight savings time (DST) into account.</xs:documentation>
+							<xs:documentation>The Timezone_Standard field specifies the time zone used by the system, without taking daylight savings time (DST) into account.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Total_Physical_Memory" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Total_Physical_Memory" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Total_Physical_Memory field specifies the total amount of physical memory present on the system, in bytes.</xs:documentation>
 						</xs:annotation>
@@ -140,7 +140,7 @@
 			<xs:documentation>The NetworkInterfaceListType type specifies information about the network interfaces present on the system.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Network_Interface" type="SystemObj:NetworkInterfaceType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="Network_Interface" type="SystemObj:NetworkInterfaceType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The Network_Interface field specifies information about a network interface, such as its MAC address.</xs:documentation>
 				</xs:annotation>
@@ -152,7 +152,7 @@
 			<xs:documentation>The IPGatewayListType type specifies the IP Addresses of the gateways used by the system.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IP_Gateway_Address" type="AddressObj:AddressObjectType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="IP_Gateway_Address" type="AddressObj:AddressObjectType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The IP_Gateway_Address field specifies the IP Address of a gateway used by the system.</xs:documentation>
 				</xs:annotation>
@@ -174,12 +174,12 @@
 					<xs:documentation>The Description field specifies the description of the network interface.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DHCP_Lease_Expires" type="cyboxCommon:DateTimeObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="DHCP_Lease_Expires" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The DHCP_Lease_Expires field specifies the date/time that the DHCP lease obtained on the network interface expires.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DHCP_Lease_Obtained" type="cyboxCommon:DateTimeObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="DHCP_Lease_Obtained" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The DHCP_Lease_Obtained field specifies the date/time that the DHCP lease was obtained on the network interface.</xs:documentation>
 				</xs:annotation>
@@ -211,7 +211,7 @@
 			<xs:documentation>The IPInfoListType type specifies a list of IP address/subnet mask pairs associated with a network interface.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IP_Info" type="SystemObj:IPInfoType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="IP_Info" type="SystemObj:IPInfoType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The IP_Info field specifies an IP Address/Subnet mask entry in the list.</xs:documentation>
 				</xs:annotation>
@@ -240,7 +240,7 @@
 			<xs:documentation>The DHCPServerListType type specifies a list of DHCP Servers, via their IP addresses.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="DHCP_Server_Address" type="AddressObj:AddressObjectType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="DHCP_Server_Address" type="AddressObj:AddressObjectType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The DHCP_Server_Address field specifies the IP address of a DHCP server.</xs:documentation>
 				</xs:annotation>
@@ -269,7 +269,7 @@
 							<xs:documentation>The EnvironmentVariableList field specifies a list of environment variables present on the operating system.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Install_Date" type="cyboxCommon:DateObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Install_Date" type="cyboxCommon:DateObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Install_Date field specifies the date the operating system was installed.</xs:documentation>
 						</xs:annotation>

@@ -11,7 +11,7 @@
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
-	<xs:element name="Pipe" type="PipeObj:PipeObjectType" nillable="true">
+	<xs:element name="Pipe" type="PipeObj:PipeObjectType">
 		<xs:annotation>
 			<xs:documentation>The Pipe object is intended to characterize generic system pipes.</xs:documentation>
 		</xs:annotation>

@@ -24,9 +24,14 @@
 		<xs:complexContent mixed="false">
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="Certificate" type="X509CertificateObj:X509CertificateType">
+					<xs:element minOccurs="0" name="Certificate" type="X509CertificateObj:X509CertificateContentsType">
 						<xs:annotation>
 							<xs:documentation>Certificate represents the contents of an X.509 certificate, including items such as issuer, subject, and others.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Raw_Certificate" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Raw_Certificate field captures the raw content of an X.509 certificate including the -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- lines.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="Certificate_Signature" type="X509CertificateObj:X509CertificateSignatureType">
@@ -38,9 +43,9 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="X509CertificateType">
+	<xs:complexType name="X509CertificateContentsType">
 		<xs:annotation>
-			<xs:documentation>The X509CertificateType type represents the contents of an X.509 certificate, including items such as issuer, subject, and others.</xs:documentation>
+			<xs:documentation>The X509CertificateContentsType type represents the contents of an X.509 certificate, including items such as issuer, subject, and others.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Version" type="cyboxCommon:IntegerObjectPropertyType">

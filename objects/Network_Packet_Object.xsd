@@ -188,7 +188,7 @@
 			</xs:element>
 			<xs:element name="Recip_Hardware_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Recip_Sender_Hardware Addr characterizes the recipients's hardware address (e.g., MAC address).</xs:documentation>
+					<xs:documentation>Recip_Sender_Hardware Addr characterizes the recipients' hardware address (e.g., MAC address).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Recip_Protocol_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
@@ -474,7 +474,7 @@
 		<xs:choice minOccurs="0">
 			<xs:element name="Target_Link_Addr" type="PacketObj:NDPTargetLinkAddrType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The linnk-layer address for the target.</xs:documentation>
+					<xs:documentation>The link-layer address for the target.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Redirected_Header" type="PacketObj:NDPRedirectedHeaderType" minOccurs="0">
@@ -596,7 +596,7 @@
 	</xs:complexType>
 	<xs:complexType name="InternetLayerType">
 		<xs:annotation>
-			<xs:documentation>The Internet layer is the group of methods, protocols, and specifications that are used to transport packets from the origiating host across network boundaries. Not all protocols are currently defined, just those most commonly used: IPv4, ICMPv4, IPv6, ICMPv6. Other protocols will be added as needed. (http://en.wikipedia.org/wiki/Internet_layer)</xs:documentation>
+			<xs:documentation>The Internet layer is the group of methods, protocols, and specifications that are used to transport packets from the originating host across network boundaries. Not all protocols are currently defined, just those most commonly used: IPv4, ICMPv4, IPv6, ICMPv6. Other protocols will be added as needed. (http://en.wikipedia.org/wiki/Internet_layer)</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
 			<xs:element name="IPv4" type="PacketObj:IPv4PacketType" minOccurs="0">
@@ -606,7 +606,7 @@
 			</xs:element>
 			<xs:element name="ICMPv4" type="PacketObj:ICMPv4PacketType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>ICMP is chiefly used the the operating systems of networked computers to send error messages indicating, for example, that a requested serivce is not available or that a host or router could not be reached (http://en.wikipedia.org/wiki/Internet_Control_Message_Protocol; REF: http://www.networksorcery.com/enp/protocol/icmp.htm).</xs:documentation>
+					<xs:documentation>ICMP is chiefly used the operating systems of networked computers to send error messages indicating, for example, that a requested service is not available or that a host or router could not be reached (http://en.wikipedia.org/wiki/Internet_Control_Message_Protocol; REF: http://www.networksorcery.com/enp/protocol/icmp.htm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IPv6" type="PacketObj:IPv6PacketType" minOccurs="0">
@@ -616,7 +616,7 @@
 			</xs:element>
 			<xs:element name="ICMPv6" type="PacketObj:ICMPv6PacketType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>ICMPv6 is the implementation of the ICMP for INv6. ICMPv6 performs error reporting and diagnostic functions.</xs:documentation>
+					<xs:documentation>ICMPv6 is the implementation of the ICMP for IPv6. ICMPv6 performs error reporting and diagnostic functions.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
@@ -680,7 +680,7 @@
 			</xs:element>
 			<xs:element name="Fragment_Offset" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The fragment offset field is 13 bits long and specifies the offset of a particular fragment relative to the beinnng of the original unfragmented IP datagram. http://en.wikipedia.org/wiki/IPv4</xs:documentation>
+					<xs:documentation>The fragment offset field is 13 bits long and specifies the offset of a particular fragment relative to the beginning of the original unfragmented IP datagram. http://en.wikipedia.org/wiki/IPv4</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TTL" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -824,7 +824,7 @@
 			</xs:element>
 			<xs:element name="Option" type="PacketObj:IPv4OptionsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Internet Protocol has provision for optional header fields indeitified by an option type. These types are enumerated in the IPv4OptionsType.</xs:documentation>
+					<xs:documentation>The Internet Protocol has provision for optional header fields identified by an option type. These types are enumerated in the IPv4OptionsType.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -926,7 +926,7 @@
 	</xs:complexType>
 	<xs:simpleType name="IPv4OptionsTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The Internet Protocol (IP) has provision for optional header fields identified by an option type field. Options 0 and 1 are exactly one octet which is their type field. All other options have their one octet type field, followed by a one octet length field, followed by length-2 octets of option data. The option type field is sub-divided into a one bit copied flag, a two bit class field, and a five bit option number. These taken together form an eight bit value for the option type field. IP options are commonly refered to by this value. The IPv4OptionsEnum enumerates the options numbers that can be applied in IP. See http://www.iana.org/assignments/ip-parameters for more information.</xs:documentation>
+			<xs:documentation>The Internet Protocol (IP) has provision for optional header fields identified by an option type field. Options 0 and 1 are exactly one octet which is their type field. All other options have their one octet type field, followed by a one octet length field, followed by length-2 octets of option data. The option type field is sub-divided into a one bit copied flag, a two bit class field, and a five bit option number. These taken together form an eight bit value for the option type field. IP options are commonly referred to by this value. The IPv4OptionsEnum enumerates the options numbers that can be applied in IP. See http://www.iana.org/assignments/ip-parameters for more information.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="endofoptionslist(0)">
@@ -1107,7 +1107,7 @@
 			</xs:element>
 			<xs:element name="Next_Header" type="PacketObj:IANAAssignedIPNumbersType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>8-bit selector. Identifies the type of header immediately following the IPv6 header. Uers the same values as the IPv4 protocol field.</xs:documentation>
+					<xs:documentation>8-bit selector. Identifies the type of header immediately following the IPv6 header. Uses the same values as the IPv4 protocol field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TTL" type="cyboxCommon:PositiveIntegerObjectPropertyType" minOccurs="0">
@@ -1249,7 +1249,7 @@
 		<xs:sequence minOccurs="0">
 			<xs:element name="Do_Not_Recogn_Action" type="PacketObj:IPv6DoNotRecogActionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Action to be taken if the processing IPv6 nodes does not recognize the Option Type. This information is internally encoded in the Option Type identifier (higest-order two bits) such that their highest-order two bits specify the action that must be taken if the processing IPv6 node does not recognize the Option type. These possible actions are enumerated via IPv6DoNotRecogActionType.</xs:documentation>
+					<xs:documentation>Action to be taken if the processing IPv6 nodes does not recognize the Option Type. This information is internally encoded in the Option Type identifier (highest-order two bits) such that their highest-order two bits specify the action that must be taken if the processing IPv6 node does not recognize the Option type. These possible actions are enumerated via IPv6DoNotRecogActionType.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Packet_Change" type="PacketObj:IPv6PacketChangeType" minOccurs="0">
@@ -1259,7 +1259,7 @@
 			</xs:element>
 			<xs:element name="Option_Byte" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field may be used to specify the actual Option Type byte, with no explicit meaning attached. Meaning/intrepretation provided by the Do_Not_Recogn_Action and Packet_Change fields.</xs:documentation>
+					<xs:documentation>This field may be used to specify the actual Option Type byte, with no explicit meaning attached. Meaning/interpretation provided by the Do_Not_Recogn_Action and Packet_Change fields.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1328,7 +1328,7 @@
 			</xs:annotation>
 			<xs:element name="TCP" type="PacketObj:TCPType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>TCP provides reliable, ordered delivery of a stream of bytes from a prograom on one computer to another program on another computer. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+					<xs:documentation>TCP provides reliable, ordered delivery of a stream of bytes from a program on one computer to another program on another computer. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="UDP" type="PacketObj:UDPType" minOccurs="0">
@@ -1340,7 +1340,7 @@
 	</xs:complexType>
 	<xs:complexType name="TCPType">
 		<xs:annotation>
-			<xs:documentation>TCP provides reliable, ordered delivery of a stream of bytes from a prograom on one computer to another program on another computer. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+			<xs:documentation>TCP provides reliable, ordered delivery of a stream of bytes from a program on one computer to another program on another computer. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TCP_Header" type="PacketObj:TCPHeaderType" minOccurs="0">
@@ -1389,7 +1389,7 @@
 			</xs:element>
 			<xs:element name="Dest_Port" type="PortObj:PortObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Identifies the receiveing port.</xs:documentation>
+					<xs:documentation>Identifies the receiving port.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Seq_Num" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -1929,7 +1929,7 @@
 			<xs:choice minOccurs="0">
 				<xs:element name="Destination_Unreachable" type="PacketObj:ICMPv4DestinationUnreachableType" minOccurs="1">
 					<xs:annotation>
-						<xs:documentation>A destination unreachable message is an ICMP message which is generated by the host or its inbound gateway to inform the client that the destiation is unreachable for some reason (http://en.wikipedia.org/wiki/ICMP_Destination_Unreachable).</xs:documentation>
+						<xs:documentation>A destination unreachable message is an ICMP message which is generated by the host or its inbound gateway to inform the client that the destination is unreachable for some reason (http://en.wikipedia.org/wiki/ICMP_Destination_Unreachable).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Source_Quench" type="PacketObj:ICMPv4SourceQuenchType" minOccurs="1">
@@ -2176,7 +2176,7 @@
 			</xs:choice>
 			<xs:element name="Info_Msg_Content" type="PacketObj:ICMPv6InfoMessageContentType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>ields that are common to all ICMP v6 informational messages are defined here. Fields that are specific to individual messages are defined separately under each message type.</xs:documentation>
+					<xs:documentation>Fields that are common to all ICMP v6 informational messages are defined here. Fields that are specific to individual messages are defined separately under each message type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -2417,7 +2417,7 @@
 			</xs:choice>
 			<xs:element name="Originate_Timestamp" type="cyboxCommon:NonNegativeIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>32-bits; number of ms since midnight UT. The originate timestamp is the time the sender last touched the message before senting it. If the time is not available in milliseconds or cannot be provided with respect to midnight UT, then any time can be inserted in a timestamp provided the high order bit of the timestamp is also set to indicate this non-standard value.</xs:documentation>
+					<xs:documentation>32-bits; number of ms since midnight UT. The originate timestamp is the time the sender last touched the message before sending it. If the time is not available in milliseconds or cannot be provided with respect to midnight UT, then any time can be inserted in a timestamp provided the high order bit of the timestamp is also set to indicate this non-standard value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -2436,7 +2436,7 @@
 			</xs:choice>
 			<xs:element name="Originate_Timestamp" type="cyboxCommon:NonNegativeIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The originate timestamp is the time the sender last touched the message before senting it. If the time is not available in milliseconds or cannot be provided with respect to midnight UT, then any time can be inserted in a timestamp provided the high order bit of the timestamp is also set to indicate this non-standard value.</xs:documentation>
+					<xs:documentation>The originate timestamp is the time the sender last touched the message before sending it. If the time is not available in milliseconds or cannot be provided with respect to midnight UT, then any time can be inserted in a timestamp provided the high order bit of the timestamp is also set to indicate this non-standard value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Receive_Timestamp" type="cyboxCommon:NonNegativeIntegerObjectPropertyType" minOccurs="0">

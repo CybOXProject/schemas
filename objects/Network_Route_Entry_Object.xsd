@@ -36,7 +36,7 @@
 					</xs:element>
 					<xs:element name="Netmask" type="AddressObj:AddressObjectType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Netmask field specifies the netmask for te destination network.</xs:documentation>
+							<xs:documentation>The Netmask field specifies the netmask for the destination network.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Gateway_Address" type="AddressObj:AddressObjectType" minOccurs="0">

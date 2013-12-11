@@ -106,7 +106,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="NetworkConnectionObj:Layer3ProtocolEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="required">
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
@@ -123,7 +123,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="NetworkConnectionObj:Layer4ProtocolEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="required">
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
@@ -140,7 +140,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="NetworkConnectionObj:Layer7ProtocolEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="required">
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
@@ -210,7 +210,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="TIME_WAIT">
 				<xs:annotation>
-					<xs:documentation>Indicates the TIME-WAIT connection state--i.e. waiting for for enough time to pass to be sure the remote TCP received the acknowledgment of its connection termination request.</xs:documentation>
+					<xs:documentation>Indicates the TIME-WAIT connection state--i.e. waiting for enough time to pass to be sure the remote TCP received the acknowledgment of its connection termination request.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DELETING_TCB">
@@ -546,7 +546,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="rsync">
 				<xs:annotation>
-					<xs:documentation>Specifies the rsync otocol.</xs:documentation>
+					<xs:documentation>Specifies the rsync potocol.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="RTP">
@@ -581,7 +581,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="TUP">
 				<xs:annotation>
-					<xs:documentation>Specifies the Telephonse User Part protocol.</xs:documentation>
+					<xs:documentation>Specifies the Telephone User Part protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="TCAP">

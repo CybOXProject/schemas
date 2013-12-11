@@ -242,7 +242,7 @@
 	</xs:complexType>
 	<xs:complexType name="ToolInformationType">
 		<xs:annotation>
-			<xs:documentation>The ToolInformationType represens a description of a single automated tool.</xs:documentation>
+			<xs:documentation>The ToolInformationType represents a description of a single automated tool.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string" minOccurs="0">
@@ -716,7 +716,7 @@
 			</xs:element>
 			<xs:element name="Start_Time" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Thie field specifies when the tool was run.</xs:documentation>
+					<xs:documentation>This field specifies when the tool was run.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -740,7 +740,7 @@
 		<xs:sequence>
 			<xs:element name="Error_Type" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>This field specifies the the type for this tool run error.</xs:documentation>
+					<xs:documentation>This field specifies the type for this tool run error.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Error_Count" type="xs:integer" minOccurs="0">
@@ -1220,7 +1220,7 @@
 					
 					Setting this attribute with an empty value (e.g., "") or omitting it entirely notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities, character classes, escapes, and other lexical tokens defined by the CybOX Language Specification. 
 					
-					Setting this attribute with a non-empty value notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities not definied by the CybOX Language Specification. The regular expression must be evaluated through a compatible regular expression engine in this case.
+					Setting this attribute with a non-empty value notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities not defined by the CybOX Language Specification. The regular expression must be evaluated through a compatible regular expression engine in this case.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
@@ -1451,7 +1451,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Host Name">
 				<xs:annotation>
-					<xs:documentation>Specifies a host name. For compatability reasons, this could be any string. Even so, it is best to use the proper notation for the given host type. For example, web hostnames should be written as fully qualified hostnames in practice.</xs:documentation>
+					<xs:documentation>Specifies a host name. For compatibility reasons, this could be any string. Even so, it is best to use the proper notation for the given host type. For example, web hostnames should be written as fully qualified hostnames in practice.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="MAC Address">
@@ -1461,7 +1461,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Domain Name">
 				<xs:annotation>
-					<xs:documentation>Specifies a domain name, which is represented by a series of labels concatenated with dots comforming to the rules in RFC 1035, RFC 1123, and RFC 2181.</xs:documentation>
+					<xs:documentation>Specifies a domain name, which is represented by a series of labels concatenated with dots conforming to the rules in RFC 1035, RFC 1123, and RFC 2181.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="URI">
@@ -1748,19 +1748,19 @@
 		<xs:choice>
 			<xs:element name="Simple_Hash_Value" type="cyboxCommon:SimpleHashValueType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Simple_Hash_Value field specifies a single result value of a basic cryptograhic hash function outputing a single hexbinary hash value.</xs:documentation>
+					<xs:documentation>The Simple_Hash_Value field specifies a single result value of a basic cryptograhic hash function outputting a single hexbinary hash value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Fuzzy_Hash_Value" type="cyboxCommon:FuzzyHashValueType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Fuzzy_Hash_Value field specifies a single result value of a cryptograhic fuzzy hash function outputing a single complex string based hash value. (e.g. SSDEEP's Block1hash:Block2hash format).</xs:documentation>
+					<xs:documentation>The Fuzzy_Hash_Value field specifies a single result value of a cryptograhic fuzzy hash function outputting a single complex string based hash value. (e.g. SSDEEP's Block1hash:Block2hash format).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="SimpleHashValueType">
 		<xs:annotation>
-			<xs:documentation>The SimpleHashValueType is used for characterizing the output of basic cryptograhic hash functions outputing a single hexbinary hash value.</xs:documentation>
+			<xs:documentation>The SimpleHashValueType is used for characterizing the output of basic cryptograhic hash functions outputting a single hexbinary hash value.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:HexBinaryObjectPropertyType"/>
@@ -1768,7 +1768,7 @@
 	</xs:complexType>
 	<xs:complexType name="FuzzyHashValueType">
 		<xs:annotation>
-			<xs:documentation>The FuzzyHashValueType is used for characterizing the output of cryptograhic fuzzy hash functions outputing a single complex string based hash value.</xs:documentation>
+			<xs:documentation>The FuzzyHashValueType is used for characterizing the output of cryptograhic fuzzy hash functions outputting a single complex string based hash value.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:StringObjectPropertyType"/>
@@ -1786,7 +1786,7 @@
 			</xs:element>
 			<xs:element name="Block_Hash" type="cyboxCommon:FuzzyHashBlockType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Block_Hash field is optional and enables specification of the elemental components utilized for a fuzzy hash calcuation on the hashed object utilizing Block_Size to calculate trigger points.</xs:documentation>
+					<xs:documentation>The Block_Hash field is optional and enables specification of the elemental components utilized for a fuzzy hash calculation on the hashed object utilizing Block_Size to calculate trigger points.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1803,24 +1803,24 @@
 			</xs:element>
 			<xs:element name="Segment_Count" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Segment_Count field is optional and specifies the number of segments identified and utlized within this fuzzy hash calculation.</xs:documentation>
+					<xs:documentation>The Segment_Count field is optional and specifies the number of segments identified and utilized within this fuzzy hash calculation.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Segments" type="cyboxCommon:HashSegmentsType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Segments field is optional and specifies the set of segments identified and utlized within this fuzzy hash calculation.</xs:documentation>
+					<xs:documentation>The Segments field is optional and specifies the set of segments identified and utilized within this fuzzy hash calculation.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="HashSegmentsType">
 		<xs:annotation>
-			<xs:documentation>The HashSegmentsType is used for characterizing the internal components of a set of trigger point-delimited segments in a cryptograhic fuzzy hash algorithmic calculation.</xs:documentation>
+			<xs:documentation>The HashSegmentsType is used for characterizing the internal components of a set of trigger point-delimited segments in a cryptographic fuzzy hash algorithmic calculation.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Segment" type="cyboxCommon:HashSegmentType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Segment field is optional and specifies a single segment identified and utlized within this fuzzy hash calculation.</xs:documentation>
+					<xs:documentation>The Segment field is optional and specifies a single segment identified and utilized within this fuzzy hash calculation.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1862,12 +1862,12 @@
 			<xs:choice>
 				<xs:element name="Simple_Hash_Value" type="cyboxCommon:SimpleHashValueType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The Simple_Hash_Value field specifies a single result value of a basic cryptograhic hash function outputing a single hexbinary hash value.</xs:documentation>
+						<xs:documentation>The Simple_Hash_Value field specifies a single result value of a basic cryptograhic hash function outputting a single hexbinary hash value.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Fuzzy_Hash_Value" type="cyboxCommon:FuzzyHashValueType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The Fuzzy_Hash_Value field specifies a single result value of a cryptograhic fuzzy hash function outputing a single complex string based hash value. (e.g. SSDEEP's Block1hash:Block2hash format).</xs:documentation>
+						<xs:documentation>The Fuzzy_Hash_Value field specifies a single result value of a cryptograhic fuzzy hash function outputting a single complex string based hash value. (e.g. SSDEEP's Block1hash:Block2hash format).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
@@ -1887,7 +1887,7 @@
 			<xs:extension base="xs:string">
 				<xs:attribute name="structuring_format" type="xs:string" use="optional">
 					<xs:annotation>
-						<xs:documentation>Used to indicate a particular structuring format (e.g., HTML5) used within an instance of StructuredTextType. Note that if the markup tags used by this format would be interpreted as XML information (such as the bracket-based tags of HTML) the text area should be enclosed in a CDATA section to prevent the markup from interferring with XML validation of the CybOX document. If this attribute is absent, the implication is that no markup is being used.</xs:documentation>
+						<xs:documentation>Used to indicate a particular structuring format (e.g., HTML5) used within an instance of StructuredTextType. Note that if the markup tags used by this format would be interpreted as XML information (such as the bracket-based tags of HTML) the text area should be enclosed in a CDATA section to prevent the markup from interfering with XML validation of the CybOX document. If this attribute is absent, the implication is that no markup is being used.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>

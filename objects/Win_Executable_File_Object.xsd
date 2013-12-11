@@ -12,7 +12,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/objects#WinFileObject-2" schemaLocation="Win_File_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
-	<xs:element name="Windows_Executable_File" type="WinExecutableFileObj:WindowsExecutableFileObjectType" nillable="true">
+	<xs:element name="Windows_Executable_File" type="WinExecutableFileObj:WindowsExecutableFileObjectType">
 		<xs:annotation>
 			<xs:documentation>The Windows_Executable_File object is intended to characterize Windows PE (Portable Executable) files. Sources of information: Matt Pietrik's articles in MSDN Magazine (http://msdn.microsoft.com/en-us/magazine/cc301805.aspx and http://msdn.microsoft.com/en-us/magazine/cc301808.aspx); Microsoft's specification of PE and COFF (http://msdn.microsoft.com/library/windows/hardware/gg463125); LUEVELSMEYER's description (http://webster.cs.ucr.edu/Page_TechDocs/pe.txt). </xs:documentation>
 		</xs:annotation>
@@ -49,7 +49,7 @@
 							<xs:documentation>The Exports field characterizes the PE Export table of the PE Binary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Extraneous_Bytes" type="cyboxCommon:IntegerObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Extraneous_Bytes" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Extraneous_Bytes field specifies the number of extraneous bytes contained in the PE binary.</xs:documentation>
 						</xs:annotation>
@@ -100,7 +100,7 @@
 			</xs:element>
 			<xs:element name="PE_File_API" type="cyboxCommon:LongObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>PE_File_API specifed the checksum computed by IMAGHELP.DLL.</xs:documentation>
+					<xs:documentation>PE_File_API specified the checksum computed by IMAGHELP.DLL.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PE_File_Raw" type="cyboxCommon:LongObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -120,17 +120,17 @@
 					<xs:documentation>A list of the exported functions in this section.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Exports_Time_Stamp" type="cyboxCommon:DateTimeObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="Exports_Time_Stamp" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The date and time the export data was created.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Number_Of_Addresses" type="cyboxCommon:LongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="Number_Of_Addresses" type="cyboxCommon:LongObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The number of addresses in the export data section's address table.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Number_Of_Names" type="cyboxCommon:LongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="Number_Of_Names" type="cyboxCommon:LongObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The number of names in the export data section's name table.</xs:documentation>
 				</xs:annotation>
@@ -154,7 +154,7 @@
 			<xs:documentation>Specifies a list of sections that appear in the PE file.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Section" type="WinExecutableFileObj:PESectionType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="Section" type="WinExecutableFileObj:PESectionType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Specifies an field of a list of PE file sections.</xs:documentation>
 				</xs:annotation>
@@ -178,7 +178,7 @@
 			</xs:element>
 			<xs:element name="Max" type="cyboxCommon:FloatObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the largest possible value for the entropy computation (eg., this would be 8 if the entropy computations is based on bits of information).</xs:documentation>
+					<xs:documentation>Specifies the largest possible value for the entropy computation (e.g., this would be 8 if the entropy computations is based on bits of information).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -327,7 +327,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEExportedFunctionType">
 		<xs:annotation>
-			<xs:documentation>PEExportType sepcifies the type describing exported functions.</xs:documentation>
+			<xs:documentation>PEExportType specifies the type describing exported functions.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Function_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -499,7 +499,7 @@
 			</xs:element>
 			<xs:element name="Number_Of_Linenumbers" type="cyboxCommon:NonNegativeIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the number of line number entreis for the section. Should be 0.</xs:documentation>
+					<xs:documentation>Specifies the number of line number entries for the section. Should be 0.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Characteristics" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -526,7 +526,7 @@
 			</xs:element>
 			<xs:element name="e_cp" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the the number of pages required to hold the file. For example, if the file contains 1024 bytes, and we assume the file has pages of a size of 512 bytes, this word would contain 0x0002; if the file contains 1025 bytes, this word would contain 0x0003.</xs:documentation>
+					<xs:documentation>Specifies the number of pages required to hold the file. For example, if the file contains 1024 bytes, and we assume the file has pages of a size of 512 bytes, this word would contain 0x0002; if the file contains 1025 bytes, this word would contain 0x0003.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="e_crlc" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -606,7 +606,7 @@
 			</xs:element>
 			<xs:element name="e_lfanew" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the file adress of the of the new exe header. In particular, it is a 4-byte offset into the file where the PE file header is located. It is necessary to use this offset to locate the PE header in the file.</xs:documentation>
+					<xs:documentation>Specifies the file address of the of the new exe header. In particular, it is a 4-byte offset into the file where the PE file header is located. It is necessary to use this offset to locate the PE header in the file.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Hashes" type="cyboxCommon:HashListType" minOccurs="0">
@@ -633,7 +633,7 @@
 			</xs:element>
 			<xs:element name="File_Header" type="WinExecutableFileObj:PEFileHeaderType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The File_Header property refers to the PE file header (somtimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
+					<xs:documentation>The File_Header property refers to the PE file header (sometimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Optional_Header" type="WinExecutableFileObj:PEOptionalHeaderType" minOccurs="0">
@@ -655,7 +655,7 @@
 	</xs:complexType>
 	<xs:complexType name="PEFileHeaderType">
 		<xs:annotation>
-			<xs:documentation>The PEFileHeaderType type refers to the PE file header (somtimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
+			<xs:documentation>The PEFileHeaderType type refers to the PE file header (sometimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Machine" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -903,7 +903,7 @@
 			</xs:element>
 			<xs:element name="Number_Of_Rva_And_Sizes" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifieshe number of data-directory entries in the remainder of the optional header.</xs:documentation>
+					<xs:documentation>Specifies the number of data-directory entries in the remainder of the optional header.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data_Directory" type="WinExecutableFileObj:DataDirectoryType" minOccurs="0">

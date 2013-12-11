@@ -32,7 +32,7 @@
 					</xs:element>
 					<xs:element name="NL_ROUTE_ORIGIN" type="WinNetworkRouteEntryObj:NLRouteOriginType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The NL_ROUTE_ORIGIN element specifies a network route origination point, as detailed in the NL_ROUTE_ORIGIN enumertaion in the MIB_IPFORWARD_ROW2 structure. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/aa814494(v=vs.85).aspx for the MIB_IPFORWARD_ROW2 structure and http://msdn.microsoft.com/en-us/library/windows/hardware/ff568764(v=vs.85).aspx for the NL_ROUTE_ORIGIN enumeration.</xs:documentation>
+							<xs:documentation>The NL_ROUTE_ORIGIN element specifies a network route origination point, as detailed in the NL_ROUTE_ORIGIN enumeration in the MIB_IPFORWARD_ROW2 structure. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/aa814494(v=vs.85).aspx for the MIB_IPFORWARD_ROW2 structure and http://msdn.microsoft.com/en-us/library/windows/hardware/ff568764(v=vs.85).aspx for the NL_ROUTE_ORIGIN enumeration.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -58,7 +58,7 @@
 	</xs:complexType>
 	<xs:simpleType name="NLRouteOriginEnum">
 		<xs:annotation>
-			<xs:documentation>The NLRouteOriginEnum type is a enumeration of network route origination points, as detailed in the NL_ROUTE_ORIGIN enumertaion in the MIB_IPFORWARD_ROW2 structure. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/aa814494(v=vs.85).aspx for the MIB_IPFORWARD_ROW2 structure and http://msdn.microsoft.com/en-us/library/windows/hardware/ff568764(v=vs.85).aspx for the NL_ROUTE_ORIGIN enumeration.</xs:documentation>
+			<xs:documentation>The NLRouteOriginEnum type is a enumeration of network route origination points, as detailed in the NL_ROUTE_ORIGIN enumeration in the MIB_IPFORWARD_ROW2 structure. For more information, see http://msdn.microsoft.com/en-us/library/windows/desktop/aa814494(v=vs.85).aspx for the MIB_IPFORWARD_ROW2 structure and http://msdn.microsoft.com/en-us/library/windows/hardware/ff568764(v=vs.85).aspx for the NL_ROUTE_ORIGIN enumeration.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NlroManual">

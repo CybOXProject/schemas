@@ -62,7 +62,7 @@
 					</xs:element>
 					<xs:element name="Accessed_Directory_List" type="WinPrefetchObj:AccessedDirectoryListType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Directories accessed by the prefetch application during starup.</xs:documentation>
+							<xs:documentation>Directories accessed by the prefetch application during startup.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
