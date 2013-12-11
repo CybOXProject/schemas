@@ -47,7 +47,7 @@
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="HTTP_Provisional_Server_Response" type="HTTPSessionObj:HTTPServerResponseType">
 				<xs:annotation>
-					<xs:documentation>The HTTP_Provisional_Server_Response field specifies an HTTP provisional server repsonse that was sent before the regular HTTP response (captured in the HTTP_Server_Response field).</xs:documentation>
+					<xs:documentation>The HTTP_Provisional_Server_Response field specifies an HTTP provisional server response that was sent before the regular HTTP response (captured in the HTTP_Server_Response field).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="HTTP_Server_Response" type="HTTPSessionObj:HTTPServerResponseType" minOccurs="0">
