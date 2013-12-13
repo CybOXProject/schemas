@@ -115,6 +115,11 @@
 			<xs:documentation>The PEExportsType specifies the PE File exports data section. The exports data section contains information about symbols exported by the PE File (a DLL) which can be dynamically loaded by other executables. This type abstracts, and its components, abstract the Windows structures.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="Name" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Name field specifies the actual name of the PE module, as used by the PE loader when it is imported by another executable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Exported_Functions" type="WinExecutableFileObj:PEExportedFunctionsType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A list of the exported functions in this section.</xs:documentation>
@@ -133,6 +138,11 @@
 			<xs:element name="Number_Of_Names" type="cyboxCommon:LongObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The number of names in the export data section's name table.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Number_Of_Functions" type="cyboxCommon:IntegerObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Number_Of_Functions field specifies the total number of functions that are exported by the PE file.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
