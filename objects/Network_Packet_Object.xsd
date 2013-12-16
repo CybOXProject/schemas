@@ -67,7 +67,7 @@
 			<xs:documentation>Multiple interface types exist - only most common (Ethernet) included now. Others will be added later as needed.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Ethernet" type="PacketObj:EthernetInterfaceType" minOccurs="0" maxOccurs="1">
+			<xs:element name="Ethernet" type="PacketObj:EthernetInterfaceType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Ethernet sends network packets from the sending host to one or more receiving hosts. (REF: IEEE 802.3; http://wiki.wireshark.org/Ethernet).</xs:documentation>
 				</xs:annotation>
@@ -267,7 +267,7 @@
 						<xs:documentation>Routers send out Router Advertisement messages periodically, or in response to Router Solicitations (type=134; code=0).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Neighbor_Solicitation" type="PacketObj:NeighborSolicitationType" minOccurs="0" maxOccurs="1">
+				<xs:element name="Neighbor_Solicitation" type="PacketObj:NeighborSolicitationType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Nodes send Neighbor Solicitations to request the link-layer address of a target node while also providing their own link-layer address to the target. Neighbor Solicitations are multicast when the node needs to resolve an address and unicast when the node seeks to verify the reachability of a neighbor (type=135; code=0).</xs:documentation>
 					</xs:annotation>
@@ -361,7 +361,7 @@
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MTU" type="PacketObj:NDPMTUType" minOccurs="0" maxOccurs="1">
+			<xs:element name="MTU" type="PacketObj:NDPMTUType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>32-bit unsigned integer. The recommended MTU for the link.</xs:documentation>
 				</xs:annotation>
@@ -383,7 +383,7 @@
 					<xs:documentation>The IP address of the target of the solicitation.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Options" type="PacketObj:NeighborSolicitationOptionsType" minOccurs="0" maxOccurs="1">
+			<xs:element name="Options" type="PacketObj:NeighborSolicitationOptionsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Neighbor Solicitation messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 				</xs:annotation>
@@ -1072,7 +1072,7 @@
 			<xs:documentation>The IPv6 header is a simplification of the IPv4 header.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IP_Version" type="PacketObj:IPVersionType" fixed="IPv6(6)" minOccurs="0" maxOccurs="1">
+			<xs:element name="IP_Version" type="PacketObj:IPVersionType" fixed="IPv6(6)" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>4-bit Internet Protocol version number =6.</xs:documentation>
 				</xs:annotation>
@@ -1118,7 +1118,7 @@
 		<xs:annotation>
 			<xs:documentation>In IPv6, optional internet-layer information is encoded in separate headers that may be placed between the IPv6 header and the upper-layer header in a packet. An IPv6 packet may carry zero, one, or more extension headers, each identified by the Next Header field of the preceding header. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0" maxOccurs="1">
+		<xs:choice minOccurs="0">
 			<xs:element name="Hop_by_Hop_Options" type="PacketObj:HopByHopOptionsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Hop-by-Hop Options header is used to carry optional information that must be examined by every node along a packet's delivery path. It carries a variable number of type-length-value (TLV) encoded options.</xs:documentation>
@@ -1868,17 +1868,17 @@
 				<xs:annotation>
 					<xs:documentation/>
 				</xs:annotation>
-				<xs:element name="Error_Msg" type="PacketObj:ICMPv4ErrorMessageType" minOccurs="1">
+				<xs:element name="Error_Msg" type="PacketObj:ICMPv4ErrorMessageType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>For ICMP error messages, boolean values are used in this field to explicitly interpret the type and code bytes appearing in the ICMP header. Additional fields and message content are also defined here.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Info_Msg" type="PacketObj:ICMPv4InfoMessageType" minOccurs="1">
+				<xs:element name="Info_Msg" type="PacketObj:ICMPv4InfoMessageType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>For ICMP informational messages, boolean values are used in this field to explicitly interpret the type and code bytes appearing in the ICMP header. Additional fields and message content are also defined here.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Traceroute" type="PacketObj:ICMPv4TracerouteType" minOccurs="1">
+				<xs:element name="Traceroute" type="PacketObj:ICMPv4TracerouteType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>For ICMP traceroute messages (type = 30), specifies related fields and ICMP code value. A boolean value is used to explicitly interpret the code byte appearing in the ICMP header. Additional fields and message content are also defined here.</xs:documentation>
 					</xs:annotation>
@@ -1914,22 +1914,22 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Destination_Unreachable" type="PacketObj:ICMPv4DestinationUnreachableType" minOccurs="1">
+				<xs:element name="Destination_Unreachable" type="PacketObj:ICMPv4DestinationUnreachableType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>A destination unreachable message is an ICMP message which is generated by the host or its inbound gateway to inform the client that the destination is unreachable for some reason (http://en.wikipedia.org/wiki/ICMP_Destination_Unreachable).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Source_Quench" type="PacketObj:ICMPv4SourceQuenchType" minOccurs="1">
+				<xs:element name="Source_Quench" type="PacketObj:ICMPv4SourceQuenchType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>A source quench message is an ICMP message that requests that the sender decrease the rate of messages sent to a router or host. This message may be generated if a router or host does not have sufficient buffer space to process the request or may occur if the router or host buffer is approaching its limit (http://en.wikipedia.org/wiki/ICMP_Source_Quench).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Redirect_Message" type="PacketObj:ICMPv4RedirectMessageType" minOccurs="1">
+				<xs:element name="Redirect_Message" type="PacketObj:ICMPv4RedirectMessageType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>A redirect message is used to send data packets on an alternative route. This ICMP redirect message informs a host to update its routing information.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Time_Exceeded" type="PacketObj:ICMPv4TimeExceededType" form="qualified" minOccurs="1">
+				<xs:element name="Time_Exceeded" type="PacketObj:ICMPv4TimeExceededType" form="qualified" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>An ICMP time exceeded message is generated by a gateway to inform the source of a datagram that the datagram has been discarded due to the time to live field reaching zero. A time exceeded message may also be sent by a host if it fails to reassemble a fragmented datagram within its time limit (http://en.wikipedia.org/wiki/ICMP_Time_Exceeded).</xs:documentation>
 					</xs:annotation>
@@ -1952,7 +1952,7 @@
 					<xs:documentation>IP header from the original datagram.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="First_Eight_Bytes" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0" maxOccurs="1">
+			<xs:element name="First_Eight_Bytes" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>First 8 bytes of the original datagram's data.</xs:documentation>
 				</xs:annotation>
@@ -1965,32 +1965,32 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Echo_Reply" type="PacketObj:ICMPv4EchoReplyType" minOccurs="1">
+				<xs:element name="Echo_Reply" type="PacketObj:ICMPv4EchoReplyType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Echo reply/request messages are also known as "ping". The Info_Message_Content field contains an identifier and sequence number which together form the "quench" for echo reply and echo request. Fields specific to an echo reply message are given as elements to this echo reply field (type=0).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Echo_Request" type="PacketObj:ICMPv4EchoRequestType" minOccurs="1">
+				<xs:element name="Echo_Request" type="PacketObj:ICMPv4EchoRequestType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Echo reply/request messages are also known as "ping". The Info_Message_Content field contains an identifier and sequence number which together form the "quench" for echo reply and echo request. Fields specific to an echo request message are given as elements to this echo request field (type=8).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Timestamp_Request" type="PacketObj:ICMPv4TimestampRequestType" minOccurs="1">
+				<xs:element name="Timestamp_Request" type="PacketObj:ICMPv4TimestampRequestType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>A timestamp request is an ICMP informational message used for time synchronization.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Timestamp_Reply" type="PacketObj:ICMPv4TimestampReplyType" minOccurs="1">
+				<xs:element name="Timestamp_Reply" type="PacketObj:ICMPv4TimestampReplyType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>A timestamp reply is an informational ICMP message which replies to a timestamp request message.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Address_Mask_Request" type="PacketObj:ICMPv4AddressMaskRequestType" minOccurs="1">
+				<xs:element name="Address_Mask_Request" type="PacketObj:ICMPv4AddressMaskRequestType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>An address mask request is an ICMP informational message (query message) normally sent by a host to a router in order to obtain an appropriate subnet mask (type=17).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Address_Mask_Reply" type="PacketObj:ICMPv4AddressMaskReplyType" minOccurs="1">
+				<xs:element name="Address_Mask_Reply" type="PacketObj:ICMPv4AddressMaskReplyType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>An address mask reply is an ICMP informational message, used to reply to an address mask request message with an appropriate subnet mask (type=18).</xs:documentation>
 					</xs:annotation>
@@ -2075,12 +2075,12 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
-				<xs:element name="Error_Msg" type="PacketObj:ICMPv6ErrorMessageType" minOccurs="1">
+				<xs:element name="Error_Msg" type="PacketObj:ICMPv6ErrorMessageType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>For ICMP v6 error messages, boolean values are used in this field to explicitly interpret the type and code bytes appearing in the ICMP header. Additional fields and message content are also defined here. The type value indicates whether an ICMP message is an error message (type is 0 to 127) or an information message (type is 128 to 255).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Info_Msg" type="PacketObj:ICMPv6InfoMessageType" minOccurs="1">
+				<xs:element name="Info_Msg" type="PacketObj:ICMPv6InfoMessageType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>For ICMP v6 informational messages, boolean values are used in this field to explicitly interpret the type and code bytes appearing in the ICMP header. Additional fields and message content are also defined here. The type value indicates whether an ICMP message is an error message (type is 0 to 127) or an information message (type is 128 to 255).</xs:documentation>
 					</xs:annotation>
@@ -2191,7 +2191,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Echo_Reply" type="xs:boolean" minOccurs="1">
+				<xs:element name="Echo_Reply" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Echo reply is the only subtype (code=0).</xs:documentation>
 					</xs:annotation>
@@ -2326,22 +2326,22 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Network_Redirect" type="xs:boolean" minOccurs="1">
+				<xs:element name="Network_Redirect" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>One of 4 different subtypes of a redirect ICMP message; redirect datagram for the network (code=0).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Host_Redirect" type="xs:boolean" minOccurs="1">
+				<xs:element name="Host_Redirect" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>One of 4 different subtypes of a redirect ICMP message; redirect datagram for the host (code=1).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="ToS_Network_Redirect" type="xs:boolean" minOccurs="1">
+				<xs:element name="ToS_Network_Redirect" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>One of 4 different subtypes of a redirect ICMP message; redirect datagram for the TOS and network (code=2).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="ToS_Host_Redirect" type="xs:boolean" minOccurs="1">
+				<xs:element name="ToS_Host_Redirect" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>One of 4 different subtypes of a redirect ICMP message; redirect datagram for the TOS and host (code=3).</xs:documentation>
 					</xs:annotation>
@@ -2360,7 +2360,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Echo_Request" type="xs:boolean" minOccurs="1">
+				<xs:element name="Echo_Request" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Echo request is the only subtype (code=0).</xs:documentation>
 					</xs:annotation>
@@ -2378,12 +2378,12 @@
 			<xs:documentation>Time Exceeded error message; ICMP type=11.</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
-			<xs:element name="TTL_Exceeded_In_Transit" type="xs:boolean" minOccurs="1">
+			<xs:element name="TTL_Exceeded_In_Transit" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>specifies that the time-to-live was exceeded in transit (code=0).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Frag_Reassembly_Time_Exceeded" type="xs:boolean" minOccurs="1">
+			<xs:element name="Frag_Reassembly_Time_Exceeded" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>specifies that the fragment reassembly time was exceeded (code=1).</xs:documentation>
 				</xs:annotation>
@@ -2396,7 +2396,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Timestamp" type="xs:boolean" minOccurs="1">
+				<xs:element name="Timestamp" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>This is the only subtype of a timestamp request message (code=0).</xs:documentation>
 					</xs:annotation>
@@ -2415,7 +2415,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Timestamp_Reply" type="xs:boolean" minOccurs="1">
+				<xs:element name="Timestamp_Reply" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>This is the only subtype of a timestamp reply message (code=0).</xs:documentation>
 					</xs:annotation>
@@ -2444,7 +2444,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Address_Mask_Request" type="xs:boolean" minOccurs="1">
+				<xs:element name="Address_Mask_Request" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>This is the only possible subtype of an address mask request message (code=0).</xs:documentation>
 					</xs:annotation>
@@ -2463,7 +2463,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Address_Mask_Reply" type="xs:boolean" minOccurs="1">
+				<xs:element name="Address_Mask_Reply" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>This is the only possible subtype of an address mask reply message (code=0).</xs:documentation>
 					</xs:annotation>
@@ -2626,12 +2626,12 @@
 			<xs:documentation>Provides an IP address or a prefix of an IP address for NDP for IPv6.</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
-			<xs:element name="IPv6_Addr" type="AddressObj:AddressObjectType" minOccurs="1">
+			<xs:element name="IPv6_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>IPv6 address.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="IP_Addr_Prefix" type="AddressObj:AddressObjectType" minOccurs="1">
+			<xs:element name="IP_Addr_Prefix" type="AddressObj:AddressObjectType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The initial bits of an IPv6 address (these are identical for all hosts in a network) form the network's prefix. http://ipv6.com/articles/general/IPv6-Addressing.htm.</xs:documentation>
 				</xs:annotation>
