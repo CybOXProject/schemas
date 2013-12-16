@@ -4946,7 +4946,7 @@
 	</xs:simpleType>
 	<xs:complexType name="ToolTypeVocab-1.0">
 		<xs:annotation>
-			<xs:documentation>The ToolTypeVocab is the default CybOX vocabulary for tool types, used in the MeasureSourceType/Tool_Type element in CybOX Common.</xs:documentation>
+			<xs:documentation>The ToolTypeVocab is the default CybOX vocabulary for tool types, used in the MeasureSourceType/Tools/Tool/Type element in CybOX Common.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -5041,6 +5041,147 @@
 			<xs:enumeration value="SEM">
 				<xs:annotation>
 					<xs:documentation>The SEM value specifies a cyber observation made using Security Event Management tools.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ToolTypeVocab-1.1">
+		<xs:annotation>
+			<xs:documentation>The ToolTypeVocab is the default CybOX vocabulary for tool types, used in the MeasureSourceType/Tools/Tool/Type element in CybOX Common.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxVocabs:ToolTypeEnum-1.1"/>
+				</xs:simpleType>
+				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Tool Types"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ToolTypeVocab-1.1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ToolTypeEnum-1.1">
+		<xs:annotation>
+			<xs:documentation>The ToolTypeEnum is a (non-exhaustive) enumeration of cyber observation source tool types.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NIDS">
+				<xs:annotation>
+					<xs:documentation>The NIDS value specifies a Network Intrusion Detection System tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NIPS">
+				<xs:annotation>
+					<xs:documentation>The NIPS value specifies a Network Intrusion Protection System tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HIDS">
+				<xs:annotation>
+					<xs:documentation>The HIDS value specifies a Host-based Intrusion Detection System tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HIPS">
+				<xs:annotation>
+					<xs:documentation>The HIPS value specifies a Host-based Intrusion Protection System tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Firewall">
+				<xs:annotation>
+					<xs:documentation>The Firewall value specifies a software or hardware firewall.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Router">
+				<xs:annotation>
+					<xs:documentation>The Router value specifies a software or hardware router.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Proxy">
+				<xs:annotation>
+					<xs:documentation>The Proxy value specifies a cyber observation made using a software or hardware network proxy.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Gateway">
+				<xs:annotation>
+					<xs:documentation>The Gateway value specifies a cyber observation made using a software or hardware network gateway.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SNMP/MIBs">
+				<xs:annotation>
+					<xs:documentation>The SNMP/MIBs value specifies a Simple Network Management Protocol or Management Information Base tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AV">
+				<xs:annotation>
+					<xs:documentation>The AV value specifies Anti-Virus tools and/or software.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DBMS Monitor">
+				<xs:annotation>
+					<xs:documentation>The DBMS value specifies a Database Management System monitor tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Vulnerability Scanner">
+				<xs:annotation>
+					<xs:documentation>The Vulnerability Scanner value specifies a vulnerability scanner tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Configuration Scanner">
+				<xs:annotation>
+					<xs:documentation>The Configuration Scanner value specifies a configuration scanner tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Asset Scanner">
+				<xs:annotation>
+					<xs:documentation>The Asset Scanner value specifies an asset scanner tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SIM">
+				<xs:annotation>
+					<xs:documentation>The SIM value specifies a Security Information Management tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SEM">
+				<xs:annotation>
+					<xs:documentation>The SEM value specifies a Security Event Management tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Digital Forensics">
+				<xs:annotation>
+					<xs:documentation>The Digital Forensics value specifies a digital forensics tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Static Malware Analysis">
+				<xs:annotation>
+					<xs:documentation>The Static Malware Analysis value specifies a static malware Analysis tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dynamic Malware Analysis">
+				<xs:annotation>
+					<xs:documentation>The Dynamic Malware Analysis value specifies a dynamic malware Analysis tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="System Configuration Management Tool">
+				<xs:annotation>
+					<xs:documentation>The System Configuration Management value specifies a system configuration management tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Network Configuration Management Tool">
+				<xs:annotation>
+					<xs:documentation>The Network Configuration Management value specifies a network configuration management tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packet Capture and Analysis">
+				<xs:annotation>
+					<xs:documentation>The Packet Capture and Analysis value specifies a packet capture and analysis tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Network Flow Capture and Analysis">
+				<xs:annotation>
+					<xs:documentation>The Network Flow Capture and Analysis value specifies a network flow capture and analysis tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Intelligence Service Platform">
+				<xs:annotation>
+					<xs:documentation>The Intelligence Service Platform value specifies an intelligence service platform tool.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
