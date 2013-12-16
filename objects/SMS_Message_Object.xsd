@@ -63,6 +63,11 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
+				<xs:attribute name="is_premium" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_premium field specifies whether the SMS message is a premium (i.e. fee-collecting) message.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
