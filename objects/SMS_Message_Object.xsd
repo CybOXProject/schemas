@@ -62,6 +62,11 @@
 							<xs:documentation>The Bits_Per_Character field specifies the number of bits used to express each character in the SMS message.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element minOccurs="0" name="User_Data_Header" type="cyboxCommon:HexBinaryObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The User_Data_Header field specifies the user data header included at the start of the SMS message, as a hexadecimal string. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="is_premium" type="xs:boolean">
 					<xs:annotation>
