@@ -2032,7 +2032,7 @@
 			<xs:extension base="cyboxCommon:StringObjectPropertyType">
 				<xs:attribute name="units" type="cyboxCommon:DataSizeUnitsEnum" use="required">
 					<xs:annotation>
-						<xs:documentation>This field represents the Units used in the object size element. Possible values are: Bytes, Kilobytes, Megabytes.</xs:documentation>
+						<xs:documentation>This field represents the Units used in the object size element.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>

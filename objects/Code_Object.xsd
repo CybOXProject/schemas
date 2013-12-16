@@ -50,7 +50,7 @@
 					</xs:element>
 					<xs:element name="Processor_Family" type="CodeObj:ProcessorTypeType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The processor_family field specifies the class of processor that the code snippet is targeting. Possible values: x86-32, x86-64, IA-64, PowerPC, ARM, Alpha, SPARC, z/Architecture, eSi-RISC, MIPS, Motorola 68k, Other.</xs:documentation>
+							<xs:documentation>The processor_family field specifies the class of processor that the code snippet is targeting. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Discovery_Method" type="cyboxCommon:MeasureSourceType" minOccurs="0">
