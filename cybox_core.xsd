@@ -118,6 +118,7 @@
 		<xs:attribute name="idref" type="xs:QName">
 			<xs:annotation>
 				<xs:documentation>The idref field specifies a unique id reference to an Observable defined elsewhere.</xs:documentation>
+				<xs:documentation>When idref is specified, the id attribute must not be specified, and any instance of this Observable should not hold content unless an extension of the Observable allows it.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="negate" type="xs:boolean" default="false">
@@ -204,6 +205,7 @@
 		<xs:attribute name="idref" type="xs:QName">
 			<xs:annotation>
 				<xs:documentation>The idref field specifies a unique id reference to an Event defined elsewhere.</xs:documentation>
+				<xs:documentation>When idref is specified, the id attribute must not be specified, and any instance of this Event should not hold content unless an extension of the Event allows it.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -319,6 +321,7 @@
 		<xs:attribute name="idref" type="xs:QName">
 			<xs:annotation>
 				<xs:documentation>The idref field specifies a unique id reference to an Action defined elsewhere.</xs:documentation>
+				<xs:documentation>When idref is specified, the id attribute must not be specified, and any instance of this Action should not hold content unless an extension of the Action allows it.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="ordinal_position" type="xs:positiveInteger">
@@ -615,6 +618,7 @@
 		<xs:attribute name="idref" type="xs:QName">
 			<xs:annotation>
 				<xs:documentation>The idref field specifies a unique id reference to an Object defined elsewhere.</xs:documentation>
+				<xs:documentation>When idref is specified, the id attribute must not be specified, and any instance of this Object should not hold content unless an extension of the Object allows it.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="has_changed" type="xs:boolean">
@@ -652,6 +656,7 @@
 							<xs:documentation>The Relationship field uses a standardized controlled vocabulary to capture the nature of the relationship between this Object and the Related_Object.</xs:documentation>
 							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectRelationshipVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
 								Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+							<xs:documentation>When idref is specified, by design, an instance may declare a Relationship child.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>

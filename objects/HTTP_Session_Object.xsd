@@ -300,9 +300,14 @@
 					<xs:documentation>The X-Requested-With field specifies the non-standard HTTP Request X-Requested-With field, which is typically used to identify Ajax requests.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="X_Requested_For" type="cyboxCommon:StringObjectPropertyType">
+			<xs:element minOccurs="0" name="X_Forwarded_For" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The X-Forwarded-For field specifies the non-standard HTTP Request X-Forwarded-For field, which is typically used to identify the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="X_Forwarded_Proto" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The X-Forwarded-Proto field specifies the non-standard HTTP Response X-Forwarded-Proto field, which identifies the originating protocol of an HTTP request.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="X_ATT_DeviceId" type="cyboxCommon:StringObjectPropertyType">
@@ -449,7 +454,7 @@
 					<xs:documentation>The Proxy-Authenticate field specifies the HTTP Response Proxy-Authenticate header field, which defines the type of authentication necessary to access the proxy.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Refresh" type="cyboxCommon:IntegerObjectPropertyType">
+			<xs:element minOccurs="0" name="Refresh" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The Refresh field specifies the HTTP Response Refresh header field, which specifies a given interval, in seconds, after which the current page should be refreshed.</xs:documentation>
 				</xs:annotation>
@@ -484,7 +489,7 @@
 					<xs:documentation>The Transfer-Encoding field specifies the HTTP Response Transfer-Encoding field, which defines the form of encoding used to safely transfer the entity to the user.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Vary" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="Vary" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The Vary field specifies the HTTP Response Vary field, which informs downstream proxies on how to match future request headers to decide whether the cached response can be used rather than requested a fresh one from the origin server.</xs:documentation>
 				</xs:annotation>
@@ -519,11 +524,6 @@
 					<xs:documentation>The X-Content-Type-Options field specifies the non-standard HTTP Response X-Content-Type-Options field, which supports the 'nosniff' parameter to prevent the MIME-sniffing of a response away from the declared content type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="X_Forwarded_Proto" type="cyboxCommon:StringObjectPropertyType">
-				<xs:annotation>
-					<xs:documentation>The X-Forwarded-Proto field specifies the non-standard HTTP Response X-Forwarded-Proto field, which identifies the originating protocol of an HTTP request.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element minOccurs="0" name="X_Powered_By" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The X-Powered-By field specifies the non-standard HTTP Response X-Powered-By field, which specifies the technology supporting the web application running on the server.</xs:documentation>
@@ -546,7 +546,7 @@
 					<xs:documentation>The Length field captures the length of the HTTP message body, in bytes. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Message_Body" type="cyboxCommon:StringObjectPropertyType">
+			<xs:element name="Message_Body" minOccurs="0" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The Message_Body field captures the data contained in the HTTP message body.</xs:documentation>
 				</xs:annotation>
@@ -580,7 +580,7 @@
 			<xs:documentation>The HostFieldType captures the details of the HTTP request Host header field.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="1" name="Domain_Name" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="Domain_Name" type="URIObj:URIObjectType">
 				<xs:annotation>
 					<xs:documentation>The Domain_Name field specifies the domain name of the server.</xs:documentation>
 				</xs:annotation>

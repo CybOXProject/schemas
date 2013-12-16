@@ -301,7 +301,7 @@
 			<xs:documentation>Neighbor Discovery messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Src_Link_Addr" type="PacketObj:NDPSrcLinkAddrType" minOccurs="0">
+			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -355,7 +355,7 @@
 			<xs:documentation>Router Advertisement messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Src_Link_Addr" type="PacketObj:NDPSrcLinkAddrType" minOccurs="0">
+			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -394,7 +394,7 @@
 			<xs:documentation>Neighbor Solicitation messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Src_Link_Addr" type="PacketObj:NDPSrcLinkAddrType" minOccurs="0">
+			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -438,7 +438,7 @@
 			<xs:documentation>Neighbor Advertisement messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Target_Link_Addr" type="PacketObj:NDPTargetLinkAddrType" minOccurs="0">
+			<xs:element name="Target_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Target Link Addr characterizes the Target Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -472,7 +472,7 @@
 			<xs:documentation>Redirect messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Target_Link_Addr" type="PacketObj:NDPTargetLinkAddrType" minOccurs="0">
+			<xs:element name="Target_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The link-layer address for the target.</xs:documentation>
 				</xs:annotation>
@@ -484,26 +484,9 @@
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="NDPSrcLinkAddrType">
+	<xs:complexType name="NDPLinkAddrType">
 		<xs:annotation>
-			<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option. (type=1)</xs:documentation>
-		</xs:annotation>
-		<xs:sequence minOccurs="0">
-			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The length of the option (including the type and length fields) in units of 8 octets.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Link_Layer_MAC_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The variable length link-layer address. The content and format of this field (including byte and bit ordering) is expected to be specified in specific documents that describe how IPv6 operates over different link layers.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="NDPTargetLinkAddrType">
-		<xs:annotation>
-			<xs:documentation>Target Link Addr characterizes the Target Link-Layer Address option. (type=2)</xs:documentation>
+			<xs:documentation>NDPLinkAddrType characterizes the Link-Layer Address option.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
@@ -1088,7 +1071,7 @@
 			<xs:documentation>The IPv6 header is a simplification of the IPv4 header. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IP_Version" type="PacketObj:IPVersionTypeEnum" fixed="IPv6(6)" minOccurs="0" maxOccurs="1">
+			<xs:element name="IP_Version" type="PacketObj:IPVersionType" fixed="IPv6(6)" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>4-bit Internet Protocol version number =6.</xs:documentation>
 				</xs:annotation>
@@ -2804,7 +2787,7 @@
 					<xs:documentation>This unsigned 32-bit field contains a monotonically increasing counter value (sequence number). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Authenication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+			<xs:element name="Authentication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This is a variable-length field that contains the Integrity Check Value (ICV) for this packet. The field must be an integer multiple of 32 bits in length.</xs:documentation>
 				</xs:annotation>
@@ -2846,7 +2829,7 @@
 					<xs:documentation>Identifies the type data contained in the payload data field. Uses the same values as the IPv4 Protocol field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Authenication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+			<xs:element name="Authentication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Authentication Data is a variable-length field containing an Integrity Check Value (ICV) computed over the ESP packet minus the Authentication Data. http://www.ietf.org/rfc/rfc2406.txt</xs:documentation>
 				</xs:annotation>

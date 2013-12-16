@@ -75,7 +75,7 @@
 							<xs:documentation>The Name field specifies the name of the alternate data stream.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Size_In_Bytes" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="1" maxOccurs="1">
+					<xs:element name="Size_In_Bytes" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Size_In_Bytes field specifies the size of the alternate data stream, in bytes.</xs:documentation>
 						</xs:annotation>

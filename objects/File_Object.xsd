@@ -73,12 +73,12 @@
 							<xs:documentation>The Digital_Signatures field is optional and captures one or more digital signatures for the file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Modified_Time" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+					<xs:element name="Modified_Time" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Modified_Time field specifies the date/time the file was last modified.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Accessed_Time" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+					<xs:element name="Accessed_Time" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Accessed_Time field specifies the date/time the file was last accessed.</xs:documentation>
 						</xs:annotation>
@@ -242,8 +242,16 @@
 			<xs:documentation>Specifies an entry-point jump code used by a packer.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="Depth" type="cyboxCommon:IntegerObjectPropertyType"/>
-			<xs:element maxOccurs="1" minOccurs="0" name="Opcodes" type="cyboxCommon:StringObjectPropertyType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="Depth" type="cyboxCommon:IntegerObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The frequency that a jump instruction is found to be immediately followed by another jump instruction within the PE(Portable Executable) entry point.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="Opcodes" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The hex value of the bytes located at the jump location for a relative jump identified in the PE(Portable Executable) entry point up to 10 bytes or the end of the RVA(Relative Virtual Address) section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EntryPointSignatureType">

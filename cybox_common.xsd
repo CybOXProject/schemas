@@ -242,7 +242,7 @@
 	</xs:complexType>
 	<xs:complexType name="ToolInformationType">
 		<xs:annotation>
-			<xs:documentation>The ToolInformationType represents a description of a single automated tool.</xs:documentation>
+			<xs:documentation>The ToolInformationType is intended to characterize the properties of a hardware or software tool, including those related to instances of its use.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string" minOccurs="0">
@@ -314,6 +314,11 @@
 					<xs:documentation>This field captures other relevant metadata including tool-specific fields.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Compensation_Model" type="cyboxCommon:CompensationModelType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This field contains the name of the compensation model used for the tool.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:QName">
 			<xs:annotation>
@@ -323,9 +328,54 @@
 		<xs:attribute name="idref" type="xs:QName">
 			<xs:annotation>
 				<xs:documentation>The idref field specifies reference to a unique ID for this Tool.</xs:documentation>
+				<xs:documentation>When idref is specified, the id attribute must not be specified, and any instance of this type should not hold content unless an extension of the type allows it.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	<xs:complexType name="CompensationModelType">
+		<xs:annotation>
+			<xs:documentation>The CompensationModelType characterizes the compensation model for a tool.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxCommon:CompensationModelEnum xs:string"/>
+				</xs:simpleType>
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="string">
+					<xs:annotation>
+						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="CompensationModelEnum">
+		<xs:annotation>
+			<xs:documentation>The CompensationModelEnum is a (non-exhaustive) enumeration of compensation models for tools.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Freeware">
+				<xs:annotation>
+					<xs:documentation>Specifies that the tool is available for use at no monetary cost as the compensation model.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Shareware">
+				<xs:annotation>
+					<xs:documentation>Specifies that the tool is proprietary and offers a limited use license as the compensation model.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Commercial">
+				<xs:annotation>
+					<xs:documentation>Specifies that the tool is produced for sale or serves commercial purposes as the compensation model.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Adware">
+				<xs:annotation>
+					<xs:documentation>Specifies that the tool uses automatically rendered advertisements as the compensation model.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="ToolReferencesType">
 		<xs:annotation>
 			<xs:documentation>Used to indicate one or more references to tool instances and information</xs:documentation>
@@ -820,7 +870,7 @@
 	<xs:complexType name="BaseObjectPropertyType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>The BaseObjectPropertyType is a type representing a common typing foundation for the specification of a single Object Property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:anySimpleType">
@@ -832,7 +882,7 @@
 	<xs:complexType name="IntegerObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The IntegerObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Int. This type will be assigned to any property of a CybOX object that should contain content of type Integer and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -850,7 +900,7 @@
 	<xs:complexType name="StringObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The StringObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type String. This type will be assigned to any property of a CybOX object that should contain content of type String and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -868,7 +918,7 @@
 	<xs:complexType name="NameObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The NameObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Name. This type will be assigned to any property of a CybOX object that should contain content of type Name and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -905,7 +955,7 @@
 	<xs:complexType name="DateObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The DateObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Date. This type will be assigned to any property of a CybOX object that should contain content of type Date and enables the use of relevant metadata for the property. In order to avoid ambiguity, it is strongly suggested that any date representation in this field include a timezone if it is known. As with the rest of the field, this should be formatted per the xs:date specification.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 			<xs:documentation>For fields of this type using CybOX patterning, it is strongly suggested that the condition (pattern type) is limited to one of Equals, DoesNotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, ExclusiveBetween, or InclusiveBetween. The use of other conditions may lead to ambiguity or unexpected results. When evaluating data against a pattern, the evaluator should take into account the precision of the field (as given by the precision attribute) and any timezone information that is available to perform a data-aware comparison. The usage of simple string comparisons is discouraged due to ambiguities in how precision and timezone information is processed.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
@@ -941,7 +991,7 @@
 	<xs:complexType name="DateTimeObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The DateTimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type DateTime. This type will be assigned to any property of a CybOX object that should contain content of type DateTime and enables the use of relevant metadata for the property.  In order to avoid ambiguity, it is strongly suggested that any dateTime representation in this field include a timezone. As with the rest of the field, this should be formatted per the xs:dateTime specification.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 			<xs:documentation>For fields of this type using CybOX patterning, it is strongly suggested that the condition (pattern type) is limited to one of Equals, DoesNotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, ExclusiveBetween, or InclusiveBetween. The use of other conditions may lead to ambiguity or unexpected results. When evaluating data against a pattern, the evaluator should take into account the precision of the field (as given by the precision attribute) and any timezone information that is available to perform a data-aware comparison. The usage of simple string comparisons is discouraged due to ambiguities in how precision and timezone information is processed.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
@@ -958,7 +1008,7 @@
 	<xs:complexType name="FloatObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The FloatObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Float. This type will be assigned to any property of a CybOX object that should contain content of type Float and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -976,7 +1026,7 @@
 	<xs:complexType name="DoubleObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The DoubleObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Double. This type will be assigned to any property of a CybOX object that should contain content of type Double and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -994,7 +1044,7 @@
 	<xs:complexType name="UnsignedLongObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The UnsignedLongObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type UnsignedLong. This type will be assigned to any property of a CybOX object that should contain content of type UnsignedLong and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1012,7 +1062,7 @@
 	<xs:complexType name="UnsignedIntegerObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The UnsignedIntegerObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type UnsignedInt. This type will be assigned to any property of a CybOX object that should contain content of type UnsignedInteger and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1030,7 +1080,7 @@
 	<xs:complexType name="PositiveIntegerObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The PositiveIntegerObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type PositveInteger. This type will be assigned to any property of a CybOX object that should contain content of type PositiveInteger and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1048,7 +1098,7 @@
 	<xs:complexType name="HexBinaryObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The HexBinaryObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type HexBinary. This type will be assigned to any property of a CybOX object that should contain content of type HexBinary and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1066,7 +1116,7 @@
 	<xs:complexType name="LongObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The LongObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Long. This type will be assigned to any property of a CybOX object that should contain content of type Long and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1084,7 +1134,7 @@
 	<xs:complexType name="NonNegativeIntegerObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The NonNegativeIntegerObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type nonNegativeInteger. This type will be assigned to any property of a CybOX object that should contain content of type NonNegativeInteger and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1102,7 +1152,7 @@
 	<xs:complexType name="AnyURIObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The AnyURIObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type anyURI. This type will be assigned to any property of a CybOX object that should contain content of type AnyURI and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1120,7 +1170,7 @@
 	<xs:complexType name="DurationObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The DurationObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type duration. This type will be assigned to any property of a CybOX object that should contain content of type Duration and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1157,7 +1207,7 @@
 	<xs:complexType name="TimeObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The TimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type time. This type will be assigned to any property of a CybOX object that should contain content of type Time and enables the use of relevant metadata for the property.  In order to avoid ambiguity, it is strongly suggested that any time representation in this field include a specification of the timezone if it is known. As with the rest of the field, this should be formatted per the xs:time specification.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 			<xs:documentation>For fields of this type using CybOX patterning, it is strongly suggested that the condition (pattern type) is limited to one of Equals, DoesNotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, ExclusiveBetween, or InclusiveBetween. The use of other conditions may lead to ambiguity or unexpected results. When evaluating data against a pattern, the evaluator should take into account the precision of the field (as given by the precision attribute) and any timezone information that is available to perform a data-aware comparison. The usage of simple string comparisons is discouraged due to ambiguities in how precision and timezone information is processed.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
@@ -1174,7 +1224,7 @@
 	<xs:complexType name="Base64BinaryObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The Base64BinaryObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type base64Binary. This type will be assigned to any property of a CybOX object that should contain content of type Base64Binary and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1201,6 +1251,7 @@
 		<xs:attribute name="idref" type="xs:QName">
 			<xs:annotation>
 				<xs:documentation>The idref field specifies a unique ID reference for this Object Property.</xs:documentation>
+				<xs:documentation>When idref is specified, the id attribute must not be specified, and any instance of this property should not hold content unless an extension of the property allows it.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="string">
@@ -1253,9 +1304,19 @@
 				<xs:documentation>This field is optional and defines the relevant condition to apply to the value.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="is_case_sensitive" type="xs:boolean" default="true">
+			<xs:annotation>
+				<xs:documentation>The is_case_sensitive field is optional and should be used when specifying the case-sensitivity of a pattern which uses an Equals, DoesNotEqual, Contains, DoesNotContain, StartsWith, EndsWith, or FitsPattern condition. The default value for this field is "true" which indicates that pattern evaluations are to be considered case-sensitive.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:attribute name="apply_condition" type="cyboxCommon:ConditionApplicationEnum" default="ANY">
 			<xs:annotation>
 				<xs:documentation>This field indicates how a condition should be applied when the field body contains a list of values. (Its value is moot if the field value contains only a single value - both possible values for this field would have the same behavior.) If this field is set to ANY, then a pattern is considered to be matched if the provided condition successfully evaluates for any of the values in the field body. If the field is set to ALL, then the patern only matches if the provided condition successfully evaluates for every value in the field body.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="delimiter" type="xs:string" default="##comma##">
+			<xs:annotation>
+				<xs:documentation>The delimiter field specifies the delimiter used when defining lists of values. The default value is "##comma##".</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="bit_mask" type="xs:hexBinary">
@@ -2025,7 +2086,7 @@
 			<xs:extension base="cyboxCommon:StringObjectPropertyType">
 				<xs:attribute name="units" type="cyboxCommon:DataSizeUnitsEnum" use="required">
 					<xs:annotation>
-						<xs:documentation>This field represents the Units used in the object size element. Possible values are: Bytes, Kilobytes, Megabytes.</xs:documentation>
+						<xs:documentation>This field represents the Units used in the object size element.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -2309,7 +2370,7 @@
 	<xs:complexType name="SIDType">
 		<xs:annotation>
 			<xs:documentation>SIDType specifies Windows Security ID (SID) types via a union of the SIDTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">

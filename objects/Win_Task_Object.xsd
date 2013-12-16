@@ -175,7 +175,7 @@
 					<xs:documentation>The Trigger_Session_Change_Type field specifies the type of Terminal Server session change that would trigger a task launch. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/aa381298(v=vs.85).aspx</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Trigger_Type" type="WinTaskObj:TriggerType" minOccurs="0">
+			<xs:element name="Trigger_Type" type="WinTaskObj:TaskTriggerType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Trigger_Type specifies the type of the task trigger.</xs:documentation>
 				</xs:annotation>
