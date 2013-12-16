@@ -52,9 +52,9 @@
 							<xs:documentation>The Size field specifies the length of the SMS message, in bits.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Alphabet" type="cyboxCommon:StringObjectPropertyType">
+					<xs:element minOccurs="0" name="Encoding" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The Alphabet field specifies the name of the character encoding used in the SMS message.</xs:documentation>
+							<xs:documentation>The Encoding field specifies the name of the character encoding (sometimes referred to as the Alphabet) used in the SMS message.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="Bits_Per_Character" type="cyboxCommon:PositiveIntegerObjectPropertyType">
