@@ -29,17 +29,17 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="type" type="DomainNameObj:DomainTypeEnum">
+				<xs:attribute name="type" type="DomainNameObj:DomainNameTypeEnum">
 					<xs:annotation>
-						<xs:documentation>The type field specifies the type of Domain that is being defined. </xs:documentation>
+						<xs:documentation>The type field specifies the type of Domain name that is being defined. </xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:simpleType name="DomainTypeEnum">
+	<xs:simpleType name="DomainNameTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The DomainTypeEnum is an enumeration of types of Domains.</xs:documentation>
+			<xs:documentation>The DomainTypeEnum is an enumeration of types of Domain names.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="General">
