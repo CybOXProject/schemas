@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject-2"
-	xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
-	targetNamespace="http://cybox.mitre.org/objects#ArtifactObject-2" elementFormDefault="qualified"
-	attributeFormDefault="unqualified" version="2.0.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#ArtifactObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
@@ -38,8 +34,7 @@
 						</xs:annotation>
 					</xs:element>
 					<xs:choice>
-						<xs:element name="Raw_Artifact" type="ArtifactObj:RawArtifactType"
-							minOccurs="0">
+						<xs:element name="Raw_Artifact" type="ArtifactObj:RawArtifactType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>The Raw_Artifact field contains the raw content of a cyber artifact (rather than simply analysis of that artifact). It is conveyed within a string-based field and should be further enclosed in a CDATA section within the string-based field.</xs:documentation>
 							</xs:annotation>
