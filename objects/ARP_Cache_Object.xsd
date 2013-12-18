@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ARPCacheObj="http://cybox.mitre.org/objects#ARPCacheObject-1" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#ARPCacheObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0">
+	<xs:annotation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:appinfo>
+			<schema>ARP_Cache_Object</schema>
+			<version>1.0.0</version>
+			<date>11/18/2013 9:00:00 AM</date>
+			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
+			<terms_of_use>Copyright (c) 2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#AddressObject-2" schemaLocation="Address_Object.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#SystemObject-2" schemaLocation="System_Object.xsd"/>
+	<xs:element name="ARP_Cache" type="ARPCacheObj:ARPCacheObjectType">
+		<xs:annotation>
+			<xs:documentation>The ARP_Cache object is intended to characterize an address resolution protocol (ARP) cache on a system.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ARPCacheObjectType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The ARPCacheObjectType type is intended to characterize entries in a system's address resolution protocol (ARP) cache.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="cyboxCommon:ObjectPropertiesType">
+				<xs:sequence>
+					<xs:element name="ARP_Cache_Entry" type="ARPCacheObj:ARPCacheEntryType" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The ARP_Cache_Entry field is intended to characterize a single address resolution protocol (ARP) cache entry.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ARPCacheEntryType">
+		<xs:annotation>
+			<xs:documentation>The ARPCacheEntryType type is intended to characterize a single entry in a system's ARP cache.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="IP_Address" type="AddressObj:AddressObjectType">
+				<xs:annotation>
+					<xs:documentation>The IP_Address field specifies the IP address that is mapped to the physical address in the ARP cache entry.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Physical_Address" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Physical_Address field specifies the physical (e.g. MAC-48) address that is mapped to the IP address in the ARP cache entry. Either a colon (':') or a dash ('-') may be used as a separator between the octets. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Type" type="ARPCacheObj:ARPCacheEntryTypeType">
+				<xs:annotation>
+					<xs:documentation>The Type field specifies the type of ARP cache entry, which typically refers to the way the entry was added to the cache.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Network_Interface" type="SystemObj:NetworkInterfaceType">
+				<xs:annotation>
+					<xs:documentation>The Network_Interface field permits the specification of the network interface to which the ARP cache entry belongs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ARPCacheEntryTypeType">
+		<xs:annotation>
+			<xs:documentation>The ARPCacheEntryTypeType specifies ARP cache entry types via a union of the ARPCacheEntryTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
+				<xs:simpleType>
+					<xs:union memberTypes="ARPCacheObj:ARPCacheEntryTypeEnum xs:string"/>
+				</xs:simpleType>
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum">
+					<xs:annotation>
+						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ARPCacheEntryTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The ARPCacheEntryTypeEnum is an enumeration of arp cache entry types.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="static">
+				<xs:annotation>
+					<xs:documentation>The static value specifies an IP address/physical address pair that was manually added to the cache table for a device and is kept in the cache on a permanent basis.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="dynamic">
+				<xs:annotation>
+					<xs:documentation>The dynamic value specifies an IP address/physical address pair added to the cache automatically as a result of successfully-completed past ARP resolutions.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
