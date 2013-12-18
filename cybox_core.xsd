@@ -344,7 +344,7 @@
 				<xs:documentation>The timestamp field represents the local or relative time at which the action occurred or was observed. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="timestamp_precision" type="cyboxCommon:DateTimePrecisionEnum">
+		<xs:attribute name="timestamp_precision" type="cyboxCommon:DateTimePrecisionEnum" default="second">
 			<xs:annotation>
 				<xs:documentation>Represents the precision of the associated timestamp value. If omitted, the default is "second", meaning the timestamp is precise to the full field value. Digits in the timestamp that are required by the xs:dateTime datatype but are beyond the specified precision should be zeroed out.</xs:documentation>
 			</xs:annotation>

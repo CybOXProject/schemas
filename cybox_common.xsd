@@ -2344,17 +2344,17 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="hour">
 				<xs:annotation>
-					<xs:documentation>DateTime is precise to the given hour.</xs:documentation>
+					<xs:documentation>Time is precise to the given hour.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="minute">
 				<xs:annotation>
-					<xs:documentation>DateTime is precise to the given minute.</xs:documentation>
+					<xs:documentation>Time is precise to the given minute.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="second">
 				<xs:annotation>
-					<xs:documentation>DateTime is precise to the given second (including fractional seconds).</xs:documentation>
+					<xs:documentation>Time is precise to the given second (including fractional seconds).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
