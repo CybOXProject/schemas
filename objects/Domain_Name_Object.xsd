@@ -42,19 +42,14 @@
 			<xs:documentation>The DomainTypeEnum is an enumeration of types of Domain names.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="General">
-				<xs:annotation>
-					<xs:documentation>Specifies a general domain identifer. </xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="FQDN">
 				<xs:annotation>
-					<xs:documentation>Specifies a fully qualified domain name identifer. </xs:documentation>
+					<xs:documentation>Specifies a fully qualified domain name (FQDN), e.g. "www.abcd.com". </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Top-level Domain">
+			<xs:enumeration value="TLD">
 				<xs:annotation>
-					<xs:documentation>Specifies a top-level domain identifer. </xs:documentation>
+					<xs:documentation>Specifies a top-level domain (TLD) name, e.g. ".com" or ".org". </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
