@@ -46,7 +46,7 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Physical_Address" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Physical_Address field specifies the physical (e.g. MAC-48) address that is mapped to the IP address in the ARP cache entry. Either a colon (':') or a dash ('-') may be used a separator between the octets. </xs:documentation>
+					<xs:documentation>The Physical_Address field specifies the physical (e.g. MAC-48) address that is mapped to the IP address in the ARP cache entry. Either a colon (':') or a dash ('-') may be used as a separator between the octets. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Type" type="ARPCacheObj:ARPCacheEntryTypeType">
