@@ -26,7 +26,6 @@
 				<xs:annotation>
 					<xs:documentation>The Tool_Type field is optional and (when tools are used) enables identification of the type of tool leveraged as part of this cyber observation source, via a standardized controlled vocabulary.</xs:documentation>
 					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ToolTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
@@ -1757,6 +1756,11 @@
 					<xs:documentation>The Offset field specifies the offset of the beginning of the byte run as measured from the beginning of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Byte_Order" type="cyboxCommon:EndiannessType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Byte_Order field specifies the endianness of the unpacked (e.g., unencoded, unencrypted, etc.) data contained within the Byte_Run_Data field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="File_System_Offset" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The File_System_Offset field is relevant only for byte runs of files in forensic analysis.It specifies the offset of the beginning of the byte run as measured from the beginning of the relevant file system.</xs:documentation>
@@ -1963,6 +1967,11 @@
 			<xs:element name="Data_Size" type="cyboxCommon:DataSizeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Data_Size field contains the size of the data contained in this element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Byte_Order" type="cyboxCommon:EndiannessType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Byte_Order field specifies the endianness of the unpacked (e.g., decoded, unencrypted, etc.) data stored within the Data_Segment field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data_Segment" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -2368,6 +2377,45 @@
 			<xs:enumeration value="DCCP">
 				<xs:annotation>
 					<xs:documentation>Specifies the Datagram Congestion Control Protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EndiannessType">
+		<xs:annotation>
+			<xs:documentation>The EndiannessType specifies names for byte ordering methods.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxCommon:EndiannessTypeEnum xs:string"/>
+				</xs:simpleType>
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
+					<xs:annotation>
+						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="EndiannessTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The EndiannessTypeEnum is a non-exhaustive eumeration of byte ordering methods.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Big-endian">
+				<xs:annotation>
+					<xs:documentation>The Big-endian value specifies a big-endian byte ordering.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Little-endian">
+				<xs:annotation>
+					<xs:documentation>The Little-endian value specifies a little-endian byte ordering.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Middle-endian">
+				<xs:annotation>
+					<xs:documentation>The Middle-endian value specifies a middle-endian byte ordering.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
