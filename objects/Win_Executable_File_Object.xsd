@@ -115,6 +115,11 @@
 			<xs:documentation>The PEExportsType specifies the PE File exports data section. The exports data section contains information about symbols exported by the PE File (a DLL) which can be dynamically loaded by other executables. This type abstracts, and its components, abstract the Windows structures.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="Name" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Name field specifies the actual name of the PE module, as used by the PE loader when it is imported by another executable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Exported_Functions" type="WinExecutableFileObj:PEExportedFunctionsType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A list of the exported functions in this section.</xs:documentation>
@@ -133,6 +138,11 @@
 			<xs:element name="Number_Of_Names" type="cyboxCommon:LongObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The number of names in the export data section's name table.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Number_Of_Functions" type="cyboxCommon:IntegerObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Number_Of_Functions field specifies the total number of functions that are exported by the PE file.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -453,11 +463,6 @@
 					<xs:documentation>The Header_Hashes field is used to include any hash values computed using the header of the specified PE binary section as input.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Type" type="WinExecutableFileObj:SectionType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Specifies the type of the section.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PEDataDirectoryStructType">
@@ -759,23 +764,6 @@
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="SectionType">
-		<xs:annotation>
-			<xs:documentation>The SectionType specifies PE section types via a union of the SectionTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
-		</xs:annotation>
-		<xs:simpleContent>
-			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
-				<xs:simpleType>
-					<xs:union memberTypes="WinExecutableFileObj:SectionTypeEnum xs:string"/>
-				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="string">
-					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:restriction>
-		</xs:simpleContent>
-	</xs:complexType>
 	<xs:complexType name="PEOptionalHeaderType">
 		<xs:annotation>
 			<xs:documentation>The PEOptionalHeaderType type describes the PE Optional Header structure. Additional computed metadata, e.g., hashes of the header, are also included.</xs:documentation>
@@ -1057,58 +1045,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="SectionTypeEnum">
-		<xs:annotation>
-			<xs:documentation>The SectionTypeEnum enumerates the types of PE sections in an executable. See http://www.silurian.com/inspect/peformat.htm for more information. These sections can be viewed in a Disassembler, such as IDA and more specifically in the freeware CFF Explorer.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Text">
-				<xs:annotation>
-					<xs:documentation>Denoted by .text, this specifies the main program code--usually execute and read access only.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Data">
-				<xs:annotation>
-					<xs:documentation>Denoted by .data, this specifies main initialized data code that is used by the program.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Resource">
-				<xs:annotation>
-					<xs:documentation>Denoted by .rsrc, this specifies Windows Resource data.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="ReadonlyData">
-				<xs:annotation>
-					<xs:documentation>Denoted by .rdata, this specifies read only data.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Relocations">
-				<xs:annotation>
-					<xs:documentation>Denoted by .reloc, this specifies base relocations.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Debug">
-				<xs:annotation>
-					<xs:documentation>Denoted by .debug, this specifies debug information.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="IData">
-				<xs:annotation>
-					<xs:documentation>Denoted by .idata, this specifies imported function data.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="TLS">
-				<xs:annotation>
-					<xs:documentation>Denoted by .tls, this specifies Thread Local Storage. Data is private to each thread.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="CRT">
-				<xs:annotation>
-					<xs:documentation>Denoted by .CRT, this specifies data reserved for the C Run-Time library.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="SubsystemTypeEnum">
 		<xs:annotation>
 			<xs:documentation>The SubsystemTypeEnum enumerates the types of subsystems in Windows an executable can be compatible for, according to winnt.h and more specifically, the Subsystem value of the IMAGE_OPTIONAL_HEADER structure. See http://source.winehq.org/source/include/winnt.h and http://msdn.microsoft.com/en-us/library/windows/desktop/ms680339(v=vs.85).aspx for more information.</xs:documentation>

@@ -53,6 +53,11 @@
 							<xs:documentation>The Version field specifies the version of the product, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element minOccurs="0" name="Device_Details" type="cyboxCommon:ObjectPropertiesType">
+						<xs:annotation>
+							<xs:documentation>The Device_Details field captures the device-specific properties of a device product. It uses the abstract ObjectPropertiesType which permits the specification of any Object; however, it is strongly recommended that the Device Object or one of its subtypes be used in this context.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

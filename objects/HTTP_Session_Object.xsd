@@ -290,7 +290,7 @@
 					<xs:documentation>The Warning field specifies the HTTP Request Warning field, which defines any general warnings about possible problems with the entity body.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="DNT" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="DNT" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The DNT field specifies the non-standard HTTP Request DNT field, which is typically used to request that a web application disable their tracking of a user.</xs:documentation>
 				</xs:annotation>
