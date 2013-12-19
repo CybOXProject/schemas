@@ -59,6 +59,11 @@
 							<xs:documentation>The Type field specifies the type of socket being characterized.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element minOccurs="0" name="Socket_Descriptor" type="cyboxCommon:NonNegativeIntegerObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Socket_Descriptor field specifies the socket file descriptor value associated with the socket. Negative values are not allowed.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="is_blocking" type="xs:boolean">
 					<xs:annotation>
