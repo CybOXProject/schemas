@@ -1297,8 +1297,8 @@
 		<xs:attribute name="observed_encoding" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>This field is optional and specifies the encoding of the string when it is/was observed. This may be different from the encoding used to represent the string within this element.</xs:documentation>
-				<xs:documentation>Values should be taken from https://www.iana.org/assignments/character-sets/character-sets.xhtml .</xs:documentation>
-				<xs:documentation>This field is applicable to fields which contain string values.</xs:documentation>
+				<xs:documentation>It is strongly recommended that character set names should be taken from the IANA character set registry (https://www.iana.org/assignments/character-sets/character-sets.xhtml).</xs:documentation>
+				<xs:documentation>This field is intended to be applicable only to fields which contain string values.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:attributeGroup>
