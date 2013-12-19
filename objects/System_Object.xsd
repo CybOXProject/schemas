@@ -256,7 +256,8 @@
 				<xs:sequence>
 					<xs:element name="Bitness" type="SystemObj:BitnessType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Bitness field specifies the bitness of the operating system (i.e. 32 or 64).</xs:documentation>
+							<xs:documentation>The Bitness field specifies the bitness of the operating system (i.e. 32 or 64). </xs:documentation>
+							<xs:documentation>Note that this is potentially different from the word size of the underlying hardware or CPU. A 32-bit operating system can be installed on a machine running a 64-bit processor.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Build_Number" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -307,7 +308,7 @@
 	</xs:complexType>
 	<xs:complexType name="BitnessType">
 		<xs:annotation>
-			<xs:documentation>BitnessType specifies CPU architecture bitness, via a union of the BitnessEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+			<xs:documentation>BitnessType specifies operating system bitness, via a union of the BitnessEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -391,17 +392,17 @@
 	</xs:simpleType>
 	<xs:simpleType name="BitnessEnum">
 		<xs:annotation>
-			<xs:documentation>The BitnessEnum type is an enumeration of word sizes that define classes of computer architectures.</xs:documentation>
+			<xs:documentation>The BitnessEnum type is an enumeration of word sizes that define classes of operating systems.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="32">
 				<xs:annotation>
-					<xs:documentation>Specifies a 32-bit architecture.</xs:documentation>
+					<xs:documentation>Specifies a 32-bit operating system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="64">
 				<xs:annotation>
-					<xs:documentation>Specifies a 64-bit architecture.</xs:documentation>
+					<xs:documentation>Specifies a 64-bit operating system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
