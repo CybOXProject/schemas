@@ -74,7 +74,13 @@
 			<xs:documentation>The RawArtifactType is intended to convey, with minimal characterization, the content of the Raw Artifact itself.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="cyboxCommon:StringObjectPropertyType"/>
+			<xs:extension base="cyboxCommon:StringObjectPropertyType">
+				<xs:attribute name="byte_order" type="cyboxCommon:EndiannessTypeEnum">
+					<xs:annotation>
+						<xs:documentation>The byte_order field specifies the endianness of the unpacked (e.g., unencrypted, base64-decoded, decompressed, etc.) Raw Artifact data.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="PackagingType">
