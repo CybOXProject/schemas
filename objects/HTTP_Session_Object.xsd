@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#HTTPSessionObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by [NAME] at [COMPANY]. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by the MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
 			<schema>HTTP_Session_Object</schema>
 			<version>2.1</version>
@@ -46,12 +46,22 @@
 					<xs:documentation>The HTTP_Client_Request field specifies the HTTP client request portion of a single HTTP request/response pair.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="HTTP_Provisional_Server_Response" type="HTTPSessionObj:HTTPServerResponseType">
+				<xs:annotation>
+					<xs:documentation>The HTTP_Provisional_Server_Response field specifies an HTTP provisional server response that was sent before the regular HTTP response (captured in the HTTP_Server_Response field).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="HTTP_Server_Response" type="HTTPSessionObj:HTTPServerResponseType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The HTTP_Server_Response field specifies the HTTP server response portion of a single HTTP request/response pair.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="ordinal_position" type="xs:nonNegativeInteger">
+			<xs:annotation>
+				<xs:documentation>The ordinal_position attribute specifies the ordinal positioning of the HTTP request/response pair in the context of the HTTP session. This may be useful in certain cases for preserving observed HTTP request/response ordering.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="HTTPClientRequestType">
 		<xs:annotation>
