@@ -127,6 +127,11 @@
 				<xs:documentation>The negate field, when set to true, indicates the absence (rather than the presence) of the given Observable in a CybOX pattern.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="sighting_count" type="xs:positiveInteger">
+			<xs:annotation>
+				<xs:documentation>The sighting_count field specifies how many different identical instances of the Observable may have been seen/sighted.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<!---->
 	<xs:simpleType name="TrendEnum">
