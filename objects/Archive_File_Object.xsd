@@ -39,14 +39,14 @@
                             <xs:documentation>The File_Count field specifies the number of files contained within the archive.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element minOccurs="0" name="Encryption_Algorithm" type="cyboxCommon:StringObjectPropertyType">
+                    <xs:element minOccurs="0" name="Encryption_Algorithm" type="cyboxCommon:CipherType">
                         <xs:annotation>
                             <xs:documentation>The Encryption_Algorithm field specifies the algorithm used to encrypt an archive file.  Note: For individual files within an archive that are themselves encrypted, the specifics of that encryption are found in the FileObject definition for that file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="Encryption_Key" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+                    <xs:element name="Decryption_Key" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
                         <xs:annotation>
-                            <xs:documentation>The Encryption_Key field specifies the key used to encrypt the file.</xs:documentation>
+                            <xs:documentation>The Decryption_Key field specifies the key used to decrypt the file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element minOccurs="0" name="Comment" type="cyboxCommon:StringObjectPropertyType">
