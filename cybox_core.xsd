@@ -83,7 +83,7 @@
 					<xs:documentation>Keywords enables capture of relevant keywords for this cyber observable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Observable_Source" type="cyboxCommon:MeasureSourceType" minOccurs="0">
+			<xs:element name="Observable_Source" type="cyboxCommon:MeasureSourceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The Observable_Source field is optional and enables descriptive specification of how this Observable was identified and specified.</xs:documentation>
 				</xs:annotation>
