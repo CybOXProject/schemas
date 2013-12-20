@@ -81,6 +81,11 @@
 				<xs:documentation>The name field is optional and enables the assignment of a relevant name to this Discovery Method.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="sighting_count" type="xs:positiveInteger">
+			<xs:annotation>
+				<xs:documentation>The sighting_count field specifies how many different identical instances of a given Observable may have been seen/sighted by the observation source.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:simpleType name="SourceClassTypeEnum">
 		<xs:annotation>
