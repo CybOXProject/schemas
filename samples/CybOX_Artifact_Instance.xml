@@ -7,7 +7,7 @@
     xsi:schemaLocation="
     http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
     http://cybox.mitre.org/objects#ArtifactObject-2 ../objects/Artifact_Object.xsd"
-    cybox_major_version="2" cybox_minor_version="0" cybox_update_version="1">
+    cybox_major_version="2" cybox_minor_version="1" cybox_update_version="0">
     <cybox:Observable id="example:Observable-6dde4f72-cca0-44f0-8206-f381accf6b87">
         <cybox:Description>
             This Observable specifies an instance of an Artifact object, specifically some 

@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinPrefetchObj="http://cybox.mitre.org/objects#WinPrefetchObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:DeviceObj="http://cybox.mitre.org/objects#DeviceObject-2" xmlns:WinVolumeObj="http://cybox.mitre.org/objects#WinVolumeObject-2" targetNamespace="http://cybox.mitre.org/objects#WinPrefetchObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinPrefetchObj="http://cybox.mitre.org/objects#WinPrefetchObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:DeviceObj="http://cybox.mitre.org/objects#DeviceObject-2" xmlns:WinVolumeObj="http://cybox.mitre.org/objects#WinVolumeObject-2" targetNamespace="http://cybox.mitre.org/objects#WinPrefetchObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
 			<schema>Win_Prefetch_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -98,12 +99,12 @@
 			<xs:documentation>VolumeType characterizes the volume information in the Windows prefetch file.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="VolumeItem" type="WinVolumeObj:WindowsVolumeObjectType" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="VolumeItem" type="WinVolumeObj:WindowsVolumeObjectType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The volume that the prefetch application was run from. The only item in the prefecth file is the volume name.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DeviceItem" type="DeviceObj:DeviceObjectType" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="DeviceItem" type="DeviceObj:DeviceObjectType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The device that the prefetch application was run from. The only item in the prefetch file is the device serial number.</xs:documentation>
 				</xs:annotation>

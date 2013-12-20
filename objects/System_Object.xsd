@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#SystemObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#SystemObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
 			<schema>System_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -223,7 +224,7 @@
 			<xs:documentation>The IP_Info type specifies information about the IP address and its associated subnet mask used by a network interface.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IP_Address" type="AddressObj:AddressObjectType" minOccurs="1" maxOccurs="1">
+			<xs:element name="IP_Address" type="AddressObj:AddressObjectType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The IP_Address field specifies an IP address.</xs:documentation>
 				</xs:annotation>
@@ -256,7 +257,8 @@
 				<xs:sequence>
 					<xs:element name="Bitness" type="SystemObj:BitnessType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Bitness field specifies the bitness of the operating system (i.e. 32 or 64).</xs:documentation>
+							<xs:documentation>The Bitness field specifies the bitness of the operating system (i.e. 32 or 64). </xs:documentation>
+							<xs:documentation>Note that this is potentially different from the word size of the underlying hardware or CPU. A 32-bit operating system can be installed on a machine running a 64-bit processor.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Build_Number" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -307,7 +309,7 @@
 	</xs:complexType>
 	<xs:complexType name="BitnessType">
 		<xs:annotation>
-			<xs:documentation>BitnessType specifies CPU architecture bitness, via a union of the BitnessEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+			<xs:documentation>BitnessType specifies operating system bitness, via a union of the BitnessEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -391,17 +393,17 @@
 	</xs:simpleType>
 	<xs:simpleType name="BitnessEnum">
 		<xs:annotation>
-			<xs:documentation>The BitnessEnum type is an enumeration of word sizes that define classes of computer architectures.</xs:documentation>
+			<xs:documentation>The BitnessEnum type is an enumeration of word sizes that define classes of operating systems.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="32">
 				<xs:annotation>
-					<xs:documentation>Specifies a 32-bit architecture.</xs:documentation>
+					<xs:documentation>Specifies a 32-bit operating system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="64">
 				<xs:annotation>
-					<xs:documentation>Specifies a 64-bit architecture.</xs:documentation>
+					<xs:documentation>Specifies a 64-bit operating system.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

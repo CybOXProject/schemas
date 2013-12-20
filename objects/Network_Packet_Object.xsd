@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:PacketObj="http://cybox.mitre.org/objects#PacketObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" targetNamespace="http://cybox.mitre.org/objects#PacketObject-2" elementFormDefault="qualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:PacketObj="http://cybox.mitre.org/objects#PacketObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" targetNamespace="http://cybox.mitre.org/objects#PacketObject-2" elementFormDefault="qualified" version="2.1">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
 		<xs:appinfo>
 			<schema>Network_Packet_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -301,7 +302,7 @@
 			<xs:documentation>Neighbor Discovery messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Src_Link_Addr" type="PacketObj:NDPSrcLinkAddrType" minOccurs="0">
+			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -355,7 +356,7 @@
 			<xs:documentation>Router Advertisement messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Src_Link_Addr" type="PacketObj:NDPSrcLinkAddrType" minOccurs="0">
+			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -394,7 +395,7 @@
 			<xs:documentation>Neighbor Solicitation messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Src_Link_Addr" type="PacketObj:NDPSrcLinkAddrType" minOccurs="0">
+			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -438,7 +439,7 @@
 			<xs:documentation>Neighbor Advertisement messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Target_Link_Addr" type="PacketObj:NDPTargetLinkAddrType" minOccurs="0">
+			<xs:element name="Target_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Target Link Addr characterizes the Target Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -472,7 +473,7 @@
 			<xs:documentation>Redirect messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Target_Link_Addr" type="PacketObj:NDPTargetLinkAddrType" minOccurs="0">
+			<xs:element name="Target_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The link-layer address for the target.</xs:documentation>
 				</xs:annotation>
@@ -484,26 +485,9 @@
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="NDPSrcLinkAddrType">
+	<xs:complexType name="NDPLinkAddrType">
 		<xs:annotation>
-			<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option. (type=1)</xs:documentation>
-		</xs:annotation>
-		<xs:sequence minOccurs="0">
-			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The length of the option (including the type and length fields) in units of 8 octets.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Link_Layer_MAC_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The variable length link-layer address. The content and format of this field (including byte and bit ordering) is expected to be specified in specific documents that describe how IPv6 operates over different link layers.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="NDPTargetLinkAddrType">
-		<xs:annotation>
-			<xs:documentation>Target Link Addr characterizes the Target Link-Layer Address option. (type=2)</xs:documentation>
+			<xs:documentation>NDPLinkAddrType characterizes the Link-Layer Address option.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
@@ -1088,7 +1072,7 @@
 			<xs:documentation>The IPv6 header is a simplification of the IPv4 header. </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IP_Version" type="PacketObj:IPVersionTypeEnum" fixed="IPv6(6)" minOccurs="0" maxOccurs="1">
+			<xs:element name="IP_Version" type="PacketObj:IPVersionType" fixed="IPv6(6)" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>4-bit Internet Protocol version number =6.</xs:documentation>
 				</xs:annotation>
@@ -2804,7 +2788,7 @@
 					<xs:documentation>This unsigned 32-bit field contains a monotonically increasing counter value (sequence number). </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Authenication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+			<xs:element name="Authentication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This is a variable-length field that contains the Integrity Check Value (ICV) for this packet. The field must be an integer multiple of 32 bits in length.</xs:documentation>
 				</xs:annotation>
@@ -2846,7 +2830,7 @@
 					<xs:documentation>Identifies the type data contained in the payload data field. Uses the same values as the IPv4 Protocol field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Authenication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+			<xs:element name="Authentication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Authentication Data is a variable-length field containing an Integrity Check Value (ICV) computed over the ESP packet minus the Authentication Data. http://www.ietf.org/rfc/rfc2406.txt</xs:documentation>
 				</xs:annotation>
