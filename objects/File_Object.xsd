@@ -26,12 +26,13 @@
 				<xs:sequence minOccurs="1">
 					<xs:element name="File_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The File_Name field specifies the name of the file.</xs:documentation>
+							<xs:documentation>The File_Name field specifies the name and extension of a file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="File_Path" type="FileObj:FilePathType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The File_Path field specifies the path to the file, not including the device. Whether the path is relative or fully-qualified can be specified via the 'fully_qualified' attribute of this property.</xs:documentation>
+							<xs:documentation>The File_Path field specifies the relative or fully-qualified path to the file, not including the device. Whether the path is relative or fully-qualified can be specified via the 'fully_qualified' attribute of this property.</xs:documentation>
+							<xs:documentation>The File_Path field may include a filename or just the path leading to the file.  The File_Path must end with either the filename, or a terminating path separator("\" or "/"), and must not conflict with the File_Name.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Device_Path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -41,12 +42,14 @@
 					</xs:element>
 					<xs:element name="Full_Path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Full_Path field specifies the complete path to the file, including the device path.</xs:documentation>
+							<xs:documentation>The Full_Path field specifies the complete path to the file, including the device path, and typically, the filename.</xs:documentation>
+							<xs:documentation>The Full_Path must end with either the file name, or a terminating path separator("\" or "/"), and must not conflict with the File_Name.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="File_Extension" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The File_Extension field specifies the file extension of the file.</xs:documentation>
+							<xs:documentation>The File_Extension field may specify the file extension of the file.</xs:documentation>
+							<xs:documentation>The File_Extension field must not conflict with the ending of the File_Name and should not start with a ".", but may contain a "." in the case of a compound file extension, such as "tar.gz".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Size_In_Bytes" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0">
