@@ -24,9 +24,9 @@
         <xs:complexContent>
             <xs:extension base="FileObj:FileObjectType">
                 <xs:sequence minOccurs="1">
-                    <xs:element minOccurs="0" name="Type" type="ArchiveFileObj:ArchiveFileFormatType">
+                    <xs:element minOccurs="0" name="Archive_Format" type="ArchiveFileObj:ArchiveFileFormatType">
                         <xs:annotation>
-                            <xs:documentation>The Type field specifies the method used to create the archive (e.g. ZIP, RAR, TGZ).</xs:documentation>
+                            <xs:documentation>The Archive Format specifies the format of the archive file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element minOccurs="0" name="Version" type="cyboxCommon:StringObjectPropertyType">
@@ -42,6 +42,11 @@
                     <xs:element minOccurs="0" name="Encryption_Algorithm" type="cyboxCommon:StringObjectPropertyType">
                         <xs:annotation>
                             <xs:documentation>The Encryption_Algorithm field specifies the algorithm used to encrypt an archive file.  Note: For individual files within an archive that are themselves encrypted, the specifics of that encryption are found in the FileObject definition for that file.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Encryption_Key" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>The Encryption_Key field specifies the key used to encrypt the file.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element minOccurs="0" name="Comment" type="cyboxCommon:StringObjectPropertyType">
