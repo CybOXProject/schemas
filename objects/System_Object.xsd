@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#SystemObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>System_Object</schema>
 			<version>2.1</version>
@@ -202,7 +202,7 @@
 			</xs:element>
 			<xs:element name="MAC" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The MAC field specifies the MAC or hardware address of the physical network card. Either a colon (':') or a dash ('-') may be used a separator between the octets. </xs:documentation>
+					<xs:documentation>The MAC field specifies the MAC or hardware address of the physical network card. Either a colon (':') or a dash ('-') may be used a separator between the octets.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -257,7 +257,7 @@
 				<xs:sequence>
 					<xs:element name="Bitness" type="SystemObj:BitnessType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Bitness field specifies the bitness of the operating system (i.e. 32 or 64). </xs:documentation>
+							<xs:documentation>The Bitness field specifies the bitness of the operating system (i.e. 32 or 64).</xs:documentation>
 							<xs:documentation>Note that this is potentially different from the word size of the underlying hardware or CPU. A 32-bit operating system can be installed on a machine running a 64-bit processor.</xs:documentation>
 						</xs:annotation>
 					</xs:element>

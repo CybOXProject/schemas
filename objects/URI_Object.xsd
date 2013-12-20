@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#URIObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>URI_Object</schema>
 			<version>2.1</version>
@@ -32,7 +32,7 @@
 				</xs:sequence>
 				<xs:attribute name="type" type="URIObj:URITypeEnum">
 					<xs:annotation>
-						<xs:documentation>The type field specifies the type of URI that is being defined. </xs:documentation>
+						<xs:documentation>The type field specifies the type of URI that is being defined.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -45,17 +45,17 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="URL">
 				<xs:annotation>
-					<xs:documentation>Specifies a URL type of URI. </xs:documentation>
+					<xs:documentation>Specifies a URL type of URI.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="General URN">
 				<xs:annotation>
-					<xs:documentation>Specifies a General URN type of URI. </xs:documentation>
+					<xs:documentation>Specifies a General URN type of URI.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Domain Name">
 				<xs:annotation>
-					<xs:documentation>Specifies a Domain Name type of URI. </xs:documentation>
+					<xs:documentation>Specifies a Domain Name type of URI.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

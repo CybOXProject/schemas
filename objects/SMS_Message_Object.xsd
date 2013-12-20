@@ -65,7 +65,7 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="User_Data_Header" type="cyboxCommon:HexBinaryObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The User_Data_Header field specifies the user data header included at the start of the SMS message, as a hexadecimal string. </xs:documentation>
+							<xs:documentation>The User_Data_Header field specifies the user data header included at the start of the SMS message, as a hexadecimal string.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>

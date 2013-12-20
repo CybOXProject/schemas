@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject-2" xmlns:WinThreadObj="http://cybox.mitre.org/objects#WinThreadObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:MemoryObj="http://cybox.mitre.org/objects#MemoryObject-2" xmlns:WinHandleObj="http://cybox.mitre.org/objects#WinHandleObject-2" xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2" targetNamespace="http://cybox.mitre.org/objects#WinProcessObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Win_Process_Object</schema>
 			<version>2.1</version>
@@ -102,7 +102,7 @@
 		<xs:sequence>
 			<xs:element name="lpDesktop" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The lpDesktop field specifies the name of the desktop, or the name of both the desktop and window station for this process. </xs:documentation>
+					<xs:documentation>The lpDesktop field specifies the name of the desktop, or the name of both the desktop and window station for this process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="lpTitle" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -137,12 +137,12 @@
 			</xs:element>
 			<xs:element name="dwYCountChars" type="cyboxCommon:PositiveIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The dwYCountChars field specifies the screen buffer height, in character rows. </xs:documentation>
+					<xs:documentation>The dwYCountChars field specifies the screen buffer height, in character rows.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="dwFillAttribute" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The dwFillAttribute field specifies the initial text and background colors if a new console window is created in a console application. </xs:documentation>
+					<xs:documentation>The dwFillAttribute field specifies the initial text and background colors if a new console window is created in a console application.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="dwFlags" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
@@ -157,17 +157,17 @@
 			</xs:element>
 			<xs:element name="hStdInput" type="WinHandleObj:WindowsHandleObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The hStdInput field specifies the standard input handle for the process. </xs:documentation>
+					<xs:documentation>The hStdInput field specifies the standard input handle for the process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hStdOutput" type="WinHandleObj:WindowsHandleObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The hStdOutput field specifies the standard output handle for the process. </xs:documentation>
+					<xs:documentation>The hStdOutput field specifies the standard output handle for the process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hStdError" type="WinHandleObj:WindowsHandleObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The hStdError field specifies the standard error handle for the process. </xs:documentation>
+					<xs:documentation>The hStdError field specifies the standard error handle for the process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

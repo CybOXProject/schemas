@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinPipeObj="http://cybox.mitre.org/objects#WinPipeObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:WinHandleObj="http://cybox.mitre.org/objects#WinHandleObject-2" xmlns:PipeObj="http://cybox.mitre.org/objects#PipeObject-2" targetNamespace="http://cybox.mitre.org/objects#WinPipeObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Win_Pipe_Object</schema>
 			<version>2.1</version>
@@ -17,7 +17,7 @@
 
 	<xs:element name="Windows_Pipe" type="WinPipeObj:WindowsPipeObjectType">
 		<xs:annotation>
-			<xs:documentation>Windows_Pipe object characterizes windows pipes. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365590(v=vs.85).aspx</xs:documentation>
+			<xs:documentation>Windows_Pipe object characterizes windows pipes. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/aa365590(v=vs.85).aspx.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="WindowsPipeObjectType" mixed="false">

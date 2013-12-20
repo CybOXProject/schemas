@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:NetworkConnectionObj="http://cybox.mitre.org/objects#NetworkConnectionObject-2" targetNamespace="http://cybox.mitre.org/objects#ProcessObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Process_Object</schema>
 			<version>2.1</version>
@@ -43,13 +43,13 @@
 					</xs:element>
 					<xs:element name="Parent_PID" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Parent_PID field specifies the process ID (PID) of the parent process (i.e. the process that spawned this one), if applicable. </xs:documentation>
+							<xs:documentation>The Parent_PID field specifies the process ID (PID) of the parent process (i.e. the process that spawned this one), if applicable.</xs:documentation>
 							<xs:documentation>NOTE: this field will be deprecated in the next major version of this object, at which point the parent process of this process should be specified using a Related_Object with the "Child_Of" Relationship value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Child_PID_List" type="ProcessObj:ChildPIDListType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Child_PID_List field specifies any children spawned by the process being characterized, by way of a list of PIDs. </xs:documentation>
+							<xs:documentation>The Child_PID_List field specifies any children spawned by the process being characterized, by way of a list of PIDs.</xs:documentation>
 							<xs:documentation>NOTE: this field will be deprecated in the next major version of this object, at which point child processes of this process should be specified using a Related_Object with the "Parent_Of" Relationship value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:DNSRecordObj="http://cybox.mitre.org/objects#DNSRecordObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#DNSRecordObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>DNS_Record_Object</schema>
 			<version>2.1</version>
@@ -43,12 +43,12 @@
 					</xs:element>
 					<xs:element name="IP_Address" type="AddressObj:AddressObjectType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The IP_Address field specifies the IP address to which the domain name in the DNS cache entry resolves to. </xs:documentation>
+							<xs:documentation>The IP_Address field specifies the IP address to which the domain name in the DNS cache entry resolves to.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Address_Class" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Address_Class field specifies the address class (e.g. IN, TXT, ANY, etc.) for the DNS record </xs:documentation>
+							<xs:documentation>The Address_Class field specifies the address class (e.g. IN, TXT, ANY, etc.) for the DNS record.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Entry_Type" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -78,7 +78,7 @@
 					</xs:element>
 					<xs:element name="Data_Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Data_Length field is optional and specifies the length of raw data to be captured in the Record_Data field. </xs:documentation>
+							<xs:documentation>The Data_Length field is optional and specifies the length of raw data to be captured in the Record_Data field.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Record_Data" type="xs:anyType" minOccurs="0">

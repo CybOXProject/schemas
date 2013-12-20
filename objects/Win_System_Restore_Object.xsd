@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinSystemRestoreObj="http://cybox.mitre.org/objects#WinSystemRestoreObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#WinSystemRestoreObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Win_System_Restore_Object</schema>
 			<version>2.1</version>
@@ -14,7 +14,7 @@
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:element name="Windows_System_Restore_Entry" type="WinSystemRestoreObj:WindowsSystemRestoreObjectType">
 		<xs:annotation>
-			<xs:documentation>Windows_System_Restore_Entry object is intended to characterize Windows system restore points. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/dd408121(v=vs.85).aspx</xs:documentation>
+			<xs:documentation>Windows_System_Restore_Entry object is intended to characterize Windows system restore points. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/dd408121(v=vs.85).aspx.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="WindowsSystemRestoreObjectType" mixed="false">
@@ -26,12 +26,12 @@
 				<xs:sequence>
 					<xs:element name="Restore_Point_Description" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The description of this restore point</xs:documentation>
+							<xs:documentation>The description of this restore point.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Restore_Point_Full_Path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The full path to the restore point</xs:documentation>
+							<xs:documentation>The full path to the restore point.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Restore_Point_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -41,37 +41,37 @@
 					</xs:element>
 					<xs:element name="Restore_Point_Type" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The type of restore point. (ex: "Checkpoint")</xs:documentation>
+							<xs:documentation>The type of restore point. (ex: "Checkpoint").</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="ACL_Change_SID" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The SID associated with a restore point change log event. This usually appears when the event flag includes "ACL Info". </xs:documentation>
+							<xs:documentation>The SID associated with a restore point change log event. This usually appears when the event flag includes "ACL Info".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="ACL_Change_Username" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The username associated with a restore point change log event. It usually appears when the event flag includes "ACL Info"</xs:documentation>
+							<xs:documentation>The username associated with a restore point change log event. It usually appears when the event flag includes "ACL Info".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Backup_File_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The backup file name associated with a particular restore point change log event</xs:documentation>
+							<xs:documentation>The backup file name associated with a particular restore point change log event.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Change_Event" type="WinSystemRestoreObj:ChangeLogEntryTypeType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation> The change event associated with this restore point object (ex: "System Checkpoint", "Software Installation", etc.) </xs:documentation>
+							<xs:documentation>The change event associated with this restore point object (ex: "System Checkpoint", "Software Installation", etc.).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="ChangeLog_Entry_Flags" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The flags associated with a restore point change log entry (ex: "ACL Info, "Short Name", etc.) </xs:documentation>
+							<xs:documentation>The flags associated with a restore point change log entry (ex: "ACL Info, "Short Name", etc.).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="ChangeLog_Entry_Sequence_Number" type="cyboxCommon:LongObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The change log sequence number associated with this restore point object</xs:documentation>
+							<xs:documentation>The change log sequence number associated with this restore point object.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="ChangeLog_Entry_Type" type="WinSystemRestoreObj:ChangeLogEntryTypeType" minOccurs="0" maxOccurs="1">
@@ -81,7 +81,7 @@
 					</xs:element>
 					<xs:element name="Change_Log_File_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The changelog file associated with the restore point</xs:documentation>
+							<xs:documentation>The changelog file associated with the restore point.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Created" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
@@ -91,7 +91,7 @@
 					</xs:element>
 					<xs:element name="File_Attributes" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>Attributes of the file associated with this restore point object (ex: "Directory")</xs:documentation>
+							<xs:documentation>Attributes of the file associated with this restore point object (ex: "Directory").</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="New_File_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -101,12 +101,12 @@
 					</xs:element>
 					<xs:element name="Original_File_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The original filename associated with this restore point change log event</xs:documentation>
+							<xs:documentation>The original filename associated with this restore point change log event.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Original_Short_File_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The original Short filename (SFN) of the file associated with this restore point object</xs:documentation>
+							<xs:documentation>The original Short filename (SFN) of the file associated with this restore point object.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Process_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -116,7 +116,7 @@
 					</xs:element>
 					<xs:element name="Registry_Hive_List" type="WinSystemRestoreObj:HiveListType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The registry hives associated with this restore point</xs:documentation>
+							<xs:documentation>The registry hives associated with this restore point.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -126,12 +126,12 @@
 	<xs:complexType name="HiveListType">
 		<xs:annotation>
 			<xs:documentation>HiveListType is intended to characterize a group of keys, subkeys, and values in the Windows registry that has a set of supporting files containing backups of its data and is associated with a system restore point.</xs:documentation>
-			<xs:documentation>http://msdn.microsoft.com/en-us/library/windows/desktop/ms724877(v=vs.85).aspx</xs:documentation>
+			<xs:documentation>http://msdn.microsoft.com/en-us/library/windows/desktop/ms724877(v=vs.85).aspx.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Hive" type="cyboxCommon:StringObjectPropertyType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Hive element specifies the Windows registry hive associated with the system restore point. </xs:documentation>
+					<xs:documentation>The Hive element specifies the Windows registry hive associated with the system restore point.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -155,52 +155,52 @@
 	</xs:complexType>
 	<xs:simpleType name="ChangeLogEntryTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The change types found in a Restore Point changelog&gt;</xs:documentation>
+			<xs:documentation>The change types found in a Restore Point changelog&gt;.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="UPDATE_ACL">
 				<xs:annotation>
-					<xs:documentation>Represents a changelog entry descriptor for updating an ACL. (0x00000001)</xs:documentation>
+					<xs:documentation>Represents a changelog entry descriptor for updating an ACL. (0x00000001).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="UPDATE_ATTRIBUTES">
 				<xs:annotation>
-					<xs:documentation>Represents a changelog entry descriptor for updating attributes. (0x00000002)</xs:documentation>
+					<xs:documentation>Represents a changelog entry descriptor for updating attributes. (0x00000002).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DELETE_FILE">
 				<xs:annotation>
-					<xs:documentation>Represents a changelog entry descriptor for deleting a file. (0x00000004)</xs:documentation>
+					<xs:documentation>Represents a changelog entry descriptor for deleting a file. (0x00000004).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CREATE_FILE">
 				<xs:annotation>
-					<xs:documentation>Represents a changelog entry descriptor for creating a file. (0x00000010)</xs:documentation>
+					<xs:documentation>Represents a changelog entry descriptor for creating a file. (0x00000010).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="RENAME_FILE">
 				<xs:annotation>
-					<xs:documentation>Represents a changelog entry descriptor for renaming a file. (0x00000020)</xs:documentation>
+					<xs:documentation>Represents a changelog entry descriptor for renaming a file. (0x00000020).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CREATE_DIRECTORY">
 				<xs:annotation>
-					<xs:documentation>Represents a changelog entry descriptor for creating a directory. (0x00000040)</xs:documentation>
+					<xs:documentation>Represents a changelog entry descriptor for creating a directory. (0x00000040).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="RENAME_DIRECTORY">
 				<xs:annotation>
-					<xs:documentation>Represents a changelog entry descriptor for renaming a directory. (0x00000080)</xs:documentation>
+					<xs:documentation>Represents a changelog entry descriptor for renaming a directory. (0x00000080).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DELETE_DIRECTORY">
 				<xs:annotation>
-					<xs:documentation>Represents a changelog entry descriptor for deleting a directory. (0x00000100)</xs:documentation>
+					<xs:documentation>Represents a changelog entry descriptor for deleting a directory. (0x00000100).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="MNT_CREATE">
 				<xs:annotation>
-					<xs:documentation>Related to filesystem attachment points. (0x00000200)</xs:documentation>
+					<xs:documentation>Related to filesystem attachment points. (0x00000200).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

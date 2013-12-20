@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#AddressObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Address_Object</schema>
 			<version>2.1</version>
@@ -42,17 +42,17 @@
 				</xs:sequence>
 				<xs:attribute name="category" type="AddressObj:CategoryTypeEnum" default="ipv4-addr">
 					<xs:annotation>
-						<xs:documentation>The category field specifies the address category that is being defined. </xs:documentation>
+						<xs:documentation>The category field specifies the address category that is being defined.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="is_source" type="xs:boolean">
 					<xs:annotation>
-						<xs:documentation>The is_source field specifies if this is a "Source" address</xs:documentation>
+						<xs:documentation>The is_source field specifies if this is a "Source" address.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="is_destination" type="xs:boolean">
 					<xs:annotation>
-						<xs:documentation>The is_destination field specifies if this is a "Destination" address</xs:documentation>
+						<xs:documentation>The is_destination field specifies if this is a "Destination" address.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>

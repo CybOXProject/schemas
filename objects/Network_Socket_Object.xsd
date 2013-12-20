@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:NetworkSocketObj="http://cybox.mitre.org/objects#NetworkSocketObject-2" xmlns:SocketAddressObj="http://cybox.mitre.org/objects#SocketAddressObject-1" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#NetworkSocketObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Network_Socket_Object</schema>
 			<version>2.1</version>
@@ -68,7 +68,7 @@
 				</xs:sequence>
 				<xs:attribute name="is_blocking" type="xs:boolean">
 					<xs:annotation>
-						<xs:documentation>The is_blocking field specifies whether or not the socket is in blocking mode. </xs:documentation>
+						<xs:documentation>The is_blocking field specifies whether or not the socket is in blocking mode.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="is_listening" type="xs:boolean">
@@ -106,7 +106,7 @@
 			</xs:element>
 			<xs:element name="SO_BROADCAST" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Enable the socket for issuing messages to a broadcast address (AF_INET / SOCK_DGRAM or SOCK_RAW). (</xs:documentation>
+					<xs:documentation>Enable the socket for issuing messages to a broadcast address (AF_INET / SOCK_DGRAM or SOCK_RAW). (.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SO_CONDITIONAL_ACCEPT" type="xs:boolean" minOccurs="0">
@@ -121,7 +121,7 @@
 			</xs:element>
 			<xs:element name="SO_DONTROUTE" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Bypass normal routing mechanisms (AF_INET or AF_INET6 ) </xs:documentation>
+					<xs:documentation>Bypass normal routing mechanisms (AF_INET or AF_INET6 ).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SO_LINGER" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
@@ -136,7 +136,7 @@
 			</xs:element>
 			<xs:element name="SO_OOBINLINE" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation> Indicates whether out-of-band data is received inline with normal data (AF_INET or AF_INET6). </xs:documentation>
+					<xs:documentation>Indicates whether out-of-band data is received inline with normal data (AF_INET or AF_INET6).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SO_RCVBUF" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
@@ -151,7 +151,7 @@
 			</xs:element>
 			<xs:element name="SO_REUSEADDR" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates if the local socket address can be reused (AF_INET or AF_INET6 / SOCK_DGRAM or SOCK_RAW)</xs:documentation>
+					<xs:documentation>Indicates if the local socket address can be reused (AF_INET or AF_INET6 / SOCK_DGRAM or SOCK_RAW).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SO_DEBUG" type="xs:boolean" minOccurs="0">
@@ -186,7 +186,7 @@
 			</xs:element>
 			<xs:element name="TCP_NODELAY" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>When set, TCP will send data immediately instead of using the Nagle delay algorithm (AF_INET or AF_INET6 / SOCK_STREAM). (</xs:documentation>
+					<xs:documentation>When set, TCP will send data immediately instead of using the Nagle delay algorithm (AF_INET or AF_INET6 / SOCK_STREAM). (.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

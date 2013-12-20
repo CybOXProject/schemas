@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cybox.mitre.org/common-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>CybOX Common</schema>
 			<version>2.1</version>
@@ -19,8 +19,8 @@
 			<xs:element name="Information_Source_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Information_Source_Type field is optional and utilizes a standardized controlled vocabulary to identify the type of information source leveraged for this cyber observation source.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is InformationSourceTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is InformationSourceTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Tool_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
@@ -52,12 +52,12 @@
 			</xs:element>
 			<xs:element name="Platform" type="cyboxCommon:PlatformSpecificationType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Platform field is optional and enables a formal, standardized specification of the platform for this cyber observation source. </xs:documentation>
+					<xs:documentation>The Platform field is optional and enables a formal, standardized specification of the platform for this cyber observation source.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="System" type="cyboxCommon:ObjectPropertiesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The System field is optional and enables characterization of the system on which the mechanism of cyber observation executed. System should be an object of type SystemObj:SystemObjectType</xs:documentation>
+					<xs:documentation>The System field is optional and enables characterization of the system on which the mechanism of cyber observation executed. System should be an object of type SystemObj:SystemObjectType.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Instance" type="cyboxCommon:ObjectPropertiesType" minOccurs="0">
@@ -121,7 +121,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Information Source">
 				<xs:annotation>
-					<xs:documentation>Describes a cyber observation made using other information sources, such as logs, Device Driver APIs, and TPM output data. See InformationSourceTypeEnum for a more complete list of information sources that CybOX supports. </xs:documentation>
+					<xs:documentation>Describes a cyber observation made using other information sources, such as logs, Device Driver APIs, and TPM output data. See InformationSourceTypeEnum for a more complete list of information sources that CybOX supports.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -253,11 +253,8 @@
 			</xs:element>
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>
-						This field contains the type of the tool leveraged.
-						
-						This field is implemented through the xsi:type controlled vocabulary extension mechanism. No default vocabulary type has been defined for CybOX 2.0. Users may either define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a free string field. Additionally, locations where the ToolInformationType is used may define default vocabularies for this field.
-					</xs:documentation>
+					<xs:documentation>This field contains the type of the tool leveraged.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. No default vocabulary type has been defined for CybOX 2.0. Users may either define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a free string field. Additionally, locations where the ToolInformationType is used may define default vocabularies for this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
@@ -287,7 +284,7 @@
 			</xs:element>
 			<xs:element name="Tool_Specific_Data" type="cyboxCommon:ToolSpecificDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This is an abstract type provided to a flexible mechanism for enabling tool-specific data to be included. </xs:documentation>
+					<xs:documentation>This is an abstract type provided to a flexible mechanism for enabling tool-specific data to be included.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Tool_Hashes" type="cyboxCommon:HashListType" minOccurs="0">
@@ -379,25 +376,25 @@
 	</xs:simpleType>
 	<xs:complexType name="ToolReferencesType">
 		<xs:annotation>
-			<xs:documentation>Used to indicate one or more references to tool instances and information</xs:documentation>
+			<xs:documentation>Used to indicate one or more references to tool instances and information.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Reference" type="cyboxCommon:ToolReferenceType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Contains one reference to information or instances of a given tool</xs:documentation>
+					<xs:documentation>Contains one reference to information or instances of a given tool.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ToolReferenceType">
 		<xs:annotation>
-			<xs:documentation>Contains one reference to information or instances of a given tool</xs:documentation>
+			<xs:documentation>Contains one reference to information or instances of a given tool.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:anyURI">
 				<xs:attribute name="reference_type" type="cyboxCommon:ToolReferenceTypeEnum">
 					<xs:annotation>
-						<xs:documentation>Indicates the nature of the referenced material (documentation, source, executable, etc.)</xs:documentation>
+						<xs:documentation>Indicates the nature of the referenced material (documentation, source, executable, etc.).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -405,22 +402,22 @@
 	</xs:complexType>
 	<xs:simpleType name="ToolReferenceTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The nature of referenced material regarding a tool</xs:documentation>
+			<xs:documentation>The nature of referenced material regarding a tool.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Documentation">
 				<xs:annotation>
-					<xs:documentation>The reference is to documentation about the identified tool</xs:documentation>
+					<xs:documentation>The reference is to documentation about the identified tool.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Source">
 				<xs:annotation>
-					<xs:documentation>The reference is to source code for the identified tool</xs:documentation>
+					<xs:documentation>The reference is to source code for the identified tool.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Download">
 				<xs:annotation>
-					<xs:documentation>The reference is to where an executable version of the tool can be downloaded</xs:documentation>
+					<xs:documentation>The reference is to where an executable version of the tool can be downloaded.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Execute">
@@ -469,7 +466,7 @@
 	</xs:complexType>
 	<xs:complexType name="ConfigurationSettingsType">
 		<xs:annotation>
-			<xs:documentation>The ConfigurationSettingsType is a modularized data type used to provide a consistent approach to describing configuration settings for a tool, application or other cyber object</xs:documentation>
+			<xs:documentation>The ConfigurationSettingsType is a modularized data type used to provide a consistent approach to describing configuration settings for a tool, application or other cyber object.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Configuration_Setting" type="cyboxCommon:ConfigurationSettingType" maxOccurs="unbounded">
@@ -481,7 +478,7 @@
 	</xs:complexType>
 	<xs:complexType name="ConfigurationSettingType">
 		<xs:annotation>
-			<xs:documentation>The ConfigurationSettingType is a modularized data type used to provide a consistent approach to describing a particular configuration setting for a tool, application or other cyber object</xs:documentation>
+			<xs:documentation>The ConfigurationSettingType is a modularized data type used to provide a consistent approach to describing a particular configuration setting for a tool, application or other cyber object.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Item_Name" type="xs:string">
@@ -537,7 +534,7 @@
 	</xs:complexType>
 	<xs:complexType name="UsageContextAssumptionsType">
 		<xs:annotation>
-			<xs:documentation>The UsageContextAssumptionsType contains descriptions of the various relevant usage context assumptions for this tool</xs:documentation>
+			<xs:documentation>The UsageContextAssumptionsType contains descriptions of the various relevant usage context assumptions for this tool.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Usage_Context_Assumption" type="cyboxCommon:StructuredTextType" maxOccurs="unbounded">
@@ -549,7 +546,7 @@
 	</xs:complexType>
 	<xs:complexType name="InternationalizationSettingsType">
 		<xs:annotation>
-			<xs:documentation>The InternationalizationSettingsType contains information describing relevant internationalization setting for this tool</xs:documentation>
+			<xs:documentation>The InternationalizationSettingsType contains information describing relevant internationalization setting for this tool.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Internal_Strings" type="cyboxCommon:InternalStringsType" maxOccurs="unbounded">
@@ -826,7 +823,7 @@
 		<xs:sequence>
 			<xs:element name="Custom_Properties" type="cyboxCommon:CustomPropertiesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Custom_Properties construct is optional and enables the specification of a set of custom Object Properties that may not be defined in existing Properties schemas. </xs:documentation>
+					<xs:documentation>The Custom_Properties construct is optional and enables the specification of a set of custom Object Properties that may not be defined in existing Properties schemas.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -838,7 +835,7 @@
 	</xs:complexType>
 	<xs:complexType name="CustomPropertiesType">
 		<xs:annotation>
-			<xs:documentation>The CustomPropertiesType enables the specification of a set of custom Object Properties that may not be defined in existing Properties schemas. </xs:documentation>
+			<xs:documentation>The CustomPropertiesType enables the specification of a set of custom Object Properties that may not be defined in existing Properties schemas.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Property" type="cyboxCommon:PropertyType" maxOccurs="unbounded">
@@ -936,9 +933,7 @@
 	</xs:complexType>
 	<xs:complexType name="DateObjectPropertyRestrictionType">
 		<xs:annotation>
-			<xs:documentation>
-				This type is an intermediate type to allow for the addition of the precision attribute to DateObjectPropertyType. It should not be used directly.
-			</xs:documentation>
+			<xs:documentation>This type is an intermediate type to allow for the addition of the precision attribute to DateObjectPropertyType. It should not be used directly.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -972,9 +967,7 @@
 	</xs:complexType>
 	<xs:complexType name="DateTimeObjectPropertyRestrictionType" abstract="true">
 		<xs:annotation>
-			<xs:documentation>
-				This type is an intermediate type to allow for the addition of the precision attribute to DateTimeObjectPropertyType. It should not be used directly.
-			</xs:documentation>
+			<xs:documentation>This type is an intermediate type to allow for the addition of the precision attribute to DateTimeObjectPropertyType. It should not be used directly.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1188,9 +1181,7 @@
 	</xs:complexType>
 	<xs:complexType name="TimeObjectPropertyRestrictionType" abstract="true">
 		<xs:annotation>
-			<xs:documentation>
-				This type is an intermediate type to allow for the addition of the precision attribute to TimeObjectPropertyType. It should not be used directly.
-			</xs:documentation>
+			<xs:documentation>This type is an intermediate type to allow for the addition of the precision attribute to TimeObjectPropertyType. It should not be used directly.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1334,17 +1325,14 @@
 		</xs:attribute>
 		<xs:attribute name="pattern_type" type="cyboxCommon:PatternTypeEnum">
 			<xs:annotation>
-				<xs:documentation>This field is optional and defines the type of pattern used if one is specified for the field value. This is applicable only if the Condition field is set to 'FitsPattern'. </xs:documentation>
+				<xs:documentation>This field is optional and defines the type of pattern used if one is specified for the field value. This is applicable only if the Condition field is set to 'FitsPattern'.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="regex_syntax" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>This field is optional and defines the syntax format used for a regular expression, if one is specified for the field value. This is applicable only if the Condition field is set to 'FitsPattern'.
-					
-					Setting this attribute with an empty value (e.g., "") or omitting it entirely notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities, character classes, escapes, and other lexical tokens defined by the CybOX Language Specification. 
-					
-					Setting this attribute with a non-empty value notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities not defined by the CybOX Language Specification. The regular expression must be evaluated through a compatible regular expression engine in this case.
-				</xs:documentation>
+				<xs:documentation>This field is optional and defines the syntax format used for a regular expression, if one is specified for the field value. This is applicable only if the Condition field is set to 'FitsPattern'.</xs:documentation>
+				<xs:documentation>Setting this attribute with an empty value (e.g., "") or omitting it entirely notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities, character classes, escapes, and other lexical tokens defined by the CybOX Language Specification.</xs:documentation>
+				<xs:documentation>Setting this attribute with a non-empty value notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities not defined by the CybOX Language Specification. The regular expression must be evaluated through a compatible regular expression engine in this case.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="has_changed" type="xs:boolean">
@@ -1484,7 +1472,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="float">
 				<xs:annotation>
-					<xs:documentation>Specifies the float datatype as it apples to the W3C standard. See http://www.w3.org/TR/xmlschema-2/#float for more information. </xs:documentation>
+					<xs:documentation>Specifies the float datatype as it apples to the W3C standard. See http://www.w3.org/TR/xmlschema-2/#float for more information.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="date">
@@ -1619,7 +1607,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="UUID/GUID">
 				<xs:annotation>
-					<xs:documentation>Specifies a globally/universally unique ID represented as a 32-character hexadecimal string. See ISO/IEC 11578:1996 Information technology -- Open Systems Interconnection -- Remote Procedure Call - http://www.iso.ch/cate/d2229.html</xs:documentation>
+					<xs:documentation>Specifies a globally/universally unique ID represented as a 32-character hexadecimal string. See ISO/IEC 11578:1996 Information technology -- Open Systems Interconnection -- Remote Procedure Call - http://www.iso.ch/cate/d2229.html.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Collection">
@@ -2001,7 +1989,7 @@
 			</xs:choice>
 			<xs:element name="Fuzzy_Hash_Structure" type="cyboxCommon:FuzzyHashStructureType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Fuzzy_Hash_Structure field is optional and enables the characterization of the key internal components of a fuzzy hash calculation with a given block size. </xs:documentation>
+					<xs:documentation>The Fuzzy_Hash_Structure field is optional and enables the characterization of the key internal components of a fuzzy hash calculation with a given block size.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -2024,12 +2012,12 @@
 	<!---->
 	<xs:complexType name="DataSegmentType">
 		<xs:annotation>
-			<xs:documentation>The DataSegmentType is intended to provide a relatively abstract way of characterizing data segments that may be written/read/transmitted or otherwise utilized in actions or behaviors. </xs:documentation>
+			<xs:documentation>The DataSegmentType is intended to provide a relatively abstract way of characterizing data segments that may be written/read/transmitted or otherwise utilized in actions or behaviors.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Data_Format" type="cyboxCommon:DataFormatEnum" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Data_Format field refers to the type of data contained in the Data_Segment element. </xs:documentation>
+					<xs:documentation>The Data_Format field refers to the type of data contained in the Data_Segment element.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data_Size" type="cyboxCommon:DataSizeType" minOccurs="0">
@@ -2173,7 +2161,7 @@
 	<!---->
 	<xs:complexType name="MetadataType">
 		<xs:annotation>
-			<xs:documentation>The MetadataType is intended as mechanism to capture any non-context-specific metadata</xs:documentation>
+			<xs:documentation>The MetadataType is intended as mechanism to capture any non-context-specific metadata.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="xs:string" minOccurs="0">

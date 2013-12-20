@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ArtifactObj="http://cybox.mitre.org/objects#ArtifactObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#ArtifactObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Artifact_Object</schema>
 			<version>2.1</version>
@@ -149,12 +149,12 @@
 		</xs:attribute>
 		<xs:attribute name="encryption_key" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>The encryption_key field is optional and locally specifies the password for unprotecting/decrypting the Raw_Artifact content. </xs:documentation>
+				<xs:documentation>The encryption_key field is optional and locally specifies the password for unprotecting/decrypting the Raw_Artifact content.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="encryption_key_ref" type="xs:anyURI">
 			<xs:annotation>
-				<xs:documentation>The encryption_key_ref field is optional and specifies a reference to a remote specification of the password for unlocking/decrypting the Raw_Artifact content. </xs:documentation>
+				<xs:documentation>The encryption_key_ref field is optional and specifies a reference to a remote specification of the password for unlocking/decrypting the Raw_Artifact content.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ARPCacheObj="http://cybox.mitre.org/objects#ARPCacheObject-1" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#ARPCacheObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>ARP_Cache_Object</schema>
 			<version>1.0</version>
@@ -47,7 +47,7 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Physical_Address" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Physical_Address field specifies the physical (e.g. MAC-48) address that is mapped to the IP address in the ARP cache entry. Either a colon (':') or a dash ('-') may be used as a separator between the octets. </xs:documentation>
+					<xs:documentation>The Physical_Address field specifies the physical (e.g. MAC-48) address that is mapped to the IP address in the ARP cache entry. Either a colon (':') or a dash ('-') may be used as a separator between the octets.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Type" type="ARPCacheObj:ARPCacheEntryTypeType">
