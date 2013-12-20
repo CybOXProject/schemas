@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinWaitableTimerObj="http://cybox.mitre.org/objects#WinWaitableTimerObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:WinHandleObj="http://cybox.mitre.org/objects#WinHandleObject-2" targetNamespace="http://cybox.mitre.org/objects#WinWaitableTimerObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Win_Waitable_Timer_Object</schema>
 			<version>2.1</version>
@@ -73,17 +73,17 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ManualReset">
 				<xs:annotation>
-					<xs:documentation>A timer whose state remains signaled until SetWaitableTimer is called to establish a new due time. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms687012(v=vs.85).aspx</xs:documentation>
+					<xs:documentation>A timer whose state remains signaled until SetWaitableTimer is called to establish a new due time. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms687012(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Synchronization">
 				<xs:annotation>
-					<xs:documentation>A timer whose state remains signaled until a thread completes a wait operation on the timer object. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms687012(v=vs.85).aspx</xs:documentation>
+					<xs:documentation>A timer whose state remains signaled until a thread completes a wait operation on the timer object. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms687012(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Periodic">
 				<xs:annotation>
-					<xs:documentation>A timer that is reactivated each time the specified period expires, until the timer is reset or canceled. A periodic timer is either a periodic manual-reset timer or a periodic synchronization timer. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms687012(v=vs.85).aspx</xs:documentation>
+					<xs:documentation>A timer that is reactivated each time the specified period expires, until the timer is reset or canceled. A periodic timer is either a periodic manual-reset timer or a periodic synchronization timer. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms687012(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:LinuxPackageObj="http://cybox.mitre.org/objects#LinuxPackageObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#LinuxPackageObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Linux_Package_Object</schema>
 			<version>2.1</version>
@@ -26,7 +26,7 @@
 				<xs:sequence>
 					<xs:element name="Architecture" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Architecture field specifies the architecture for which the package was built. Examples include "i386", "armhf", "ppc", "sparc", "x86_64", "mips", "noarch", etc. </xs:documentation>
+							<xs:documentation>The Architecture field specifies the architecture for which the package was built. Examples include "i386", "armhf", "ppc", "sparc", "x86_64", "mips", "noarch", etc.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Category" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">

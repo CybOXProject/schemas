@@ -6,7 +6,7 @@
     targetNamespace="http://cybox.mitre.org/extensions/platform#CPE2.3-1"
     elementFormDefault="qualified" version="1.0.1">
     <xs:annotation>
-        <xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+        <xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
         <xs:appinfo>
             <schema>CPE2.3</schema>
             <version>1.0.1</version>

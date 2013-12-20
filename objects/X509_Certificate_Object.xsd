@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#X509CertificateObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
 
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>X509_Certificate_Object</schema>
 			<version>2.1</version>
@@ -166,7 +166,7 @@
 	</xs:complexType>
 	<xs:complexType name="X509V3ExtensionsType">
 		<xs:annotation>
-			<xs:documentation>The X509V3ExtensionsType captures the standard X509 V3 Extensions that may be used in X509 certificates. Based on RFC 3280, "Standard Extensions": http://www.ietf.org/rfc/rfc3280.txt</xs:documentation>
+			<xs:documentation>The X509V3ExtensionsType captures the standard X509 V3 Extensions that may be used in X509 certificates. Based on RFC 3280, "Standard Extensions": http://www.ietf.org/rfc/rfc3280.txt.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Basic_Constraints" type="cyboxCommon:StringObjectPropertyType">
@@ -248,7 +248,7 @@
 	</xs:complexType>
 	<xs:complexType name="X509NonStandardExtensionsType">
 		<xs:annotation>
-			<xs:documentation>The NonStandardX509ExtensionsType captures some non-standard or deprecated X509 extensions that may be useful. Based on the OpenSSL "Deprecated Extensions" documentation: https://www.openssl.org/docs/apps/x509v3_config.html#Deprecated_Extensions. Also based on the Alvestrand certificateExtension reference: http://www.alvestrand.no/objectid/2.5.29.html</xs:documentation>
+			<xs:documentation>The NonStandardX509ExtensionsType captures some non-standard or deprecated X509 extensions that may be useful. Based on the OpenSSL "Deprecated Extensions" documentation: https://www.openssl.org/docs/apps/x509v3_config.html#Deprecated_Extensions. Also based on the Alvestrand certificateExtension reference: http://www.alvestrand.no/objectid/2.5.29.html.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Netscape_Comment" type="cyboxCommon:StringObjectPropertyType">

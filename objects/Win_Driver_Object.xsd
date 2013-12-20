@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinDriverObj="http://cybox.mitre.org/objects#WinDriverObject-3" xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#WinDriverObject-3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Win_Driver_Object</schema>
 			<version>3.0</version>
@@ -32,7 +32,7 @@
 					</xs:element>
 					<xs:element name="Driver_Init" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Driver_Init field specifies the entry point for the driver's DriverEntry routine. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff544174(v=vs.85).aspx</xs:documentation>
+							<xs:documentation>The Driver_Init field specifies the entry point for the driver's DriverEntry routine. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff544174(v=vs.85).aspx.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Driver_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -42,17 +42,17 @@
 					</xs:element>
 					<xs:element name="Driver_Object_Address" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Driver_Object_Address field specifies the address to the driver's driver object, which contains the storage for the entry point to many of the driver's standard routines. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff548034(v=vs.85).aspx</xs:documentation>
+							<xs:documentation>The Driver_Object_Address field specifies the address to the driver's driver object, which contains the storage for the entry point to many of the driver's standard routines. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff548034(v=vs.85).aspx.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Driver_Start_IO" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Driver_Start_IO field specifies the entry point for the driver's StartIO routine. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff544174(v=vs.85).aspx</xs:documentation>
+							<xs:documentation>The Driver_Start_IO field specifies the entry point for the driver's StartIO routine. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff544174(v=vs.85).aspx.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Driver_Unload" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Driver_Unload field specifies the entry point for the driver's unload routine. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff544174(v=vs.85).aspx</xs:documentation>
+							<xs:documentation>The Driver_Unload field specifies the entry point for the driver's unload routine. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff544174(v=vs.85).aspx.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Image_Base" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -211,17 +211,17 @@
 	</xs:complexType>
 	<xs:complexType name="DeviceObjectStructType">
 		<xs:annotation>
-			<xs:documentation>The DeviceObjectStructType type specifies the properties of a device object. In this context, a device object represents a logical, virtual, or physical device for which a driver handles I/O requests. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff543147(v=vs.85).aspx</xs:documentation>
+			<xs:documentation>The DeviceObjectStructType type specifies the properties of a device object. In this context, a device object represents a logical, virtual, or physical device for which a driver handles I/O requests. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff543147(v=vs.85).aspx.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Attached_Device_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The Attached_Device_Name field specifies the name of another device object that was attached to this one. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff543147(v=vs.85).aspx</xs:documentation>
+					<xs:documentation>The Attached_Device_Name field specifies the name of another device object that was attached to this one. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff543147(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Attached_Device_Object" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The Attached_Device_Object field specifies a pointer to another device object that was attached to this one. Typically this is a filter driver. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff543147(v=vs.85).aspx</xs:documentation>
+					<xs:documentation>The Attached_Device_Object field specifies a pointer to another device object that was attached to this one. Typically this is a filter driver. See also: http://msdn.microsoft.com/en-us/library/windows/hardware/ff543147(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Attached_To_Device_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -231,7 +231,7 @@
 			</xs:element>
 			<xs:element name="Attached_To_Device_Object" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The Attached_To_Device_Object field specifies a pointer to another device object that this one was attached to. </xs:documentation>
+					<xs:documentation>The Attached_To_Device_Object field specifies a pointer to another device object that this one was attached to.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Attached_To_Driver_Object" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">

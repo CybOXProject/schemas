@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#HTTPSessionObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by [NAME] at [COMPANY]. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by [NAME] at [COMPANY]. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>HTTP_Session_Object</schema>
 			<version>2.1</version>
@@ -462,7 +462,7 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Retry_After" type="cyboxCommon:IntegerObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Retry-After field specifies the HTTP Response Retry-After header field, which defines the period, in seconds, after which the client should try again if an entity is temporarily unavailable. </xs:documentation>
+					<xs:documentation>The Retry-After field specifies the HTTP Response Retry-After header field, which defines the period, in seconds, after which the client should try again if an entity is temporarily unavailable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Server" type="cyboxCommon:StringObjectPropertyType">
@@ -544,7 +544,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Length" type="cyboxCommon:PositiveIntegerObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Length field captures the length of the HTTP message body, in bytes. </xs:documentation>
+					<xs:documentation>The Length field captures the length of the HTTP message body, in bytes.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Message_Body" minOccurs="0" type="cyboxCommon:StringObjectPropertyType">
