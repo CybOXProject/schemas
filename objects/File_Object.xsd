@@ -128,14 +128,14 @@
 							<xs:documentation>A description of features extracted from this file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Encryption_Algorithm" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+					<xs:element name="Encryption_Algorithm" type="cyboxCommon:CipherType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Encryption_Algorithm field specifies the algorithm used to encrypt the file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Encryption_Key" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+					<xs:element name="Decryption_Key" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Encryption_Key field specifies the key used to encrypt the file.</xs:documentation>
+							<xs:documentation>The Decryption_Key field specifies the key used to decrypt the file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Compression_Method" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
