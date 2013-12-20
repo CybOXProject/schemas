@@ -57,6 +57,11 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="ordinal_position" type="xs:nonNegativeInteger">
+			<xs:annotation>
+				<xs:documentation>The ordinal_position attribute specifies the ordinal positioning of the HTTP request/response pair in the context of the HTTP session. This may be useful in certain cases for preserving observed HTTP request/response ordering.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="HTTPClientRequestType">
 		<xs:annotation>
