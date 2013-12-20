@@ -26,27 +26,27 @@
 				<xs:sequence minOccurs="1">
 					<xs:element name="File_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The File_Name field specifies the name of the file.</xs:documentation>
+							<xs:documentation>The File_Name field specifies the base name of the file (including an extension, if present).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="File_Path" type="FileObj:FilePathType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The File_Path field specifies the path to the file, not including the device. Whether the path is relative or fully-qualified can be specified via the 'fully_qualified' attribute of this property.</xs:documentation>
+							<xs:documentation>The File_Path field specifies the relative or fully-qualified path to the file, not including the path to the device where the file system containing the file resides. Whether the path is relative or fully-qualified can be specified via the 'fully_qualified' attribute of this field. The File_Path field may include the name of the file; if so, it must not conflict with the File_Name field. If not, the File_Path field should contain the path of the directory containing the file, and should end with a terminating path separator("\" or "/").</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Device_Path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Device_Path field specifies the path to the device on which the file resides.</xs:documentation>
+							<xs:documentation>The Device_Path field specifies the path to the physical device where the file system containing the file resides.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Full_Path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Full_Path field specifies the complete path to the file, including the device path.</xs:documentation>
+							<xs:documentation>The Full_Path field specifies the complete path to the file, including the device path. It should contain the contents that would otherwise be in the Device_Path and File_Path fields, and can be used in case the producer is unable or does not wish to separate the Device_Path and File_Path fields. If the Full_Path field is specified along with the File_Path and/or Device_Path fields, it must not conflict with either. The Full_Path field may include the name of the file; if so, it must not conflict with the File_Name field. If not, the File_Path field should contain the path of the directory containing the file, and should end with a terminating path separator("\" or "/").</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="File_Extension" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The File_Extension field specifies the file extension of the file.</xs:documentation>
+							<xs:documentation>The File_Extension field specifies the extension of the name of the file. The File_Extension field must not conflict with the ending of the File_Name field. The File_Extension field should not begin with a "." character, but may contain a "." character in the case of a compound file extension, such as "tar.gz".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Size_In_Bytes" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0">
