@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#HTTPSessionObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#HTTPSessionObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by [NAME] at [COMPANY]. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by the MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>HTTP_Session_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -45,12 +46,22 @@
 					<xs:documentation>The HTTP_Client_Request field specifies the HTTP client request portion of a single HTTP request/response pair.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="HTTP_Provisional_Server_Response" type="HTTPSessionObj:HTTPServerResponseType">
+				<xs:annotation>
+					<xs:documentation>The HTTP_Provisional_Server_Response field specifies an HTTP provisional server response that was sent before the regular HTTP response (captured in the HTTP_Server_Response field).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="HTTP_Server_Response" type="HTTPSessionObj:HTTPServerResponseType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The HTTP_Server_Response field specifies the HTTP server response portion of a single HTTP request/response pair.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="ordinal_position" type="xs:nonNegativeInteger">
+			<xs:annotation>
+				<xs:documentation>The ordinal_position attribute specifies the ordinal positioning of the HTTP request/response pair in the context of the HTTP session. This may be useful in certain cases for preserving observed HTTP request/response ordering.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="HTTPClientRequestType">
 		<xs:annotation>
@@ -290,7 +301,7 @@
 					<xs:documentation>The Warning field specifies the HTTP Request Warning field, which defines any general warnings about possible problems with the entity body.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="DNT" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="DNT" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The DNT field specifies the non-standard HTTP Request DNT field, which is typically used to request that a web application disable their tracking of a user.</xs:documentation>
 				</xs:annotation>
@@ -461,7 +472,7 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Retry_After" type="cyboxCommon:IntegerObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Retry-After field specifies the HTTP Response Retry-After header field, which defines the period, in seconds, after which the client should try again if an entity is temporarily unavailable. </xs:documentation>
+					<xs:documentation>The Retry-After field specifies the HTTP Response Retry-After header field, which defines the period, in seconds, after which the client should try again if an entity is temporarily unavailable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Server" type="cyboxCommon:StringObjectPropertyType">
@@ -543,7 +554,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Length" type="cyboxCommon:PositiveIntegerObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Length field captures the length of the HTTP message body, in bytes. </xs:documentation>
+					<xs:documentation>The Length field captures the length of the HTTP message body, in bytes.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Message_Body" minOccurs="0" type="cyboxCommon:StringObjectPropertyType">

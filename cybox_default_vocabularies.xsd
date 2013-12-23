@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2" targetNamespace="http://cybox.mitre.org/default_vocabularies-2" elementFormDefault="qualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2" targetNamespace="http://cybox.mitre.org/default_vocabularies-2" elementFormDefault="qualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>cybox_default_vocabularies</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following defines types for default controlled vocabularies used within CybOX. An individual vocabulary may be revised at any time. Revisions to vocabularies will result in the creation of new types with the new version number embedded in the name of those types. Vocabularies can be reference from CybOX elements through the use of xsi:Type. The individual elements where this may be done indicate the expected default vocabulary.</short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -292,7 +293,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Join">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of joining one object to another object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of joining one object to another object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Kill">
@@ -307,37 +308,37 @@
 			</xs:enumeration>
 			<xs:enumeration value="Load">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of loading an object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of loading an object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Lock">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of locking an object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of locking an object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Login/Logon">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of logging into an object, such as into a system or application. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of logging into an object, such as into a system or application.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Logout/Logoff">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of logging out of an object, such as a system or application. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of logging out of an object, such as a system or application.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Map">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of mapping an object to another object or data. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of mapping an object to another object or data.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Merge">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of merging one object to another object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of merging one object to another object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Modify">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of modifying an object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of modifying an object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Monitor">
@@ -1520,11 +1521,8 @@
 	</xs:simpleType>
 	<xs:complexType name="ActionNameVocab-1.0">
 		<xs:annotation>
-			<xs:documentation>
-				The ActionNameVocab is the default CybOX vocabulary for Action Types, captured via the ActionType/Name element in CybOX Core.
-			
-				NOTE: As of CybOX Version 2.1, this version of the ActionNameVocab is deprecated. Please use ActionNameVocab-1.1 instead.
-			</xs:documentation>
+			<xs:documentation>The ActionNameVocab is the default CybOX vocabulary for Action Types, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>NOTE: As of CybOX Version 2.1, this version of the ActionNameVocab is deprecated. Please use ActionNameVocab-1.1 instead.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -3039,11 +3037,8 @@
 	</xs:simpleType>
 	<xs:complexType name="EventTypeVocab-1.0">
 		<xs:annotation>
-			<xs:documentation>
-				The EventTypeVocab is the default CybOX vocabulary for Event types, captured via the EventType/Type element in the CybOX Core.
-				
-				NOTE: As of CybOX Version 2.0.1, this version of the EventTypeVocab is deprecated. Please use EventTypeVocab-1.0.1 instead.			
-			</xs:documentation>
+			<xs:documentation>The EventTypeVocab is the default CybOX vocabulary for Event types, captured via the EventType/Type element in the CybOX Core.</xs:documentation>	
+			<xs:documentation>NOTE: As of CybOX Version 2.0.1, this version of the EventTypeVocab is deprecated. Please use EventTypeVocab-1.0.1 instead.</xs:documentation>		
 			<xs:appinfo>
 				<deprecated>true</deprecated>
 			</xs:appinfo>
@@ -3060,11 +3055,8 @@
 	</xs:complexType>
 	<xs:simpleType name="EventTypeEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>
-				EventTypeEnum is a (non-exhaustive) enumeration of cyber observable event types.
-				
-				NOTE: As of CybOX Version 2.0.1, this version of the EventTypeEnum is deprecated. Please use EventTypeEnum-1.0.1 instead.			
-			</xs:documentation>
+			<xs:documentation>EventTypeEnum is a (non-exhaustive) enumeration of cyber observable event types.</xs:documentation>	
+			<xs:documentation>NOTE: As of CybOX Version 2.0.1, this version of the EventTypeEnum is deprecated. Please use EventTypeEnum-1.0.1 instead.</xs:documentation>
 			<xs:appinfo>
 				<deprecated>true</deprecated>
 			</xs:appinfo>

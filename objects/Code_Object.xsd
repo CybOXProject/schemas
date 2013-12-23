@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#CodeObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:CodeObj="http://cybox.mitre.org/objects#CodeObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#CodeObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Code_Object</schema>
-			<version>2.0.1</version>
-			<date>02/11/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -125,17 +126,17 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Source_Code">
 				<xs:annotation>
-					<xs:documentation>The code represented is in the form of Source Code</xs:documentation>
+					<xs:documentation>The code represented is in the form of Source Code.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Byte_Code">
 				<xs:annotation>
-					<xs:documentation>The code represented is in the form of Byte Code</xs:documentation>
+					<xs:documentation>The code represented is in the form of Byte Code.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Binary_Code">
 				<xs:annotation>
-					<xs:documentation>The code represented is in the form of binary code</xs:documentation>
+					<xs:documentation>The code represented is in the form of binary code.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -218,102 +219,102 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="C">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the C programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the C programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="C++">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the C++ programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the C++ programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="C#">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the C# programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the C# programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Java">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the Java programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the Java programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="JSP">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the JSP (Java Server Pages) language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the JSP (Java Server Pages) language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Javascript">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the Javascript programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the Javascript programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="ASP.NET">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the ASP.NET programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the ASP.NET programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="SQL">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in SQL (Standard Query Language)</xs:documentation>
+					<xs:documentation>Indicates the code is written in SQL (Standard Query Language).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Python">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the Python programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the Python programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Perl">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the Perl programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the Perl programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="PHP">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the PHP programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the PHP programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="SOAP">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written as a SOAP message</xs:documentation>
+					<xs:documentation>Indicates the code is written as a SOAP message.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Ruby">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in the Ruby programming language</xs:documentation>
+					<xs:documentation>Indicates the code is written in the Ruby programming language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Shell">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written as a Shell script</xs:documentation>
+					<xs:documentation>Indicates the code is written as a Shell script.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="PseudoCode">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written as pseudo code</xs:documentation>
+					<xs:documentation>Indicates the code is written as pseudo code.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value=".NET">
 				<xs:annotation>
-					<xs:documentation>Indicates the code utilizes the .NET framework</xs:documentation>
+					<xs:documentation>Indicates the code utilizes the .NET framework.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Assembly">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in an assembly language</xs:documentation>
+					<xs:documentation>Indicates the code is written in an assembly language.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="XML">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in XML (eXtensible Markup Language)</xs:documentation>
+					<xs:documentation>Indicates the code is written in XML (eXtensible Markup Language).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="HTML">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in HTML (HyperText Markup Language)</xs:documentation>
+					<xs:documentation>Indicates the code is written in HTML (HyperText Markup Language).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Other">
 				<xs:annotation>
-					<xs:documentation>Indicates the code is written in a language not found in this enumeration</xs:documentation>
+					<xs:documentation>Indicates the code is written in a language not found in this enumeration.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -342,69 +343,69 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="x86-32">
 				<xs:annotation>
-					<xs:documentation>Indicates a x86 32bit processor</xs:documentation>
+					<xs:documentation>Indicates a x86 32bit processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="x86-64">
 				<xs:annotation>
-					<xs:documentation>Indicates a x86 64bit processor</xs:documentation>
+					<xs:documentation>Indicates a x86 64bit processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="IA-64">
 				<xs:annotation>
-					<xs:documentation>Indicates an IA (Intel Itanium) 64bit processor</xs:documentation>
+					<xs:documentation>Indicates an IA (Intel Itanium) 64bit processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="PowerPC">
 				<xs:annotation>
-					<xs:documentation>Indicates a PowerPC processor</xs:documentation>
+					<xs:documentation>Indicates a PowerPC processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="ARM">
 				<xs:annotation>
-					<xs:documentation>Indicates an ARM processor</xs:documentation>
+					<xs:documentation>Indicates an ARM processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Alpha">
 				<xs:annotation>
-					<xs:documentation>Indicates an Alpha processor</xs:documentation>
+					<xs:documentation>Indicates an Alpha processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="SPARC">
 				<xs:annotation>
-					<xs:documentation>Indicates a SPARC processor</xs:documentation>
+					<xs:documentation>Indicates a SPARC processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="z/Architecture">
 				<xs:annotation>
-					<xs:documentation>Indicates a z/Architecture (IBM) processor</xs:documentation>
+					<xs:documentation>Indicates a z/Architecture (IBM) processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="eSi-RISC">
 				<xs:annotation>
-					<xs:documentation>Indicates an eSi-RISC processor</xs:documentation>
+					<xs:documentation>Indicates an eSi-RISC processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="MIPS">
 				<xs:annotation>
-					<xs:documentation>Indicates a MIPS processor</xs:documentation>
+					<xs:documentation>Indicates a MIPS processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Motorola 68k">
 				<xs:annotation>
-					<xs:documentation>Indicates a Motorola 68k processor</xs:documentation>
+					<xs:documentation>Indicates a Motorola 68k processor.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Other">
 				<xs:annotation>
-					<xs:documentation>Indicates a processor outside of this enumeration</xs:documentation>
+					<xs:documentation>Indicates a processor outside of this enumeration.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="TargetedPlatformsType">
 		<xs:annotation>
-			<xs:documentation>A list of targeted platforms</xs:documentation>
+			<xs:documentation>A list of targeted platforms.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Targeted_Platform" type="cyboxCommon:PlatformSpecificationType" maxOccurs="unbounded">
