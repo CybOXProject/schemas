@@ -51,7 +51,7 @@
 					</xs:element>
 					<xs:element name="Processor_Family" type="CodeObj:ProcessorTypeType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>The processor_family field specifies the class of processor that the code snippet is targeting. This field may be included multiple times for code snippets that may be applicable across multiple processor families. </xs:documentation>
+							<xs:documentation>The processor_family field specifies the class of processor that the code snippet is targeting. This field may be specified multiple times for code snippets that are applicable across multiple processor families. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Discovery_Method" type="cyboxCommon:MeasureSourceType" minOccurs="0">
