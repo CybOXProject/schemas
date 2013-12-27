@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:PacketObj="http://cybox.mitre.org/objects#PacketObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" targetNamespace="http://cybox.mitre.org/objects#PacketObject-2" elementFormDefault="qualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:PacketObj="http://cybox.mitre.org/objects#PacketObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" targetNamespace="http://cybox.mitre.org/objects#PacketObject-2" elementFormDefault="qualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Network_Packet_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -68,14 +69,14 @@
 		<xs:choice minOccurs="0">
 			<xs:element name="Ethernet" type="PacketObj:EthernetInterfaceType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Ethernet sends network packets from the sending host to one or more receiving hosts. (REF: IEEE 802.3; http://wiki.wireshark.org/Ethernet)</xs:documentation>
+					<xs:documentation>Ethernet sends network packets from the sending host to one or more receiving hosts. (REF: IEEE 802.3; http://wiki.wireshark.org/Ethernet).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="LogicalProtocolType">
 		<xs:annotation>
-			<xs:documentation>Logical Protocols characterizes the logical protocol of a link layer connection. One example of a logical protocol is ARP. </xs:documentation>
+			<xs:documentation>Logical Protocols characterizes the logical protocol of a link layer connection. One example of a logical protocol is ARP.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
 			<xs:element name="ARP_RARP" type="PacketObj:ARPType" minOccurs="0">
@@ -92,7 +93,7 @@
 	</xs:complexType>
 	<xs:complexType name="EthernetInterfaceType">
 		<xs:annotation>
-			<xs:documentation>Ethernet sends network packets from the sending host to one or more receiving hosts. (REF: IEEE 802.3; http://wiki.wireshark.org/Ethernet)</xs:documentation>
+			<xs:documentation>Ethernet sends network packets from the sending host to one or more receiving hosts. (REF: IEEE 802.3; http://wiki.wireshark.org/Ethernet).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Ethernet_Header" type="PacketObj:EthernetHeaderType" minOccurs="0">
@@ -148,7 +149,7 @@
 	</xs:complexType>
 	<xs:complexType name="ARPType">
 		<xs:annotation>
-			<xs:documentation>The Address Resolution Protocol is a request and reply protocol that runs encapsulated by the line protocol. It is communicated within the boundaries of a single network, never routed across internetwork nodes. This property places ARP into the Link Layer. It is encapsulated. REF: http://www.comptechdoc.org/independent/networking/guide/netarp.html</xs:documentation>
+			<xs:documentation>The Address Resolution Protocol is a request and reply protocol that runs encapsulated by the line protocol. It is communicated within the boundaries of a single network, never routed across internetwork nodes. This property places ARP into the Link Layer. It is encapsulated. REF: http://www.comptechdoc.org/independent/networking/guide/netarp.html.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Hardware_Addr_Type" type="PacketObj:IANAHardwareType" minOccurs="0">
@@ -244,7 +245,7 @@
 	</xs:simpleType>
 	<xs:complexType name="NDPType">
 		<xs:annotation>
-			<xs:documentation>NDP Type characterizes NDP (Neighbor Discover Protocol) IPv6 packets. NDP defines five ICMPv6 packet types. RFC 2461: http://tools.ietf.org/html/rfc4861</xs:documentation>
+			<xs:documentation>NDP Type characterizes NDP (Neighbor Discover Protocol) IPv6 packets. NDP defines five ICMPv6 packet types. RFC 2461: http://tools.ietf.org/html/rfc4861.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:annotation>
@@ -286,7 +287,7 @@
 	</xs:complexType>
 	<xs:complexType name="RouterSolicitationType">
 		<xs:annotation>
-			<xs:documentation>Hosts send Router Solicitations in order to prompt routers to generate Router Advertisements quickly.(type=133; code=0)</xs:documentation>
+			<xs:documentation>Hosts send Router Solicitations in order to prompt routers to generate Router Advertisements quickly.(type=133; code=0).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Options" type="PacketObj:RouterSolicitationOptionsType" minOccurs="0" maxOccurs="unbounded">
@@ -301,7 +302,7 @@
 			<xs:documentation>Neighbor Discovery messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Src_Link_Addr" type="PacketObj:NDPSrcLinkAddrType" minOccurs="0">
+			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -310,7 +311,7 @@
 	</xs:complexType>
 	<xs:complexType name="RouterAdvertisementType">
 		<xs:annotation>
-			<xs:documentation>Routers send out Router Advertisement messages periodically, or in response to Router Solicitations. (type=134; code=0)</xs:documentation>
+			<xs:documentation>Routers send out Router Advertisement messages periodically, or in response to Router Solicitations. (type=134; code=0).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Cur_Hop_Limit" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
@@ -330,7 +331,7 @@
 			</xs:element>
 			<xs:element name="Retrans_Timer" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>32-bit unsigned integer. The time, in milliseconds, between retransmitted Neighbor Solicitation messages. Used by address resolution and the Neighbor Unreachability Detection algorithm. A value of zero means unspecified (by this router)</xs:documentation>
+					<xs:documentation>32-bit unsigned integer. The time, in milliseconds, between retransmitted Neighbor Solicitation messages. Used by address resolution and the Neighbor Unreachability Detection algorithm. A value of zero means unspecified (by this router).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Options" type="PacketObj:RouterAdvertisementOptionsType" minOccurs="0">
@@ -355,7 +356,7 @@
 			<xs:documentation>Router Advertisement messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Src_Link_Addr" type="PacketObj:NDPSrcLinkAddrType" minOccurs="0">
+			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -374,7 +375,7 @@
 	</xs:complexType>
 	<xs:complexType name="NeighborSolicitationType">
 		<xs:annotation>
-			<xs:documentation>Nodes send Neighbor Solicitations to request the link-layer address of a target node while also providing their own link-layer address to the target. Neighbor Solicitations are multicast when the node needs to resolve an address and unicast when the node seeks to verify the reachability of a neighbor. (type=135; code=0)</xs:documentation>
+			<xs:documentation>Nodes send Neighbor Solicitations to request the link-layer address of a target node while also providing their own link-layer address to the target. Neighbor Solicitations are multicast when the node needs to resolve an address and unicast when the node seeks to verify the reachability of a neighbor. (type=135; code=0).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Target_IPv6_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
@@ -394,7 +395,7 @@
 			<xs:documentation>Neighbor Solicitation messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Src_Link_Addr" type="PacketObj:NDPSrcLinkAddrType" minOccurs="0">
+			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -403,7 +404,7 @@
 	</xs:complexType>
 	<xs:complexType name="NeighborAdvertisementType">
 		<xs:annotation>
-			<xs:documentation>A node sends Neighbor Advertisements in response to Neighbor Solicitations and sends unsolicited Neighbor Advertisements in order to (unreliably) propagate new information quickly. (type=136; code=0)</xs:documentation>
+			<xs:documentation>A node sends Neighbor Advertisements in response to Neighbor Solicitations and sends unsolicited Neighbor Advertisements in order to (unreliably) propagate new information quickly. (type=136; code=0).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Target_IPv6_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
@@ -438,7 +439,7 @@
 			<xs:documentation>Neighbor Advertisement messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Target_Link_Addr" type="PacketObj:NDPTargetLinkAddrType" minOccurs="0">
+			<xs:element name="Target_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Target Link Addr characterizes the Target Link-Layer Address option.</xs:documentation>
 				</xs:annotation>
@@ -447,7 +448,7 @@
 	</xs:complexType>
 	<xs:complexType name="RedirectType">
 		<xs:annotation>
-			<xs:documentation>Routers send Redirect packets to inform a host of a better first-hop node on the path to a destination. Hosts can be redirected to a better first-hop router but can also be informed by a redirect that the destination is in fact a neighbor. The latter is accomplished by setting the ICMP Target Address equal to the ICMP Destination Address. (type=137; code=0)</xs:documentation>
+			<xs:documentation>Routers send Redirect packets to inform a host of a better first-hop node on the path to a destination. Hosts can be redirected to a better first-hop router but can also be informed by a redirect that the destination is in fact a neighbor. The latter is accomplished by setting the ICMP Target Address equal to the ICMP Destination Address. (type=137; code=0).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Target_IPv6_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
@@ -472,7 +473,7 @@
 			<xs:documentation>Redirect messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0">
-			<xs:element name="Target_Link_Addr" type="PacketObj:NDPTargetLinkAddrType" minOccurs="0">
+			<xs:element name="Target_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The link-layer address for the target.</xs:documentation>
 				</xs:annotation>
@@ -484,26 +485,9 @@
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="NDPSrcLinkAddrType">
+	<xs:complexType name="NDPLinkAddrType">
 		<xs:annotation>
-			<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option. (type=1)</xs:documentation>
-		</xs:annotation>
-		<xs:sequence minOccurs="0">
-			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The length of the option (including the type and length fields) in units of 8 octets.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Link_Layer_MAC_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The variable length link-layer address. The content and format of this field (including byte and bit ordering) is expected to be specified in specific documents that describe how IPv6 operates over different link layers.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="NDPTargetLinkAddrType">
-		<xs:annotation>
-			<xs:documentation>Target Link Addr characterizes the Target Link-Layer Address option. (type=2)</xs:documentation>
+			<xs:documentation>NDPLinkAddrType characterizes the Link-Layer Address option.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
@@ -525,7 +509,7 @@
 		<xs:sequence minOccurs="0">
 			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Length characterizes the length of the option (the number of valid leading bits in the prefix), and is represented as a 32-bit integer. </xs:documentation>
+					<xs:documentation>Length characterizes the length of the option (the number of valid leading bits in the prefix), and is represented as a 32-bit integer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Prefix_Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
@@ -545,7 +529,7 @@
 			</xs:element>
 			<xs:element name="Prefix" type="PacketObj:PrefixType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Prefix is an IP address or a prefix of an IP address. </xs:documentation>
+					<xs:documentation>The Prefix is an IP address or a prefix of an IP address.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -562,7 +546,7 @@
 	</xs:complexType>
 	<xs:complexType name="NDPRedirectedHeaderType">
 		<xs:annotation>
-			<xs:documentation>The redirected header option is used in redirect messages and contains all or part of the packet that is being redirected. (type=4)</xs:documentation>
+			<xs:documentation>The redirected header option is used in redirect messages and contains all or part of the packet that is being redirected. (type=4).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
@@ -596,7 +580,7 @@
 	</xs:complexType>
 	<xs:complexType name="InternetLayerType">
 		<xs:annotation>
-			<xs:documentation>The Internet layer is the group of methods, protocols, and specifications that are used to transport packets from the originating host across network boundaries. Not all protocols are currently defined, just those most commonly used: IPv4, ICMPv4, IPv6, ICMPv6. Other protocols will be added as needed. (http://en.wikipedia.org/wiki/Internet_layer)</xs:documentation>
+			<xs:documentation>The Internet layer is the group of methods, protocols, and specifications that are used to transport packets from the originating host across network boundaries. Not all protocols are currently defined, just those most commonly used: IPv4, ICMPv4, IPv6, ICMPv6. Other protocols will be added as needed. (http://en.wikipedia.org/wiki/Internet_layer).</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
 			<xs:element name="IPv4" type="PacketObj:IPv4PacketType" minOccurs="0">
@@ -670,7 +654,7 @@
 			</xs:element>
 			<xs:element name="Identification" type="cyboxCommon:PositiveIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Identification field is primarily used for uniquely identifying fragments of an original IP datagram. (http://en.wikipedia.org/wiki/IPv4)</xs:documentation>
+					<xs:documentation>The Identification field is primarily used for uniquely identifying fragments of an original IP datagram. (http://en.wikipedia.org/wiki/IPv4).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Flags" type="PacketObj:IPv4FlagsType" minOccurs="0">
@@ -680,7 +664,7 @@
 			</xs:element>
 			<xs:element name="Fragment_Offset" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The fragment offset field is 13 bits long and specifies the offset of a particular fragment relative to the beginning of the original unfragmented IP datagram. http://en.wikipedia.org/wiki/IPv4</xs:documentation>
+					<xs:documentation>The fragment offset field is 13 bits long and specifies the offset of a particular fragment relative to the beginning of the original unfragmented IP datagram. http://en.wikipedia.org/wiki/IPv4.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TTL" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -711,7 +695,7 @@
 			<xs:sequence minOccurs="0">
 				<xs:element name="Option" type="PacketObj:IPv4OptionType" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
-						<xs:documentation>The IPv4 option field is variable in length with zero or more options. It is not often used. http://en.wikipedia.org/wiki/IPv4</xs:documentation>
+						<xs:documentation>The IPv4 option field is variable in length with zero or more options. It is not often used. http://en.wikipedia.org/wiki/IPv4.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
@@ -809,7 +793,7 @@
 	</xs:simpleType>
 	<xs:complexType name="IPv4OptionType">
 		<xs:annotation>
-			<xs:documentation>The IPv4 option field is variable in length with zero or more options. </xs:documentation>
+			<xs:documentation>The IPv4 option field is variable in length with zero or more options.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Copy_Flag" type="PacketObj:IPv4CopyFlagType" minOccurs="0">
@@ -1073,7 +1057,7 @@
 			</xs:element>
 			<xs:element name="Ext_Headers" type="PacketObj:IPv6ExtHeaderType" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
-						<xs:documentation>In IPv6, optional internet-layer information is encoded in separate headers that may be placed between the IPv6 header and the upper-layer header in a packet. http://tools.ietf.org/html/rfc2460</xs:documentation>
+						<xs:documentation>In IPv6, optional internet-layer information is encoded in separate headers that may be placed between the IPv6 header and the upper-layer header in a packet. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 					</xs:annotation>
 			</xs:element>
 			<xs:element name="Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -1085,17 +1069,17 @@
 	</xs:complexType>
 	<xs:complexType name="IPv6HeaderType">
 		<xs:annotation>
-			<xs:documentation>The IPv6 header is a simplification of the IPv4 header. </xs:documentation>
+			<xs:documentation>The IPv6 header is a simplification of the IPv4 header.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="IP_Version" type="PacketObj:IPVersionTypeEnum" fixed="IPv6(6)" minOccurs="0" maxOccurs="1">
+			<xs:element name="IP_Version" type="PacketObj:IPVersionType" fixed="IPv6(6)" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>4-bit Internet Protocol version number =6.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Traffic_Class" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>8-bit traffic class field. Available for use by originating nodes and/or forwarding routers to identify and distinguish between different classes or priorities of IPv6 packets. http://tools.ietf.org/html/rfc2460#section-7</xs:documentation>
+					<xs:documentation>8-bit traffic class field. Available for use by originating nodes and/or forwarding routers to identify and distinguish between different classes or priorities of IPv6 packets. http://tools.ietf.org/html/rfc2460#section-7.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Flow_Label" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -1132,7 +1116,7 @@
 	</xs:complexType>
 	<xs:complexType name="IPv6ExtHeaderType">
 		<xs:annotation>
-			<xs:documentation>In IPv6, optional internet-layer information is encoded in separate headers that may be placed between the IPv6 header and the upper-layer header in a packet. An IPv6 packet may carry zero, one, or more extension headers, each identified by the Next Header field of the preceding header. http://tools.ietf.org/html/rfc2460</xs:documentation>
+			<xs:documentation>In IPv6, optional internet-layer information is encoded in separate headers that may be placed between the IPv6 header and the upper-layer header in a packet. An IPv6 packet may carry zero, one, or more extension headers, each identified by the Next Header field of the preceding header. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 		</xs:annotation>
 		<xs:choice minOccurs="0" maxOccurs="1">
 			<xs:element name="Hop_by_Hop_Options" type="PacketObj:HopByHopOptionsType" minOccurs="0">
@@ -1142,12 +1126,12 @@
 			</xs:element>
 			<xs:element name="Routing" type="PacketObj:RoutingType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Routing header is used by an IPv6 source to list one or more intermediate nodes to be "visited" on the way to a packet's destination. http://tools.ietf.org/html/rfc2460</xs:documentation>
+					<xs:documentation>The Routing header is used by an IPv6 source to list one or more intermediate nodes to be "visited" on the way to a packet's destination. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Fragment" type="PacketObj:FragmentType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Fragment header is used by an IPv6 source to send a packet larger than would fit in the path MTU. A fragment packet begins with an unfragmentable part consisting of the IPv6 header plus all extension headers up to and including the routing header. We don't include it for this field because the data is already stored in other elements. We provide the elements necessary for the Fragmentable Part. http://tools.ietf.org/html/rfc2460</xs:documentation>
+					<xs:documentation>The Fragment header is used by an IPv6 source to send a packet larger than would fit in the path MTU. A fragment packet begins with an unfragmentable part consisting of the IPv6 header plus all extension headers up to and including the routing header. We don't include it for this field because the data is already stored in other elements. We provide the elements necessary for the Fragmentable Part. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Destination_Options" type="PacketObj:DestinationOptionsType" minOccurs="0" maxOccurs="2">
@@ -1157,12 +1141,12 @@
 			</xs:element>
 			<xs:element name="Authentication_Header" type="PacketObj:AuthenticationHeaderType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Follows RFC2402. The IP Authentication Header is used to provide connectionless integrity and data origin authentication for IP datagrams and to provide protection against replays. http://www.ietf.org/rfc/rfc2402.txt</xs:documentation>
+					<xs:documentation>Follows RFC2402. The IP Authentication Header is used to provide connectionless integrity and data origin authentication for IP datagrams and to provide protection against replays. http://www.ietf.org/rfc/rfc2402.txt.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Encapsulating_Security_Payload" type="PacketObj:EncapsulatingSecurityPayloadType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Follows RFC2406. ESP is used to provide confidentiality, data origin authentication, connectionless integrity, an anti-replay service (a form of partial sequence integrity), and limited traffic flow confidentiality. </xs:documentation>
+					<xs:documentation>Follows RFC2406. ESP is used to provide confidentiality, data origin authentication, connectionless integrity, an anti-replay service (a form of partial sequence integrity), and limited traffic flow confidentiality.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
@@ -1247,7 +1231,7 @@
 	</xs:simpleType>
 	<xs:complexType name="IPv6OptionType">
 		<xs:annotation>
-			<xs:documentation>Specifies the meaning of each bit of the 8-bit IPv6OptionType type. </xs:documentation>
+			<xs:documentation>Specifies the meaning of each bit of the 8-bit IPv6OptionType type.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Do_Not_Recogn_Action" type="PacketObj:IPv6DoNotRecogActionType" minOccurs="0">
@@ -1331,24 +1315,24 @@
 			</xs:annotation>
 			<xs:element name="TCP" type="PacketObj:TCPType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>TCP provides reliable, ordered delivery of a stream of bytes from a program on one computer to another program on another computer. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+					<xs:documentation>TCP provides reliable, ordered delivery of a stream of bytes from a program on one computer to another program on another computer. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="UDP" type="PacketObj:UDPType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>UDP uses a simple transmission model without implicit handshaking dialogues for providing reliability, ordering, or data integrity. Thus, UDP provides an unreliable service and datagrams may arrive out of order, appear duplicated, or go missing without notice. http://en.wikipedia.org/wiki/User_Datagram_Protocol</xs:documentation>
+					<xs:documentation>UDP uses a simple transmission model without implicit handshaking dialogues for providing reliability, ordering, or data integrity. Thus, UDP provides an unreliable service and datagrams may arrive out of order, appear duplicated, or go missing without notice. http://en.wikipedia.org/wiki/User_Datagram_Protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="TCPType">
 		<xs:annotation>
-			<xs:documentation>TCP provides reliable, ordered delivery of a stream of bytes from a program on one computer to another program on another computer. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+			<xs:documentation>TCP provides reliable, ordered delivery of a stream of bytes from a program on one computer to another program on another computer. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TCP_Header" type="PacketObj:TCPHeaderType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The TCP header contains 10 mandatory fields and an optional extension field. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+					<xs:documentation>The TCP header contains 10 mandatory fields and an optional extension field. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Options" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -1358,14 +1342,14 @@
 			</xs:element>
 			<xs:element name="Data" type="cyboxCommon:DataSegmentType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Data field specifies the data payload of the TCP packet. </xs:documentation>
+					<xs:documentation>The Data field specifies the data payload of the TCP packet.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="UDPType">
 		<xs:annotation>
-			<xs:documentation>UDP uses a simple transmission model without implicit handshaking dialogues for providing reliability, ordering, or data integrity. Thus, UDP provides an unreliable service and datagrams may arrive out of order, appear duplicated, or go missing without notice. http://en.wikipedia.org/wiki/User_Datagram_Protocol</xs:documentation>
+			<xs:documentation>UDP uses a simple transmission model without implicit handshaking dialogues for providing reliability, ordering, or data integrity. Thus, UDP provides an unreliable service and datagrams may arrive out of order, appear duplicated, or go missing without notice. http://en.wikipedia.org/wiki/User_Datagram_Protocol.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="UDP_Header" type="PacketObj:UDPHeaderType" minOccurs="0">
@@ -1375,14 +1359,14 @@
 			</xs:element>
 			<xs:element name="Data" type="cyboxCommon:DataSegmentType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Data field specifies the data payload of the UDP packet. </xs:documentation>
+					<xs:documentation>The Data field specifies the data payload of the UDP packet.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TCPHeaderType">
 		<xs:annotation>
-			<xs:documentation>The TCP header contains 10 mandatory fields and an optional extension field. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+			<xs:documentation>The TCP header contains 10 mandatory fields and an optional extension field. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Src_Port" type="PortObj:PortObjectType" minOccurs="0">
@@ -1397,7 +1381,7 @@
 			</xs:element>
 			<xs:element name="Seq_Num" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Sequence number (32-bits) has a dual role: If the SYN flag is set, then this is the initial sequence numbers. If the SYN flag is clear (see Control Bits element), then this is the accumulated sequence number of the first data byte of this packet for the current session. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+					<xs:documentation>The Sequence number (32-bits) has a dual role: If the SYN flag is set, then this is the initial sequence numbers. If the SYN flag is clear (see Control Bits element), then this is the accumulated sequence number of the first data byte of this packet for the current session. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ACK_Num" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -1422,17 +1406,17 @@
 			</xs:element>
 			<xs:element name="Window" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The size of the receive window, which specifies the number of bytes (beyond the sequence number in the acknowledgment field) that the sender of this segment is currently willing to receive. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+					<xs:documentation>The size of the receive window, which specifies the number of bytes (beyond the sequence number in the acknowledgment field) that the sender of this segment is currently willing to receive. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Checksum" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The 16-bit checksum field is used for error-checking of the header and data. http://en.wikipedia.org/wiki/Transmission_Control_Protocol </xs:documentation>
+					<xs:documentation>The 16-bit checksum field is used for error-checking of the header and data. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Urg_Ptr" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>If the URG flag is set, then this 16-bit field is an offset from the sequence number indicating the last urgent data byte. http://en.wikipedia.org/wiki/Transmission_Control_Protocol </xs:documentation>
+					<xs:documentation>If the URG flag is set, then this 16-bit field is an offset from the sequence number indicating the last urgent data byte. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1448,12 +1432,12 @@
 		</xs:attribute>
 		<xs:attribute name="cwr" type="xs:boolean">
 			<xs:annotation>
-				<xs:documentation>Congestion Window Reduced (CWR) flag is set by the sending host to indicate that it received a TCP segment with the ECE flag set and had responded in congestion control mechanism. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+				<xs:documentation>Congestion Window Reduced (CWR) flag is set by the sending host to indicate that it received a TCP segment with the ECE flag set and had responded in congestion control mechanism. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="ece" type="xs:boolean">
 			<xs:annotation>
-				<xs:documentation>ECN-Echo indicates: if the SYN flag is set, that the TCP peer is ECN capable; if the SYN flag is clear, that a packet with Congestion Experienced flag in IP header set is received during normal transmission. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+				<xs:documentation>ECN-Echo indicates: if the SYN flag is set, that the TCP peer is ECN capable; if the SYN flag is clear, that a packet with Congestion Experienced flag in IP header set is received during normal transmission. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="urg" type="xs:boolean">
@@ -1463,12 +1447,12 @@
 		</xs:attribute>
 		<xs:attribute name="ack" type="xs:boolean">
 			<xs:annotation>
-				<xs:documentation>indicates that the Acknowledgment field is significant. All packets after the initial SYN packet sent by the client should have this flag set. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+				<xs:documentation>indicates that the Acknowledgment field is significant. All packets after the initial SYN packet sent by the client should have this flag set. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="psh" type="xs:boolean">
 			<xs:annotation>
-				<xs:documentation>Push functions. asks to push the buffered dtata to the receiving application. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+				<xs:documentation>Push functions. asks to push the buffered dtata to the receiving application. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="rst" type="xs:boolean">
@@ -1478,7 +1462,7 @@
 		</xs:attribute>
 		<xs:attribute name="syn" type="xs:boolean">
 			<xs:annotation>
-				<xs:documentation>Synchronize sequence numbers. Only the first packet sent from each end should have this flag set. http://en.wikipedia.org/wiki/Transmission_Control_Protocol</xs:documentation>
+				<xs:documentation>Synchronize sequence numbers. Only the first packet sent from each end should have this flag set. http://en.wikipedia.org/wiki/Transmission_Control_Protocol.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="fin" type="xs:boolean">
@@ -1533,7 +1517,7 @@
 	</xs:complexType>
 	<xs:simpleType name="IANAHardwareTypeEnum">
 		<xs:annotation>
-			<xs:documentation>This enumerated type specifies Address Resolution Protocol (ARP) parameters. http://www.iana.org/assignments/arp-parameters/arp-parameters.xml</xs:documentation>
+			<xs:documentation>This enumerated type specifies Address Resolution Protocol (ARP) parameters. http://www.iana.org/assignments/arp-parameters/arp-parameters.xml.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Ethernet(1)">
@@ -1602,7 +1586,7 @@
 	</xs:complexType>
 	<xs:simpleType name="IANAEtherTypeEnum">
 		<xs:annotation>
-			<xs:documentation>http://cavebear.com/archive/cavebear/Ethernet/type.html http://www.iana.org/assignments/ethernet-numbers http://standards.ieee.org/develop/regauth/ethertype/eth.txt http://en.wikipedia.org/wiki/EtherType</xs:documentation>
+			<xs:documentation>http://cavebear.com/archive/cavebear/Ethernet/type.html http://www.iana.org/assignments/ethernet-numbers http://standards.ieee.org/develop/regauth/ethertype/eth.txt http://en.wikipedia.org/wiki/EtherType.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="IPv4(0x0800)">
@@ -1815,7 +1799,7 @@
 	</xs:complexType>
 	<xs:simpleType name="IANAPortNumberRegistryTypeEnum">
 		<xs:annotation>
-			<xs:documentation>http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml</xs:documentation>
+			<xs:documentation>http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ftpdata(20)">
@@ -1872,7 +1856,7 @@
 	</xs:simpleType>
 	<xs:complexType name="ICMPv4PacketType">
 		<xs:annotation>
-			<xs:documentation>ICMP is used to send error messages (e.g., a datagram cannot reach its destination), informational messages ( e.g., timestamp information), or a traceroute message. REF: http://www.networksorcery.com/enp/protocol/icmp.htm</xs:documentation>
+			<xs:documentation>ICMP is used to send error messages (e.g., a datagram cannot reach its destination), informational messages ( e.g., timestamp information), or a traceroute message. REF: http://www.networksorcery.com/enp/protocol/icmp.htm.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="ICMPv4_Header" type="PacketObj:ICMPv4HeaderType" minOccurs="0">
@@ -1904,7 +1888,7 @@
 	</xs:complexType>
 	<xs:complexType name="ICMPv4HeaderType">
 		<xs:annotation>
-			<xs:documentation>Actual ICMP header bytes are defined, corresponding to the ICMP type, ICMP code, and to the checksum. </xs:documentation>
+			<xs:documentation>Actual ICMP header bytes are defined, corresponding to the ICMP type, ICMP code, and to the checksum.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Type" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -2038,7 +2022,7 @@
 	</xs:complexType>
 	<xs:complexType name="ICMPv4TracerouteType">
 		<xs:annotation>
-			<xs:documentation>Elements associated with ICMPv4 traceroute message (as opposed to ICMP error messages or ICMP informational messages); corresponds to ICMP type =30. (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm)</xs:documentation>
+			<xs:documentation>Elements associated with ICMPv4 traceroute message (as opposed to ICMP error messages or ICMP informational messages); corresponds to ICMP type =30. (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
@@ -2055,7 +2039,7 @@
 			</xs:choice>
 			<xs:element name="Identifier" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>16 bits. The ID number as copied from the ICMP traceroute option of the packet which caused this traceroute message to be sent (not related to the ID number in the IP header). (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm)</xs:documentation>
+					<xs:documentation>16 bits. The ID number as copied from the ICMP traceroute option of the packet which caused this traceroute message to be sent (not related to the ID number in the IP header). (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Outbound_Hop_Count" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -2065,17 +2049,17 @@
 			</xs:element>
 			<xs:element name="Return_Hop_Count" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>16 bits. Return hop count as copied from the IP traceroute options of the packet which caused this traceroute message to be sent. (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm)</xs:documentation>
+					<xs:documentation>16 bits. Return hop count as copied from the IP traceroute options of the packet which caused this traceroute message to be sent. (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Output_Link_Speed" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>32 bits. The speed in bytes per second of the link over which the Outbound/Return Packet will be sent. If this value cannot be determined, the field should be set to zero. (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm)</xs:documentation>
+					<xs:documentation>32 bits. The speed in bytes per second of the link over which the Outbound/Return Packet will be sent. If this value cannot be determined, the field should be set to zero. (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Output_Link_MTU" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>32 bits. The MTU in bytes of the link over which the Outbound/Return Packet will be sent. MTU refers to the data portion (includes IP header; excludes datalink header/trailer) of the packet. If this value cannot be determined, this field should be set to zero. (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm) </xs:documentation>
+					<xs:documentation>32 bits. The MTU in bytes of the link over which the Outbound/Return Packet will be sent. MTU refers to the data portion (includes IP header; excludes datalink header/trailer) of the packet. If this value cannot be determined, this field should be set to zero. (http://www.networksorcery.com/enp/protocol/icmp/msg30.htm).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -2087,7 +2071,7 @@
 		<xs:sequence>
 			<xs:element name="ICMPv6_Header" type="PacketObj:ICMPv6HeaderType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Actual ICMP v6 header bytes are defined, corresponding to the ICMP type, ICMP code, and to the checksum. </xs:documentation>
+					<xs:documentation>Actual ICMP v6 header bytes are defined, corresponding to the ICMP type, ICMP code, and to the checksum.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
@@ -2111,7 +2095,7 @@
 		<xs:sequence>
 			<xs:element name="Type" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The ICMP v6 type byte specifies the type of the message. Values range from 0 to 127 (high order bit is 0) indicate an error messages; values from 128 to 255 (high order bit is 1) indicate an informational message. </xs:documentation>
+					<xs:documentation>The ICMP v6 type byte specifies the type of the message. Values range from 0 to 127 (high order bit is 0) indicate an error messages; values from 128 to 255 (high order bit is 1) indicate an informational message.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Code" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -2134,7 +2118,7 @@
 			<xs:choice minOccurs="0">
 				<xs:element name="Destination_Unreachable" type="PacketObj:ICMPv6DestinationUnreachableType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>A destination unreachable message should be generated by a router, or by the IPv6 later in the originating node, in response to a packet that cannot be delivered to its destination address for reasons other than congestion. (http://tools.ietf.org/html/rfc4443)</xs:documentation>
+						<xs:documentation>A destination unreachable message should be generated by a router, or by the IPv6 later in the originating node, in response to a packet that cannot be delivered to its destination address for reasons other than congestion. (http://tools.ietf.org/html/rfc4443).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Packet_Too_Big" type="PacketObj:ICMPv6PacketTooBigType" minOccurs="0">
@@ -2144,7 +2128,7 @@
 				</xs:element>
 				<xs:element name="Time_Exceeded" type="PacketObj:ICMPv6TimeExceededType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>A time exceeded message is send if either the hop limit is exceeded (hop limit = 0) or if fragment reassembly has timed out. </xs:documentation>
+						<xs:documentation>A time exceeded message is send if either the hop limit is exceeded (hop limit = 0) or if fragment reassembly has timed out.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Parameter_Problem" type="PacketObj:ICMPv6ParameterProblemType" minOccurs="0">
@@ -2155,7 +2139,7 @@
 			</xs:choice>
 			<xs:element name="Invoking_Packet" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>as much of invoking packet as possible without the ICMPv6 packet exceeding the minimum IPc6 MTU</xs:documentation>
+					<xs:documentation>as much of invoking packet as possible without the ICMPv6 packet exceeding the minimum IPc6 MTU.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -2173,7 +2157,7 @@
 				</xs:element>
 				<xs:element name="Echo_Reply" type="PacketObj:ICMPv6EchoReplyType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Echo request and reply messages are used for diagnostic purposes</xs:documentation>
+						<xs:documentation>Echo request and reply messages are used for diagnostic purposes.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
@@ -2542,7 +2526,7 @@
 			<xs:choice minOccurs="0">
 				<xs:element name="Packet_Too_Big" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Only one code value is defined and is set to 0 (zero) by the originator and ignored by the receiver. </xs:documentation>
+						<xs:documentation>Only one code value is defined and is set to 0 (zero) by the originator and ignored by the receiver.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
@@ -2632,7 +2616,7 @@
 			</xs:choice>
 			<xs:element name="Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This is the data from the invoking echo request message. </xs:documentation>
+					<xs:documentation>This is the data from the invoking echo request message.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
@@ -2644,12 +2628,12 @@
 		<xs:choice>
 			<xs:element name="IPv6_Addr" type="AddressObj:AddressObjectType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>IPv6 address</xs:documentation>
+					<xs:documentation>IPv6 address.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IP_Addr_Prefix" type="AddressObj:AddressObjectType" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The initial bits of an IPv6 address (these are identical for all hosts in a network) form the network's prefix. http://ipv6.com/articles/general/IPv6-Addressing.htm</xs:documentation>
+					<xs:documentation>The initial bits of an IPv6 address (these are identical for all hosts in a network) form the network's prefix. http://ipv6.com/articles/general/IPv6-Addressing.htm.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
@@ -2683,7 +2667,7 @@
 		<xs:sequence minOccurs="0">
 			<xs:element name="Option_Type" type="PacketObj:IPv6OptionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Identifies the type of option. This 8-bit Option Type identifier is internally encoded such that different bits have different meanings. These meanings are further specified in the IPv6OptionType type. </xs:documentation>
+					<xs:documentation>Identifies the type of option. This 8-bit Option Type identifier is internally encoded such that different bits have different meanings. These meanings are further specified in the IPv6OptionType type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Option_Data_Len" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -2710,7 +2694,7 @@
 	</xs:complexType>
 	<xs:complexType name="RoutingType">
 		<xs:annotation>
-			<xs:documentation>Specifies the fields of the Routing header, which is used by an IPv6 source to list one or more intermediate nodes to be "visited" on the way to a packet's destination. http://tools.ietf.org/html/rfc2460</xs:documentation>
+			<xs:documentation>Specifies the fields of the Routing header, which is used by an IPv6 source to list one or more intermediate nodes to be "visited" on the way to a packet's destination. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Next_Header" type="PacketObj:IANAAssignedIPNumbersType" minOccurs="0">
@@ -2730,7 +2714,7 @@
 			</xs:element>
 			<xs:element name="Segments_Left" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Number of route segments remaining, i.e., number of explicitly listed intermediate nodes still to be visited before reaching the final destination. http://tools.ietf.org/html/rfc2460</xs:documentation>
+					<xs:documentation>Number of route segments remaining, i.e., number of explicitly listed intermediate nodes still to be visited before reaching the final destination. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Type_Specific_Data" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -2742,7 +2726,7 @@
 	</xs:complexType>
 	<xs:complexType name="FragmentType">
 		<xs:annotation>
-			<xs:documentation>Specifies the fields of the Fragment header, which is used by an IPv6 source to send a packet larger than would fit in the path MTU. http://tools.ietf.org/html/rfc2460</xs:documentation>
+			<xs:documentation>Specifies the fields of the Fragment header, which is used by an IPv6 source to send a packet larger than would fit in the path MTU. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
 			<xs:element name="Fragment_Header" type="PacketObj:FragmentHeaderType" minOccurs="0">
@@ -2781,7 +2765,7 @@
 	</xs:complexType>
 	<xs:complexType name="AuthenticationHeaderType">
 		<xs:annotation>
-			<xs:documentation>The IP Authentication Header is used to provide connectionless integrity and data origin authentication for IP datagrams and to provide protection against replays. http://www.ietf.org/rfc/rfc2402.txt</xs:documentation>
+			<xs:documentation>The IP Authentication Header is used to provide connectionless integrity and data origin authentication for IP datagrams and to provide protection against replays. http://www.ietf.org/rfc/rfc2402.txt.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Next_Header" type="PacketObj:IANAAssignedIPNumbersType" minOccurs="0">
@@ -2796,12 +2780,12 @@
 			</xs:element>
 			<xs:element name="Security_Parameters_Index" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The SPI is an arbitrary 32-bit value that, in combination with the destination IP address and security protocol (AH), uniquely identifies the Security Association for this datagram. The set of SPI values in the range 1 through 255 are reserved by the Internet Assigned Numbers Authority (IANA) for future use. http://www.ietf.org/rfc/rfc2402.txt</xs:documentation>
+					<xs:documentation>The SPI is an arbitrary 32-bit value that, in combination with the destination IP address and security protocol (AH), uniquely identifies the Security Association for this datagram. The set of SPI values in the range 1 through 255 are reserved by the Internet Assigned Numbers Authority (IANA) for future use. http://www.ietf.org/rfc/rfc2402.txt.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Sequence_Number" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This unsigned 32-bit field contains a monotonically increasing counter value (sequence number). </xs:documentation>
+					<xs:documentation>This unsigned 32-bit field contains a monotonically increasing counter value (sequence number).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Authentication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -2813,22 +2797,22 @@
 	</xs:complexType>
 	<xs:complexType name="EncapsulatingSecurityPayloadType">
 		<xs:annotation>
-			<xs:documentation>ESP is used to provide confidentiality, data origin authentication, connectionless integrity, an anti-replay service (a form of partial sequence integrity), and limited traffic flow confidentiality. http://www.ietf.org/rfc/rfc2406.txt</xs:documentation>
+			<xs:documentation>ESP is used to provide confidentiality, data origin authentication, connectionless integrity, an anti-replay service (a form of partial sequence integrity), and limited traffic flow confidentiality. http://www.ietf.org/rfc/rfc2406.txt.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Security_Parameters_Index" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The SPI is an arbitrary 32-bit value that, in combination with the destination IP address and security protocol (ESP), uniquely identifies the Security Association for this datagram. http://www.ietf.org/rfc/rfc2406.txt</xs:documentation>
+					<xs:documentation>The SPI is an arbitrary 32-bit value that, in combination with the destination IP address and security protocol (ESP), uniquely identifies the Security Association for this datagram. http://www.ietf.org/rfc/rfc2406.txt.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Sequence_Number" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This unsigned 32-bit field contains a monotonically increasing counter value (sequence number). </xs:documentation>
+					<xs:documentation>This unsigned 32-bit field contains a monotonically increasing counter value (sequence number).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Payload_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Payload Data is a variable-length field containing data described by the Next Header field. </xs:documentation>
+					<xs:documentation>Payload Data is a variable-length field containing data described by the Next Header field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Padding" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -2838,7 +2822,7 @@
 			</xs:element>
 			<xs:element name="Padding_Len" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The pad length indicates the number of pad bytes immediately preceding it. Range is 0-255, where a value of zero indicates that no padding bytes are present. http://www.ietf.org/rfc/rfc2406.txt</xs:documentation>
+					<xs:documentation>The pad length indicates the number of pad bytes immediately preceding it. Range is 0-255, where a value of zero indicates that no padding bytes are present. http://www.ietf.org/rfc/rfc2406.txt.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Next_Header" type="PacketObj:IANAAssignedIPNumbersType" minOccurs="0">
@@ -2848,7 +2832,7 @@
 			</xs:element>
 			<xs:element name="Authentication_Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Authentication Data is a variable-length field containing an Integrity Check Value (ICV) computed over the ESP packet minus the Authentication Data. http://www.ietf.org/rfc/rfc2406.txt</xs:documentation>
+					<xs:documentation>The Authentication Data is a variable-length field containing an Integrity Check Value (ICV) computed over the ESP packet minus the Authentication Data. http://www.ietf.org/rfc/rfc2406.txt.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -2909,7 +2893,7 @@
 			</xs:element>
 			<xs:element name="Identification" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>For every packet that is to be fragmented, the source node generates a 32-bit Identification value. </xs:documentation>
+					<xs:documentation>For every packet that is to be fragmented, the source node generates a 32-bit Identification value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

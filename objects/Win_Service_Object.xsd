@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinServiceObj="http://cybox.mitre.org/objects#WinServiceObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject-2" targetNamespace="http://cybox.mitre.org/objects#WinServiceObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinServiceObj="http://cybox.mitre.org/objects#WinServiceObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject-2" targetNamespace="http://cybox.mitre.org/objects#WinServiceObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>		
-		<xs:documentation>Change to This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>Change to This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Win_Service_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -14,7 +15,7 @@
 	<xs:import namespace="http://cybox.mitre.org/objects#WinProcessObject-2" schemaLocation="Win_Process_Object.xsd"/>
 	<xs:element name="Windows_Service" type="WinServiceObj:WindowsServiceObjectType">
 		<xs:annotation>
-			<xs:documentation>Windows_Service object is intended to characterize Windows services. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685141(v=vs.85).aspx</xs:documentation>
+			<xs:documentation>Windows_Service object is intended to characterize Windows services. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685141(v=vs.85).aspx.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="WindowsServiceObjectType" mixed="false">
@@ -31,7 +32,7 @@
 					</xs:element>
 					<xs:element name="Display_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Display_Name field specifies the displayed name of the service in Windows GUI controls. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms683228(v=vs.85).aspx</xs:documentation>
+							<xs:documentation>The Display_Name field specifies the displayed name of the service in Windows GUI controls. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms683228(v=vs.85).aspx.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="Group_Name" type="cyboxCommon:StringObjectPropertyType">
@@ -41,7 +42,7 @@
 					</xs:element>
 					<xs:element name="Service_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Name field specifies the name of the service. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms683229(v=vs.85).aspx</xs:documentation>
+							<xs:documentation>The Name field specifies the name of the service. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms683229(v=vs.85).aspx.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Service_DLL" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
@@ -76,12 +77,12 @@
 					</xs:element>
 					<xs:element name="Startup_Type" type="WinServiceObj:ServiceModeType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>Service start options. See http://msdn.microsoft.com/en-us/library/windows/desktop/ms682450(v=vs.85).aspx</xs:documentation>
+							<xs:documentation>Service start options. See http://msdn.microsoft.com/en-us/library/windows/desktop/ms682450(v=vs.85).aspx.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Service_Status" type="WinServiceObj:ServiceStatusType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>Status information for a service. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685996(v=vs.85).aspx</xs:documentation>
+							<xs:documentation>Status information for a service. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685996(v=vs.85).aspx.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Service_Type" type="WinServiceObj:ServiceType" minOccurs="0">
@@ -115,7 +116,7 @@
 		<xs:sequence>
 			<xs:element name="Description" type="cyboxCommon:StringObjectPropertyType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A description of the service. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685156(v=vs.85).aspx</xs:documentation>
+					<xs:documentation>A description of the service. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685156(v=vs.85).aspx.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -173,7 +174,7 @@
 	</xs:complexType>
 	<xs:simpleType name="ServiceModeEnum">
 		<xs:annotation>
-			<xs:documentation>The ServiceModeEnum type is an enumeration of service modes. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms682450(v=vs.85).aspx</xs:documentation>
+			<xs:documentation>The ServiceModeEnum type is an enumeration of service modes. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms682450(v=vs.85).aspx.</xs:documentation>
 		</xs:annotation>
 		<xs:list>
 			<xs:simpleType>
@@ -209,7 +210,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ServiceStatusEnum">
 		<xs:annotation>
-			<xs:documentation>The ServiceStatusEnum type is an enumeration of potential service states. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685996(v=vs.85).aspx</xs:documentation>
+			<xs:documentation>The ServiceStatusEnum type is an enumeration of potential service states. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685996(v=vs.85).aspx.</xs:documentation>
 		</xs:annotation>
 		<xs:list>
 			<xs:simpleType>
@@ -255,7 +256,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="ServiceTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The ServiceTypeEnum type is an enumeration of service types. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685996(v=vs.85).aspx</xs:documentation>
+			<xs:documentation>The ServiceTypeEnum type is an enumeration of service types. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685996(v=vs.85).aspx.</xs:documentation>
 		</xs:annotation>
 		<xs:list>
 			<xs:simpleType>

@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject-2" xmlns:WinThreadObj="http://cybox.mitre.org/objects#WinThreadObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:MemoryObj="http://cybox.mitre.org/objects#MemoryObject-2" xmlns:WinHandleObj="http://cybox.mitre.org/objects#WinHandleObject-2" xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2" targetNamespace="http://cybox.mitre.org/objects#WinProcessObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinProcessObj="http://cybox.mitre.org/objects#WinProcessObject-2" xmlns:WinThreadObj="http://cybox.mitre.org/objects#WinThreadObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:MemoryObj="http://cybox.mitre.org/objects#MemoryObject-2" xmlns:WinHandleObj="http://cybox.mitre.org/objects#WinHandleObject-2" xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2" targetNamespace="http://cybox.mitre.org/objects#WinProcessObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Win_Process_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -101,7 +102,7 @@
 		<xs:sequence>
 			<xs:element name="lpDesktop" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The lpDesktop field specifies the name of the desktop, or the name of both the desktop and window station for this process. </xs:documentation>
+					<xs:documentation>The lpDesktop field specifies the name of the desktop, or the name of both the desktop and window station for this process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="lpTitle" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -136,12 +137,12 @@
 			</xs:element>
 			<xs:element name="dwYCountChars" type="cyboxCommon:PositiveIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The dwYCountChars field specifies the screen buffer height, in character rows. </xs:documentation>
+					<xs:documentation>The dwYCountChars field specifies the screen buffer height, in character rows.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="dwFillAttribute" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The dwFillAttribute field specifies the initial text and background colors if a new console window is created in a console application. </xs:documentation>
+					<xs:documentation>The dwFillAttribute field specifies the initial text and background colors if a new console window is created in a console application.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="dwFlags" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
@@ -156,17 +157,17 @@
 			</xs:element>
 			<xs:element name="hStdInput" type="WinHandleObj:WindowsHandleObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The hStdInput field specifies the standard input handle for the process. </xs:documentation>
+					<xs:documentation>The hStdInput field specifies the standard input handle for the process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hStdOutput" type="WinHandleObj:WindowsHandleObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The hStdOutput field specifies the standard output handle for the process. </xs:documentation>
+					<xs:documentation>The hStdOutput field specifies the standard output handle for the process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="hStdError" type="WinHandleObj:WindowsHandleObjectType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The hStdError field specifies the standard error handle for the process. </xs:documentation>
+					<xs:documentation>The hStdError field specifies the standard error handle for the process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

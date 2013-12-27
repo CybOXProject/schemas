@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cybox.mitre.org/common-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cybox.mitre.org/common-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>CybOX Common</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Common Types.</short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -18,15 +19,15 @@
 			<xs:element name="Information_Source_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Information_Source_Type field is optional and utilizes a standardized controlled vocabulary to identify the type of information source leveraged for this cyber observation source.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is InformationSourceTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is InformationSourceTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Tool_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Tool_Type field is optional and (when tools are used) enables identification of the type of tool leveraged as part of this cyber observation source, via a standardized controlled vocabulary.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ToolTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ToolTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
@@ -51,12 +52,12 @@
 			</xs:element>
 			<xs:element name="Platform" type="cyboxCommon:PlatformSpecificationType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Platform field is optional and enables a formal, standardized specification of the platform for this cyber observation source. </xs:documentation>
+					<xs:documentation>The Platform field is optional and enables a formal, standardized specification of the platform for this cyber observation source.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="System" type="cyboxCommon:ObjectPropertiesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The System field is optional and enables characterization of the system on which the mechanism of cyber observation executed. System should be an object of type SystemObj:SystemObjectType</xs:documentation>
+					<xs:documentation>The System field is optional and enables characterization of the system on which the mechanism of cyber observation executed. System should be an object of type SystemObj:SystemObjectType.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Instance" type="cyboxCommon:ObjectPropertiesType" minOccurs="0">
@@ -120,7 +121,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Information Source">
 				<xs:annotation>
-					<xs:documentation>Describes a cyber observation made using other information sources, such as logs, Device Driver APIs, and TPM output data. See InformationSourceTypeEnum for a more complete list of information sources that CybOX supports. </xs:documentation>
+					<xs:documentation>Describes a cyber observation made using other information sources, such as logs, Device Driver APIs, and TPM output data. See InformationSourceTypeEnum for a more complete list of information sources that CybOX supports.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -172,14 +173,14 @@
 			<xs:documentation>The DateRangeType specifies a range of dates.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Start_Date" type="xs:date" minOccurs="0">
+			<xs:element name="Start_Date" type="cyboxCommon:DateWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field contains the start date for this contributor's involvement. </xs:documentation>
+					<xs:documentation>This field contains the start date for this contributor's involvement. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="End_Date" type="xs:date" minOccurs="0">
+			<xs:element name="End_Date" type="cyboxCommon:DateWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field contains the end date for this contributor's involvement. </xs:documentation>
+					<xs:documentation>This field contains the end date for this contributor's involvement. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -201,24 +202,24 @@
 			<xs:documentation>The TimeType specifies various time properties for this construct.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Start_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Start_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Start_Time field is optional and describes the starting time for this construct.</xs:documentation>
+					<xs:documentation>The Start_Time field is optional and describes the starting time for this construct. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="End_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="End_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The End_Time field is optional and describes the ending time for this construct.</xs:documentation>
+					<xs:documentation>The End_Time field is optional and describes the ending time for this construct. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Produced_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Produced_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Produced_Time field is optional and describes the time that this construct was produced.</xs:documentation>
+					<xs:documentation>The Produced_Time field is optional and describes the time that this construct was produced. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Received_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Received_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Received_Time field is optional and describes the time that this construct was received.</xs:documentation>
+					<xs:documentation>The Received_Time field is optional and describes the time that this construct was received. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -242,7 +243,7 @@
 	</xs:complexType>
 	<xs:complexType name="ToolInformationType">
 		<xs:annotation>
-			<xs:documentation>The ToolInformationType represents a description of a single automated tool.</xs:documentation>
+			<xs:documentation>The ToolInformationType is intended to characterize the properties of a hardware or software tool, including those related to instances of its use.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string" minOccurs="0">
@@ -252,11 +253,8 @@
 			</xs:element>
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>
-						This field contains the type of the tool leveraged.
-						
-						This field is implemented through the xsi:type controlled vocabulary extension mechanism. No default vocabulary type has been defined for CybOX 2.0. Users may either define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a free string field. Additionally, locations where the ToolInformationType is used may define default vocabularies for this field.
-					</xs:documentation>
+					<xs:documentation>This field contains the type of the tool leveraged.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. No default vocabulary type has been defined for CybOX 2.0. Users may either define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a free string field. Additionally, locations where the ToolInformationType is used may define default vocabularies for this field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
@@ -286,7 +284,7 @@
 			</xs:element>
 			<xs:element name="Tool_Specific_Data" type="cyboxCommon:ToolSpecificDataType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This is an abstract type provided to a flexible mechanism for enabling tool-specific data to be included. </xs:documentation>
+					<xs:documentation>This is an abstract type provided to a flexible mechanism for enabling tool-specific data to be included.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Tool_Hashes" type="cyboxCommon:HashListType" minOccurs="0">
@@ -378,25 +376,25 @@
 	</xs:simpleType>
 	<xs:complexType name="ToolReferencesType">
 		<xs:annotation>
-			<xs:documentation>Used to indicate one or more references to tool instances and information</xs:documentation>
+			<xs:documentation>Used to indicate one or more references to tool instances and information.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Reference" type="cyboxCommon:ToolReferenceType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Contains one reference to information or instances of a given tool</xs:documentation>
+					<xs:documentation>Contains one reference to information or instances of a given tool.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ToolReferenceType">
 		<xs:annotation>
-			<xs:documentation>Contains one reference to information or instances of a given tool</xs:documentation>
+			<xs:documentation>Contains one reference to information or instances of a given tool.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:anyURI">
 				<xs:attribute name="reference_type" type="cyboxCommon:ToolReferenceTypeEnum">
 					<xs:annotation>
-						<xs:documentation>Indicates the nature of the referenced material (documentation, source, executable, etc.)</xs:documentation>
+						<xs:documentation>Indicates the nature of the referenced material (documentation, source, executable, etc.).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -404,22 +402,22 @@
 	</xs:complexType>
 	<xs:simpleType name="ToolReferenceTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The nature of referenced material regarding a tool</xs:documentation>
+			<xs:documentation>The nature of referenced material regarding a tool.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Documentation">
 				<xs:annotation>
-					<xs:documentation>The reference is to documentation about the identified tool</xs:documentation>
+					<xs:documentation>The reference is to documentation about the identified tool.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Source">
 				<xs:annotation>
-					<xs:documentation>The reference is to source code for the identified tool</xs:documentation>
+					<xs:documentation>The reference is to source code for the identified tool.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Download">
 				<xs:annotation>
-					<xs:documentation>The reference is to where an executable version of the tool can be downloaded</xs:documentation>
+					<xs:documentation>The reference is to where an executable version of the tool can be downloaded.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Execute">
@@ -439,7 +437,7 @@
 			<xs:documentation>The ToolConfigurationType characterizes the configuration for a tool used as a cyber observation source.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Configuration_Settings" type="cyboxCommon:ConfigurationSettingsType">
+			<xs:element name="Configuration_Settings" type="cyboxCommon:ConfigurationSettingsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This field describes the configuration settings of this tool instance.</xs:documentation>
 				</xs:annotation>
@@ -468,7 +466,7 @@
 	</xs:complexType>
 	<xs:complexType name="ConfigurationSettingsType">
 		<xs:annotation>
-			<xs:documentation>The ConfigurationSettingsType is a modularized data type used to provide a consistent approach to describing configuration settings for a tool, application or other cyber object</xs:documentation>
+			<xs:documentation>The ConfigurationSettingsType is a modularized data type used to provide a consistent approach to describing configuration settings for a tool, application or other cyber object.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="Configuration_Setting" type="cyboxCommon:ConfigurationSettingType" maxOccurs="unbounded">
@@ -480,7 +478,7 @@
 	</xs:complexType>
 	<xs:complexType name="ConfigurationSettingType">
 		<xs:annotation>
-			<xs:documentation>The ConfigurationSettingType is a modularized data type used to provide a consistent approach to describing a particular configuration setting for a tool, application or other cyber object</xs:documentation>
+			<xs:documentation>The ConfigurationSettingType is a modularized data type used to provide a consistent approach to describing a particular configuration setting for a tool, application or other cyber object.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Item_Name" type="xs:string">
@@ -536,7 +534,7 @@
 	</xs:complexType>
 	<xs:complexType name="UsageContextAssumptionsType">
 		<xs:annotation>
-			<xs:documentation>The UsageContextAssumptionsType contains descriptions of the various relevant usage context assumptions for this tool</xs:documentation>
+			<xs:documentation>The UsageContextAssumptionsType contains descriptions of the various relevant usage context assumptions for this tool.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Usage_Context_Assumption" type="cyboxCommon:StructuredTextType" maxOccurs="unbounded">
@@ -548,7 +546,7 @@
 	</xs:complexType>
 	<xs:complexType name="InternationalizationSettingsType">
 		<xs:annotation>
-			<xs:documentation>The InternationalizationSettingsType contains information describing relevant internationalization setting for this tool</xs:documentation>
+			<xs:documentation>The InternationalizationSettingsType contains information describing relevant internationalization setting for this tool.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Internal_Strings" type="cyboxCommon:InternalStringsType" maxOccurs="unbounded">
@@ -610,9 +608,9 @@
 					<xs:documentation>This field describes the compilers utilized during this build of this application.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Compilation_Date" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Compilation_Date" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field identifies the compilation date for the build of the tool.</xs:documentation>
+					<xs:documentation>This field identifies the compilation date for the build of the tool. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Build_Configuration" type="cyboxCommon:BuildConfigurationType" minOccurs="0">
@@ -764,9 +762,9 @@
 					<xs:documentation>This field specifies the command line string used to run the tool.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Start_Time" type="xs:dateTime" minOccurs="0">
+			<xs:element name="Start_Time" type="cyboxCommon:DateTimeWithPrecisionType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This field specifies when the tool was run.</xs:documentation>
+					<xs:documentation>This field specifies when the tool was run. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -825,7 +823,7 @@
 		<xs:sequence>
 			<xs:element name="Custom_Properties" type="cyboxCommon:CustomPropertiesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Custom_Properties construct is optional and enables the specification of a set of custom Object Properties that may not be defined in existing Properties schemas. </xs:documentation>
+					<xs:documentation>The Custom_Properties construct is optional and enables the specification of a set of custom Object Properties that may not be defined in existing Properties schemas.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -837,7 +835,7 @@
 	</xs:complexType>
 	<xs:complexType name="CustomPropertiesType">
 		<xs:annotation>
-			<xs:documentation>The CustomPropertiesType enables the specification of a set of custom Object Properties that may not be defined in existing Properties schemas. </xs:documentation>
+			<xs:documentation>The CustomPropertiesType enables the specification of a set of custom Object Properties that may not be defined in existing Properties schemas.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Property" type="cyboxCommon:PropertyType" maxOccurs="unbounded">
@@ -870,7 +868,7 @@
 	<xs:complexType name="BaseObjectPropertyType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>The BaseObjectPropertyType is a type representing a common typing foundation for the specification of a single Object Property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:extension base="xs:anySimpleType">
@@ -882,7 +880,7 @@
 	<xs:complexType name="IntegerObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The IntegerObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Int. This type will be assigned to any property of a CybOX object that should contain content of type Integer and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -900,7 +898,7 @@
 	<xs:complexType name="StringObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The StringObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type String. This type will be assigned to any property of a CybOX object that should contain content of type String and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -918,7 +916,7 @@
 	<xs:complexType name="NameObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The NameObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Name. This type will be assigned to any property of a CybOX object that should contain content of type Name and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -933,10 +931,9 @@
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="DateObjectPropertyType">
+	<xs:complexType name="DateObjectPropertyRestrictionType">
 		<xs:annotation>
-			<xs:documentation>The DateObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Date. This type will be assigned to any property of a CybOX object that should contain content of type Date and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>This type is an intermediate type to allow for the addition of the precision attribute to DateObjectPropertyType. It should not be used directly.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -951,10 +948,26 @@
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="DateTimeObjectPropertyType">
+	<xs:complexType name="DateObjectPropertyType">
 		<xs:annotation>
-			<xs:documentation>The DateTimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type DateTime. This type will be assigned to any property of a CybOX object that should contain content of type DateTime and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>The DateObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Date. This type will be assigned to any property of a CybOX object that should contain content of type Date and enables the use of relevant metadata for the property. In order to avoid ambiguity, it is strongly suggested that any date representation in this field include a timezone if it is known. As with the rest of the field, this should be formatted per the xs:date specification.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>For fields of this type using CybOX patterning, it is strongly suggested that the condition (pattern type) is limited to one of Equals, DoesNotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, ExclusiveBetween, or InclusiveBetween. The use of other conditions may lead to ambiguity or unexpected results. When evaluating data against a pattern, the evaluator should take into account the precision of the field (as given by the precision attribute) and any timezone information that is available to perform a data-aware comparison. The usage of simple string comparisons is discouraged due to ambiguities in how precision and timezone information is processed.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="cyboxCommon:DateObjectPropertyRestrictionType">
+				<xs:attribute name="precision" type="cyboxCommon:DatePrecisionEnum" default="day">
+					<xs:annotation>
+						<xs:documentation>The precision of the associated time. If omitted, the default is "day", meaning the full field value. Digits in the date that are required by the xs:date datatype but are beyond the specified precision should be zeroed out.</xs:documentation>
+						<xs:documentation>When used in conjunction with CybOX patterning, the pattern should only be evaluated against the target up to the given precision.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DateTimeObjectPropertyRestrictionType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>This type is an intermediate type to allow for the addition of the precision attribute to DateTimeObjectPropertyType. It should not be used directly.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -969,10 +982,27 @@
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
+	<xs:complexType name="DateTimeObjectPropertyType">
+		<xs:annotation>
+			<xs:documentation>The DateTimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type DateTime. This type will be assigned to any property of a CybOX object that should contain content of type DateTime and enables the use of relevant metadata for the property.  In order to avoid ambiguity, it is strongly suggested that any dateTime representation in this field include a timezone. As with the rest of the field, this should be formatted per the xs:dateTime specification.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>For fields of this type using CybOX patterning, it is strongly suggested that the condition (pattern type) is limited to one of Equals, DoesNotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, ExclusiveBetween, or InclusiveBetween. The use of other conditions may lead to ambiguity or unexpected results. When evaluating data against a pattern, the evaluator should take into account the precision of the field (as given by the precision attribute) and any timezone information that is available to perform a data-aware comparison. The usage of simple string comparisons is discouraged due to ambiguities in how precision and timezone information is processed.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="cyboxCommon:DateTimeObjectPropertyRestrictionType">
+				<xs:attribute name="precision" type="cyboxCommon:DateTimePrecisionEnum" default="second">
+					<xs:annotation>
+						<xs:documentation>The precision of the associated time. If omitted, the default is "second", meaning the full field value (including fractional seconds). Digits in the dateTime that are required by the xs:dateTime datatype but are beyond the specified precision should be zeroed out.</xs:documentation>
+						<xs:documentation>When used in conjunction with CybOX patterning, the pattern should only be evaluated against the target up to the given precision.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:complexType name="FloatObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The FloatObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Float. This type will be assigned to any property of a CybOX object that should contain content of type Float and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -990,7 +1020,7 @@
 	<xs:complexType name="DoubleObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The DoubleObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Double. This type will be assigned to any property of a CybOX object that should contain content of type Double and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1008,7 +1038,7 @@
 	<xs:complexType name="UnsignedLongObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The UnsignedLongObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type UnsignedLong. This type will be assigned to any property of a CybOX object that should contain content of type UnsignedLong and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1026,7 +1056,7 @@
 	<xs:complexType name="UnsignedIntegerObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The UnsignedIntegerObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type UnsignedInt. This type will be assigned to any property of a CybOX object that should contain content of type UnsignedInteger and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1044,7 +1074,7 @@
 	<xs:complexType name="PositiveIntegerObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The PositiveIntegerObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type PositveInteger. This type will be assigned to any property of a CybOX object that should contain content of type PositiveInteger and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1062,7 +1092,7 @@
 	<xs:complexType name="HexBinaryObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The HexBinaryObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type HexBinary. This type will be assigned to any property of a CybOX object that should contain content of type HexBinary and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1080,7 +1110,7 @@
 	<xs:complexType name="LongObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The LongObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type Long. This type will be assigned to any property of a CybOX object that should contain content of type Long and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1098,7 +1128,7 @@
 	<xs:complexType name="NonNegativeIntegerObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The NonNegativeIntegerObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type nonNegativeInteger. This type will be assigned to any property of a CybOX object that should contain content of type NonNegativeInteger and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1116,7 +1146,7 @@
 	<xs:complexType name="AnyURIObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The AnyURIObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type anyURI. This type will be assigned to any property of a CybOX object that should contain content of type AnyURI and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1134,7 +1164,7 @@
 	<xs:complexType name="DurationObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The DurationObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type duration. This type will be assigned to any property of a CybOX object that should contain content of type Duration and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1149,10 +1179,9 @@
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="TimeObjectPropertyType">
+	<xs:complexType name="TimeObjectPropertyRestrictionType" abstract="true">
 		<xs:annotation>
-			<xs:documentation>The TimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type time. This type will be assigned to any property of a CybOX object that should contain content of type Time and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>This type is an intermediate type to allow for the addition of the precision attribute to TimeObjectPropertyType. It should not be used directly.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1167,10 +1196,27 @@
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
+	<xs:complexType name="TimeObjectPropertyType">
+		<xs:annotation>
+			<xs:documentation>The TimeObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type time. This type will be assigned to any property of a CybOX object that should contain content of type Time and enables the use of relevant metadata for the property.  In order to avoid ambiguity, it is strongly suggested that any time representation in this field include a specification of the timezone if it is known. As with the rest of the field, this should be formatted per the xs:time specification.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>For fields of this type using CybOX patterning, it is strongly suggested that the condition (pattern type) is limited to one of Equals, DoesNotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, ExclusiveBetween, or InclusiveBetween. The use of other conditions may lead to ambiguity or unexpected results. When evaluating data against a pattern, the evaluator should take into account the precision of the field (as given by the precision attribute) and any timezone information that is available to perform a data-aware comparison. The usage of simple string comparisons is discouraged due to ambiguities in how precision and timezone information is processed.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="cyboxCommon:TimeObjectPropertyRestrictionType">
+				<xs:attribute name="precision" type="cyboxCommon:TimePrecisionEnum" default="second">
+					<xs:annotation>
+						<xs:documentation>The precision of the associated time. If omitted, the default is "second", meaning the full field value (including fractional seconds). Digits in the time that are required by the xs:time datatype but are beyond the specified precision should be zeroed out.</xs:documentation>
+						<xs:documentation>When used in conjunction with CybOX patterning, the pattern should only be evaluated against the target up to the given precision.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:complexType name="Base64BinaryObjectPropertyType">
 		<xs:annotation>
 			<xs:documentation>The Base64BinaryObjectPropertyType is a type (extended from BaseObjectPropertyType) representing the specification of a single Object property whose core value is of type base64Binary. This type will be assigned to any property of a CybOX object that should contain content of type Base64Binary and enables the use of relevant metadata for the property.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -1240,6 +1286,13 @@
 				<xs:documentation>This field is optional and specifies an automated transform that can be applied to the Object property content in order to refang it to its original format.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="observed_encoding" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>This field is optional and specifies the encoding of the string when it is/was observed. This may be different from the encoding used to represent the string within this element.</xs:documentation>
+				<xs:documentation>It is strongly recommended that character set names should be taken from the IANA character set registry (https://www.iana.org/assignments/character-sets/character-sets.xhtml).</xs:documentation>
+				<xs:documentation>This field is intended to be applicable only to fields which contain string values.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:attributeGroup>
 	<xs:attributeGroup name="PatternFieldGroup">
 		<xs:annotation>
@@ -1250,9 +1303,19 @@
 				<xs:documentation>This field is optional and defines the relevant condition to apply to the value.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="is_case_sensitive" type="xs:boolean" default="true">
+			<xs:annotation>
+				<xs:documentation>The is_case_sensitive field is optional and should be used when specifying the case-sensitivity of a pattern which uses an Equals, DoesNotEqual, Contains, DoesNotContain, StartsWith, EndsWith, or FitsPattern condition. The default value for this field is "true" which indicates that pattern evaluations are to be considered case-sensitive.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:attribute name="apply_condition" type="cyboxCommon:ConditionApplicationEnum" default="ANY">
 			<xs:annotation>
 				<xs:documentation>This field indicates how a condition should be applied when the field body contains a list of values. (Its value is moot if the field value contains only a single value - both possible values for this field would have the same behavior.) If this field is set to ANY, then a pattern is considered to be matched if the provided condition successfully evaluates for any of the values in the field body. If the field is set to ALL, then the patern only matches if the provided condition successfully evaluates for every value in the field body.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="delimiter" type="xs:string" default="##comma##">
+			<xs:annotation>
+				<xs:documentation>The delimiter field specifies the delimiter used when defining lists of values. The default value is "##comma##".</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="bit_mask" type="xs:hexBinary">
@@ -1262,17 +1325,14 @@
 		</xs:attribute>
 		<xs:attribute name="pattern_type" type="cyboxCommon:PatternTypeEnum">
 			<xs:annotation>
-				<xs:documentation>This field is optional and defines the type of pattern used if one is specified for the field value. This is applicable only if the Condition field is set to 'FitsPattern'. </xs:documentation>
+				<xs:documentation>This field is optional and defines the type of pattern used if one is specified for the field value. This is applicable only if the Condition field is set to 'FitsPattern'.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="regex_syntax" type="xs:string">
 			<xs:annotation>
-				<xs:documentation>This field is optional and defines the syntax format used for a regular expression, if one is specified for the field value. This is applicable only if the Condition field is set to 'FitsPattern'.
-					
-					Setting this attribute with an empty value (e.g., "") or omitting it entirely notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities, character classes, escapes, and other lexical tokens defined by the CybOX Language Specification. 
-					
-					Setting this attribute with a non-empty value notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities not defined by the CybOX Language Specification. The regular expression must be evaluated through a compatible regular expression engine in this case.
-				</xs:documentation>
+				<xs:documentation>This field is optional and defines the syntax format used for a regular expression, if one is specified for the field value. This is applicable only if the Condition field is set to 'FitsPattern'.</xs:documentation>
+				<xs:documentation>Setting this attribute with an empty value (e.g., "") or omitting it entirely notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities, character classes, escapes, and other lexical tokens defined by the CybOX Language Specification.</xs:documentation>
+				<xs:documentation>Setting this attribute with a non-empty value notifies CybOX consumers and pattern evaluators that the corresponding regular expression utilizes capabilities not defined by the CybOX Language Specification. The regular expression must be evaluated through a compatible regular expression engine in this case.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="has_changed" type="xs:boolean">
@@ -1412,7 +1472,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="float">
 				<xs:annotation>
-					<xs:documentation>Specifies the float datatype as it apples to the W3C standard. See http://www.w3.org/TR/xmlschema-2/#float for more information. </xs:documentation>
+					<xs:documentation>Specifies the float datatype as it apples to the W3C standard. See http://www.w3.org/TR/xmlschema-2/#float for more information.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="date">
@@ -1547,7 +1607,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="UUID/GUID">
 				<xs:annotation>
-					<xs:documentation>Specifies a globally/universally unique ID represented as a 32-character hexadecimal string. See ISO/IEC 11578:1996 Information technology -- Open Systems Interconnection -- Remote Procedure Call - http://www.iso.ch/cate/d2229.html</xs:documentation>
+					<xs:documentation>Specifies a globally/universally unique ID represented as a 32-character hexadecimal string. See ISO/IEC 11578:1996 Information technology -- Open Systems Interconnection -- Remote Procedure Call - http://www.iso.ch/cate/d2229.html.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Collection">
@@ -1652,8 +1712,8 @@
 			<xs:element name="Encoding" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Encoding field refers to the encoding method used for the string extracted from the CybOX object, via a standardized controlled vocabulary.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is CharacterEncodingVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is CharacterEncodingVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="String_Value" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -1750,6 +1810,11 @@
 			<xs:element name="Offset" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Offset field specifies the offset of the beginning of the byte run as measured from the beginning of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Byte_Order" type="cyboxCommon:EndiannessType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Byte_Order field specifies the endianness of the unpacked (e.g., unencoded, unencrypted, etc.) data contained within the Byte_Run_Data field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="File_System_Offset" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
@@ -1906,8 +1971,8 @@
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Type field utilizes a standardized controlled vocabulary to capture the type of hash used in the Simple_Hash_Value or Fuzzy_Hash_Value elements.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is HashNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is HashNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice>
@@ -1924,7 +1989,7 @@
 			</xs:choice>
 			<xs:element name="Fuzzy_Hash_Structure" type="cyboxCommon:FuzzyHashStructureType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Fuzzy_Hash_Structure field is optional and enables the characterization of the key internal components of a fuzzy hash calculation with a given block size. </xs:documentation>
+					<xs:documentation>The Fuzzy_Hash_Structure field is optional and enables the characterization of the key internal components of a fuzzy hash calculation with a given block size.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1947,17 +2012,22 @@
 	<!---->
 	<xs:complexType name="DataSegmentType">
 		<xs:annotation>
-			<xs:documentation>The DataSegmentType is intended to provide a relatively abstract way of characterizing data segments that may be written/read/transmitted or otherwise utilized in actions or behaviors. </xs:documentation>
+			<xs:documentation>The DataSegmentType is intended to provide a relatively abstract way of characterizing data segments that may be written/read/transmitted or otherwise utilized in actions or behaviors.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Data_Format" type="cyboxCommon:DataFormatEnum" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Data_Format field refers to the type of data contained in the Data_Segment element. </xs:documentation>
+					<xs:documentation>The Data_Format field refers to the type of data contained in the Data_Segment element.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data_Size" type="cyboxCommon:DataSizeType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Data_Size field contains the size of the data contained in this element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Byte_Order" type="cyboxCommon:EndiannessType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Byte_Order field specifies the endianness of the unpacked (e.g., decoded, unencrypted, etc.) data stored within the Data_Segment field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data_Segment" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
@@ -2022,7 +2092,7 @@
 			<xs:extension base="cyboxCommon:StringObjectPropertyType">
 				<xs:attribute name="units" type="cyboxCommon:DataSizeUnitsEnum" use="required">
 					<xs:annotation>
-						<xs:documentation>This field represents the Units used in the object size element. Possible values are: Bytes, Kilobytes, Megabytes.</xs:documentation>
+						<xs:documentation>This field represents the Units used in the object size element.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -2091,7 +2161,7 @@
 	<!---->
 	<xs:complexType name="MetadataType">
 		<xs:annotation>
-			<xs:documentation>The MetadataType is intended as mechanism to capture any non-context-specific metadata</xs:documentation>
+			<xs:documentation>The MetadataType is intended as mechanism to capture any non-context-specific metadata.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Value" type="xs:string" minOccurs="0">
@@ -2218,10 +2288,95 @@
 		</xs:simpleContent>
 	</xs:complexType>
 	<!---->
+	<xs:complexType name="DateWithPrecisionType">
+		<xs:annotation>
+			<xs:documentation>This type is used as a replacement for the standard xs:date type but allows for the representation of the precision of the date. If the precision is given, consumers must ignore the portions of this field that is more precise than the given precision. Producers should zero-out (fill with zeros) digits in the date that are required by the xs:date datatype but are beyond the specified precision.</xs:documentation>
+			<xs:documentation>In order to avoid ambiguity, it is strongly suggested that all dates include a specification of the timezone if it is known.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:date">
+				<xs:attribute name="precision" type="cyboxCommon:DatePrecisionEnum" default="day">
+					<xs:annotation>
+						<xs:documentation>The precision of the associated date. If omitted, the default is "day", meaning the full field value.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!---->
+	<xs:complexType name="DateTimeWithPrecisionType">
+		<xs:annotation>
+			<xs:documentation>This type is used as a replacement for the standard xs:dateTime type but allows for the representation of the precision of the dateTime.  If the precision is given, consumers must ignore the portions of this field that is more precise than the given precision. Producers should zero-out (fill with zeros) digits in the dateTime that are required by the xs:dateTime datatype but are beyond the specified precision.</xs:documentation>
+			<xs:documentation>In order to avoid ambiguity, it is strongly suggested that all dateTimes include a specification of the timezone if it is known.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:dateTime">
+				<xs:attribute name="precision" type="cyboxCommon:DateTimePrecisionEnum" default="second">
+					<xs:annotation>
+						<xs:documentation>The precision of the associated dateTime. If omitted, the default is "second", meaning the full field value (including fractional seconds).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!---->
+	<xs:simpleType name="DatePrecisionEnum">
+		<xs:annotation>
+			<xs:documentation>Possible values for representing date precision.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="year">
+				<xs:annotation>
+					<xs:documentation>Date is precise to the given year.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="month">
+				<xs:annotation>
+					<xs:documentation>Date is precise to the given month.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="day">
+				<xs:annotation>
+					<xs:documentation>Date is precise to the given day.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!---->
+	<xs:simpleType name="TimePrecisionEnum">
+		<xs:annotation>
+			<xs:documentation>Possible values for representing time precision.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="hour">
+				<xs:annotation>
+					<xs:documentation>Time is precise to the given hour.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="minute">
+				<xs:annotation>
+					<xs:documentation>Time is precise to the given minute.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="second">
+				<xs:annotation>
+					<xs:documentation>Time is precise to the given second (including fractional seconds).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!---->
+	<xs:simpleType name="DateTimePrecisionEnum">
+		<xs:annotation>
+			<xs:documentation>Possible values for representing time precision.</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="cyboxCommon:DatePrecisionEnum cyboxCommon:TimePrecisionEnum"/>
+	</xs:simpleType>
+	<!---->
 	<xs:complexType name="SIDType">
 		<xs:annotation>
 			<xs:documentation>SIDType specifies Windows Security ID (SID) types via a union of the SIDTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
-			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The delimiter is '##comma##' (no quotes) and as such, as uses of this string in values are prohibited. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
+			<xs:documentation>Properties that use this type can express multiple values by providing them using a delimiter-separated list. The default delimiter is '##comma##' (no quotes) but can be overridden through use of the delimiter field. Note that whitespace is preserved and so, when specifying a list of values, do not include a space following the delimiter in a list unless the first character of the next list item should, in fact, be a space.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
@@ -2363,6 +2518,45 @@
 			<xs:enumeration value="DCCP">
 				<xs:annotation>
 					<xs:documentation>Specifies the Datagram Congestion Control Protocol.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EndiannessType">
+		<xs:annotation>
+			<xs:documentation>The EndiannessType specifies names for byte ordering methods.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxCommon:EndiannessTypeEnum xs:string"/>
+				</xs:simpleType>
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
+					<xs:annotation>
+						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="EndiannessTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The EndiannessTypeEnum is a non-exhaustive eumeration of byte ordering methods.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Big-endian">
+				<xs:annotation>
+					<xs:documentation>The Big-endian value specifies a big-endian byte ordering.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Little-endian">
+				<xs:annotation>
+					<xs:documentation>The Little-endian value specifies a little-endian byte ordering.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Middle-endian">
+				<xs:annotation>
+					<xs:documentation>The Middle-endian value specifies a middle-endian byte ordering.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
