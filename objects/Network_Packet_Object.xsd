@@ -1056,9 +1056,9 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Ext_Headers" type="PacketObj:IPv6ExtHeaderType" minOccurs="0" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>In IPv6, optional internet-layer information is encoded in separate headers that may be placed between the IPv6 header and the upper-layer header in a packet. http://tools.ietf.org/html/rfc2460.</xs:documentation>
-					</xs:annotation>
+				<xs:annotation>
+					<xs:documentation>In IPv6, optional internet-layer information is encoded in separate headers that may be placed between the IPv6 header and the upper-layer header in a packet. http://tools.ietf.org/html/rfc2460.</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
@@ -2402,7 +2402,7 @@
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
-			<xs:element name="Originate_Timestamp" type="cyboxCommon:NonNegativeIntegerObjectPropertyType" minOccurs="0">
+			<xs:element name="Originate_Timestamp" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>32-bits; number of ms since midnight UT. The originate timestamp is the time the sender last touched the message before sending it. If the time is not available in milliseconds or cannot be provided with respect to midnight UT, then any time can be inserted in a timestamp provided the high order bit of the timestamp is also set to indicate this non-standard value.</xs:documentation>
 				</xs:annotation>
@@ -2421,17 +2421,17 @@
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
-			<xs:element name="Originate_Timestamp" type="cyboxCommon:NonNegativeIntegerObjectPropertyType" minOccurs="0">
+			<xs:element name="Originate_Timestamp" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The originate timestamp is the time the sender last touched the message before sending it. If the time is not available in milliseconds or cannot be provided with respect to midnight UT, then any time can be inserted in a timestamp provided the high order bit of the timestamp is also set to indicate this non-standard value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Receive_Timestamp" type="cyboxCommon:NonNegativeIntegerObjectPropertyType" minOccurs="0">
+			<xs:element name="Receive_Timestamp" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The receive timestamp is the time the echoer first touched the message on receipt. If the time is not available in milliseconds or cannot be provided with respect to midnight UT, then any time can be inserted in a timestamp provided the high order bit of the timestamp is also set to indicate this non-standard value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Transmit_Timestamp" type="cyboxCommon:NonNegativeIntegerObjectPropertyType" minOccurs="0">
+			<xs:element name="Transmit_Timestamp" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The transmit timestamp is the time the echoer last touched the message on sending it. If the time is not available in milliseconds or cannot be provided with respect to midnight UT, then any time can be inserted in a timestamp provided the high order bit of the timestamp is also set to indicate this non-standard value.</xs:documentation>
 				</xs:annotation>
