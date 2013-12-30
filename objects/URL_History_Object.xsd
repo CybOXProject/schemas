@@ -51,7 +51,7 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Hostname" type="DomainNameObj:DomainNameObjectType">
 				<xs:annotation>
-					<xs:documentation>The Hostname field specifies the hostname portion of the URL captured in the URL field.</xs:documentation>
+					<xs:documentation>The Hostname field specifies the hostname portion of the URL that the URL history entry points to (captured in the URL field).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Referrer_URL" type="URIObj:URIObjectType">
