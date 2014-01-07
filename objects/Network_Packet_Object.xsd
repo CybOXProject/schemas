@@ -66,7 +66,7 @@
 		<xs:annotation>
 			<xs:documentation>Multiple interface types exist - only most common (Ethernet) included now. Others will be added later as needed.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="Ethernet" type="PacketObj:EthernetInterfaceType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Ethernet sends network packets from the sending host to one or more receiving hosts. (REF: IEEE 802.3; http://wiki.wireshark.org/Ethernet).</xs:documentation>
@@ -78,7 +78,7 @@
 		<xs:annotation>
 			<xs:documentation>Logical Protocols characterizes the logical protocol of a link layer connection. One example of a logical protocol is ARP.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="ARP_RARP" type="PacketObj:ARPType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>ARP is a logical protocol used for resolution of network layer addresses (e.g., IP addresses) into link layer addresses (e.g., MAC addresses). RARP is a logical protocol used by a host computer to request its network layer address when it has its link layer address.</xs:documentation>
@@ -95,7 +95,7 @@
 		<xs:annotation>
 			<xs:documentation>Ethernet sends network packets from the sending host to one or more receiving hosts. (REF: IEEE 802.3; http://wiki.wireshark.org/Ethernet).</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Ethernet_Header" type="PacketObj:EthernetHeaderType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The ethernet header includes information such as source MAC address, destination MAC address, and more.</xs:documentation>
@@ -151,7 +151,7 @@
 		<xs:annotation>
 			<xs:documentation>The Address Resolution Protocol is a request and reply protocol that runs encapsulated by the line protocol. It is communicated within the boundaries of a single network, never routed across internetwork nodes. This property places ARP into the Link Layer. It is encapsulated. REF: http://www.comptechdoc.org/independent/networking/guide/netarp.html.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Hardware_Addr_Type" type="PacketObj:IANAHardwareType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Characterizes the type of hardware address specified in an ARP message.</xs:documentation>
@@ -247,7 +247,7 @@
 		<xs:annotation>
 			<xs:documentation>NDP Type characterizes NDP (Neighbor Discover Protocol) IPv6 packets. NDP defines five ICMPv6 packet types. RFC 2461: http://tools.ietf.org/html/rfc4861.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:annotation>
 				<xs:documentation/>
 			</xs:annotation>
@@ -289,7 +289,7 @@
 		<xs:annotation>
 			<xs:documentation>Hosts send Router Solicitations in order to prompt routers to generate Router Advertisements quickly.(type=133; code=0).</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Options" type="PacketObj:RouterSolicitationOptionsType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Router Solicitation messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
@@ -301,7 +301,7 @@
 		<xs:annotation>
 			<xs:documentation>Neighbor Discovery messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
@@ -313,7 +313,7 @@
 		<xs:annotation>
 			<xs:documentation>Routers send out Router Advertisement messages periodically, or in response to Router Solicitations. (type=134; code=0).</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Cur_Hop_Limit" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>8-bit unsigned integer. The default value that should be placed in the Hop Count field of the IP header for outgoing IP packets. A value of zero means unspecified (by this router).</xs:documentation>
@@ -355,7 +355,7 @@
 		<xs:annotation>
 			<xs:documentation>Router Advertisement messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
@@ -394,7 +394,7 @@
 		<xs:annotation>
 			<xs:documentation>Neighbor Solicitation messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="Src_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Src Link Addr characterizes the Source Link-Layer Address option.</xs:documentation>
@@ -406,7 +406,7 @@
 		<xs:annotation>
 			<xs:documentation>A node sends Neighbor Advertisements in response to Neighbor Solicitations and sends unsolicited Neighbor Advertisements in order to (unreliably) propagate new information quickly. (type=136; code=0).</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Target_IPv6_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The IP address of the target of the advertisement.</xs:documentation>
@@ -438,7 +438,7 @@
 		<xs:annotation>
 			<xs:documentation>Neighbor Advertisement messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="Target_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Target Link Addr characterizes the Target Link-Layer Address option.</xs:documentation>
@@ -450,7 +450,7 @@
 		<xs:annotation>
 			<xs:documentation>Routers send Redirect packets to inform a host of a better first-hop node on the path to a destination. Hosts can be redirected to a better first-hop router but can also be informed by a redirect that the destination is in fact a neighbor. The latter is accomplished by setting the ICMP Target Address equal to the ICMP Destination Address. (type=137; code=0).</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Target_IPv6_Addr" type="AddressObj:AddressObjectType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>An IP address that is a better first hop to use for the ICMP Destination Address.</xs:documentation>
@@ -472,7 +472,7 @@
 		<xs:annotation>
 			<xs:documentation>Redirect messages include zero or more options, some of which may appear multiple times in the same message.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="Target_Link_Addr" type="PacketObj:NDPLinkAddrType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The link-layer address for the target.</xs:documentation>
@@ -489,7 +489,7 @@
 		<xs:annotation>
 			<xs:documentation>NDPLinkAddrType characterizes the Link-Layer Address option.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The length of the option (including the type and length fields) in units of 8 octets.</xs:documentation>
@@ -506,7 +506,7 @@
 		<xs:annotation>
 			<xs:documentation>Prefix Info characterizes Prefix Information for Router Advertisement Options. It provides hosts with on-link prefixes and prefixes for Address Autoconfiguration. (type=3). RFC 4861.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Length characterizes the length of the option (the number of valid leading bits in the prefix), and is represented as a 32-bit integer.</xs:documentation>
@@ -548,7 +548,7 @@
 		<xs:annotation>
 			<xs:documentation>The redirected header option is used in redirect messages and contains all or part of the packet that is being redirected. (type=4).</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Length" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The length of the option (including the type and length fields) in units of 8 octets.</xs:documentation>
@@ -626,7 +626,7 @@
 		<xs:annotation>
 			<xs:documentation>The IPv4 header provides addressing, and internet modules use fields in the header to fragment and reassemble internet datagrams when necessary for transmission through small packet networks. REF: RFC 791.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="IP_Version" type="PacketObj:IPVersionType" fixed="IPv4(4)" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The version field indicates the format of the internet header. For IP v4, the version is 4.</xs:documentation>
@@ -705,7 +705,7 @@
 		<xs:annotation>
 			<xs:documentation>These flag types are used to control or identify fragments in an IP packet. It is a three-bit field, each of the three bits are defined by a field with a string value that indicates the meaning of whether or not the bit is set.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Reserved" type="cyboxCommon:IntegerObjectPropertyType" fixed="0" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Bit 0: This bit value (0) is reserved and must be zero.</xs:documentation>
@@ -1118,7 +1118,7 @@
 		<xs:annotation>
 			<xs:documentation>In IPv6, optional internet-layer information is encoded in separate headers that may be placed between the IPv6 header and the upper-layer header in a packet. An IPv6 packet may carry zero, one, or more extension headers, each identified by the Next Header field of the preceding header. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="Hop_by_Hop_Options" type="PacketObj:HopByHopOptionsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Hop-by-Hop Options header is used to carry optional information that must be examined by every node along a packet's delivery path. It carries a variable number of type-length-value (TLV) encoded options.</xs:documentation>
@@ -1233,7 +1233,7 @@
 		<xs:annotation>
 			<xs:documentation>Specifies the meaning of each bit of the 8-bit IPv6OptionType type.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Do_Not_Recogn_Action" type="PacketObj:IPv6DoNotRecogActionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Action to be taken if the processing IPv6 nodes does not recognize the Option Type. This information is internally encoded in the Option Type identifier (highest-order two bits) such that their highest-order two bits specify the action that must be taken if the processing IPv6 node does not recognize the Option type. These possible actions are enumerated via IPv6DoNotRecogActionType.</xs:documentation>
@@ -2026,12 +2026,12 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0">
-				<xs:element name="Outbound_Packet_Forward_Success" type="xs:boolean">
+				<xs:element name="Outbound_Packet_Forward_Success" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>One of two possible subtypes for an ICMP traceroute message. This subtype means that the outbound packet was successfully forwarded (code=0).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Outbound_Packet_no_Route" type="xs:boolean">
+				<xs:element name="Outbound_Packet_no_Route" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>One of two possible subtypes for an ICMP traceroute message. This one means that there is no route for the outbound packet and the packet was discarded (code=1).</xs:documentation>
 					</xs:annotation>
@@ -2480,7 +2480,7 @@
 		<xs:annotation>
 			<xs:documentation>Destination unreachable error message; ICMP v6 type=1.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="No_Route" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>No route to destination (ICMP v6 code=0).</xs:documentation>
@@ -2522,7 +2522,7 @@
 		<xs:annotation>
 			<xs:documentation>Packet too big error message; ICMP v6 type=2.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:choice minOccurs="0">
 				<xs:element name="Packet_Too_Big" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
@@ -2541,7 +2541,7 @@
 		<xs:annotation>
 			<xs:documentation>Time exceeded error message; ICMP v6 type=3.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:element name="Hop_Limit_Exceeded" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Hop limit exceeded in transit (ICMP v6 code=0).</xs:documentation>
@@ -2558,7 +2558,7 @@
 		<xs:annotation>
 			<xs:documentation>Parameter problem error message; ICMP v6 type=4.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:choice minOccurs="0">
 				<xs:element name="Erroneous_Header_Field" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
@@ -2587,7 +2587,7 @@
 		<xs:annotation>
 			<xs:documentation>Echo request informational ICMP v6 message; type=128.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:choice minOccurs="0">
 				<xs:element name="Echo_Request" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
@@ -2606,7 +2606,7 @@
 		<xs:annotation>
 			<xs:documentation>Echo reply informational ICMP v6 message; type=129.</xs:documentation>
 		</xs:annotation>
-		<xs:choice minOccurs="0">
+		<xs:choice>
 			<xs:choice minOccurs="0">
 				<xs:element name="Echo_Reply" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
@@ -2642,7 +2642,7 @@
 		<xs:annotation>
 			<xs:documentation>Defines fields for the IPv6 Hop-by-Hop Options header which is used to carry optional information that must be examined by every node along a packet's delivery path.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Next_Header" type="PacketObj:IANAAssignedIPNumbersType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the type of header immediately following the Hop-by-Hop Options header. Uses the same values as the IPv4 Protocol field.</xs:documentation>
@@ -2664,7 +2664,7 @@
 		<xs:annotation>
 			<xs:documentation>Defines the variable-length fields associated with IPv6 extension headers (the Hop-by-Hop Options header and the Destination Options header). Contains one or more type-length-value (TLV)-encoded options.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Option_Type" type="PacketObj:IPv6OptionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the type of option. This 8-bit Option Type identifier is internally encoded such that different bits have different meanings. These meanings are further specified in the IPv6OptionType type.</xs:documentation>
@@ -2696,7 +2696,7 @@
 		<xs:annotation>
 			<xs:documentation>Specifies the fields of the Routing header, which is used by an IPv6 source to list one or more intermediate nodes to be "visited" on the way to a packet's destination. http://tools.ietf.org/html/rfc2460.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Next_Header" type="PacketObj:IANAAssignedIPNumbersType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the type of header immediately following the Routing header. Uses the same values as the IPv4 Protocol field.</xs:documentation>
@@ -2745,7 +2745,7 @@
 		<xs:annotation>
 			<xs:documentation>Defines fields for the IPv6 Destination Options header which is used to carry optional information that needs to be examined only by a packet's destination node(s).</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Next_Header" type="PacketObj:IANAAssignedIPNumbersType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the type of header immediately following the Destination_Options options header. Uses the same values as the IPv4 Protocol field.</xs:documentation>
@@ -2767,7 +2767,7 @@
 		<xs:annotation>
 			<xs:documentation>The IP Authentication Header is used to provide connectionless integrity and data origin authentication for IP datagrams and to provide protection against replays. http://www.ietf.org/rfc/rfc2402.txt.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Next_Header" type="PacketObj:IANAAssignedIPNumbersType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the type of header immediately following the Authentication header. Uses the same values as the IPv4 Protocol field.</xs:documentation>
@@ -2799,7 +2799,7 @@
 		<xs:annotation>
 			<xs:documentation>ESP is used to provide confidentiality, data origin authentication, connectionless integrity, an anti-replay service (a form of partial sequence integrity), and limited traffic flow confidentiality. http://www.ietf.org/rfc/rfc2406.txt.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Security_Parameters_Index" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The SPI is an arbitrary 32-bit value that, in combination with the destination IP address and security protocol (ESP), uniquely identifies the Security Association for this datagram. http://www.ietf.org/rfc/rfc2406.txt.</xs:documentation>
@@ -2841,7 +2841,7 @@
 		<xs:annotation>
 			<xs:documentation>The Pad1 type specifies how one octet of padding is inserted into the Options area of a header. The Pad1 option type does not have length and value fields.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Octet" type="cyboxCommon:HexBinaryObjectPropertyType" fixed="00">
 				<xs:annotation>
 					<xs:documentation>The fixed 00 value specifies that the Pad1 option is used and also serves as the single octet of padding.</xs:documentation>
@@ -2853,7 +2853,7 @@
 		<xs:annotation>
 			<xs:documentation>The PadN type specifies how two or more octets of padding are inserted into the Options area of a header.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Octet" type="cyboxCommon:HexBinaryObjectPropertyType" fixed="01" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Specifies the PandN option.</xs:documentation>
@@ -2875,7 +2875,7 @@
 		<xs:annotation>
 			<xs:documentation>Each fragment has a header containing next header information, the offset of the fragment, an M flag specifying whether or not it is the last fragment, and an identification value.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
+		<xs:sequence>
 			<xs:element name="Next_Header" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Identifies the type of header immediately following the Fragment header. Uses the same values as the IPv4 Protocol field.</xs:documentation>
