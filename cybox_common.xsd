@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by SEAN BARNUM (THE MITRE CORPORATION) -->
 <xs:schema xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cybox.mitre.org/common-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
