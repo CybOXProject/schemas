@@ -86,7 +86,7 @@
 		<xs:sequence>
 			<xs:element name="Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Name field specifies the name of the registry value.</xs:documentation>
+					<xs:documentation>The Name field specifies the name of the registry value. For specifying the default value in a registry key, an empty string should be used. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
