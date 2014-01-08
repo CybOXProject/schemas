@@ -887,9 +887,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="int">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="int">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -905,9 +905,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="string">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="string">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -923,9 +923,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" use="optional" fixed="name">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="name">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -940,9 +940,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="date">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="date">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -974,9 +974,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" use="optional" fixed="dateTime">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="dateTime">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1009,9 +1009,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" use="optional" fixed="float">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="float">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1027,9 +1027,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="double">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="double">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1045,9 +1045,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="unsignedLong">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="unsignedLong">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1063,9 +1063,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="unsignedInt">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="unsignedInt">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1081,9 +1081,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="positiveInteger">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="positiveInteger">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1099,9 +1099,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="hexBinary">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="hexBinary">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1117,9 +1117,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="long">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="long">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1153,9 +1153,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="anyURI">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="anyURI">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1171,9 +1171,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="duration">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="duration">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1188,9 +1188,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="time">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="time">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
@@ -1223,9 +1223,9 @@
 				<xs:simpleType>
 					<xs:union memberTypes="xs:string"/>
 				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="base64Binary">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" default="base64Binary">
 					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+						<xs:documentation>This attribute is optional and specifies the type of the value of the specified property. If a type different than the default is used, it MUST be specified here.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:restriction>
