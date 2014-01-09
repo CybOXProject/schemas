@@ -4,7 +4,7 @@
         <xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
         <xs:appinfo>
             <schema>CPE2.3</schema>
-            <version>1.0.1</version>
+            <version>1.1</version>
             <date>01/09/2014</date>
             <notice>RELEASE CANDIDATE: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
             <short_description>Cyber Observable eXpression (CybOX) Extension - CPE 2.3 Platform Instance - Schematic implementation for using the CPE 2.3 Applicability Language to describe a Platform within the CybOX observable expression language. It extends the PlatformSpecificationType defined in the CybOX common schema. (cybox_common.xsd) For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML.</short_description>
