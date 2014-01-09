@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#URIObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:DomainNameObj="http://cybox.mitre.org/objects#DomainNameObject-1" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#DomainNameObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 	<xs:annotation>
 		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
-			<schema>URI_Object</schema>
-			<version>2.1</version>
+			<schema>Domain_Name_Object</schema>
+			<version>1.0</version>
 			<date>12/19/2013</date>
 			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
@@ -12,50 +12,45 @@
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
-	<xs:element name="URI" type="URIObj:URIObjectType">
+	<xs:element name="Domain_Name" type="DomainNameObj:DomainNameObjectType">
 		<xs:annotation>
-			<xs:documentation>The URI object is intended to characterize Uniform Resource Identifiers (URI's).</xs:documentation>
+			<xs:documentation>The Domain_Name object is intended to characterize network domain names.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="URIObjectType">
+	<xs:complexType name="DomainNameObjectType">
 		<xs:annotation>
-			<xs:documentation>The URIObjectType type is intended to characterize Uniform Resource Identifiers (URI's).</xs:documentation>
+			<xs:documentation>The DomainNameObjectType type is intended to characterize network domain names.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element name="Value" type="cyboxCommon:AnyURIObjectPropertyType" minOccurs="0">
+					<xs:element name="Value" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The Value field specifies the value of the URI.</xs:documentation>
+							<xs:documentation>The Value field specifies the value of the Domain name.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="type" type="URIObj:URITypeEnum">
+				<xs:attribute name="type" type="DomainNameObj:DomainNameTypeEnum">
 					<xs:annotation>
-						<xs:documentation>The type field specifies the type of URI that is being defined.</xs:documentation>
+						<xs:documentation>The type field specifies the type of Domain name that is being defined.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:simpleType name="URITypeEnum">
+	<xs:simpleType name="DomainNameTypeEnum">
 		<xs:annotation>
-			<xs:documentation>The URITypeEnum is an enumeration of types of URIs.</xs:documentation>
+			<xs:documentation>The DomainTypeEnum is an enumeration of types of Domain names.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="URL">
+			<xs:enumeration value="FQDN">
 				<xs:annotation>
-					<xs:documentation>Specifies a URL type of URI.</xs:documentation>
+					<xs:documentation>Specifies a fully qualified domain name (FQDN), e.g. "www.abcd.com".</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="General URN">
+			<xs:enumeration value="TLD">
 				<xs:annotation>
-					<xs:documentation>Specifies a General URN type of URI.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Domain Name">
-				<xs:annotation>
-					<xs:documentation>Specifies a Domain Name type of URI.</xs:documentation>
+					<xs:documentation>Specifies a top-level domain (TLD) name, e.g. ".com" or ".org".</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
