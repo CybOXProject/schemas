@@ -184,15 +184,11 @@
 						<xs:documentation>The Actions construct enables description/specification of one or more cyber observable actions.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Location" type="cyboxCommon:LocationAbstractType" minOccurs="0">
+				<xs:element name="Location" type="cyboxCommon:LocationType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>
-						The Location field specifies a relevant physical location.
-
-						This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.
-				
-						Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.
-					</xs:documentation>
+						<xs:documentation>The Location field specifies a relevant physical location.</xs:documentation>
+						<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+						<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Frequency" type="cybox:FrequencyType" minOccurs="0">
@@ -246,7 +242,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<!---->
 	<xs:element name="Action" type="cybox:ActionType">
 		<xs:annotation>
 			<xs:documentation>The Action construct enables description/specification of a single cyber observable action.</xs:documentation>
@@ -302,15 +297,11 @@
 					<xs:documentation>The Action_Arguments field is optional and enables the specification of relevant arguments/parameters for this Action.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Location" type="cyboxCommon:LocationAbstractType" minOccurs="0">
+			<xs:element name="Location" type="cyboxCommon:LocationType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>
-						The Location field specifies a relevant physical location.
-
-						This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.
-				
-						Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.
-					</xs:documentation>
+					<xs:documentation>The Location field specifies a relevant physical location.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+					<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Discovery_Method" type="cyboxCommon:MeasureSourceType" minOccurs="0">
@@ -576,7 +567,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<!---->
 	<xs:element name="Object" type="cybox:ObjectType">
 		<xs:annotation>
 			<xs:documentation>The Object construct identifies and specificies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process).</xs:documentation>
@@ -613,15 +603,11 @@
 					<xs:documentation>The Domain_Specific_Object_Properties construct is of an Abstract type placeholder within the CybOX schema enabling the inclusion of domain-specific metadata for an object through the use of a custom type defined as an extension of this base Abstract type. This enables domains utilizing CybOX such as malware analysis or forensics to incorporate non-generalized object metadata from their domains into CybOX objects.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Location" type="cyboxCommon:LocationAbstractType" minOccurs="0">
+			<xs:element name="Location" type="cyboxCommon:LocationType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>
-						The Location field specifies a relevant physical location.
-
-						This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.
-				
-						Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.
-					</xs:documentation>
+					<xs:documentation>The Location field specifies a relevant physical location.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+					<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Related_Objects" type="cybox:RelatedObjectsType" minOccurs="0">
@@ -933,7 +919,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<!---->
 	<xs:element name="Property" type="cyboxCommon:PropertyType">
 		<xs:annotation>
 			<xs:documentation>The Property element represents the specification of a single Object Property.</xs:documentation>
@@ -943,7 +928,6 @@
 			<xs:field xpath="@id"/>
 		</xs:unique>
 	</xs:element>
-	<!---->
 	<xs:complexType name="ObservableCompositionType">
 		<xs:annotation>
 			<xs:documentation>The ObservablesCompositionType enables the specification of higher-order composite observables composed of logical combinations of other observables.</xs:documentation>
@@ -978,7 +962,6 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<!---->
 	<xs:complexType name="PoolsType">
 		<xs:annotation>
 			<xs:documentation>The PoolsType enables the description of Events, Actions, Objects and Properties in a space-efficient pooled manner with the actual Observable structures defined in the CybOX schema containing references to the pooled elements. This reduces redundancy caused when identical observable elements occur multiple times within a set of defined Observables.</xs:documentation>
@@ -1054,7 +1037,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!---->
 	<xs:simpleType name="NoisinessEnum">
 		<xs:annotation>
 			<xs:documentation>NoisinessEnum is a (non-exhaustive) enumeration of potential levels of noisiness for a given observable pattern.</xs:documentation>

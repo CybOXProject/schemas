@@ -45,15 +45,11 @@
 					<xs:documentation>The Time field is optional and enables description of various time-related properties for this cyber observation source instance.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Observation_Location" type="cyboxCommon:LocationAbstractType" minOccurs="0">
+			<xs:element name="Observation_Location" type="cyboxCommon:LocationType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>
-						The Observation_Location field specifies a relevant physical location for the observation measurement of the associated Observable.
-
-						This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.
-				
-						Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.
-					</xs:documentation>
+					<xs:documentation>The Observation_Location field specifies a relevant physical location for the observation measurement of the associated Observable.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+					<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Tools" type="cyboxCommon:ToolsInformationType" minOccurs="0">
@@ -76,15 +72,11 @@
 					<xs:documentation>The Instance field is optional and enables characterization of the process instance in which the mechanism of cyber observation executed. Instance should be of type ProcessObj:ProcessObjectType.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Observable_Location" type="cyboxCommon:LocationAbstractType" minOccurs="0">
+			<xs:element name="Observable_Location" type="cyboxCommon:LocationType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>
-						The Observable_Location field specifies a relevant physical location for the associated Observable.
-
-						This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.
-				
-						Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.
-					</xs:documentation>
+					<xs:documentation>The Observable_Location field specifies a relevant physical location for the associated Observable.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+					<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -837,7 +829,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="ObjectPropertiesType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>The ObjectPropertiesType is an Abstract type placeholder within the CybOX schema enabling the inclusion of contextually varying object properties descriptions. This Abstract type is leveraged as the extension base for all predefined CybOX object properties schemas. Through this extension mechanism any object instance data based on an object properties schema extended from ObjectPropertiesType (e.g. File_Object, Address_Object, etc.) can be directly integrated into any instance document where a field is defined as ObjectPropertiesType. For flexibility and extensibility purposes any user of CybOX can specify their own externally defined object properties schemas (outside of or derived from the set of predefined objects) extended from ObjectPropertiesType and utilize them as part of their CybOX content.</xs:documentation>
@@ -886,7 +877,6 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="BaseObjectPropertyType" abstract="true">
 		<xs:annotation>
 			<xs:documentation>The BaseObjectPropertyType is a type representing a common typing foundation for the specification of a single Object Property.</xs:documentation>
@@ -1686,15 +1676,11 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<!---->
-	<xs:complexType name="LocationAbstractType" abstract="true">
+	<xs:complexType name="LocationType">
 		<xs:annotation>
-			<xs:documentation>
-				The LocationAbstractType is used to express geographic location information.
-				
-				This type is extended through the xsi:type mechanism. The default type is CIQAddress3.0InstanceType in the http://cybox.mitre.org/extensions/Address#CIQAddress3.0-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address_3.0/1.0/ciq_address_3.0.xsd.	
-				
-				Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field of this type.				</xs:documentation>
+			<xs:documentation>The LocationType is used to express geographic location information.</xs:documentation>
+			<xs:documentation>This type is extended through the xsi:type mechanism. The default type is CIQAddress3.0InstanceType in the http://cybox.mitre.org/extensions/Address#CIQAddress3.0-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address_3.0/1.0/ciq_address_3.0.xsd.</xs:documentation>	
+			<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field of this type.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string" minOccurs="0">
@@ -1714,7 +1700,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="ExtractedFeaturesType">
 		<xs:annotation>
 			<xs:documentation>The ExtractedFeaturesType is a type representing a description of features extracted from an object such as a file.</xs:documentation>
@@ -1839,7 +1824,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="ByteRunsType">
 		<xs:annotation>
 			<xs:documentation>The ByteRunsType is used for representing a list of byte runs from within a raw object.</xs:documentation>
@@ -1894,7 +1878,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="HashListType">
 		<xs:annotation>
 			<xs:documentation>The HashListType type is used for representing a list of hash values.</xs:documentation>
@@ -2044,7 +2027,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="StructuredTextType">
 		<xs:annotation>
 			<xs:documentation>The StructuredTextType is a type representing a generalized structure for capturing structured or unstructured textual information such as descriptions of things.</xs:documentation>
@@ -2059,7 +2041,6 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="DataSegmentType">
 		<xs:annotation>
 			<xs:documentation>The DataSegmentType is intended to provide a relatively abstract way of characterizing data segments that may be written/read/transmitted or otherwise utilized in actions or behaviors.</xs:documentation>
@@ -2170,7 +2151,6 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<!---->
 	<xs:complexType name="PlatformSpecificationType">
 		<xs:annotation>
 			<xs:documentation>PlatformSpecificationType is a modularized data type intended for providing a consistent approach to uniquely specifying the identity of a specific platform.</xs:documentation>
@@ -2208,7 +2188,6 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="MetadataType">
 		<xs:annotation>
 			<xs:documentation>The MetadataType is intended as mechanism to capture any non-context-specific metadata.</xs:documentation>
@@ -2231,7 +2210,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="EnvironmentVariableListType">
 		<xs:annotation>
 			<xs:documentation>The EnvironmentVariableListType type is used for representing a list of environment variables.</xs:documentation>
@@ -2261,7 +2239,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="DigitalSignaturesType">
 		<xs:annotation>
 			<xs:documentation>The DigitalSignaturesType is used for representing a list of digital signatures.</xs:documentation>
@@ -2306,7 +2283,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="PatternableFieldType">
 		<xs:annotation>
 			<xs:documentation>The PatternableFieldType is a grouping of attributes applicable to defining patterns on a specific field.</xs:documentation>
@@ -2317,7 +2293,6 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="ControlledVocabularyStringType">
 		<xs:annotation>
 			<xs:documentation>The ControlledVocabularyStringType is used as the basis for defining controlled vocabularies.</xs:documentation>
@@ -2337,7 +2312,6 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="DateWithPrecisionType">
 		<xs:annotation>
 			<xs:documentation>This type is used as a replacement for the standard xs:date type but allows for the representation of the precision of the date. If the precision is given, consumers must ignore the portions of this field that is more precise than the given precision. Producers should zero-out (fill with zeros) digits in the date that are required by the xs:date datatype but are beyond the specified precision.</xs:documentation>
@@ -2353,7 +2327,6 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<!---->
 	<xs:complexType name="DateTimeWithPrecisionType">
 		<xs:annotation>
 			<xs:documentation>This type is used as a replacement for the standard xs:dateTime type but allows for the representation of the precision of the dateTime.  If the precision is given, consumers must ignore the portions of this field that is more precise than the given precision. Producers should zero-out (fill with zeros) digits in the dateTime that are required by the xs:dateTime datatype but are beyond the specified precision.</xs:documentation>
@@ -2369,7 +2342,6 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<!---->
 	<xs:simpleType name="DatePrecisionEnum">
 		<xs:annotation>
 			<xs:documentation>Possible values for representing date precision.</xs:documentation>
@@ -2392,7 +2364,6 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<!---->
 	<xs:simpleType name="TimePrecisionEnum">
 		<xs:annotation>
 			<xs:documentation>Possible values for representing time precision.</xs:documentation>
@@ -2415,14 +2386,12 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<!---->
 	<xs:simpleType name="DateTimePrecisionEnum">
 		<xs:annotation>
 			<xs:documentation>Possible values for representing time precision.</xs:documentation>
 		</xs:annotation>
 		<xs:union memberTypes="cyboxCommon:DatePrecisionEnum cyboxCommon:TimePrecisionEnum"/>
 	</xs:simpleType>
-	<!---->
 	<xs:complexType name="SIDType">
 		<xs:annotation>
 			<xs:documentation>SIDType specifies Windows Security ID (SID) types via a union of the SIDTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>

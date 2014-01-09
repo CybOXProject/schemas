@@ -17,7 +17,7 @@
 			<xs:documentation>The CIQAddress3.0InstanceType provides an extension to the AddressAbstractType which imports and leverages version 3.0 of the OASIS CIQ-PIL schema for structured characterization of Addresses.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="cyboxCommon:LocationAbstractType">
+			<xs:extension base="cyboxCommon:LocationType">
 				<xs:sequence>
 					<xs:element name="Specification" type="a:AddressType" minOccurs="0"/>
 				</xs:sequence>
