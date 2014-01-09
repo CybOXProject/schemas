@@ -81,7 +81,7 @@
 							<xs:documentation>The Expiration_Date field specifies the date in which the registered domain will expire.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Regional_Internet_Registry" type="WhoisObj:RegionalRegistryType">
+					<xs:element minOccurs="0" name="Regional_Internet_Registry" type="cyboxCommon:RegionalRegistryType">
 						<xs:annotation>
 							<xs:documentation>The Regional_Internet_Registry field specifies the name of the Regional Internet Registry (RIR) which allocated the IP address contained in this WHOIS entry.</xs:documentation>
 						</xs:annotation>
@@ -428,50 +428,4 @@
 			<xs:element name="Registrant" type="WhoisObj:WhoisRegistrantInfoType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-
-	<xs:complexType name="RegionalRegistryType">
-		<xs:annotation>
-			<xs:documentation>The RegionalRegistryType specifies a Regional Internet Registry (RIR) for a given WHOIS entry. RIRs defined by the RegionalRegistryTypeEnum may be used, as well as those specified by a free form text string.</xs:documentation>
-		</xs:annotation>
-		<xs:simpleContent>
-			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
-				<xs:simpleType>
-					<xs:union memberTypes="WhoisObj:RegionalRegistryTypeEnum xs:string"/>
-				</xs:simpleType>
-			</xs:restriction>
-		</xs:simpleContent>
-	</xs:complexType>
-
-	<xs:simpleType name="RegionalRegistryTypeEnum">
-		<xs:annotation>
-			<xs:documentation>The RegionalRegistryTypeEnum is an enumeration of Regional Internet Registries (RIRs) names, represented via their respective acronyms.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="AfriNIC">
-				<xs:annotation>
-					<xs:documentation>AfriNIC stands for African Network Information Centre, and is the RIR for Africa.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="ARIN">
-				<xs:annotation>
-					<xs:documentation>ARIN stands for American Registry for Internet Numbers, and is the RIR for the United States, Canada, several parts of the Caribbean Region, and Antarctica.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="APNIC">
-				<xs:annotation>
-					<xs:documentation>APNIC stands for Asia-Pacific Network Information Centre, and is the RIR for Asia, Australia, New Zealand, and neighboring countries.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="LACNIC">
-				<xs:annotation>
-					<xs:documentation>LACNIC stands for Latin American and Caribbean Network Information Centre, and is the RIR for Latin America and parts of the Caribbean region.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="RIPE NCC">
-				<xs:annotation>
-					<xs:documentation>RIPE NCC stands for Réseaux IP Européens Network Coordination Centre, and is the RIR for Europe, Russia, the Middle East, and Central Asia.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 </xs:schema>
