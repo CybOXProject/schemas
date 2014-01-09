@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/cybox-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cybox="http://cybox.mitre.org/cybox-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/cybox-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>CybOX Core</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Core.</short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -27,7 +28,7 @@
 		<xs:sequence>
 			<xs:element name="Observable_Package_Source" type="cyboxCommon:MeasureSourceType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Observable_Package_Source field is optional and enables descriptive specification of how this package of Observables was identified and specified. </xs:documentation>
+					<xs:documentation>The Observable_Package_Source field is optional and enables descriptive specification of how this package of Observables was identified and specified.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="cybox:Observable" maxOccurs="unbounded"/>
@@ -69,12 +70,12 @@
 		<xs:sequence>
 			<xs:element name="Title" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Title field provides a mechanism to specify a short title or description for this Observable</xs:documentation>
+					<xs:documentation>The Title field provides a mechanism to specify a short title or description for this Observable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Description field provides a mechanism to specify a structured text description of this Observable. </xs:documentation>
+					<xs:documentation>The Description field provides a mechanism to specify a structured text description of this Observable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Keywords" type="cybox:KeywordsType" minOccurs="0" maxOccurs="1">
@@ -82,15 +83,15 @@
 					<xs:documentation>Keywords enables capture of relevant keywords for this cyber observable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Observable_Source" type="cyboxCommon:MeasureSourceType" minOccurs="0">
+			<xs:element name="Observable_Source" type="cyboxCommon:MeasureSourceType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Observable_Source field is optional and enables descriptive specification of how this Observable was identified and specified. </xs:documentation>
+					<xs:documentation>The Observable_Source field is optional and enables descriptive specification of how this Observable was identified and specified.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:choice minOccurs="0">
 				<xs:element ref="cybox:Object" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The Object construct identifies and specifies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
+						<xs:documentation>The Object construct identifies and specifies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element ref="cybox:Event" minOccurs="0">
@@ -124,6 +125,11 @@
 		<xs:attribute name="negate" type="xs:boolean" default="false">
 			<xs:annotation>
 				<xs:documentation>The negate field, when set to true, indicates the absence (rather than the presence) of the given Observable in a CybOX pattern.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="sighting_count" type="xs:positiveInteger">
+			<xs:annotation>
+				<xs:documentation>The sighting_count field specifies how many different identical instances of the Observable may have been seen/sighted.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -164,23 +170,30 @@
 				<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>The Type field uses a standardized controlled vocabulary to capture what type of Event this is.</xs:documentation>
-						<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is EventTypeVocab-1.0.1 in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-							Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+						<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is EventTypeVocab-1.0.1 in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+						<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The Description field provides a mechanism to specify a structured text description of this Event. </xs:documentation>
+						<xs:documentation>The Description field provides a mechanism to specify a structured text description of this Event.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Observation_Method" type="cyboxCommon:MeasureSourceType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The Observation_Method field is optional and enables descriptive specification of how this Event was observed (in the case of a Cyber Observable Event instance) or could potentially be observed (in the case of a Cyber Observable Event pattern). </xs:documentation>
+						<xs:documentation>The Observation_Method field is optional and enables descriptive specification of how this Event was observed (in the case of a Cyber Observable Event instance) or could potentially be observed (in the case of a Cyber Observable Event pattern).</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Actions" type="cybox:ActionsType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The Actions construct enables description/specification of one or more cyber observable actions. </xs:documentation>
+						<xs:documentation>The Actions construct enables description/specification of one or more cyber observable actions.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Location" type="cyboxCommon:LocationType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The Location field specifies a relevant physical location.</xs:documentation>
+						<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+						<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="Frequency" type="cybox:FrequencyType" minOccurs="0">
@@ -234,10 +247,9 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<!---->
 	<xs:element name="Action" type="cybox:ActionType">
 		<xs:annotation>
-			<xs:documentation>The Action construct enables description/specification of a single cyber observable action. </xs:documentation>
+			<xs:documentation>The Action construct enables description/specification of a single cyber observable action.</xs:documentation>
 		</xs:annotation>
 		<xs:unique name="unique-action-id">
 			<xs:selector xpath=".//*"/>
@@ -251,7 +263,7 @@
 		<xs:sequence>
 			<xs:element ref="cybox:Action" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Action construct enables description/specification of a single cyber observable action. </xs:documentation>
+					<xs:documentation>The Action construct enables description/specification of a single cyber observable action.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -264,17 +276,15 @@
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Type field is optional and utilizes a standardized controlled vocabulary to specify the basic type of the action that was performed.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.
-					</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Name" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Name field is optional and utilizes a standardized controlled vocabulary to identify/characterize the specific name of the action that was performed.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.
-					</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
@@ -292,9 +302,16 @@
 					<xs:documentation>The Action_Arguments field is optional and enables the specification of relevant arguments/parameters for this Action.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Location" type="cyboxCommon:LocationType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Location field specifies a relevant physical location.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+					<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Discovery_Method" type="cyboxCommon:MeasureSourceType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Discovery_Method field is optional and enables descriptive specification of how this Action was observed (in the case of a Cyber Observable Action instance) or could potentially be observed (in the case of a Cyber Observable Action pattern). </xs:documentation>
+					<xs:documentation>The Discovery_Method field is optional and enables descriptive specification of how this Action was observed (in the case of a Cyber Observable Action instance) or could potentially be observed (in the case of a Cyber Observable Action pattern).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Associated_Objects" type="cybox:AssociatedObjectsType" minOccurs="0">
@@ -336,12 +353,17 @@
 		</xs:attribute>
 		<xs:attribute name="context" type="cybox:ActionContextTypeEnum">
 			<xs:annotation>
-				<xs:documentation>The context field is optional and enables simple characterization of the broad operational context in which the Action is relevant</xs:documentation>
+				<xs:documentation>The context field is optional and enables simple characterization of the broad operational context in which the Action is relevant.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="timestamp" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation>The timestamp field represents the local or relative time at which the action occurred or was observed. </xs:documentation>
+				<xs:documentation>The timestamp field represents the local or relative time at which the action occurred or was observed. In order to avoid ambiguity, it is strongly suggest that all timestamps in this field include a specification of the timezone if it is known.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="timestamp_precision" type="cyboxCommon:DateTimePrecisionEnum" default="second">
+			<xs:annotation>
+				<xs:documentation>Represents the precision of the associated timestamp value. If omitted, the default is "second", meaning the timestamp is precise to the full field value. Digits in the timestamp that are required by the xs:dateTime datatype but are beyond the specified precision should be zeroed out.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -436,9 +458,8 @@
 			<xs:element name="Argument_Name" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Argument_Name field is optional and utilizes a standardized controlled vocabulary to identify/characterize the specific action argument utilized.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionArgumentNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.
-					</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionArgumentNameVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Argument_Value" type="xs:string" minOccurs="0">
@@ -470,9 +491,8 @@
 					<xs:element name="Association_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Association_Type field utilizes a standardized controlled vocabulary to specify the kind of association this Object holds for this Action.</xs:documentation>
-							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionObjectAssociationTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-								Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.
-							</xs:documentation>
+							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionObjectAssociationTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+							<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Action_Pertinent_Object_Properties" type="cybox:ActionPertinentObjectPropertiesType" minOccurs="0">
@@ -531,8 +551,8 @@
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Type field utilizes a standardized controlled vocabulary to describe the nature of the relationship between this Action and the related Action.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionRelationshipTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionRelationshipTypeVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Action_Reference" type="cybox:ActionReferenceType" maxOccurs="unbounded">
@@ -552,10 +572,9 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<!---->
 	<xs:element name="Object" type="cybox:ObjectType">
 		<xs:annotation>
-			<xs:documentation>The Object construct identifies and specificies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
+			<xs:documentation>The Object construct identifies and specificies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process).</xs:documentation>
 		</xs:annotation>
 		<xs:unique name="unique-object-id">
 			<xs:selector xpath=".//*"/>
@@ -564,19 +583,19 @@
 	</xs:element>
 	<xs:complexType name="ObjectType">
 		<xs:annotation>
-			<xs:documentation>The ObjectType is a complex type representing the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
+			<xs:documentation>The ObjectType is a complex type representing the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="State" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The State field enables the description of the current state of the object, through a standardized controlled vocabulary.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectStateVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-						Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectStateVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Description field provides a mechanism to specify a structured text description of this Object. </xs:documentation>
+					<xs:documentation>The Description field provides a mechanism to specify a structured text description of this Object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Properties" type="cyboxCommon:ObjectPropertiesType" minOccurs="0">
@@ -587,6 +606,13 @@
 			<xs:element name="Domain_Specific_Object_Properties" type="cybox:DomainSpecificObjectPropertiesType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Domain_Specific_Object_Properties construct is of an Abstract type placeholder within the CybOX schema enabling the inclusion of domain-specific metadata for an object through the use of a custom type defined as an extension of this base Abstract type. This enables domains utilizing CybOX such as malware analysis or forensics to incorporate non-generalized object metadata from their domains into CybOX objects.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Location" type="cyboxCommon:LocationType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Location field specifies a relevant physical location.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+					<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Related_Objects" type="cybox:RelatedObjectsType" minOccurs="0">
@@ -601,7 +627,7 @@
 			</xs:element>
 			<xs:element name="Discovery_Method" type="cyboxCommon:MeasureSourceType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Discovery_Method field is optional and enables descriptive specification of how this Object was observed (in the case of a Cyber Observable Object instance) or could potentially be observed (in the case of a Cyber Observable Object pattern). </xs:documentation>
+					<xs:documentation>The Discovery_Method field is optional and enables descriptive specification of how this Object was observed (in the case of a Cyber Observable Object instance) or could potentially be observed (in the case of a Cyber Observable Object pattern).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -618,7 +644,7 @@
 		</xs:attribute>
 		<xs:attribute name="has_changed" type="xs:boolean">
 			<xs:annotation>
-				<xs:documentation>The has_changed field is optional and conveys a targeted observation pattern of whether the associated object specified has changed. This field would be leveraged within a pattern observable triggering on whether the value of an object specification has changed.</xs:documentation>
+				<xs:documentation>The has_changed field is optional and conveys a targeted observation pattern of whether the associated object specified has changed in some way without requiring further specific detail. This field would be leveraged within a pattern observable triggering on whether the value of an object specification has changed at all. This field is NOT intended to be used for versioning of CybOX content.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -649,8 +675,8 @@
 					<xs:element name="Relationship" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Relationship field uses a standardized controlled vocabulary to capture the nature of the relationship between this Object and the Related_Object.</xs:documentation>
-							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectRelationshipVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.
-								Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field. </xs:documentation>
+							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectRelationshipVocab in the http://cybox.mitre.org/default_vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+							<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 							<xs:documentation>When idref is specified, by design, an instance may declare a Relationship child.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -664,7 +690,7 @@
 		</xs:annotation>
 		<xs:attribute name="effect_type" type="cybox:EffectTypeEnum">
 			<xs:annotation>
-				<xs:documentation>The effect_type field specifies the nature of the Defined Effect instantiated in the place of the Defined_Effect element. </xs:documentation>
+				<xs:documentation>The effect_type field specifies the nature of the Defined Effect instantiated in the place of the Defined_Effect element.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -722,7 +748,7 @@
 	</xs:simpleType>
 	<xs:complexType name="StateChangeEffectType">
 		<xs:annotation>
-			<xs:documentation>The StateChangeEffectType is intended as a generic way of characterizing the effects of actions upon objects where the some state of the object is changed. </xs:documentation>
+			<xs:documentation>The StateChangeEffectType is intended as a generic way of characterizing the effects of actions upon objects where the some state of the object is changed.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="cybox:DefinedEffectType">
@@ -898,17 +924,15 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<!---->
 	<xs:element name="Property" type="cyboxCommon:PropertyType">
 		<xs:annotation>
-			<xs:documentation>The Property element represents the specification of a single Object Property</xs:documentation>
+			<xs:documentation>The Property element represents the specification of a single Object Property.</xs:documentation>
 		</xs:annotation>
 		<xs:unique name="unique-property-id">
 			<xs:selector xpath=".//*"/>
 			<xs:field xpath="@id"/>
 		</xs:unique>
 	</xs:element>
-	<!---->
 	<xs:complexType name="ObservableCompositionType">
 		<xs:annotation>
 			<xs:documentation>The ObservablesCompositionType enables the specification of higher-order composite observables composed of logical combinations of other observables.</xs:documentation>
@@ -943,7 +967,6 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<!---->
 	<xs:complexType name="PoolsType">
 		<xs:annotation>
 			<xs:documentation>The PoolsType enables the description of Events, Actions, Objects and Properties in a space-efficient pooled manner with the actual Observable structures defined in the CybOX schema containing references to the pooled elements. This reduces redundancy caused when identical observable elements occur multiple times within a set of defined Observables.</xs:documentation>
@@ -990,7 +1013,7 @@
 		<xs:sequence>
 			<xs:element name="Action" type="cybox:ActionType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Action construct enables description/specification of a single cyber observable action. </xs:documentation>
+					<xs:documentation>The Action construct enables description/specification of a single cyber observable action.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1002,7 +1025,7 @@
 		<xs:sequence>
 			<xs:element name="Object" type="cybox:ObjectType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Object construct identifies and specifies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process). </xs:documentation>
+					<xs:documentation>The Object construct identifies and specifies the characteristics of a specific cyber-relevant object (e.g. a file, a registry key or a process).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1019,7 +1042,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<!---->
 	<xs:simpleType name="NoisinessEnum">
 		<xs:annotation>
 			<xs:documentation>NoisinessEnum is a (non-exhaustive) enumeration of potential levels of noisiness for a given observable pattern.</xs:documentation>
@@ -1044,19 +1066,19 @@
 	</xs:simpleType>
 	<xs:complexType name="ObfuscationTechniquesType">
 		<xs:annotation>
-			<xs:documentation>The ObfuscationTechniquesType enables the description of a set of potential techniques an attacker could leverage to obfuscate the observability of this Observable. </xs:documentation>
+			<xs:documentation>The ObfuscationTechniquesType enables the description of a set of potential techniques an attacker could leverage to obfuscate the observability of this Observable.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Obfuscation_Technique" type="cybox:ObfuscationTechniqueType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Obfuscation_Technique field is optional and enables the description of a single potential technique an attacker could leverage to obfuscate the observability of this Observable. </xs:documentation>
+					<xs:documentation>The Obfuscation_Technique field is optional and enables the description of a single potential technique an attacker could leverage to obfuscate the observability of this Observable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ObfuscationTechniqueType">
 		<xs:annotation>
-			<xs:documentation>The ObfuscationTechniqueType enables the description of a single potential technique an attacker could leverage to obfuscate the observability of this Observable. </xs:documentation>
+			<xs:documentation>The ObfuscationTechniqueType enables the description of a single potential technique an attacker could leverage to obfuscate the observability of this Observable.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType">
@@ -1116,7 +1138,7 @@
 			</xs:element>
 			<xs:element name="Evasion_Techniques" type="cybox:ObfuscationTechniquesType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Obfuscation_Techniques field is optional and enables the description of potential techniques an attacker could leverage to obfuscate the observability of this Observable. </xs:documentation>
+					<xs:documentation>The Obfuscation_Techniques field is optional and enables the description of potential techniques an attacker could leverage to obfuscate the observability of this Observable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
