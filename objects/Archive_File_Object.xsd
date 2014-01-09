@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ArchiveFileObj="http://cybox.mitre.org/objects#ArchiveFileObject-1" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2" targetNamespace="http://cybox.mitre.org/objects#ArchiveFileObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    <xs:annotation>
+        <xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+        <xs:appinfo>
+            <schema>Archive_File_Object</schema>
+            <version>1.0</version>
+            <date>12/05/2013 9:00:00 AM</date>
+            <short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
+            <terms_of_use>Copyright (c) 2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
+    <xs:import namespace="http://cybox.mitre.org/objects#FileObject-2" schemaLocation="File_Object.xsd"/>
+    <xs:element name="Archive_File" type="ArchiveFileObj:ArchiveFileObjectType">
+        <xs:annotation>
+            <xs:documentation>The Archive_File object is intended to characterize archive files.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="ArchiveFileObjectType" mixed="false">
+        <xs:annotation>
+            <xs:documentation>The ArchiveFileObjectType type is intended to characterize archive files.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="FileObj:FileObjectType">
+                <xs:sequence minOccurs="1">
+                    <xs:element minOccurs="0" name="Archive_Format" type="ArchiveFileObj:ArchiveFileFormatType">
+                        <xs:annotation>
+                            <xs:documentation>The Archive Format specifies the format of the archive file.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Version" type="cyboxCommon:StringObjectPropertyType">
+                        <xs:annotation>
+                            <xs:documentation>The Version field specifies the archive type used to create archive file.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="File_Count" type="cyboxCommon:IntegerObjectPropertyType">
+                        <xs:annotation>
+                            <xs:documentation>The File_Count field specifies the number of files contained within the archive.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Encryption_Algorithm" type="cyboxCommon:CipherType">
+                        <xs:annotation>
+                            <xs:documentation>The Encryption_Algorithm field specifies the algorithm used to encrypt an archive file.  Note: For individual files within an archive that are themselves encrypted, the specifics of that encryption are found in the FileObject definition for that file.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Decryption_Key" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>The Decryption_Key field specifies the key used to decrypt the file.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Comment" type="cyboxCommon:StringObjectPropertyType">
+                        <xs:annotation>
+                            <xs:documentation>The Comment field specifies the comment information associated with archive file.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>                    
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Archived_File" type="FileObj:FileObjectType">
+                        <xs:annotation>
+                            <xs:documentation>The Archived_File field specifies the FileObject definitions for the individual files contained within the archive.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="ArchiveFileFormatType">
+        <xs:annotation>
+            <xs:documentation>The ArchiveFileFormatType specifies archive file formats via a union of the ArchiveFileFormatEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="cyboxCommon:BaseObjectPropertyType">
+                <xs:simpleType>
+                    <xs:union memberTypes="ArchiveFileObj:ArchiveFileFormatEnum xs:string"/>
+                </xs:simpleType>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="ArchiveFileFormatEnum">
+        <xs:annotation>
+            <xs:documentation>The ArchiveFileFormatEnum type is a non-exhaustive enumeration of common archive file formats.</xs:documentation>
+        </xs:annotation>
+        <xs:list>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="7-ZIP">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the open source 7-zip file format (.7z)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="APK">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the Android application package format (.apk)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="CAB">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the Microsoft native archive format (.cab)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="DMG">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the Apple disk image format (.dmg)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="JAR">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the Java archive format (.jar)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="RAR">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the RAR file format (.rar)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SIT">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the StuffIt file format (.sit, .sitx)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="TGZ">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the compressed TAR file format (.tar.gz, .tgz, .tar.Z, .tar.bz2)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="ZIP">
+                        <xs:annotation>
+                            <xs:documentation>Specifies the PKZip file format (.zip, .zipx)</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:list>
+    </xs:simpleType>
+</xs:schema>
