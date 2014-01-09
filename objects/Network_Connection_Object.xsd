@@ -24,50 +24,50 @@
 		<xs:annotation>
 			<xs:documentation>The NetworkConnectionObjectType is intended as a way of characterizing local or remote (i.e. Internet) network connections.</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent mixed="false">
+		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="Creation_Time" type="cyboxCommon:DateTimeObjectPropertyType">
+					<xs:element name="Creation_Time" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Creation_Time field specifies the date/time the network connection was created.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Layer3_Protocol" type="NetworkConnectionObj:Layer3ProtocolType">
+					<xs:element name="Layer3_Protocol" type="NetworkConnectionObj:Layer3ProtocolType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Layer3_Protocol field specifies the particular network (layer 3 in the OSI model) layer protocol used in the connection.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Layer4_Protocol" type="cyboxCommon:Layer4ProtocolType">
+					<xs:element name="Layer4_Protocol" type="cyboxCommon:Layer4ProtocolType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Layer4_Protocol field specifies the particular transport (layer 4 in the OSI model) layer protocol used in the connection.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Layer7_Protocol" type="NetworkConnectionObj:Layer7ProtocolType">
+					<xs:element name="Layer7_Protocol" type="NetworkConnectionObj:Layer7ProtocolType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Layer7_Protocol field specifies the particular application (layer 7 in the OSI model) layer protocol used in the connection.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Source_Socket_Address" type="SocketAddressObj:SocketAddressObjectType">
+					<xs:element name="Source_Socket_Address" type="SocketAddressObj:SocketAddressObjectType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Source_Socket_Address field specifies the source socket address, consisting of an IP Address and port number, used in the connection. Both the IP Address and port number are optional, so any combination of the two may be used when specifying the source socket address.</xs:documentation>
+							<xs:documentation>The Source_Socket_Address field specifies the source socket address, consisting of an IP Address and port number, used in the connection.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="Source_TCP_State" type="NetworkConnectionObj:TCPStateEnum">
+					<xs:element name="Source_TCP_State" type="NetworkConnectionObj:TCPStateEnum" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Source_TCP_State field specifies the current state of the TCP network connection at the source, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="Destination_Socket_Address" type="SocketAddressObj:SocketAddressObjectType">
+					<xs:element name="Destination_Socket_Address" type="SocketAddressObj:SocketAddressObjectType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Destination_Socket_Address field specifies the destination socket address, consisting of an IP Address and port number, used in the connection. Both the IP Address and port number are optional, so any combination of the two may be used when specifying the destination socket address.</xs:documentation>
+							<xs:documentation>The Destination_Socket_Address field specifies the destination socket address, consisting of an IP Address and port number, used in the connection.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="Destination_TCP_State" type="NetworkConnectionObj:TCPStateEnum">
+					<xs:element name="Destination_TCP_State" type="NetworkConnectionObj:TCPStateEnum" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Destination_TCP_State field specifies the current state of the TCP network connection at the destination, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Layer7_Connections" minOccurs="0" type="NetworkConnectionObj:Layer7ConnectionsType">
+					<xs:element name="Layer7_Connections" type="NetworkConnectionObj:Layer7ConnectionsType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Layer7_Connections field allows for the characterization of any application (layer 7 in the OSI model) layer connections observed as part of the network connection.</xs:documentation>
 						</xs:annotation>
@@ -107,7 +107,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="NetworkConnectionObj:Layer3ProtocolEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" use="optional" fixed="string">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
@@ -124,7 +124,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="NetworkConnectionObj:Layer7ProtocolEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
+				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" use="optional" fixed="string">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
