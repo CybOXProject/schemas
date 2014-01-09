@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:WinFileObj="http://cybox.mitre.org/objects#WinFileObject-2" targetNamespace="http://cybox.mitre.org/objects#WinExecutableFileObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinExecutableFileObj="http://cybox.mitre.org/objects#WinExecutableFileObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:WinFileObj="http://cybox.mitre.org/objects#WinFileObject-2" targetNamespace="http://cybox.mitre.org/objects#WinExecutableFileObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Win_Executable_File_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>12/19/2013</date>
+			<notice>DRAFT: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
 			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
 		</xs:appinfo>
@@ -14,7 +15,7 @@
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:element name="Windows_Executable_File" type="WinExecutableFileObj:WindowsExecutableFileObjectType">
 		<xs:annotation>
-			<xs:documentation>The Windows_Executable_File object is intended to characterize Windows PE (Portable Executable) files. Sources of information: Matt Pietrik's articles in MSDN Magazine (http://msdn.microsoft.com/en-us/magazine/cc301805.aspx and http://msdn.microsoft.com/en-us/magazine/cc301808.aspx); Microsoft's specification of PE and COFF (http://msdn.microsoft.com/library/windows/hardware/gg463125); LUEVELSMEYER's description (http://webster.cs.ucr.edu/Page_TechDocs/pe.txt). </xs:documentation>
+			<xs:documentation>The Windows_Executable_File object is intended to characterize Windows PE (Portable Executable) files. Sources of information: Matt Pietrik's articles in MSDN Magazine (http://msdn.microsoft.com/en-us/magazine/cc301805.aspx and http://msdn.microsoft.com/en-us/magazine/cc301808.aspx); Microsoft's specification of PE and COFF (http://msdn.microsoft.com/library/windows/hardware/gg463125); LUEVELSMEYER's description (http://webster.cs.ucr.edu/Page_TechDocs/pe.txt).</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Resource" type="WinExecutableFileObj:PEResourceType">
@@ -56,17 +57,17 @@
 					</xs:element>
 					<xs:element name="Headers" type="WinExecutableFileObj:PEHeadersType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Headers property contains fields for characterizing aspects the various types of PE headers.</xs:documentation>
+							<xs:documentation>The Headers field contains fields for characterizing aspects the various types of PE headers.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Imports" type="WinExecutableFileObj:PEImportListType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Imports property characterizes the PE Import Table of the binary.</xs:documentation>
+							<xs:documentation>The Imports field characterizes the PE Import Table of the binary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="PE_Checksum" type="WinExecutableFileObj:PEChecksumType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The PE_Checksum property specifies the checksum of the PE file.</xs:documentation>
+							<xs:documentation>The PE_Checksum field specifies the checksum of the PE file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Resources" type="WinExecutableFileObj:PEResourceListType" minOccurs="0">
@@ -115,6 +116,11 @@
 			<xs:documentation>The PEExportsType specifies the PE File exports data section. The exports data section contains information about symbols exported by the PE File (a DLL) which can be dynamically loaded by other executables. This type abstracts, and its components, abstract the Windows structures.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="Name" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Name field specifies the actual name of the PE module, as used by the PE loader when it is imported by another executable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Exported_Functions" type="WinExecutableFileObj:PEExportedFunctionsType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A list of the exported functions in this section.</xs:documentation>
@@ -135,11 +141,16 @@
 					<xs:documentation>The number of names in the export data section's name table.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Number_Of_Functions" type="cyboxCommon:IntegerObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Number_Of_Functions field specifies the total number of functions that are exported by the PE file.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PEExportedFunctionsType">
 		<xs:annotation>
-			<xs:documentation>The PEExportedFunctionsType specifies a list of PE exported functions</xs:documentation>
+			<xs:documentation>The PEExportedFunctionsType specifies a list of PE exported functions.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Exported_Function" type="WinExecutableFileObj:PEExportedFunctionType" maxOccurs="unbounded">
@@ -269,14 +280,14 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="Data" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Data field captures the actual data contained in the resource, most commonly as a base64-encoded string encapsulated in a CDATA (<![CDATA[]]>) section.</xs:documentation>
+					<xs:documentation>The Data field captures the actual data contained in the resource, most commonly as a base64-encoded string encapsulated in a CDATA () section.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PEVersionInfoResourceType">
 		<xs:annotation>
-			<xs:documentation>The PEVersionInfoResourceType characterizes the special VERSIONINFO resource type. For more information please see: http://msdn.microsoft.com/en-us/library/windows/desktop/aa381058(v=vs.85).aspx</xs:documentation>
+			<xs:documentation>The PEVersionInfoResourceType characterizes the special VERSIONINFO resource type. For more information please see: http://msdn.microsoft.com/en-us/library/windows/desktop/aa381058(v=vs.85).aspx.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="WinExecutableFileObj:PEResourceType">
@@ -288,17 +299,17 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="CompanyName" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The CompanyName field captures the company that produced the file - for example, "Microsoft Corporation" or "Standard Microsystems Corporation, Inc." </xs:documentation>
+							<xs:documentation>The CompanyName field captures the company that produced the file - for example, "Microsoft Corporation" or "Standard Microsystems Corporation, Inc.".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="FileDescription" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The FileDescription field captures the file description to be presented to users. This string may be displayed in a list box when the user is choosing files to install - for example, "Keyboard Driver for AT-Style Keyboards". </xs:documentation>
+							<xs:documentation>The FileDescription field captures the file description to be presented to users. This string may be displayed in a list box when the user is choosing files to install - for example, "Keyboard Driver for AT-Style Keyboards".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="FileVersion" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The FileVersion field captures the version number of the file - for example, "3.10" or "5.00.RC2". </xs:documentation>
+							<xs:documentation>The FileVersion field captures the version number of the file - for example, "3.10" or "5.00.RC2".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="InternalName" type="cyboxCommon:StringObjectPropertyType">
@@ -313,17 +324,17 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="LegalCopyright" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The LegalCopyright field captures the copyright notices that apply to the file. This should include the full text of all notices, legal symbols, copyright dates, and so on. </xs:documentation>
+							<xs:documentation>The LegalCopyright field captures the copyright notices that apply to the file. This should include the full text of all notices, legal symbols, copyright dates, and so on.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="LegalTrademarks" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The LegalTrademarks field captures the trademarks and registered trademarks that apply to the file. This should include the full text of all notices, legal symbols, trademark numbers, and so on. </xs:documentation>
+							<xs:documentation>The LegalTrademarks field captures the trademarks and registered trademarks that apply to the file. This should include the full text of all notices, legal symbols, trademark numbers, and so on.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="OriginalFilename" type="cyboxCommon:StringObjectPropertyType">
 						<xs:annotation>
-							<xs:documentation>The OriginalFilename field captures the original name of the file, not including a path. This information enables an application to determine whether a file has been renamed by a user. The format of the name depends on the file system for which the file was created. </xs:documentation>
+							<xs:documentation>The OriginalFilename field captures the original name of the file, not including a path. This information enables an application to determine whether a file has been renamed by a user. The format of the name depends on the file system for which the file was created.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="PrivateBuild" type="cyboxCommon:StringObjectPropertyType">
@@ -430,12 +441,12 @@
 	</xs:complexType>
 	<xs:complexType name="PESectionType">
 		<xs:annotation>
-			<xs:documentation>The PESectionType type is intended as container for the properties relevant to PE binary sections. A PE Section consists of a header and data. The PESectionType contains properties that describe the Section Header and metadata computed about the section (e.g., hashes, entropy). </xs:documentation>
+			<xs:documentation>The PESectionType type is intended as container for the properties relevant to PE binary sections. A PE Section consists of a header and data. The PESectionType contains properties that describe the Section Header and metadata computed about the section (e.g., hashes, entropy).</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Section_Header" type="WinExecutableFileObj:PESectionHeaderStructType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Section_Header property contains characteristics of the section's section header structure.</xs:documentation>
+					<xs:documentation>The Section_Header field contains characteristics of the section's section header structure.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Data_Hashes" type="cyboxCommon:HashListType" minOccurs="0">
@@ -445,17 +456,12 @@
 			</xs:element>
 			<xs:element name="Entropy" type="WinExecutableFileObj:EntropyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Entropy field specifies the calculated entropy of the PE binary section. </xs:documentation>
+					<xs:documentation>The Entropy field specifies the calculated entropy of the PE binary section.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Header_Hashes" type="cyboxCommon:HashListType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Header_Hashes field is used to include any hash values computed using the header of the specified PE binary section as input.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Type" type="WinExecutableFileObj:SectionType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Specifies the type of the section.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -648,17 +654,17 @@
 		<xs:sequence>
 			<xs:element name="DOS_Header" type="WinExecutableFileObj:DOSHeaderType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The DOS_Header property refers to the MS-DOS PE header and its associated characteristics.</xs:documentation>
+					<xs:documentation>The DOS_Header field refers to the MS-DOS PE header and its associated characteristics.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Signature" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Signature property specifies the 4-bytes sugnature that identifies the file as a PE file.</xs:documentation>
+					<xs:documentation>The Signature field specifies the 4-bytes sugnature that identifies the file as a PE file.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="File_Header" type="WinExecutableFileObj:PEFileHeaderType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The File_Header property refers to the PE file header (sometimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
+					<xs:documentation>The File_Header field refers to the PE file header (sometimes referred to as the COFF header) and its associated characteristics.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Optional_Header" type="WinExecutableFileObj:PEOptionalHeaderType" minOccurs="0">
@@ -668,7 +674,7 @@
 			</xs:element>
 			<xs:element name="Entropy" type="WinExecutableFileObj:EntropyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Entropy field specifies the calculated entropy of the PE file header. </xs:documentation>
+					<xs:documentation>The Entropy field specifies the calculated entropy of the PE file header.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Hashes" type="cyboxCommon:HashListType" minOccurs="0">
@@ -759,23 +765,6 @@
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="SectionType">
-		<xs:annotation>
-			<xs:documentation>The SectionType specifies PE section types via a union of the SectionTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
-		</xs:annotation>
-		<xs:simpleContent>
-			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
-				<xs:simpleType>
-					<xs:union memberTypes="WinExecutableFileObj:SectionTypeEnum xs:string"/>
-				</xs:simpleType>
-				<xs:attribute name="datatype" type="cyboxCommon:DatatypeEnum" fixed="string">
-					<xs:annotation>
-						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-			</xs:restriction>
-		</xs:simpleContent>
-	</xs:complexType>
 	<xs:complexType name="PEOptionalHeaderType">
 		<xs:annotation>
 			<xs:documentation>The PEOptionalHeaderType type describes the PE Optional Header structure. Additional computed metadata, e.g., hashes of the header, are also included.</xs:documentation>
@@ -828,17 +817,17 @@
 			</xs:element>
 			<xs:element name="Image_Base" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the preferred address of the first byte of image when loaded into memory; must be a multiple of 64 K. </xs:documentation>
+					<xs:documentation>Specifies the preferred address of the first byte of image when loaded into memory; must be a multiple of 64 K.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Section_Alignment" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the alignment (in bytes) of sections when they are loaded into memory. </xs:documentation>
+					<xs:documentation>Specifies the alignment (in bytes) of sections when they are loaded into memory.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="File_Alignment" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the factor (in bytes) that is used to align the raw data of sections in the image file. </xs:documentation>
+					<xs:documentation>Specifies the factor (in bytes) that is used to align the raw data of sections in the image file.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Major_OS_Version" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -893,7 +882,7 @@
 			</xs:element>
 			<xs:element name="Subsystem" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the subsystem (e.g., GUI, device driver) that is required to run this image. </xs:documentation>
+					<xs:documentation>Specifies the subsystem (e.g., GUI, device driver) that is required to run this image.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DLL_Characteristics" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
@@ -990,7 +979,7 @@
 			</xs:element>
 			<xs:element name="Global_Ptr" type="WinExecutableFileObj:PEDataDirectoryStructType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Specifies the RVA of the value to be stored in the global pointer register. </xs:documentation>
+					<xs:documentation>Specifies the RVA of the value to be stored in the global pointer register.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TLS_Table" type="WinExecutableFileObj:PEDataDirectoryStructType" minOccurs="0">
@@ -1057,58 +1046,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="SectionTypeEnum">
-		<xs:annotation>
-			<xs:documentation>The SectionTypeEnum enumerates the types of PE sections in an executable. See http://www.silurian.com/inspect/peformat.htm for more information. These sections can be viewed in a Disassembler, such as IDA and more specifically in the freeware CFF Explorer.</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Text">
-				<xs:annotation>
-					<xs:documentation>Denoted by .text, this specifies the main program code--usually execute and read access only.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Data">
-				<xs:annotation>
-					<xs:documentation>Denoted by .data, this specifies main initialized data code that is used by the program.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Resource">
-				<xs:annotation>
-					<xs:documentation>Denoted by .rsrc, this specifies Windows Resource data.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="ReadonlyData">
-				<xs:annotation>
-					<xs:documentation>Denoted by .rdata, this specifies read only data.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Relocations">
-				<xs:annotation>
-					<xs:documentation>Denoted by .reloc, this specifies base relocations.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Debug">
-				<xs:annotation>
-					<xs:documentation>Denoted by .debug, this specifies debug information.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="IData">
-				<xs:annotation>
-					<xs:documentation>Denoted by .idata, this specifies imported function data.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="TLS">
-				<xs:annotation>
-					<xs:documentation>Denoted by .tls, this specifies Thread Local Storage. Data is private to each thread.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="CRT">
-				<xs:annotation>
-					<xs:documentation>Denoted by .CRT, this specifies data reserved for the C Run-Time library.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="SubsystemTypeEnum">
 		<xs:annotation>
 			<xs:documentation>The SubsystemTypeEnum enumerates the types of subsystems in Windows an executable can be compatible for, according to winnt.h and more specifically, the Subsystem value of the IMAGE_OPTIONAL_HEADER structure. See http://source.winehq.org/source/include/winnt.h and http://msdn.microsoft.com/en-us/library/windows/desktop/ms680339(v=vs.85).aspx for more information.</xs:documentation>
@@ -1232,17 +1169,17 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Cursor">
 				<xs:annotation>
-					<xs:documentation>Specifies a resource that is a cursor or animated cursor defined by naming it and specifying the name of the file that contains it. (To use a particular cursor, the application requests it by name.)</xs:documentation>
+					<xs:documentation>Specifies a resource that is a cursor or animated cursor defined by naming it and specifying the name of the file that contains it. (To use a particular cursor, the application requests it by name.).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Bitmap">
 				<xs:annotation>
-					<xs:documentation>Specifies a resource that is a bitmap defined by naming it and specifying the name of the file that contains it. (To use a particular cursor, the application requests it by name.)</xs:documentation>
+					<xs:documentation>Specifies a resource that is a bitmap defined by naming it and specifying the name of the file that contains it. (To use a particular cursor, the application requests it by name.).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Icon">
 				<xs:annotation>
-					<xs:documentation>Specifies a resource that is an icon or animated icon by naming it and specifying the name of the file that contains it. (To use a particular icon, the application requests it by name.)</xs:documentation>
+					<xs:documentation>Specifies a resource that is an icon or animated icon by naming it and specifying the name of the file that contains it. (To use a particular icon, the application requests it by name.).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Menu">
@@ -1252,7 +1189,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="MenuEX">
 				<xs:annotation>
-					<xs:documentation>Specifies a resource that captures the appearance and function of a menu, which can also utilize help or regular identifiers, as well as the MFT_* type and MFS_* state flags. </xs:documentation>
+					<xs:documentation>Specifies a resource that captures the appearance and function of a menu, which can also utilize help or regular identifiers, as well as the MFT_* type and MFS_* state flags.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Popup">
@@ -1282,7 +1219,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Fontdir">
 				<xs:annotation>
-					<xs:documentation>Specifies a resource that is a font directory </xs:documentation>
+					<xs:documentation>Specifies a resource that is a font directory.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Font">
