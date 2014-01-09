@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:HostnameObj="http://cybox.mitre.org/objects#HostnameObject-1" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:URLHistoryObj="http://cybox.mitre.org/objects#URLHistoryObject-1" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#URLHistoryObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:annotation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:appinfo>
+			<schema>URL_History_Object</schema>
+			<version>1.0</version>
+			<date>12/4/2013 9:00:00 AM</date>
+			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
+			<terms_of_use>Copyright (c) 2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#URIObject-2" schemaLocation="URI_Object.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#HostnameObject-1" schemaLocation="Hostname_Object.xsd"/>
+	<xs:element name="URL_History" type="URLHistoryObj:URLHistoryObjectType">
+		<xs:annotation>
+			<xs:documentation>The URL_History object is intended to characterize the stored URL history of a particular web browser.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="URLHistoryObjectType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The URLHistoryObject type is intended to characterize the stored URL history for a particular web browser.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="cyboxCommon:ObjectPropertiesType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Browser_Information" type="cyboxCommon:ToolInformationType">
+						<xs:annotation>
+							<xs:documentation>The Browser_Information field captures information about the particular Web Browser whose URL history is being captured. It uses the ToolInformationType from the imported CybOX Common schema.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="URL_History_Entry" type="URLHistoryObj:URLHistoryEntryType">
+						<xs:annotation>
+							<xs:documentation>The URL_History_Entry field specifies a single URL history entry stored in the browser's history.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="URLHistoryEntryType">
+		<xs:annotation>
+			<xs:documentation>The URLHistoryEntryType captures the properties of a URL history entry for a particular browser.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="URL" type="URIObj:URIObjectType">
+				<xs:annotation>
+					<xs:documentation>The URL field specifies the URL that the URL history entry points to. It uses the URIObjectType from the imported CybOX URI Object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Hostname" type="HostnameObj:HostnameObjectType">
+				<xs:annotation>
+					<xs:documentation>The Hostname field specifies the hostname portion of the URL that the URL history entry points to (captured in the URL field).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Referrer_URL" type="URIObj:URIObjectType">
+				<xs:annotation>
+					<xs:documentation>The Referrer field specifies the origination point (i.e., URL) of the URL captured in the URL history entry, if applicable. It uses the URIObjectType from the imported CybOX URI Object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Page_Title" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Page_Title field specifies the title of the web page referred to by the URL captured in the URL field.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="User_Profile_Name" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The User_Profile_Name captures the name of the web browser user profile for which the URL history entry was created. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Visit_Count" type="cyboxCommon:NonNegativeIntegerObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Visit_Count field specifies the number of times the URL referred to by the URL field has been visited.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Manually_Entered_Count" type="cyboxCommon:NonNegativeIntegerObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Manually_Entered_Count field specifies the number of times the URL referred to by the URL field was manually entered into the browser's address field by the user. This field is only applicable for URL history entries generated by Google's Chrome browser.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Modification_DateTime" type="cyboxCommon:DateTimeObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Modification_DateTime field specifies the date/time that the URL history entry was last modified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Expiration_DateTime" type="cyboxCommon:DateTimeObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Expiration_DateTime field specifies the date/time that the URL history entry expires.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="First_Visit_DateTime" type="cyboxCommon:DateTimeObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The First_Visit_DateTime field specifies the date/time that the URL referred to by the URL field was first visited.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="Last_Visit_DateTime" type="cyboxCommon:DateTimeObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The Last_Visit_DateTime field specifies the date/time that the URL referred to by the URL field was last visited.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
