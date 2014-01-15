@@ -34,7 +34,7 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="is_domain_name">
+				<xs:attribute name="is_domain_name" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>The is_domain_name field specifies if this is also a valid domain name.</xs:documentation>
 					</xs:annotation>
