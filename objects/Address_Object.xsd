@@ -55,6 +55,11 @@
 						<xs:documentation>The is_destination field specifies if this is a "Destination" address.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="is_spoofed" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_spoofed field specifies whether the address is spoofed, i.e. forged to conceal its identity or true source.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
