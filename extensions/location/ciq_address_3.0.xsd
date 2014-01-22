@@ -5,8 +5,7 @@
 		<xs:appinfo>
 			<schema>CybOX Extension - CIQ Address 3.0 Instance</schema>
 			<version>1.0</version>
-			<date>01/09/2014</date>
-			<notice>RELEASE CANDIDATE: This schema does not represent the final version and is intended for testing purposes only. It is STRONGLY recommended that this schema is not used in any production code or environments.</notice>
+			<date>01/22/2014</date>			
 			<short_description>Cyber Observable eXpression (CybOX) Extension - CIQ Address 3.0 Instance - Schematic implementation for the using version 3.0 of CIQ to describe an Location within the CybOX cyber observable expression language.</short_description>
 			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
