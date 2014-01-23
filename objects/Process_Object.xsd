@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:NetworkConnectionObj="http://cybox.mitre.org/objects#NetworkConnectionObject-2" targetNamespace="http://cybox.mitre.org/objects#ProcessObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ProcessObj="http://cybox.mitre.org/objects#ProcessObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:NetworkConnectionObj="http://cybox.mitre.org/objects#NetworkConnectionObject-2" targetNamespace="http://cybox.mitre.org/objects#ProcessObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Process_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>01/22/2014</date>			
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
-			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#PortObject-2" schemaLocation="Port_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#NetworkConnectionObject-2" schemaLocation="Network_Connection_Object.xsd"/>
-	<xs:element name="Process" type="ProcessObj:ProcessObjectType" nillable="true">
+	<xs:element name="Process" type="ProcessObj:ProcessObjectType">
 		<xs:annotation>
 			<xs:documentation>The Process object is intended to characterize system processes.</xs:documentation>
 		</xs:annotation>
@@ -25,7 +25,7 @@
 		<xs:complexContent>
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element name="PID" type="cyboxCommon:UnsignedIntegerObjectPropertyType" nillable="true" minOccurs="0">
+					<xs:element name="PID" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The PID field specifies the Process ID, or PID, of the process.</xs:documentation>
 						</xs:annotation>
@@ -40,14 +40,16 @@
 							<xs:documentation>The Creation_Time field specifies the local date/time at which the process was created.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Parent_PID" type="cyboxCommon:UnsignedIntegerObjectPropertyType" nillable="true" minOccurs="0">
+					<xs:element name="Parent_PID" type="cyboxCommon:UnsignedIntegerObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Parent_PID field specifies the process ID (PID) of the parent process (i.e. the process that spawned this one), if applicable.</xs:documentation>
+							<xs:documentation>NOTE: this field will be deprecated in the next major version of this object, at which point the parent process of this process should be specified using a Related_Object with the "Child_Of" Relationship value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Child_PID_List" type="ProcessObj:ChildPIDListType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Child_PID_List field specifies any children spawned by the process being characterized, by way of a list of PIDs.</xs:documentation>
+							<xs:documentation>NOTE: this field will be deprecated in the next major version of this object, at which point child processes of this process should be specified using a Related_Object with the "Parent_Of" Relationship value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Image_Info" type="ProcessObj:ImageInfoType" minOccurs="0">
@@ -57,7 +59,7 @@
 					</xs:element>
 					<xs:element name="Argument_List" type="ProcessObj:ArgumentListType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Argument_List field is optional and specifies a list of arguments utlized in intiating the process.</xs:documentation>
+							<xs:documentation>The Argument_List field is optional and specifies a list of arguments utilized in initiating the process.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Environment_Variable_List" type="cyboxCommon:EnvironmentVariableListType" minOccurs="0">
@@ -172,12 +174,12 @@
 	</xs:complexType>
 	<xs:complexType name="ArgumentListType">
 		<xs:annotation>
-			<xs:documentation>The ArgumentListType is intended to specify a list of arguments utlized in intiating the process.</xs:documentation>
+			<xs:documentation>The ArgumentListType is intended to specify a list of arguments utilized in initiating the process.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Argument" type="cyboxCommon:StringObjectPropertyType" minOccurs="1" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The Argument field is optional and specifies a single argument utlized in intiating the process.</xs:documentation>
+					<xs:documentation>The Argument field is optional and specifies a single argument utilized in initiating the process.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

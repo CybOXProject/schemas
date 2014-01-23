@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ASObj="http://cybox.mitre.org/objects#ASObject-1" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#ASObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:annotation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
+		<xs:appinfo>
+			<schema>AS Object</schema>
+			<version>1.0</version>
+			<date>01/22/2014</date>			
+			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:element name="AS" type="ASObj:ASObjectType">
+		<xs:annotation>
+			<xs:documentation>The AS element is intended to characterize a single autonomous system (AS).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ASObjectType">
+		<xs:annotation>
+			<xs:documentation>The ASObjectType type is intended to characterize an autonomous system (AS).</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="cyboxCommon:ObjectPropertiesType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Number" type="cyboxCommon:NonNegativeIntegerObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Number field specifies the number assigned to the autonomous system (AS). Such assignments are typically performed by a regional internet registry (RIR).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Name field specifies the name of the autonomous system (AS).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Handle" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Handle field specifies the handle for the autonomous system (AS), which is typically the AS number prepended with the string 'AS'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Regional_Internet_Registry" type="cyboxCommon:RegionalRegistryType">
+						<xs:annotation>
+							<xs:documentation>The Regional_Internet_Registry field specifies the name of the regional internet registry (RIR) that assigned the number to the autonomous system (AS).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

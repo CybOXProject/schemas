@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinKernelObj="http://cybox.mitre.org/objects#WinKernelObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#WinKernelObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinKernelObj="http://cybox.mitre.org/objects#WinKernelObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#WinKernelObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Win_Kernel_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>01/22/2014</date>			
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
-			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
@@ -30,7 +30,7 @@
 					</xs:element>
 					<xs:element name="SSDT" type="WinKernelObj:SSDTEntryListType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The SSDT field characterizes the Windows System Service Descriptor Table (SSDT). The SSDT is a structure that kernel uses to dispatch functions. KeServiceDescriptorTable is a table exported by the kernel that contains pointers to four SSDTs, one for the native API, one for user/GDI support, one of IIS SPUD (in Windows 2000), and one unused.See http://www.honeynet.org/node/438; Sven Boris Schreiber, Undocumented Windows 2000 Secrets (http://undocumented.rawol.com/sbs-w2k-2-the-windows-2000-native-api.pdf); Greg Hoglund and James Butler, Rootkits: Subverting the WIndows kernel</xs:documentation>
+							<xs:documentation>The SSDT field characterizes the Windows System Service Descriptor Table (SSDT). The SSDT is a structure that kernel uses to dispatch functions. KeServiceDescriptorTable is a table exported by the kernel that contains pointers to four SSDTs, one for the native API, one for user/GDI support, one of IIS SPUD (in Windows 2000), and one unused.See http://www.honeynet.org/node/438; Sven Boris Schreiber, Undocumented Windows 2000 Secrets (http://undocumented.rawol.com/sbs-w2k-2-the-windows-2000-native-api.pdf); Greg Hoglund and James Butler, Rootkits: Subverting the WIndows kernel.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -83,12 +83,12 @@
 	</xs:complexType>
 	<xs:complexType name="IDTEntryListType">
 		<xs:annotation>
-			<xs:documentation>The IDTEntryListType type specifies a listing of the entries in the Interrupt Descriptor Table (IDT). The IDT is specific to the I386 architecture, indicating where the Prtoetcted mode Interrupt Service Routines (ISR) are located. See http://wiki.osdev.org/Interrupt_Descriptor_Table </xs:documentation>
+			<xs:documentation>The IDTEntryListType type specifies a listing of the entries in the Interrupt Descriptor Table (IDT). The IDT is specific to the I386 architecture, indicating where the Protected mode Interrupt Service Routines (ISR) are located. See http://wiki.osdev.org/Interrupt_Descriptor_Table.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="IDT_Entry" type="WinKernelObj:IDTEntryType" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Specifies an entry in the Interrupt Descriptor Table. </xs:documentation>
+					<xs:documentation>Specifies an entry in the Interrupt Descriptor Table.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -105,17 +105,17 @@
 			</xs:element>
 			<xs:element name="Offset_High" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Higher part of the interrupt function's offset address bits 16-31 in 32-bit, bits 32-63 in 64-bit)</xs:documentation>
+					<xs:documentation>Higher part of the interrupt function's offset address bits 16-31 in 32-bit, bits 32-63 in 64-bit).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Offset_Low" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Lower part of the interrupt function's offset address (bits 0-15)</xs:documentation>
+					<xs:documentation>Lower part of the interrupt function's offset address (bits 0-15).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Offset_Middle" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>In 64-bit architectures, middle part of the interrupt function's offset address (bits 16-31)</xs:documentation>
+					<xs:documentation>In 64-bit architectures, middle part of the interrupt function's offset address (bits 16-31).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Selector" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">

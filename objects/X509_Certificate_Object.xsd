@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#X509CertificateObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#X509CertificateObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
 
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>X509_Certificate_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>01/22/2014</date>			
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
-			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
@@ -24,9 +24,14 @@
 		<xs:complexContent mixed="false">
 			<xs:extension base="cyboxCommon:ObjectPropertiesType">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="Certificate" type="X509CertificateObj:X509CertificateType">
+					<xs:element minOccurs="0" name="Certificate" type="X509CertificateObj:X509CertificateContentsType">
 						<xs:annotation>
 							<xs:documentation>Certificate represents the contents of an X.509 certificate, including items such as issuer, subject, and others.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Raw_Certificate" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Raw_Certificate field captures the raw content of an X.509 certificate including the -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- lines.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="Certificate_Signature" type="X509CertificateObj:X509CertificateSignatureType">
@@ -38,9 +43,9 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="X509CertificateType">
+	<xs:complexType name="X509CertificateContentsType">
 		<xs:annotation>
-			<xs:documentation>The X509CertificateType type represents the contents of an X.509 certificate, including items such as issuer, subject, and others.</xs:documentation>
+			<xs:documentation>The X509CertificateContentsType type represents the contents of an X.509 certificate, including items such as issuer, subject, and others.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Version" type="cyboxCommon:IntegerObjectPropertyType">
@@ -160,7 +165,7 @@
 	</xs:complexType>
 	<xs:complexType name="X509V3ExtensionsType">
 		<xs:annotation>
-			<xs:documentation>The X509V3ExtensionsType captures the standard X509 V3 Extensions that may be used in X509 certificates. Based on RFC 3280, "Standard Extensions": http://www.ietf.org/rfc/rfc3280.txt</xs:documentation>
+			<xs:documentation>The X509V3ExtensionsType captures the standard X509 V3 Extensions that may be used in X509 certificates. Based on RFC 3280, "Standard Extensions": http://www.ietf.org/rfc/rfc3280.txt.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Basic_Constraints" type="cyboxCommon:StringObjectPropertyType">
@@ -242,7 +247,7 @@
 	</xs:complexType>
 	<xs:complexType name="X509NonStandardExtensionsType">
 		<xs:annotation>
-			<xs:documentation>The NonStandardX509ExtensionsType captures some non-standard or deprecated X509 extensions that may be useful. Based on the OpenSSL "Deprecated Extensions" documentation: https://www.openssl.org/docs/apps/x509v3_config.html#Deprecated_Extensions. Also based on the Alvestrand certificateExtension reference: http://www.alvestrand.no/objectid/2.5.29.html</xs:documentation>
+			<xs:documentation>The NonStandardX509ExtensionsType captures some non-standard or deprecated X509 extensions that may be useful. Based on the OpenSSL "Deprecated Extensions" documentation: https://www.openssl.org/docs/apps/x509v3_config.html#Deprecated_Extensions. Also based on the Alvestrand certificateExtension reference: http://www.alvestrand.no/objectid/2.5.29.html.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Netscape_Comment" type="cyboxCommon:StringObjectPropertyType">

@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2" targetNamespace="http://cybox.mitre.org/default_vocabularies-2" elementFormDefault="qualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2" targetNamespace="http://cybox.mitre.org/default_vocabularies-2" elementFormDefault="qualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>cybox_default_vocabularies</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>01/22/2014</date>			
 			<short_description>The following defines types for default controlled vocabularies used within CybOX. An individual vocabulary may be revised at any time. Revisions to vocabularies will result in the creation of new types with the new version number embedded in the name of those types. Vocabularies can be reference from CybOX elements through the use of xsi:Type. The individual elements where this may be done indicate the expected default vocabulary.</short_description>
-			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="cybox_common.xsd"/>
@@ -21,7 +21,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#ActionTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ActionTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -292,7 +292,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Join">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of joining one object to another object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of joining one object to another object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Kill">
@@ -307,37 +307,37 @@
 			</xs:enumeration>
 			<xs:enumeration value="Load">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of loading an object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of loading an object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Lock">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of locking an object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of locking an object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Login/Logon">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of logging into an object, such as into a system or application. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of logging into an object, such as into a system or application.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Logout/Logoff">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of logging out of an object, such as a system or application. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of logging out of an object, such as a system or application.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Map">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of mapping an object to another object or data. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of mapping an object to another object or data.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Merge">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of merging one object to another object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of merging one object to another object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Modify">
 				<xs:annotation>
-					<xs:documentation>Specifies the atomic action of modifying an object. </xs:documentation>
+					<xs:documentation>Specifies the atomic action of modifying an object.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Monitor">
@@ -587,9 +587,941 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="ActionNameVocab-1.1">
+		<xs:annotation>
+			<xs:documentation>The ActionNameVocab is the default CybOX vocabulary for Action Types, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxVocabs:ActionNameEnum-1.1"/>
+				</xs:simpleType>
+				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action Names"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#DefinedActionNameVocab-1.1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ActionNameEnum-1.1">
+		<xs:annotation>
+			<xs:documentation>The ActionNameEnum type is an enumeration of defined action names.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Accept Socket Connection">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of accepting a socket connection.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add Connection to Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a connection to an existing network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a new network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add System Call Hook">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a new system call hook.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add User">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a new user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add Windows Hook">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a new Windows hook.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Add Scheduled Task">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of adding a scheduled task.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Allocate Virtual Memory in Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of allocating virtual memory in a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bind Address to Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of binding an address to a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Change Service Configuration">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of changing the service configuration.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Check for Remote Debugger">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of checking for a remote debugger.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Close Port">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of closing a port.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Close Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of closing a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Close Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of closing a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Configure Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of configuring a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to IP">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to an IP address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to a network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connect to URL">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of connecting to a URL.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Control Driver">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of controlling a driver.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Control Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of controlling a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copy File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of copying a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Dialog Box">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a dialog box.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Event">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating an event.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create File Alternate Data Stream">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating an alternate data stream in a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create File Mapping">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a new file mapping.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create File Symbolic Link">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a file symbolic link.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Hidden File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a hidden file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Mailslot">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a mailslot.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Module">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a module.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Mutex">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a mutex.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Process as User">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a process as user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Registry Key Value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a registry key value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Remote Thread in Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a remote thread in a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Symbolic Link">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a symbolic link.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Thread">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a thread.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Create Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of creating a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Registry Key Value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a registry key value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Delete User">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of deleting a user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Disconnect from Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of disconnecting from a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Disconnect from Network Share">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of disconnecting from a network share.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Disconnect from Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of disconnecting from a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Download File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of downloading a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate DLLs">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating DLLs.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Network Shares">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating network shares.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Protocols">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating protocols.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Registry Key Subkeys">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating registry key subkeys.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Registry Key Values">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating registry key values.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Threads in Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating threads in a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Processes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating processes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Services">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating services.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate System Handles">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating system handles.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Threads">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating threads.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Users">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating users.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumerate Windows">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of enumerating windows.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Find File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of finding a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Find Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of finding a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Flush Process Instruction Cache">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of flushing the Process Instruction Cache.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Free Library">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of freeing a library.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Free Process Virtual Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of freeing virtual memory from a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Disk Free Space">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the amount of free space available on a disk.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Disk Type">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the disk type.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Elapsed System Up Time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the elapsed system up-time.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get File Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting file attributes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Function Address">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the function address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Global Flags">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting system global flags.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Host By Address">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting host by address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Host By Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting host by name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Host Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the host name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Library File Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the library file name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Library Handle">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the library handle.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get NetBIOS Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the NetBIOS name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Process Current Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the process's current directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Process Environment Variable">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the process environment variable.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Process Startup Information">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the process startup information.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Processes Snapshot">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the processes snapshot.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Registry Key Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the attributes of a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Service Status">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the service status.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Global Flags">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the system global flags.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Local Time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the local time on a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Host Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the system host name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System NetBIOS Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the NetBIOS name of a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Network Parameters">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the system network parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get System Time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the system time.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Thread Context">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the thread context.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Thread Username">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the thread username.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get User Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the attributes of a user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Username">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting a username.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Windows Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting a windows directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Windows System Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting a windows System directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Get Windows Temporary Files Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of getting the Windows Temporary Files Directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Hide Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of hiding a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Impersonate Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of impersonating a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Impersonate Thread">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of impersonating a thread.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Inject Memory Page">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of injecting a memory page into a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Kill Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of killing a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Kill Thread">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of killing a thread.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Kill Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of killing a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Listen on Port">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of listening on a specific port.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Listen on Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of listening on a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Load and Call Driver">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of loading and calling a driver.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Load Driver">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of loading a driver.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Load Library">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of loading a library.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Load Module">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of loading a module.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Lock File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of locking a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Logon as User">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of logging on as a user.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Map File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of mapping a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Map Library">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of mapping a library.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Map View of File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of mapping a view of a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modify Registry Key Value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of modifying a registry key value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Monitor Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of monitoring a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Move File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of moving a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open File Mapping">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a file mapping.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Mutex">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a mutex.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Port">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a port.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Registry Key">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a registry key.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open Service Control Manager">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of opening a service control manager.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Protect Virtual Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of protecting virtual memory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Query Disk Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of querying disk attributes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Query DNS">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of querying DNS.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Query Process Virtual Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of querying process virtual memory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Queue APC in Thread">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of querying the Asynchronous Procedure Call (APC) in the context of a thread.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read From Named Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading from a named pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read From Process Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading from process memory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read Registry Key Value">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reading a registry key value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Receive Data on Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of receiving data on a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Receive Email Message">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of receiving an email message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Release Mutex">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of releasing a mutex.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Rename File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of renaming a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Revert Thread to Self">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of reverting a thread to its self.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Control Code to File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a control code to a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Control Code to Pipe">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a control code to a pipe.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Control Code to Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending control code to a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Data on Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending data on a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Data to Address on Socket">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending data to the address on a socket.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send DNS Query">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a DNS query.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Email Message">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an email message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send ICMP Request">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending an ICMP request.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send Reverse DNS Query">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sending a reverse DNS query.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set File Attributes">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting file attributes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set NetBIOS Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the NetBIOS name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set Process Current Directory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the process current directory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set Process Environment Variable">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the process environment variable.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set System Global Flags">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting system global flags.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set System Host Name">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the system host name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set System Time">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the system time.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set Thread Context">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of setting the thread context.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Show Window">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of showing a window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Shutdown System">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of shutting down a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sleep Process">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sleeping a process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sleep System">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of sleeping a system.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Start Service">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of starting a service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unload Driver">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unloading a driver.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unlock File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unlocking a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unmap File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unmapping a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unload Module">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of unloading a module.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Upload File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of uploading a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Write to File">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of writing to a file.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Write to Process Virtual Memory">
+				<xs:annotation>
+					<xs:documentation>Specifies the defined action of writing to process virtual memory.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="ActionNameVocab-1.0">
 		<xs:annotation>
 			<xs:documentation>The ActionNameVocab is the default CybOX vocabulary for Action Types, captured via the ActionType/Name element in CybOX Core.</xs:documentation>
+			<xs:documentation>NOTE: As of CybOX Version 2.1, this version of the ActionNameVocab is deprecated. Please use ActionNameVocab-1.1 instead.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -597,7 +1529,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionNameEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action Names"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#DefinedActionNameVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#DefinedActionNameVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -1323,7 +2255,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="Queue APC in Thread">
 				<xs:annotation>
-					<xs:documentation>Specifies the defined action of querying the Asynchronized Procedure Call (APC) in the context of a thread.</xs:documentation>
+					<xs:documentation>Specifies the defined action of querying the Asynchronous Procedure Call (APC) in the context of a thread.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Read File">
@@ -1523,7 +2455,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionArgumentNameEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action Argument Names"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#DefinedArgumentNameVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#DefinedArgumentNameVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -1537,9 +2469,39 @@
 					<xs:documentation>Specifies an argument called API.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Application Name">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Application Name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Database Name">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Database Name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Privilege Name">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Privilege Name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Proxy Name">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Proxy Name.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Proxy Bypass">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Proxy Bypass.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Creation Flags">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Creation Flags.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Flags">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Flags.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Access Mode">
@@ -1567,6 +2529,11 @@
 					<xs:documentation>Specifies an argument called Destination Address.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Base Address">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Base Address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Starting Address">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Starting Address.</xs:documentation>
@@ -1575,6 +2542,11 @@
 			<xs:enumeration value="Size (bytes)">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Size (bytes).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Number of Bytes Per Send">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Number of Bytes Per Send.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Control Parameter">
@@ -1667,6 +2639,11 @@
 					<xs:documentation>Specifies an argument called Request Size.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Requested Version">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Requested Version.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Service Type">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Service Type.</xs:documentation>
@@ -1677,9 +2654,9 @@
 					<xs:documentation>Specifies an argument called Service State.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Group Name">
+			<xs:enumeration value="Service Name">
 				<xs:annotation>
-					<xs:documentation>Specifies an argument called Group Name.</xs:documentation>
+					<xs:documentation>Specifies an argument called Service Name.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Hostname">
@@ -1697,6 +2674,11 @@
 					<xs:documentation>Specifies an argument called Sleep Time (ms).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Delay Time (ms)">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Delay Time (ms).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Code Address">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Code Address.</xs:documentation>
@@ -1712,6 +2694,41 @@
 					<xs:documentation>Specifies an argument called Server.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Reason">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Reason.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="System Metric Index">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called System Metric Index.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Initial Owner">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Initial Owner.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Error Control">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Initial Owner.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Username">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Username.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Password">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Password.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Command">
+				<xs:annotation>
+					<xs:documentation>Specifies an argument called Command.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="ActionObjectAssociationTypeVocab-1.0">
@@ -1724,7 +2741,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionObjectAssociationTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action-Object Association Names"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#ActionObjectAssociationTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ActionObjectAssociationTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -1765,7 +2782,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionRelationshipTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action-Action Relationships"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#ActionRelationshipTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ActionRelationshipTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -1821,7 +2838,7 @@
 					<xs:union memberTypes="cyboxVocabs:EventTypeEnum-1.0.1"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Event Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd#EventTypeVocab-1.0.1"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#EventTypeVocab-1.0.1"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -2019,11 +3036,8 @@
 	</xs:simpleType>
 	<xs:complexType name="EventTypeVocab-1.0">
 		<xs:annotation>
-			<xs:documentation>
-				The EventTypeVocab is the default CybOX vocabulary for Event types, captured via the EventType/Type element in the CybOX Core.
-				
-				NOTE: As of CybOX Version 2.0.1, this version of the EventTypeVocab is deprecated. Please use EventTypeVocab-1.0.1 instead.			
-			</xs:documentation>
+			<xs:documentation>The EventTypeVocab is the default CybOX vocabulary for Event types, captured via the EventType/Type element in the CybOX Core.</xs:documentation>	
+			<xs:documentation>NOTE: As of CybOX Version 2.0.1, this version of the EventTypeVocab is deprecated. Please use EventTypeVocab-1.0.1 instead.</xs:documentation>		
 			<xs:appinfo>
 				<deprecated>true</deprecated>
 			</xs:appinfo>
@@ -2034,17 +3048,14 @@
 					<xs:union memberTypes="cyboxVocabs:EventTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Event Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#EventTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#EventTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:simpleType name="EventTypeEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>
-				EventTypeEnum is a (non-exhaustive) enumeration of cyber observable event types.
-				
-				NOTE: As of CybOX Version 2.0.1, this version of the EventTypeEnum is deprecated. Please use EventTypeEnum-1.0.1 instead.			
-			</xs:documentation>
+			<xs:documentation>EventTypeEnum is a (non-exhaustive) enumeration of cyber observable event types.</xs:documentation>	
+			<xs:documentation>NOTE: As of CybOX Version 2.0.1, this version of the EventTypeEnum is deprecated. Please use EventTypeEnum-1.0.1 instead.</xs:documentation>
 			<xs:appinfo>
 				<deprecated>true</deprecated>
 			</xs:appinfo>
@@ -2240,6 +3251,7 @@
 	<xs:complexType name="ObjectRelationshipVocab-1.0">
 		<xs:annotation>
 			<xs:documentation>The ObjectRelationshipVocab is the default CybOX vocabulary for Object-Object relationships, captured via the RelatedObjectType/Relationship element in CybOX Core.</xs:documentation>
+			<xs:documentation>NOTE: As of CybOX Version 2.1, this version of the ObjectRelationshipVocab is deprecated. Please use ObjectRelationshipVocab-1.1 instead.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -2247,13 +3259,13 @@
 					<xs:union memberTypes="cyboxVocabs:ObjectRelationshipEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Object-Object Relationships"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#ObjectRelationshipVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ObjectRelationshipVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:simpleType name="ObjectRelationshipEnum-1.0">
 		<xs:annotation>
-			<xs:documentation>ObjectRelationshipEnum is a (non-exhaustive) enumeration of interobject relationships.</xs:documentation>
+			<xs:documentation>ObjectRelationshipEnum is a (non-exhaustive) enumeration of inter-object relationships.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Created">
@@ -2923,6 +3935,707 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="ObjectRelationshipVocab-1.1">
+		<xs:annotation>
+			<xs:documentation>The ObjectRelationshipVocab is the default CybOX vocabulary for Object-Object relationships, captured via the RelatedObjectType/Relationship element in CybOX Core.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxVocabs:ObjectRelationshipEnum-1.1"/>
+				</xs:simpleType>
+				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Object-Object Relationships"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ObjectRelationshipVocab-1.1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ObjectRelationshipEnum-1.1">
+		<xs:annotation>
+			<xs:documentation>ObjectRelationshipEnum is a (non-exhaustive) enumeration of inter-object relationships.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Created">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object created the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Created_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was created by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Deleted">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object deleted the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Deleted_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was deleted by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Modified_Properties_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object modified the properties of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Properties_Modified_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that the properties of this object were modified by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was read from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read_From_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was read from by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Wrote_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object wrote to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Written_To_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was written to by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Downloaded_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was downloaded from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Downloaded_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object downloaded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Downloaded">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object downloaded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Downloaded_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was downloaded by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uploaded">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object uploaded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uploaded_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was uploaded by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uploaded_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was uploaded to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Received_Via_Upload">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object received the related object via upload.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uploaded_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was uploaded from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sent_Via_Upload">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object sent the related object via upload.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Suspended">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object suspended the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Suspended_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was suspended by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Paused">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object paused the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Paused_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was paused by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Resumed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object resumed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Resumed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was resumed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Opened">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object opened the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Opened_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was opened by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Closed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object closed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Closed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was closed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copied_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was copied from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copied_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was copied to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copied">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object copied the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Copied_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was copied by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Moved_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was moved from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Moved_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was moved to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Moved">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object moved the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Moved_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was moved by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Searched_For">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object searched for the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Searched_For_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was searched for by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Allocated">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object allocated the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Allocated_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was allocated by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Initialized_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was initialized to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Initialized_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was initialized by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sent">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object sent the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sent_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was sent by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sent_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was sent to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Received_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was received from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Received">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object received the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Received_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was received by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Mapped_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was mapped into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Mapped_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was mapped by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Properties_Queried">
+				<xs:annotation>
+					<xs:documentation>Specifies that the object queried properties of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Properties_Queried_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that the properties of this object were queried by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Values_Enumerated">
+				<xs:annotation>
+					<xs:documentation>Specifies that the object enumerated values of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Values_Enumerated_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that the values of the object were enumerated by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bound">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object bound the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bound_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was bound by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Freed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object freed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Freed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was freed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Killed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object killed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Killed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was killed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encrypted">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object encrypted the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encrypted_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was encrypted by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encrypted_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was encrypted to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encrypted_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was encrypted from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decrypted">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object decrypted the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decrypted_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was decrypted by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object packed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was packed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unpacked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object unpacked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unpacked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was unpacked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packed_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was packed from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packed_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was packed into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encoded">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object encoded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Encoded_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was encoded by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decoded">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object decoded the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decoded_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was decoded by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Compressed_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was compressed from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Compressed_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was compressed into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Compressed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object compressed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Compressed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was compressed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decompressed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object decompressed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Decompressed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was decompressed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Joined">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object joined the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Joined_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was joined by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Merged">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object merged the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Merged_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was merged by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Locked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object locked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Locked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was locked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unlocked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object unlocked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unlocked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was unlocked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Hooked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object hooked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Hooked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was hooked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unhooked">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object unhooked the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unhooked_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was unhooked by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Monitored">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object monitored the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Monitored_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was monitored by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Listened_On">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object listened on the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Listened_On_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was listened on by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Renamed_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was renamed from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Renamed_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was renamed to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Renamed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object renamed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Renamed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was renamed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Injected_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object injected into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Injected_As">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object injected as the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Injected">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object injected the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Injected_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was injected by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Deleted_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was deleted from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Previously_Contained">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object previously contained the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Loaded_Into">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object loaded into the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Loaded_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was loaded from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was set to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Set_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was set from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Resolved_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was resolved to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Related_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is related to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dropped">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object dropped the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dropped_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was dropped by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Contains">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object contains the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Contained_Within">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is contained within the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Extracted_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was extracted from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Installed">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object installed the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Installed_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was installed by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connected_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object connected to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Connected_From">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was connected to from the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sub-domain_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is a sub-domain of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Supra-domain_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is a supra-domain of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Root_Domain_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is the root domain of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FQDN_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is an FQDN of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Parent_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is a parent of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Child_Of">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object is a child of the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Characterizes">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object describes the properties of the related object. This is most applicable in cases where the related object is an Artifact Object and this object is a non-Artifact Object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Characterized_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that the related object describes the properties of this object. This is most applicable in cases where the related object is a non-Artifact Object and this object is an Artifact Object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Used">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object used the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Used_By">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object was used by the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Redirects_To">
+				<xs:annotation>
+					<xs:documentation>Specifies that this object redirects to the related object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="ObjectStateVocab-1.0">
 		<xs:annotation>
 			<xs:documentation>The ObjectStateVocab is the default CybOX vocabulary for Object states, captured via the ObjectType/State element in CybOX Core.</xs:documentation>
@@ -2933,7 +4646,7 @@
 					<xs:union memberTypes="cyboxVocabs:ObjectStateEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Object States"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#ObjectStateVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ObjectStateVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -3004,7 +4717,7 @@
 					<xs:union memberTypes="cyboxVocabs:CharacterEncodingEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Character Encodings"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#CharacterEncodingVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#CharacterEncodingVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -3090,7 +4803,7 @@
 					<xs:union memberTypes="cyboxVocabs:InformationSourceTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Information Source Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#InformationSourceTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#InformationSourceTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -3171,7 +4884,7 @@
 					<xs:union memberTypes="cyboxVocabs:HashNameEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Hashing Algorithm Names"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#HashNameVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#HashNameVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -3224,7 +4937,7 @@
 	</xs:simpleType>
 	<xs:complexType name="ToolTypeVocab-1.0">
 		<xs:annotation>
-			<xs:documentation>The ToolTypeVocab is the default CybOX vocabulary for tool types, used in the MeasureSourceType/Tool_Type element in CybOX Common.</xs:documentation>
+			<xs:documentation>The ToolTypeVocab is the default CybOX vocabulary for tool types, used in the MeasureSourceType/Tools/Tool/Type element in CybOX Common.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleContent>
 			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
@@ -3232,7 +4945,7 @@
 					<xs:union memberTypes="cyboxVocabs:ToolTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Tool Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0/cybox_default_vocabularies.xsd#ToolTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ToolTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -3319,6 +5032,147 @@
 			<xs:enumeration value="SEM">
 				<xs:annotation>
 					<xs:documentation>The SEM value specifies a cyber observation made using Security Event Management tools.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ToolTypeVocab-1.1">
+		<xs:annotation>
+			<xs:documentation>The ToolTypeVocab is the default CybOX vocabulary for tool types, used in the MeasureSourceType/Tools/Tool/Type element in CybOX Common.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:ControlledVocabularyStringType">
+				<xs:simpleType>
+					<xs:union memberTypes="cyboxVocabs:ToolTypeEnum-1.1"/>
+				</xs:simpleType>
+				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Tool Types"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ToolTypeVocab-1.1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ToolTypeEnum-1.1">
+		<xs:annotation>
+			<xs:documentation>The ToolTypeEnum is a (non-exhaustive) enumeration of cyber observation source tool types.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NIDS">
+				<xs:annotation>
+					<xs:documentation>The NIDS value specifies a Network Intrusion Detection System tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NIPS">
+				<xs:annotation>
+					<xs:documentation>The NIPS value specifies a Network Intrusion Protection System tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HIDS">
+				<xs:annotation>
+					<xs:documentation>The HIDS value specifies a Host-based Intrusion Detection System tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HIPS">
+				<xs:annotation>
+					<xs:documentation>The HIPS value specifies a Host-based Intrusion Protection System tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Firewall">
+				<xs:annotation>
+					<xs:documentation>The Firewall value specifies a software or hardware firewall.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Router">
+				<xs:annotation>
+					<xs:documentation>The Router value specifies a software or hardware router.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Proxy">
+				<xs:annotation>
+					<xs:documentation>The Proxy value specifies a cyber observation made using a software or hardware network proxy.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Gateway">
+				<xs:annotation>
+					<xs:documentation>The Gateway value specifies a cyber observation made using a software or hardware network gateway.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SNMP/MIBs">
+				<xs:annotation>
+					<xs:documentation>The SNMP/MIBs value specifies a Simple Network Management Protocol or Management Information Base tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AV">
+				<xs:annotation>
+					<xs:documentation>The AV value specifies Anti-Virus tools and/or software.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DBMS Monitor">
+				<xs:annotation>
+					<xs:documentation>The DBMS value specifies a Database Management System monitor tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Vulnerability Scanner">
+				<xs:annotation>
+					<xs:documentation>The Vulnerability Scanner value specifies a vulnerability scanner tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Configuration Scanner">
+				<xs:annotation>
+					<xs:documentation>The Configuration Scanner value specifies a configuration scanner tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Asset Scanner">
+				<xs:annotation>
+					<xs:documentation>The Asset Scanner value specifies an asset scanner tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SIM">
+				<xs:annotation>
+					<xs:documentation>The SIM value specifies a Security Information Management tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SEM">
+				<xs:annotation>
+					<xs:documentation>The SEM value specifies a Security Event Management tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Digital Forensics">
+				<xs:annotation>
+					<xs:documentation>The Digital Forensics value specifies a digital forensics tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Static Malware Analysis">
+				<xs:annotation>
+					<xs:documentation>The Static Malware Analysis value specifies a static malware Analysis tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dynamic Malware Analysis">
+				<xs:annotation>
+					<xs:documentation>The Dynamic Malware Analysis value specifies a dynamic malware Analysis tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="System Configuration Management Tool">
+				<xs:annotation>
+					<xs:documentation>The System Configuration Management value specifies a system configuration management tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Network Configuration Management Tool">
+				<xs:annotation>
+					<xs:documentation>The Network Configuration Management value specifies a network configuration management tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packet Capture and Analysis">
+				<xs:annotation>
+					<xs:documentation>The Packet Capture and Analysis value specifies a packet capture and analysis tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Network Flow Capture and Analysis">
+				<xs:annotation>
+					<xs:documentation>The Network Flow Capture and Analysis value specifies a network flow capture and analysis tool.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Intelligence Service Platform">
+				<xs:annotation>
+					<xs:documentation>The Intelligence Service Platform value specifies an intelligence service platform tool.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

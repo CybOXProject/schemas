@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:MemoryObj="http://cybox.mitre.org/objects#MemoryObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#MemoryObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:MemoryObj="http://cybox.mitre.org/objects#MemoryObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#MemoryObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>Memory_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>01/22/2014</date>			
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
-			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
@@ -33,14 +33,29 @@
 							<xs:documentation>The Name field specifies the name of the particular memory object, if applicable.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Region_Size" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Memory_Source" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The name of the source file or segment that produced the bytes that make the particular memory object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Region_Size" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Region_Size field specifies the size of the particular memory region, in bytes.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Region_Start_Address" type="cyboxCommon:HexBinaryObjectPropertyType" nillable="true" minOccurs="0" maxOccurs="1">
+					<xs:element name="Block_Type" type="MemoryObj:BlockType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Block_Type field specifies the block type of a particular memory object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Region_Start_Address" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The Region_Start_Address field specifies the starting address of the particular memory region.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Region_End_Address" type="cyboxCommon:HexBinaryObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Region_End_Address field specifies the ending address of the particular memory region.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Extracted_Features" type="cyboxCommon:ExtractedFeaturesType" minOccurs="0">
@@ -64,7 +79,63 @@
 						<xs:documentation>The is_protected field specifies whether or not the particular memory object is protected (read/write only from the process that allocated it).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="is_volatile" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_volatile field specifies whether or not the particular memory object is volatile.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="BlockType">
+		<xs:annotation>
+			<xs:documentation>BlockType specifies memory block types, via a union of the BlockTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
+				<xs:simpleType>
+					<xs:union memberTypes="MemoryObj:BlockTypeEnum xs:string"/>
+				</xs:simpleType>
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
+					<xs:annotation>
+						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:simpleType name="BlockTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The BlockTypeEnum is a non-exhaustive enumeration of memory block types.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Initialized">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is initialized.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Uninitialized">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is uninitialized.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Overlay">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is an overlay.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bit-mapped">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is bit-mapped.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Byte-mapped">
+				<xs:annotation>
+					<xs:documentation>Indicates that the memory block is byte-mapped.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

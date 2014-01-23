@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#FileObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#FileObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>File_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>01/22/2014</date>			
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
-			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
-	<xs:element name="File" type="FileObj:FileObjectType" nillable="true">
+	<xs:element name="File" type="FileObj:FileObjectType">
 		<xs:annotation>
 			<xs:documentation>The File object is intended to characterize a generic file.</xs:documentation>
 		</xs:annotation>
@@ -25,30 +25,30 @@
 				<xs:sequence minOccurs="1">
 					<xs:element name="File_Name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The File_Name field specifies the name of the file.</xs:documentation>
+							<xs:documentation>The File_Name field specifies the base name of the file (including an extension, if present).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="File_Path" type="FileObj:FilePathType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The File_Path field specifies the path to the file, not including the device. Whether the path is relative or fully-qualified can be specified via the 'fully_qualified' attribute of this property.</xs:documentation>
+							<xs:documentation>The File_Path field specifies the relative or fully-qualified path to the file, not including the path to the device where the file system containing the file resides. Whether the path is relative or fully-qualified can be specified via the 'fully_qualified' attribute of this field. The File_Path field may include the name of the file; if so, it must not conflict with the File_Name field. If not, the File_Path field should contain the path of the directory containing the file, and should end with a terminating path separator("\" or "/").</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Device_Path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The Device_Path field specifies the path to the device on which the file resides. </xs:documentation>
+							<xs:documentation>The Device_Path field specifies the path to the physical device where the file system containing the file resides.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Full_Path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The Full_Path field specifies the complete path to the file, including the device path.</xs:documentation>
+							<xs:documentation>The Full_Path field specifies the complete path to the file, including the device path. It should contain the contents that would otherwise be in the Device_Path and File_Path fields, and can be used in case the producer is unable or does not wish to separate the Device_Path and File_Path fields. If the Full_Path field is specified along with the File_Path and/or Device_Path fields, it must not conflict with either. The Full_Path field may include the name of the file; if so, it must not conflict with the File_Name field. If not, the File_Path field should contain the path of the directory containing the file, and should end with a terminating path separator("\" or "/").</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="File_Extension" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The File_Extension field specifies the file extension of the file.</xs:documentation>
+							<xs:documentation>The File_Extension field specifies the extension of the name of the file. The File_Extension field must not conflict with the ending of the File_Name field. The File_Extension field should not begin with a "." character, but may contain a "." character in the case of a compound file extension, such as "tar.gz".</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Size_In_Bytes" type="cyboxCommon:UnsignedLongObjectPropertyType" nillable="true" minOccurs="0">
+					<xs:element name="Size_In_Bytes" type="cyboxCommon:UnsignedLongObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Size_In_Bytes field specifies the size of the file, in bytes.</xs:documentation>
 						</xs:annotation>
@@ -73,12 +73,12 @@
 							<xs:documentation>The Digital_Signatures field is optional and captures one or more digital signatures for the file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Modified_Time" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+					<xs:element name="Modified_Time" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Modified_Time field specifies the date/time the file was last modified.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Accessed_Time" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+					<xs:element name="Accessed_Time" type="cyboxCommon:DateTimeObjectPropertyType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Accessed_Time field specifies the date/time the file was last accessed.</xs:documentation>
 						</xs:annotation>
@@ -88,7 +88,7 @@
 							<xs:documentation>The Created_Time field specifies the date/time the file was created.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="File_Attributes_List" type="FileObj:FileAttributeType" nillable="true" minOccurs="0">
+					<xs:element name="File_Attributes_List" type="FileObj:FileAttributeType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The File_Attributes_List field specifies the particular special attributes set for the file. Since this is a platform-specific Object property, it is defined here as an abstract type and then implemented in any platform specific derived file objects.</xs:documentation>
 						</xs:annotation>
@@ -128,10 +128,40 @@
 							<xs:documentation>A description of features extracted from this file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="Encryption_Algorithm" type="cyboxCommon:CipherType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Encryption_Algorithm field specifies the algorithm used to encrypt the file.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Decryption_Key" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Decryption_Key field specifies the key used to decrypt the file.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Compression_Method" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Compression_Method field specifies the method used to compress the file.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Compression_Version" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Compression_Version field specifies the version of the compression method used to compress the file.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Compression_Comment" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Compression_Comment field specifies the comment string associated with the compressed file.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 				<xs:attribute name="is_packed" type="xs:boolean">
 					<xs:annotation>
-						<xs:documentation>The ispacked field is used to indicate whether the file is packed or not.</xs:documentation>
+						<xs:documentation>The is_packed field is used to indicate whether the file is packed or not.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="is_masqueraded" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>The is_masqueraded field specifies whether the file is masqueraded as another type of file; e.g., a PDF file that has had its extension changed to TXT to masquerade itself as a text file.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -237,8 +267,16 @@
 			<xs:documentation>Specifies an entry-point jump code used by a packer.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="1" name="Depth" type="cyboxCommon:IntegerObjectPropertyType"/>
-			<xs:element maxOccurs="1" minOccurs="0" name="Opcodes" type="cyboxCommon:StringObjectPropertyType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="Depth" type="cyboxCommon:IntegerObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The frequency that a jump instruction is found to be immediately followed by another jump instruction within the PE(Portable Executable) entry point.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="Opcodes" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The hex value of the bytes located at the jump location for a relative jump identified in the PE(Portable Executable) entry point up to 10 bytes or the end of the RVA(Relative Virtual Address) section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EntryPointSignatureType">

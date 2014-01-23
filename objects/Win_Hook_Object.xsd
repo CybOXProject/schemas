@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinHookObj="http://cybox.mitre.org/objects#WinHookObject-1" xmlns:LibraryObj="http://cybox.mitre.org/objects#LibraryObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:WinHandleObj="http://cybox.mitre.org/objects#WinHandleObject-2" targetNamespace="http://cybox.mitre.org/objects#WinHookObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:annotation>
+		<xs:documentation>This schema was originally developed by The MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
+		<xs:appinfo>
+			<schema>Win_Event_Object</schema>
+			<version>1.0</version>
+			<date>01/22/2014</date>
+			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#WinHandleObject-2" schemaLocation="Win_Handle_Object.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#LibraryObject-2" schemaLocation="Library_Object.xsd"/>
+	<xs:element name="Windows_Hook" type="WinHookObj:WindowsHookObjectType">
+		<xs:annotation>
+			<xs:documentation>The Windows_Hook object is intended to characterize Windows hook procedures.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="WindowsHookObjectType" mixed="false">
+		<xs:annotation>
+			<xs:documentation>The WindowsHookObjectType type is intended to characterize Windows hook procedure objects.</xs:documentation>
+			<xs:documentation>For more information please see http://msdn.microsoft.com/en-us/library/windows/desktop/ms644990(v=vs.85).aspx.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="cyboxCommon:ObjectPropertiesType">
+				<xs:sequence>
+					<xs:element name="Type" type="WinHookObj:WinHookType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Type field specifies the type (i.e. WH_) of the Windows hook procedure, which refers to the type of event that the hook will intercept.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Handle" type="WinHandleObj:WindowsHandleObjectType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The Handle field specifies the handle associated with the  Windows hook procedure. It uses the WindowsHandleObjectType type from the imported CybOX Windows Handle object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Hooking_Function_Name" type="cyboxCommon:StringObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Hooking_Function_Name field specifies the name of the hooking function used by the Windows hook procedure.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Hooking_Module" type="LibraryObj:LibraryObjectType">
+						<xs:annotation>
+							<xs:documentation>The Hooking_Module field specifies the properties of the module that contains the hooking function used in the Windows hook procedure that is specified in the Hooking_Function_Name field. It uses the LibraryObjectType from the imported CybOX Library Object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Thread_ID" type="cyboxCommon:NonNegativeIntegerObjectPropertyType">
+						<xs:annotation>
+							<xs:documentation>The Thread_ID field specifies the ID of the thread associated with the Windows procedure, if applicable.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="WinHookType">
+		<xs:annotation>
+			<xs:documentation>WinHookType specifies Windows hook procedure types, via a union of the WinHookTypeEnum type and the atomic xs:string type. Its base type is the CybOX Core BaseObjectPropertyType, for permitting complex (i.e. regular-expression based) specifications.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cyboxCommon:BaseObjectPropertyType">
+				<xs:simpleType>
+					<xs:union memberTypes="WinHookObj:WinHookTypeEnum xs:string"/>
+				</xs:simpleType>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="WinHookTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The WinHookTypeEnum type is an enumeration of Windows hook procedure types.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="WH_CALLWNDPROC">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that monitors messages before the system sends them to the destination window procedure.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_CALLWNDPROCRET">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that monitors messages after they have been processed by the destination window procedure.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_CBT">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that receives notifications useful to a CBT application.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_DEBUG">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure useful for debugging other hook procedures.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_FOREGROUNDIDLE">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that will be called when the application's foreground thread is about to become idle.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_GETMESSAGE">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that monitors messages posted to a message queue.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_JOURNALPLAYBACK">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that posts messages previously recorded by a WH_JOURNALRECORD hook procedure.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_JOURNALRECORD">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that records input messages posted to the system message queue.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_KEYBOARD">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that monitors keystroke messages.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_KEYBOARD_LL">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that monitors low-level keyboard input events.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_MOUSE">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that monitors mouse messages.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_MOUSE_LL">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that monitors low-level mouse input events.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_MSGFILTER">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that monitors messages generated as a result of an input event in a dialog box, message box, menu, or scroll bar.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_SHELL">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that receives notifications useful to shell applications.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WH_SYSMSGFILTER">
+				<xs:annotation>
+					<xs:documentation>Specifies a hook procedure that monitors messages generated as a result of an input event in a dialog box, message box, menu, or scroll bar.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

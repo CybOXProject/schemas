@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#HTTPSessionObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2" xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#HTTPSessionObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
 	<xs:annotation>
-		<xs:documentation>This schema was originally developed by [NAME] at [COMPANY]. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org. </xs:documentation>
+		<xs:documentation>This schema was originally developed by the MITRE Corporation. The CybOX XML Schema implementation is maintained by The MITRE Corporation and developed by the open CybOX Community. For more information, including how to get involved in the effort and how to submit change requests, please visit the CybOX website at http://cybox.mitre.org.</xs:documentation>
 		<xs:appinfo>
 			<schema>HTTP_Session_Object</schema>
-			<version>2.0.1</version>
-			<date>09/30/2013 9:00:00 AM</date>
+			<version>2.1</version>
+			<date>01/22/2014</date>			
 			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
-			<terms_of_use>Copyright (c) 2012-2013, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included. </terms_of_use>
+			<terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
@@ -45,12 +45,22 @@
 					<xs:documentation>The HTTP_Client_Request field specifies the HTTP client request portion of a single HTTP request/response pair.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="HTTP_Provisional_Server_Response" type="HTTPSessionObj:HTTPServerResponseType">
+				<xs:annotation>
+					<xs:documentation>The HTTP_Provisional_Server_Response field specifies an HTTP provisional server response that was sent before the regular HTTP response (captured in the HTTP_Server_Response field).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="HTTP_Server_Response" type="HTTPSessionObj:HTTPServerResponseType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The HTTP_Server_Response field specifies the HTTP server response portion of a single HTTP request/response pair.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="ordinal_position" type="xs:nonNegativeInteger">
+			<xs:annotation>
+				<xs:documentation>The ordinal_position attribute specifies the ordinal positioning of the HTTP request/response pair in the context of the HTTP session. This may be useful in certain cases for preserving observed HTTP request/response ordering.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="HTTPClientRequestType">
 		<xs:annotation>
@@ -125,7 +135,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Raw_Header" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Raw_Header field captures the HTTP request header as a raw, un-parsed string.</xs:documentation>
+					<xs:documentation>The Raw_Header field captures the HTTP request header as a raw, unparsed string.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Parsed_Header" type="HTTPSessionObj:HTTPRequestHeaderFieldsType">
@@ -290,7 +300,7 @@
 					<xs:documentation>The Warning field specifies the HTTP Request Warning field, which defines any general warnings about possible problems with the entity body.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="DNT" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="DNT" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The DNT field specifies the non-standard HTTP Request DNT field, which is typically used to request that a web application disable their tracking of a user.</xs:documentation>
 				</xs:annotation>
@@ -300,9 +310,14 @@
 					<xs:documentation>The X-Requested-With field specifies the non-standard HTTP Request X-Requested-With field, which is typically used to identify Ajax requests.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="X_Requested_For" type="cyboxCommon:StringObjectPropertyType">
+			<xs:element minOccurs="0" name="X_Forwarded_For" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The X-Forwarded-For field specifies the non-standard HTTP Request X-Forwarded-For field, which is typically used to identify the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="X_Forwarded_Proto" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The X-Forwarded-Proto field specifies the non-standard HTTP Response X-Forwarded-Proto field, which identifies the originating protocol of an HTTP request.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="X_ATT_DeviceId" type="cyboxCommon:StringObjectPropertyType">
@@ -324,7 +339,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Raw_Header" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Raw_Header field captures the HTTP response header as a raw, un-parsed string.</xs:documentation>
+					<xs:documentation>The Raw_Header field captures the HTTP response header as a raw, unparsed string.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Parsed_Header" type="HTTPSessionObj:HTTPResponseHeaderFieldsType">
@@ -449,14 +464,14 @@
 					<xs:documentation>The Proxy-Authenticate field specifies the HTTP Response Proxy-Authenticate header field, which defines the type of authentication necessary to access the proxy.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Refresh" type="cyboxCommon:IntegerObjectPropertyType">
+			<xs:element minOccurs="0" name="Refresh" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The Refresh field specifies the HTTP Response Refresh header field, which specifies a given interval, in seconds, after which the current page should be refreshed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Retry_After" type="cyboxCommon:IntegerObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Retry-After field specifies the HTTP Response Retry-After header field, which defines the period, in seconds, after which the client should try again if an entity is temporarily unavailable. </xs:documentation>
+					<xs:documentation>The Retry-After field specifies the HTTP Response Retry-After header field, which defines the period, in seconds, after which the client should try again if an entity is temporarily unavailable.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Server" type="cyboxCommon:StringObjectPropertyType">
@@ -484,9 +499,9 @@
 					<xs:documentation>The Transfer-Encoding field specifies the HTTP Response Transfer-Encoding field, which defines the form of encoding used to safely transfer the entity to the user.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Vary" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="Vary" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Vary field specifies the HTTP Response Vary field, which informs downstream proxies on how to match future request headers to decide whether the cached respones can be used rather than requested a fresh one from the origin server.</xs:documentation>
+					<xs:documentation>The Vary field specifies the HTTP Response Vary field, which informs downstream proxies on how to match future request headers to decide whether the cached response can be used rather than requested a fresh one from the origin server.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="Via" type="cyboxCommon:StringObjectPropertyType">
@@ -519,11 +534,6 @@
 					<xs:documentation>The X-Content-Type-Options field specifies the non-standard HTTP Response X-Content-Type-Options field, which supports the 'nosniff' parameter to prevent the MIME-sniffing of a response away from the declared content type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="X_Forwarded_Proto" type="cyboxCommon:StringObjectPropertyType">
-				<xs:annotation>
-					<xs:documentation>The X-Forwarded-Proto field specifies the non-standard HTTP Response X-Forwarded-Proto field, which identifies the originating protocol of an HTTP request.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element minOccurs="0" name="X_Powered_By" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The X-Powered-By field specifies the non-standard HTTP Response X-Powered-By field, which specifies the technology supporting the web application running on the server.</xs:documentation>
@@ -543,10 +553,10 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="Length" type="cyboxCommon:PositiveIntegerObjectPropertyType">
 				<xs:annotation>
-					<xs:documentation>The Length field captures the length of the HTTP message body, in bytes. </xs:documentation>
+					<xs:documentation>The Length field captures the length of the HTTP message body, in bytes.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Message_Body" type="cyboxCommon:StringObjectPropertyType">
+			<xs:element name="Message_Body" minOccurs="0" type="cyboxCommon:StringObjectPropertyType">
 				<xs:annotation>
 					<xs:documentation>The Message_Body field captures the data contained in the HTTP message body.</xs:documentation>
 				</xs:annotation>
@@ -580,7 +590,7 @@
 			<xs:documentation>The HostFieldType captures the details of the HTTP request Host header field.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element minOccurs="1" name="Domain_Name" type="URIObj:URIObjectType">
+			<xs:element minOccurs="0" name="Domain_Name" type="URIObj:URIObjectType">
 				<xs:annotation>
 					<xs:documentation>The Domain_Name field specifies the domain name of the server.</xs:documentation>
 				</xs:annotation>
@@ -601,7 +611,7 @@
 				<xs:simpleType>
 					<xs:union memberTypes="HTTPSessionObj:HTTPMethodEnum xs:string"/>
 				</xs:simpleType>
-				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="required">
+				<xs:attribute fixed="string" name="datatype" type="cyboxCommon:DatatypeEnum" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is optional and specifies the expected type for the value of the specified property.</xs:documentation>
 					</xs:annotation>
