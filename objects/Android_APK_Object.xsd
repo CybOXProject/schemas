@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:AndroidAPKObj="http://cybox.mitre.org/objects#AndroidAPKObject-1" xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2" xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#AndroidAPKObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:annotation>
+		<xs:documentation>Based on schema developed for App Testing Portal (https://atp.transapps.net/).</xs:documentation>
+		<xs:appinfo>
+			<schema>Android_APK_Object</schema>
+			<version>1.0</version>
+			<date>10/24/2014</date>			
+			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
+			<terms_of_use>Copyright (c) 2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#FileObject-2" schemaLocation="File_Object.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#X509CertificateObject-2" schemaLocation="X509_Certificate_Object.xsd"/>
+	<xs:element name="Android_APK_File" type="AndroidAPKObj:AndroidAPKObjectType">
+		<xs:annotation>
+			<xs:documentation>The Android APK object is intended to specify an Android application package (APK) file.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="AndroidAPKObjectType">
+		<xs:complexContent>
+			<xs:extension base="FileObj:FileObjectType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Application_Info" type="AndroidAPKObj:ApplicationInfoType"/>
+					<xs:element minOccurs="0" name="Application_Components" type="AndroidAPKObj:ApplicationComponentsType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ApplicationInfoType">
+		<xs:annotation>
+			<xs:documentation> General information about the app being analyzed</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Package_Name" type="xs:string"/>
+			<xs:element name="Version_Code" type="xs:string"/>
+			<xs:element name="Version_Name" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="SDK_Info" type="AndroidAPKObj:SDKInfoType" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Description" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Certificate" type="X509CertificateObj:X509CertificateObjectType" maxOccurs="1" minOccurs="0"> </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SDKInfoType">
+		<xs:sequence>
+			<xs:element name="Minimum_SDK_Version" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Target_SDK_Version" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Maximum_SDK_Version" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ApplicationComponentsType">
+		<xs:sequence>
+			<xs:element name="Permissions" type="AndroidAPKObj:PermissionListType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>list of permissions in the app.  Required, Missing, Requested</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Activities" type="AndroidAPKObj:ActivityListType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>list of activities in the app along with properties of those activities</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Providers" type="AndroidAPKObj:ProviderListType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>List of the providers in the app</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Intents" type="AndroidAPKObj:IntentListType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>List of the intents in the app</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Classes" type="AndroidAPKObj:ClassListType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>List of the classes in the app</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Files" type="AndroidAPKObj:FileListType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>List of the files in the app</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Packages" type="AndroidAPKObj:PackageListType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>List of the packages in the app</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Processes" type="AndroidAPKObj:ProcessListType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>List of the processes in the app</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Features" type="AndroidAPKObj:FeatureListType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>List of the features (not included in the above categories) in the app</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PermissionListType">
+		<xs:sequence>
+			<xs:element name="Permission" type="AndroidAPKObj:PermissionType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PermissionType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Status" type="AndroidAPKObj:PermissionStatusTypeEnum"> </xs:element>
+			<xs:element name="Use_Case" type="AndroidAPKObj:PermissionUseCaseType" maxOccurs="unbounded" minOccurs="0"> </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PermissionUseCaseType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="Calling_Method" type="xs:string"/>
+				<xs:element name="API"/>
+				<xs:element name="Constant" type="xs:string"/>
+				<xs:element name="Field" type="xs:string"/>
+			</xs:choice>
+			<xs:element name="Location" type="AndroidAPKObj:LocationType" maxOccurs="1" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LocationType">
+		<xs:annotation>
+			<xs:documentation>
+				This is used to document code location
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="File_Name" type="xs:string"/>
+			<xs:element name="Line_Number" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ActivityListType">
+		<xs:sequence>
+			<xs:element name="Activity" type="AndroidAPKObj:ActivityType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ActivityType">
+		<xs:annotation>
+			<xs:documentation>
+				this is coming from Androwarn which is just pulling this
+				info from the manifest file This is also present in the
+				FUSE extended manifest with the optional properties
+				populated. Not sure if this is valueable to have in this
+				report or not.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Theme" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Label" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Screen_Orientation" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Intent_Filter" type="AndroidAPKObj:IntentFilterType" maxOccurs="1" minOccurs="0"> </xs:element>
+		</xs:sequence>
+		<xs:attribute name="unprotected" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="IntentFilterType">
+		<xs:sequence>
+			<xs:element name="Action" type="xs:string" maxOccurs="unbounded" minOccurs="1"> </xs:element>
+			<xs:element name="Category" type="xs:string"/>
+			<xs:element name="Data" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ProviderListType">
+		<xs:sequence>
+			<xs:element name="Provider" type="AndroidAPKObj:ProviderType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProviderType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Authorities" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="MetaData" type="AndroidAPKObj:MetaDataType" maxOccurs="unbounded" minOccurs="0"> </xs:element>
+			<xs:element name="Permissions" type="xs:string" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Permission required to access the provider</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Write_Permissions" type="xs:string" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Permission to write to the provider</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Read_Permissions" type="xs:string" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Permission to resd from the provider</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="exported" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True means the provider is exported to other apps, False means that the provider is private to the app</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="vulnerable" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True if a tool is indicating that a provider is vulnerable.  False if the proivder is secure</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="MetaDataType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IntentListType">
+		<xs:sequence>
+			<xs:element name="Intent" type="AndroidAPKObj:IntentType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IntentType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Package" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Component" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Category" type="xs:string" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>android.intent.category if specified</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Parameters" type="xs:string" maxOccurs="unbounded" minOccurs="0"> </xs:element>
+			<xs:element name="Action" type="AndroidAPKObj:ActionType"/>
+			<xs:element name="Code_Location" type="AndroidAPKObj:LocationType" maxOccurs="1" minOccurs="0"> </xs:element>
+		</xs:sequence>
+		<xs:attribute name="internal" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True if the intent is only accessible to this app, False if the intent is accessible to other apps</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="implicit" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True if the intent can be serviced by any component, False if a specific component is designated to handle the request</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ActionType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Parameter" type="xs:string" maxOccurs="unbounded" minOccurs="0"> </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ClassListType">
+		<xs:sequence>
+			<xs:element name="Class" type="AndroidAPKObj:ClassType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ClassType">
+		<xs:annotation>
+			<xs:documentation>
+				This is only used by androwarn and it seems that classes
+				can be listed under the general class list, internal
+				classes and external classes. No idea what this actually
+				means. Probably a good item to filter out of most
+				reports
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="internal" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True means that it is within the app, false means that it is imported</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="FileListType">
+		<xs:sequence>
+			<xs:element name="File" type="FileObj:FileObjectType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MethodType">
+		<xs:sequence>
+			<xs:element name="Method_Name" type="xs:string"/>
+			<xs:element name="Parameter" type="xs:string" maxOccurs="unbounded" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>any parameters in the method call</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Component" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Code_Location" type="AndroidAPKObj:LocationType" maxOccurs="1" minOccurs="0"> </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PackageListType">
+		<xs:sequence>
+			<xs:element name="Package" type="AndroidAPKObj:PackageType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PackageType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="internal" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True means that the package is internal to the app, false means that it is imported</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ProcessListType">
+		<xs:sequence>
+			<xs:element name="Process" type="AndroidAPKObj:ProcessType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FeatureListType">
+		<xs:sequence>
+			<xs:element name="Feature" type="AndroidAPKObj:FeatureType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FeatureType">
+		<xs:annotation>
+			<xs:documentation>This type encompasses any feature of an app that has not been previously classified</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PermissionStatusTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="requested"/>
+			<xs:enumeration value="required"/>
+			<xs:enumeration value="missing"/>
+			<xs:enumeration value="extra"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
