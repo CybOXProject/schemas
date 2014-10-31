@@ -113,7 +113,7 @@
 		<xs:sequence>
 			<xs:choice>
 				<xs:element name="Calling_Method" type="xs:string"/>
-				<xs:element name="API"/>
+				<xs:element name="API" type="xs:string"/>
 				<xs:element name="Constant" type="xs:string"/>
 				<xs:element name="Field" type="xs:string"/>
 			</xs:choice>
@@ -152,8 +152,8 @@
 			<xs:element name="Label" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
 			<xs:element name="Screen_Orientation" type="xs:string" maxOccurs="1" minOccurs="0"> </xs:element>
 			<xs:element name="Intent_Filter" type="AndroidAPKObj:IntentFilterType" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="Permissions" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
 		</xs:sequence>
-		<xs:attribute name="unprotected" type="xs:boolean"/>
 	</xs:complexType>
 	<xs:complexType name="IntentFilterType">
 		<xs:sequence>
