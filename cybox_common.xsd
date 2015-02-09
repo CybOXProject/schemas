@@ -1915,17 +1915,17 @@
 		<xs:annotation>
 			<xs:documentation>The SimpleHashValueType is used for characterizing the output of basic cryptograhic hash functions outputting a single hexbinary hash value.</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
+		<xs:simpleContent>
 			<xs:extension base="cyboxCommon:HexBinaryObjectPropertyType"/>
-		</xs:complexContent>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="FuzzyHashValueType">
 		<xs:annotation>
 			<xs:documentation>The FuzzyHashValueType is used for characterizing the output of cryptograhic fuzzy hash functions outputting a single complex string based hash value.</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
+		<xs:simpleContent>
 			<xs:extension base="cyboxCommon:StringObjectPropertyType"/>
-		</xs:complexContent>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="FuzzyHashStructureType">
 		<xs:annotation>
