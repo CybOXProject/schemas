@@ -7,7 +7,7 @@
             <version>1.1</version>
             <date>01/22/2014</date>            
             <short_description>Cyber Observable eXpression (CybOX) Extension - CPE 2.3 Platform Instance - Schematic implementation for using the CPE 2.3 Applicability Language to describe a Platform within the CybOX observable expression language. It extends the PlatformSpecificationType defined in the CybOX common schema. (cybox_common.xsd) For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML.</short_description>
-            <terms_of_use>Copyright (c) 2012-2014, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
+            <terms_of_use>Copyright (c) 2012-2015, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
             <reference>http://scap.nist.gov/specifications/cpe/</reference>
         </xs:appinfo>
     </xs:annotation>
