@@ -1,0 +1,1464 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:AndroidManifestObj="http://cybox.mitre.org/objects#AndroidManifestObject-1" xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2" xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#AndroidManifestObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:annotation>
+		<xs:documentation>Based on schema developed for App Testing Portal (https://atp.transapps.net/).</xs:documentation>
+		<xs:appinfo>
+			<schema>Android_Manifest_Object</schema>
+			<version>1.0</version>
+			<date>2/18/2015</date>			
+			<short_description>The following specifies the fields and types that compose this defined CybOX Object type. Each defined object is an extension of the abstract ObjectPropertiesType, defined in CybOX Common. For more information on this extension mechanism, please see the CybOX Specification. This document is intended for developers and assumes some familiarity with XML. </short_description>
+			<terms_of_use>Copyright (c) 2015, The MITRE Corporation. All rights reserved. The contents of this file are subject to the terms of the CybOX License located at http://cybox.mitre.org/about/termsofuse.html. See the CybOX License for the specific language governing permissions and limitations for use of this schema. When distributing copies of the CybOX Schema, this license header must be included.</terms_of_use>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:element name="Android_Manifest" type="AndroidManifestObj:AndroidManifestObjectType">
+		<xs:annotation>
+			<xs:documentation>The Android APK object is intended to specify an Android application package (APK) file.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="AndroidManifestObjectType">
+		<xs:annotation>
+			<xs:documentation>The AndroidManifestObjectType is intended to characterize an Android manifest file.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="cyboxCommon:ObjectPropertiesType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="uses-permission" type="AndroidManifestObj:UsesPermissionType">
+						<xs:annotation>
+							<xs:documentation>The uses-permission field requests a permission that the application must be granted in order for it to operate correctly. Permissions are granted by the user when the application is installed, not while it's running. For more information on permissions, see the Permissions section in the introduction and the separate Security and Permissions document. A list of permissions defined by the base platform can be found at android.Manifest.permission.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="permission" type="AndroidManifestObj:PermissionType">
+						<xs:annotation>
+							<xs:documentation>The permission field declares a security permission that can be used to limit access to specific components or features of this or other applications.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="permission-tree" type="AndroidManifestObj:PermissionTreeType">
+						<xs:annotation>
+							<xs:documentation>The permission-tree field declares the base name for a tree of permissions. The application takes ownership of all names within the tree. It can dynamically add new permissions to the tree by calling PackageManager.addPermission(). Names within the tree are separated by periods ('.'). For example, if the base name is com.example.project.taxes, permissions like the following might be added:com.example.project.taxes.CALCULATE, com.example.project.taxes.deductions.MAKE_SOME_UP, com.example.project.taxes.deductions.EXAGGERATE     Note that this element does not declare a permission itself, only a namespace in which further permissions can be placed. See the permission element for information on declaring permissions.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="permission-group" type="AndroidManifestObj:PermissionGroupType">
+						<xs:annotation>
+							<xs:documentation>The permission-group field declares a name for a logical grouping of related permissions. Individual permission join the group through the permissionGroup element of the permission element. Members of a group are presented together in the user interface. Note that this element does not declare a permission itself, only a category in which permissions can be placed. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="instrumentation" type="AndroidManifestObj:InstrumentationType">
+						<xs:annotation>
+							<xs:documentation>The instrumentation field declares an Instrumentation class that enables you to monitor an application's interaction with the system. The Instrumentation object is instantiated before any of the application's components.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="uses-sdk" type="AndroidManifestObj:SDKVersionType">
+						<xs:annotation>
+							<xs:documentation>The uses-sdk field lets you express an application's compatibility with one or more versions of the Android platform, by means of an API Level integer. The API Level expressed by an application will be compared to the API Level of a given Android system, which may vary among different Android devices. Despite its name, this element is used to specify the API Level, not the version number of the SDK (software development kit) or Android platform. The API Level is always a single integer. You cannot derive the API Level from its associated Android version number (for example, it is not the same as the major version or the sum of the major and minor versions).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="uses-configuration" type="AndroidManifestObj:ConfigurationType">
+						<xs:annotation>
+							<xs:documentation>The uses-configuration field indicates what hardware and software features the application requires. For example, an application might specify that it requires a physical keyboard or a particular navigation device, like a trackball. The specification is used to avoid installing the application on devices where it will not work.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="uses-feature" type="AndroidManifestObj:FeatureType">
+						<xs:annotation>
+							<xs:documentation>The uses-feature field declares a single hardware or software feature that is used by the application. The purpose of a uses-feature declaration is to inform any external entity of the set of hardware and software features on which your application depends. The element offers a required element that lets you specify whether your application requires and cannot function without the declared feature, or whether it prefers to have the feature but can function without it. Because feature support can vary across Android devices, the uses-feature element serves an important role in letting an application describe the device-variable features that it uses. The set of available features that your application declares corresponds to the set of feature constants made available by the Android PackageManager, which are listed for convenience in the Features Reference tables at the bottom of this document. You must specify each feature in a separate uses-feature element, so if your application requires multiple features, it would declare multiple uses-feature elements. In general, you should always make sure to declare uses-feature elements for all of the features that your application requires. Declared uses-feature elements are informational only, meaning that the Android system itself does not check for matching feature support on the device before installing an application. However, other services (such as Google Play) or applications may check your application's uses-feature declarations as part of handling or interacting with your application. For this reason, it's very important that you declare all of the features (from the list below) that your application uses. For some features, there may exist a specific element that allows you to define a version of the feature, such as the version of Open GL used (declared with glEsVersion). Other features that either do or do not exist for a device, such as a camera, are declared using the name element. Although the uses-feature element is only activated for devices running API Level 4 or higher, it is recommended to include these elements for all applications, even if the minSdkVersion is "3" or lower. Devices running older versions of the platform will simply ignore the element.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="supports-screens" type="AndroidManifestObj:ScreenSupportType">
+						<xs:annotation>
+							<xs:documentation>The supports-screens field lets you specify the screen sizes your application supports and enable screen compatibility mode for screens larger than what your application supports. It's important that you always use this element in your application to specify the screen sizes your application supports. An application "supports" a given screen size if it resizes properly to fill the entire screen. Normal resizing applied by the system works well for most applications and you don't have to do any extra work to make your application work on screens larger than a handset device. However, it's often important that you optimize your application's UI for different screen sizes by providing alternative layout resources. For instance, you might want to modify the layout of an activity when it is on a tablet compared to when running on a handset device. However, if your application does not work well when resized to fit different screen sizes, you can use the elements of the supports-screens element to control whether your application should be distributed to smaller screens or have its UI scaled up ("zoomed") to fit larger screens using the system's screen compatibility mode. When you have not designed for larger screen sizes and the normal resizing does not achieve the appropriate results, screen compatibility mode will scale your UI by emulating a normal size screen and medium density, then zooming in so that it fills the entire screen. Beware that this causes pixelation and blurring of your UI, so it's better if you optimize your UI for large screens.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="compatible-screens" type="AndroidManifestObj:CompatibleScreensType">
+						<xs:annotation>
+							<xs:documentation>The compatible-screens field specifies each screen configuration with which the application is compatible. Only one instance of the compatible-screens element is allowed in the manifest, but it can contain multiple screen elements. Each screen element specifies a specific screen size-density combination with which the application is compatible. The Android system does not read the compatible-screens manifest element (neither at install-time nor at runtime). This element is informational only and may be used by external services (such as Google Play) to better understand the application's compatibility with specific screen configurations and enable filtering for users. Any screen configuration that is not declared in this element is a screen with which the application is not compatible. Thus, external services (such as Google Play) should not provide the application to devices with such screens.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supports-gl-texture" minOccurs="0" type="AndroidManifestObj:GLTextureType">
+						<xs:annotation>
+							<xs:documentation>The supports-gl-texture field declares a single GL texture compression format that is supported by the application. An application "supports" a GL texture compression format if it is capable of providing texture assets that are compressed in that format, once the application is installed on a device. The application can provide the compressed assets locally, from inside the .apk, or it can download them from a server at runtime. Each supports-gl-texture element declares exactly one supported texture compression format, specified as the value of a android:name element. If your application supports multiple texture compression formats, you can declare multiple supports-gl-texture elements. Declared supports-gl-texture elements are informational, meaning that the Android system itself does not examine the elements at install time to ensure matching support on the device. However, other services (such as Google Play) or applications can check your application's supports-gl-texture declarations as part of handling or interacting with your application. For this reason, it's very important that you declare all of the texture compression formats (from the list below) that your application is capable of supporting. Applications and devices typically declare their supported GL texture compression formats using the same set of well-known strings, as listed below. The set of format strings may grow over time, as needed, and since the values are strings, applications are free to declare other formats as needed.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="application" type="AndroidManifestObj:AppType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The declaration of the application. This element contains subelements that declare each of the application's components and has elements that can affect all the components. Many of these elements (such as icon, label, permission, process, taskAffinity, and allowTaskReparenting) set default values for corresponding elements of the component elements. Others (such as debuggable, enabled, description, and allowClearUserData) set values for the application as a whole and cannot be overridden by the components.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="ProtectionLevelEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="normal">
+				<xs:annotation>
+					<xs:documentation>The default value. A lower-risk permission that gives requesting applications access to isolated application-level features, with minimal risk to other applications, the system, or the user. The system automatically grants this type of permission to a requesting application at installation, without asking for the user's explicit approval (though the user always has the option to review these permissions before installing).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="dangerous">
+				<xs:annotation>
+					<xs:documentation>A higher-risk permission that would give a requesting application access to private user data or control over the device that can negatively impact the user. Because this type of permission introduces potential risk, the system may not automatically grant it to the requesting application. For example, any dangerous permissions requested by an application may be displayed to the user and require confirmation before proceeding, or some other approach may be taken to avoid the user automatically allowing the use of such facilities.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="signature">
+				<xs:annotation>
+					<xs:documentation>A permission that the system grants only if the requesting application is signed with the same certificate as the application that declared the permission. If the certificates match, the system automatically grants the permission without notifying the user or asking for the user's explicit approval.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="signatureOrSystem">
+				<xs:annotation>
+					<xs:documentation>A permission that the system grants only to applications that are in the Android system image or that are signed with the same certificate as the application that declared the permission. Please avoid using this option, as the signature protection level should be sufficient for most needs and works regardless of exactly where applications are installed. The "signatureOrSystem" permission is used for certain special situations where multiple vendors have applications built into a system image and need to share specific features explicitly because they are being built together.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KeyboardEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="undefined">
+				<xs:annotation>
+					<xs:documentation>The application does not require a keyboard. (A keyboard requirement is not defined.) This is the default value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="nokeys">
+				<xs:annotation>
+					<xs:documentation>The application does not require a keyboard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="qwerty">
+				<xs:annotation>
+					<xs:documentation>The application requires a standard QWERTY keyboard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="twelvekey">
+				<xs:annotation>
+					<xs:documentation>The application requires a twelve-key keypad, like those on most phones — with keys for the digits from 0 through 9 plus star (*) and pound (#) keys.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NavigationEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="undefined">
+				<xs:annotation>
+					<xs:documentation>The application does not require any type of navigation control. (The navigation requirement is not defined.) This is the default value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="nonav">
+				<xs:annotation>
+					<xs:documentation>The application does not require a navigation control.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="dpad">
+				<xs:annotation>
+					<xs:documentation>The application requires a D-pad (directional pad) for navigation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="trackball">
+				<xs:annotation>
+					<xs:documentation>The application requires a trackball for navigation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="wheel">
+				<xs:annotation>
+					<xs:documentation>The application requires a navigation wheel.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TouchScreenEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="undefined">
+				<xs:annotation>
+					<xs:documentation>The application doesn't require a touch screen. (The touch screen requirement is undefined.) This is the default value.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="notouch">
+				<xs:annotation>
+					<xs:documentation>The application doesn't require a touch screen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="stylus">
+				<xs:annotation>
+					<xs:documentation>The application requires a touch screen that's operated with a stylus.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="finger">
+				<xs:annotation>
+					<xs:documentation>The application requires a touch screen that can be operated with a finger.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ScreenSizeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="small"/>
+			<xs:enumeration value="normal"/>
+			<xs:enumeration value="large"/>
+			<xs:enumeration value="xlarge"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ScreenDensityEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ldpi"/>
+			<xs:enumeration value="mdpi"/>
+			<xs:enumeration value="hdpi"/>
+			<xs:enumeration value="xhdpi"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AppType">
+		<xs:annotation>
+			<xs:documentation>The AppType captures the declaration of the application. This type contains subfields that declare each of the application's components and has fields that can affect all the components. Many of these elements (such as icon, label, permission, process, taskAffinity, and allowTaskReparenting) set default values for corresponding fields of the component fields. Others (such as debuggable, enabled, description, and allowClearUserData) set values for the application as a whole and cannot be overridden by the components.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activity" type="AndroidManifestObj:ActivityType" minOccurs="0"/>
+			<xs:element name="activity-alias" type="AndroidManifestObj:ActivityAliasType" minOccurs="0"/>
+			<xs:element name="meta-data" type="AndroidManifestObj:MetadataType" minOccurs="0"/>
+			<xs:element name="service" type="AndroidManifestObj:ServiceType" minOccurs="0"/>
+			<xs:element name="receiver" type="AndroidManifestObj:ReceiverType" minOccurs="0"/>
+			<xs:element name="provider" type="AndroidManifestObj:ProviderType" minOccurs="0"/>
+			<xs:element name="uses-library" type="AndroidManifestObj:UsesLibraryType" minOccurs="0"/>
+			<xs:element name="backupAgent" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The backupAgent field specifies the name of the class that implement's the application's backup agent, a subclass of BackupAgent. The element value should be a fully qualified class name (such as, "com.example.project.MyBackupAgent"). However, as a shorthand, if the first character of the name is a period (for example, ".MyBackupAgent"), it is appended to the package name specified in the manifest element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="banner" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The banner field specifies a drawable resource providing an extended graphical banner for its associated item. Use with the application tag to supply a default banner for all application activities, or with the activity tag to supply a banner for a specific activity. The system uses the banner to represent an app in the Android TV home screen. Since the banner is displayed only in the home screen, it should only be specified by applications with an activity that handles the CATEGORY_LEANBACK_LAUNCHER intent. This element must be set as a reference to a drawable resource containing the image (for example "@drawable/banner"). There is no default banner.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The description field specifies user-readable text about the application, longer and more descriptive than the application label. The value must be set as a reference to a string resource. Unlike the label, it cannot be a raw string. There is no default value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies an icon for the application as whole, and the default icon for each of the application's components. See the individual icon elements for activity, activity-alias, service, receiver, and provider elements. This element must be set as a reference to a drawable resource containing the image (for example "@drawable/icon"). There is no default icon.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a user-readable label for the application as a whole, and a default label for each of the application's components. See the individual label elements for activity, activity-alias, service, receiver, and provider elements. The label should be set as a reference to a string resource, so that it can be localized like other strings in the user interface. However, as a convenience while you're developing the application, it can also be set as a raw string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="logo" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The logo field specifies a logo for the application as whole, and the default logo for activities. This element must be set as a reference to a drawable resource containing the image (for example "@drawable/logo"). There is no default logo.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="manageSpaceActivity" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The manageSpaceActivity field specifies the fully qualified name of an Activity subclass that the system can launch to let users manage the memory occupied by the application on the device. The activity should also be declared with an activity element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the fully qualified name of an Application subclass implemented for the application. When the application process is started, this class is instantiated before any of the application's components. The subclass is optional; most applications won't need one. In the absence of a subclass, Android uses an instance of the base Application class.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="permission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The permission field specifies the name of a permission that clients must have in order to interact with the application. This element is a convenient way to set a permission that applies to all of the application's components. It can be overwritten by setting the permission elements of individual components.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="process" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The process field specifies the name of a process where all components of the application should run. Each component can override this default by setting its own process element. By default, Android creates a process for an application when the first of its components needs to run. All components then run in that process. The name of the default process matches the package name set by the manifest element. By setting this element to a process name that's shared with another application, you can arrange for components of both applications to run in the same process — but only if the two applications also share a user ID and be signed with the same certificate. If the name assigned to this element begins with a colon (':'), a new process, private to the application, is created when it's needed. If the process name begins with a lowercase character, a global process of that name is created. A global process can be shared with other applications, reducing resource usage.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="requiredAccountType" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The requiredAccountType field specifies the account type required by the application in order to function. If your app requires an Account, the value for this element must correspond to the account authenticator type used by your app (as defined by AuthenticatorDescription), such as "com.google". The default value is null and indicates that the application can work without any accounts. Because restricted profiles currently cannot add accounts, specifying this element makes your app unavailable from a restricted profile unless you also declare android:restrictedAccountType with the same value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="restrictedAccountType" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The restrictedAccountType field specifies the account type required by this application and indicates that restricted profiles are allowed to access such accounts that belong to the owner user. If your app requires an Account and restricted profiles are allowed to access the primary user's accounts, the value for this element must correspond to the account authenticator type used by your app (as defined by AuthenticatorDescription), such as "com.google". The default value is null and indicates that the application can work without any accounts.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="taskAffinity" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The taskAffinity field specifies an affinity name that applies to all activities within the application, except for those that set a different affinity with their own taskAffinity elements. See that element for more information. By default, all activities within an application share the same affinity. The name of that affinity is the same as the package name set by the manifest element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="theme" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The theme field specifies a reference to a style resource defining a default theme for all activities in the application. Individual activities can override the default by setting their own theme elements. For more information, see the Styles and Themes developer guide.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="uiOptions" type="AndroidManifestObj:UIOptionsEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The uiOptions field specifies extra options for an activity's UI.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="allowTaskReparenting" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The allowTaskReporting field specifies whether or not activities that the application defines can move from the task that started them to the task they have an affinity for when that task is next brought to the front — "true" if they can move, and "false" if they must remain with the task where they started. The default value is "false". The activity element has its own allowTaskReparenting element that can override the value set here. See that element for more information.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="allowBackup" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The allowBackup field specifies whether to allow the application to participate in the backup and restore infrastructure. If this element is set to false, no backup or restore of the application will ever be performed, even by a full-system backup that would otherwise cause all application data to be saved via adb. The default value of this element is true.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="debuggable" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The debuggable field specifies whether or not the application can be debugged, even when running on a device in user mode — "true" if it can be, and "false" if not. The default value is "false".</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="enabled" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The enabled field specifies whether or not the Android system can instantiate components of the application — "true" if it can, and "false" if not. If the value is "true", each component's enabled element determines whether that component is enabled or not. If the value is "false", it overrides the component-specific values; all components are disabled.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="hasCode" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The hasCode field specifies whether or not the application contains any code — "true" if it does, and "false" if not. When the value is "false", the system does not try to load any application code when launching components. The default value is "true". An application would not have any code of its own only if it's using nothing but built-in component classes, such as an activity that uses the AliasActivity class, a rare occurrence.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="hardwareAccelerated" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The hardwareAccelerated field specifies whether or not hardware-accelerated rendering should be enabled for all activities and views in this application — "true" if it should be enabled, and "false" if not. The default value is "true" if you've set either minSdkVersion or targetSdkVersion to "14" or higher; otherwise, it's "false". Starting from Android 3.0 (API level 11), a hardware-accelerated OpenGL renderer is available to applications, to improve performance for many common 2D graphics operations. When the hardware-accelerated renderer is enabled, most operations in Canvas, Paint, Xfermode, ColorFilter, Shader, and Camera are accelerated. This results in smoother animations, smoother scrolling, and improved responsiveness overall, even for applications that do not explicitly make use the framework's OpenGL libraries. Note that not all of the OpenGL 2D operations are accelerated. If you enable the hardware-accelerated renderer, test your application to ensure that it can make use of the renderer without errors.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isGame" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The isGame field specifies whether or not the application is a game. The system may group together applications classifed as games or display them separately from other applications.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="killAfterRestore" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The killAfterRestore field specifies whether the application in question should be terminated after its settings have been restored during a full-system restore operation. Single-package restore operations will never cause the application to be shut down. Full-system restore operations typically only occur once, when the phone is first set up. Third-party applications will not normally need to use this element. The default is true, which means that after the application has finished processing its data during a full-system restore, it will be terminated.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="largeHeap" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The largeHeap field specifies whether your application's processes should be created with a large Dalvik heap. This applies to all processes created for the application. It only applies to the first application loaded into a process; if you're using a shared user ID to allow multiple applications to use a process, they all must use this option consistently or they will have unpredictable results. Most apps should not need this and should instead focus on reducing their overall memory usage for improved performance. Enabling this also does not guarantee a fixed increase in available memory, because some devices are constrained by their total available memory.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="persistent" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The persistent field specifies whether or not the application should remain running at all times — "true" if it should, and "false" if not. The default value is "false". Applications should not normally set this flag; persistence mode is intended only for certain system applications.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="restoreAnyVersion" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The restoreAnyVersion field indicates that the application is prepared to attempt a restore of any backed-up data set, even if the backup was stored by a newer version of the application than is currently installed on the device. Setting this element to true will permit the Backup Manager to attempt restore even when a version mismatch suggests that the data are incompatible. Use with caution!</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="supportsRtl" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The supportsRtl field declares whether your application is willing to support right-to-left (RTL) layouts. If set to true and targetSdkVersion is set to 17 or higher, various RTL APIs will be activated and used by the system so your app can display RTL layouts. If set to false or if targetSdkVersion is set to 16 or lower, the RTL APIs will be ignored or will have no effect and your app will behave the same regardless of the layout direction associated to the user's Locale choice (your layouts will always be left-to-right).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="testOnly" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The testOnly field indicates whether this application is only for testing purposes. For example, it may expose functionality or data outside of itself that would cause a security hole, but is useful for testing. This kind of application can be installed only through adb.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="vmSafeMode" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The vmSafeMode field indicates whether the app would like the virtual machine (VM) to operate in safe mode. The default value is "false".</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="UIOptionsEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none">
+				<xs:annotation>
+					<xs:documentation>No extra UI options. This is the default.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="splitActionBarWhenNarrow">
+				<xs:annotation>
+					<xs:documentation>Add a bar at the bottom of the screen to display action items in the ActionBar, when constrained for horizontal space (such as when in portrait mode on a handset). Instead of a small number of action items appearing in the action bar at the top of the screen, the action bar is split into the top navigation section and the bottom bar for action items. This ensures a reasonable amount of space is made available not only for the action items, but also for navigation and title elements at the top. Menu items are not split across the two bars; they always appear together.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ActivityType">
+		<xs:annotation>
+			<xs:documentation>The ActivityType declares an activity (an Activity subclass) that implements part of the application's visual user interface. All activities must be represented by activity fields in the manifest file. Any that are not declared there will not be seen by the system and will never be run.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="intent-filter" type="AndroidManifestObj:IntentFilterType" minOccurs="0"/>
+			<xs:element name="meta-data" type="AndroidManifestObj:MetadataType" minOccurs="0"/>
+			<xs:element name="banner" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A drawable resource providing an extended graphical banner for its associated item. Use with the activity tag to supply a default banner for a specific activity, or with the application tag to supply a banner for all application activities. The system uses the banner to represent an app in the Android TV home screen. Since the banner is displayed only in the home screen, it should only be specified by applications with an activity that handles the CATEGORY_LEANBACK_LAUNCHER intent. This element must be set as a reference to a drawable resource containing the image (for example "@drawable/banner"). There is no default banner.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="configChanges" type="AndroidManifestObj:ConfigChangesEnum" minOccurs="0">
+				<xs:annotation>
+					<!-- TODO What is the best way to handle this type.  a simple restriction won't be sufficient, but what I have currently. -->
+					<xs:documentation>The configChanges field lists configuration changes that the activity will handle itself. When a configuration change occurs at runtime, the activity is shut down and restarted by default, but declaring a configuration with this element will prevent the activity from being restarted. Instead, the activity remains running and its onConfigurationChanged() method is called. Any or all of the following strings are valid values for this element. Multiple values are separated by '|' — for example, "locale|navigation|orientation".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentLaunchMode" type="AndroidManifestObj:DocumentLaunchModeEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The documentLaunchMode field specifies how a new instance of an activity should be added to a task each time it is launched. This element permits the user to have multiple documents from the same application appear in the overview screen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies an icon representing the activity. The icon is displayed to users when a representation of the activity is required on-screen. For example, icons for activities that initiate tasks are displayed in the launcher window. The icon is often accompanied by a label (see the android:label element). This element must be set as a reference to a drawable resource containing the image definition. If it is not set, the icon specified for the application as a whole is used instead</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a user-readable label for the activity. The label is displayed on-screen when the activity must be represented to the user. It's often displayed along with the activity icon. If this element is not set, the label set for the application as a whole is used instead (see the application element's label element). The activity's label — whether set here or by the application element — is also the default label for all the activity's intent filters (see the intent-filter element's label element). The label should be set as a reference to a string resource, so that it can be localized like other strings in the user interface. However, as a convenience while you're developing the application, it can also be set as a raw string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="launchMode" type="AndroidManifestObj:LaunchModeEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The launchMode field specifies an instruction on how the activity should be launched. There are four modes that work in conjunction with activity flags (FLAG_ACTIVITY_* constants) in Intent objects to determine what should happen when the activity is called upon to handle an intent.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maxRecents" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The maxRecents field specifies the maximum number of tasks rooted at this activity in the overview screen. When this number of entries is reached, the system removes the least-recently used instance from the overview screen. Valid values are 1 through 50 (25 on low memory devices); zero is invalid. This must be an integer value, such as 50. The default value is 16.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the class that implements the activity, a subclass of Activity. The element value should be a fully qualified class name (such as, "com.example.project.ExtracurricularActivity"). However, as a shorthand, if the first character of the name is a period (for example, ".ExtracurricularActivity"), it is appended to the package name specified in the manifest element. Once you publish your application, you should not change this name (unless you've set android:exported="false"). There is no default. The name must be specified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="parentActivityName" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The parentActivityName specifies the class name of the logical parent of the activity. The name here must match the class name given to the corresponding activity element's android:name element. The system reads this element to determine which activity should be started when the user presses the Up button in the action bar. The system can also use this information to synthesize a back stack of activities with TaskStackBuilder.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="permission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The permission field specifies the name of a permission that clients must have to launch the activity or otherwise get it to respond to an intent. If a caller of startActivity() or startActivityForResult() has not been granted the specified permission, its intent will not be delivered to the activity. If this element is not set, the permission set by the application element's permission element applies to the activity. If neither element is set, the activity is not protected by a permission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="process" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The process field specifies the name of the process in which the activity should run. Normally, all components of an application run in a default process name created for the application and you do not need to use this element. But if necessary, you can override the default process name with this element, allowing you to spread your app components across multiple processes. If the name assigned to this element begins with a colon (':'), a new process, private to the application, is created when it's needed and the activity runs in that process. If the process name begins with a lowercase character, the activity will run in a global process of that name, provided that it has permission to do so. This allows components in different applications to share a process, reducing resource usage. The application element's process element can set a different default process name for all components.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="screenOrientation" type="AndroidManifestObj:ScreenOrientationEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The screenOrientation field specifies the orientation of the activity's display on the device.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="taskAffinity" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The taskAffinity field specifies the task that the activity has an affinity for. Activities with the same affinity conceptually belong to the same task (to the same "application" from the user's perspective). The affinity of a task is determined by the affinity of its root activity. The affinity determines two things — the task that the activity is re-parented to (see the allowTaskReparenting element) and the task that will house the activity when it is launched with the FLAG_ACTIVITY_NEW_TASK flag. By default, all activities in an application have the same affinity. You can set this element to group them differently, and even place activities defined in different applications within the same task. To specify that the activity does not have an affinity for any task, set it to an empty string. If this element is not set, the activity inherits the affinity set for the application (see the application element's taskAffinity element). The name of the default affinity for an application is the package name set by the manifest element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="theme" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The theme field specifies a reference to a style resource defining an overall theme for the activity. This automatically sets the activity's context to use this theme (see setTheme(), and may also cause "starting" animations prior to the activity being launched (to better match what the activity actually looks like). If this element is not set, the activity inherits the theme set for the application as a whole — from the application element's theme element. If that element is also not set, the default system theme is used. For more information, see the Styles and Themes developer guide.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="uiOptions" type="AndroidManifestObj:UIOptionsEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The uiOptions field specifies extra options for an activity's UI.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="windowSoftInputMode" type="AndroidManifestObj:WindowSoftInputModeEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The windowSoftInputMode field specifies how the main window of the activity interacts with the window containing the on-screen soft keyboard. The setting for this element affects two things: The state of the soft keyboard — whether it is hidden or visible — when the activity becomes the focus of user attention. The adjustment made to the activity's main window — whether it is resized smaller to make room for the soft keyboard or whether its contents pan to make the current focus visible when part of the window is covered by the soft keyboard. The setting must be one of the values listed in the following table, or a combination of one "state..." value plus one "adjust..." value. Setting multiple values in either group — multiple "state..." values, for example — has undefined results. Individual values are separated by a vertical bar (|)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="allowEmbedded" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The allowEmbedded field indicates that the activity can be launched as the embedded child of another activity. Particularly in the case where the child lives in a container such as a Display owned by another activity. For example, activities that are used for Wear custom notifications must declare this so Wear can display the activity in it's context stream, which resides in another process.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="allowTaskReparenting" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The allowTaskReparenting field specifies whether or not the activity can move from the task that started it to the task it has an affinity for when that task is next brought to the front — "true" if it can move, and "false" if it must remain with the task where it started. If this element is not set, the value set by the corresponding allowTaskReparenting element of the application element applies to the activity. The default value is "false". Normally when an activity is started, it's associated with the task of the activity that started it and it stays there for its entire lifetime. You can use this element to force it to be re-parented to the task it has an affinity for when its current task is no longer displayed. Typically, it's used to cause the activities of an application to move to the main task associated with that application. For example, if an e-mail message contains a link to a web page, clicking the link brings up an activity that can display the page. That activity is defined by the browser application, but is launched as part of the e-mail task. If it's reparented to the browser task, it will be shown when the browser next comes to the front, and will be absent when the e-mail task again comes forward. The affinity of an activity is defined by the taskAffinity element. The affinity of a task is determined by reading the affinity of its root activity. Therefore, by definition, a root activity is always in a task with the same affinity. Since activities with "singleTask" or "singleInstance" launch modes can only be at the root of a task, re-parenting is limited to the "standard" and "singleTop" modes. (See also the launchMode element.)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="alwaysRetainTaskState" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The alwaysRetainTaskState field specifies whether or not the state of the task that the activity is in will always be maintained by the system — "true" if it will be, and "false" if the system is allowed to reset the task to its initial state in certain situations. The default value is "false". This element is meaningful only for the root activity of a task; it's ignored for all other activities. Normally, the system clears a task (removes all activities from the stack above the root activity) in certain situations when the user re-selects that task from the home screen. Typically, this is done if the user hasn't visited the task for a certain amount of time, such as 30 minutes. However, when this element is "true", users will always return to the task in its last state, regardless of how they get there. This is useful, for example, in an application like the web browser where there is a lot of state (such as multiple open tabs) that users would not like to lose.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="autoRemoveFromRecents" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The autoRemoveFromRecents field specifies whether or not tasks launched by activities with this element remains in the overview screen until the last activity in the task is completed. If true, the task is automatically removed from the overview screen. This overrides the caller's use of FLAG_ACTIVITY_RETAIN_IN_RECENTS.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="clearTaskOnLaunch" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The clearTaskOnLaunch field specifies whether or not all activities will be removed from the task, except for the root activity, whenever it is re-launched from the home screen — "true" if the task is always stripped down to its root activity, and "false" if not. The default value is "false". This element is meaningful only for activities that start a new task (the root activity); it's ignored for all other activities in the task. When the value is "true", every time users start the task again, they are brought to its root activity regardless of what they were last doing in the task and regardless of whether they used the Back or Home button to leave it. When the value is "false", the task may be cleared of activities in some situations (see the alwaysRetainTaskState element), but not always. Suppose, for example, that someone launches activity P from the home screen, and from there goes to activity Q. The user next presses Home, and then returns to activity P. Normally, the user would see activity Q, since that is what they were last doing in P's task. However, if P set this flag to "true", all of the activities on top of it (Q in this case) were removed when the user pressed Home and the task went to the background. So the user sees only P when returning to the task. If this element and allowTaskReparenting are both "true", any activities that can be re-parented are moved to the task they share an affinity with; the remaining activities are then dropped, as described above.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="enabled" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The enabled field specifies whether or not the activity can be instantiated by the system — "true" if it can be, and "false" if not. The default value is "true". The application element has its own enabled element that applies to all application components, including activities. The application and activity elements must both be "true" (as they both are by default) for the system to be able to instantiate the activity. If either is "false", it cannot be instantiated.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="excludeFromRecents" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The excludeFromRecents field specifies whether or not the task initiated by this activity should be excluded from the list of recently used applications, the overview screen. That is, when this activity is the root activity of a new task, this element determines whether the task should not appear in the list of recent apps. Set "true" if the task should be excluded from the list; set "false" if it should be included. The default value is "false".</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="exported" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The exported field specifies whether or not the activity can be launched by components of other applications — "true" if it can be, and "false" if not. If "false", the activity can be launched only by components of the same application or applications with the same user ID. The default value depends on whether the activity contains intent filters. The absence of any filters means that the activity can be invoked only by specifying its exact class name. This implies that the activity is intended only for application-internal use (since others would not know the class name). So in this case, the default value is "false". On the other hand, the presence of at least one filter implies that the activity is intended for external use, so the default value is "true". This element is not the only way to limit an activity's exposure to other applications. You can also use a permission to limit the external entities that can invoke the activity (see the permission element).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="finishOnTaskLaunch" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The finishOnTaskLaunch field specifies whether or not an existing instance of the activity should be shut down (finished) whenever the user again launches its task (chooses the task on the home screen) — "true" if it should be shut down, and "false" if not. The default value is "false". If this element and allowTaskReparenting are both "true", this element trumps the other. The affinity of the activity is ignored. The activity is not re-parented, but destroyed.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="hardwareAccelerated" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The hardwareAccelerated field specifies whether or not hardware-accelerated rendering should be enabled for this Activity — "true" if it should be enabled, and "false" if not. The default value is "false". Starting from Android 3.0, a hardware-accelerated OpenGL renderer is available to applications, to improve performance for many common 2D graphics operations. When the hardware-accelerated renderer is enabled, most operations in Canvas, Paint, Xfermode, ColorFilter, Shader, and Camera are accelerated. This results in smoother animations, smoother scrolling, and improved responsiveness overall, even for applications that do not explicitly make use the framework's OpenGL libraries. Because of the increased resources required to enable hardware acceleration, your app will consume more RAM.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="multiprocess" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The multiprocess field specifies whether an instance of the activity can be launched into the process of the component that started it — "true" if it can be, and "false" if not. The default value is "false". Normally, a new instance of an activity is launched into the process of the application that defined it, so all instances of the activity run in the same process. However, if this flag is set to "true", instances of the activity can run in multiple processes, allowing the system to create instances wherever they are used (provided permissions allow it), something that is almost never necessary or desirable.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="noHistory" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The noHistory field specifies whether or not the activity should be removed from the activity stack and finished (its finish() method called) when the user navigates away from it and it's no longer visible on screen — "true" if it should be finished, and "false" if not. The default value is "false". A value of "true" means that the activity will not leave a historical trace. It will not remain in the activity stack for the task, so the user will not be able to return to it.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="relinquishTaskIdentity" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Whether or not the activity relinquishes its task identifiers to an activity above it in the task stack. A task whose root activity has this element set to "true" replaces the base Intent with that of the next activity in the task. If the next activity also has this element set to "true" then it will yield the base Intent to any activity that it launches in the same task. This continues for each activity until an activity is encountered which has this element set to "false". The default value is "false". This element set to "true" also permits the activity's use of the ActivityManager.TaskDescription to change labels, colors and icons in the overview screen.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="stateNotNeeded" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The stateNotNeeded field specifies whether or not the activity can be killed and successfully restarted without having saved its state — "true" if it can be restarted without reference to its previous state, and "false" if its previous state is required. The default value is "false". Normally, before an activity is temporarily shut down to save resources, its onSaveInstanceState() method is called. This method stores the current state of the activity in a Bundle object, which is then passed to onCreate() when the activity is restarted. If this element is set to "true", onSaveInstanceState() may not be called and onCreate() will be passed null instead of the Bundle — just as it was when the activity started for the first time. A "true" setting ensures that the activity can be restarted in the absence of retained state. For example, the activity that displays the home screen uses this setting to make sure that it does not get removed if it crashes for some reason.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="ConfigChangesEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="mcc">
+				<xs:annotation>
+					<xs:documentation>The IMSI mobile country code (MCC) has changed — a SIM has been detected and updated the MCC.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="mnc">
+				<xs:annotation>
+					<xs:documentation>The IMSI mobile network code (MNC) has changed — a SIM has been detected and updated the MNC.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="locale">
+				<xs:annotation>
+					<xs:documentation>The locale has changed — the user has selected a new language that text should be displayed in.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="touchscreen">
+				<xs:annotation>
+					<xs:documentation>The touchscreen has changed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="keyboard">
+				<xs:annotation>
+					<xs:documentation>The keyboard type has changed — for example, the user has plugged in an external keyboard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="keyboardHidden">
+				<xs:annotation>
+					<xs:documentation>The keyboard accessibility has changed — for example, the user has revealed the hardware keyboard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="navigation">
+				<xs:annotation>
+					<xs:documentation>The navigation type (trackball/dpad) has changed. (This should never normally happen.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="screenLayout">
+				<xs:annotation>
+					<xs:documentation>The screen layout has changed — this might be caused by a different display being activated.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="fontScale">
+				<xs:annotation>
+					<xs:documentation>The font scaling factor has changed — the user has selected a new global font size.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="uiMode">
+				<xs:annotation>
+					<xs:documentation>The user interface mode has changed — this can be caused when the user places the device into a desk/car dock or when the night mode changes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="orientation">
+				<xs:annotation>
+					<xs:documentation>The screen orientation has changed — the user has rotated the device.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="screenSize">
+				<xs:annotation>
+					<xs:documentation>The current available screen size has changed. This represents a change in the currently available size, relative to the current aspect ratio, so will change when the user switches between landscape and portrait. However, if your application targets API level 12 or lower, then your activity always handles this configuration change itself (this configuration change does not restart your activity, even when running on an Android 3.2 or higher device).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="smallestScreenSize">
+				<xs:annotation>
+					<xs:documentation>The physical screen size has changed. This represents a change in size regardless of orientation, so will only change when the actual physical screen size has changed such as switching to an external display. A change to this configuration corresponds to a change in the smallestWidth configuration. However, if your application targets API level 12 or lower, then your activity always handles this configuration change itself (this configuration change does not restart your activity, even when running on an Android 3.2 or higher device).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="layoutDirection">
+				<xs:annotation>
+					<xs:documentation>The layout direction has changed. For example, changing from left-to-right (LTR) to right-to-left (RTL).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DocumentLaunchModeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="intoExisting">
+				<xs:annotation>
+					<xs:documentation>The activity reuses the existing task for the document. Using this value is the same as setting the FLAG_ACTIVITY_NEW_DOCUMENT flag, without setting the FLAG_ACTIVITY_MULTIPLE_TASK flag, as described in Using the Intent flag to add a task .</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="always">
+				<xs:annotation>
+					<xs:documentation>The activity creates a new task for the document, even if the document is already opened. This is the same as setting both the FLAG_ACTIVITY_NEW_DOCUMENT and FLAG_ACTIVITY_MULTIPLE_TASK flags.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="none">
+				<xs:annotation>
+					<xs:documentation>The activity does not create a new task for the activity. This is the default value, which creates a new task only when FLAG_ACTIVITY_NEW_TASK is set. The overview screen treats the activity as it would by default: it displays a single task for the app, which resumes from whatever activity the user last invoked.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="never">
+				<xs:annotation>
+					<xs:documentation>This activity is not launched into a new document even if the Intent contains FLAG_ACTIVITY_NEW_DOCUMENT. Setting this overrides the behavior of the FLAG_ACTIVITY_NEW_DOCUMENT and FLAG_ACTIVITY_MULTIPLE_TASK flags, if either of these are set in the activity, and the overview screen displays a single task for the app, which resumes from whatever activity the user last invoked.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LaunchModeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="standard">
+				<xs:annotation>
+					<xs:documentation>Default. The system always creates a new instance of the activity in the target task and routes the intent to it.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="singleTop">
+				<xs:annotation>
+					<xs:documentation>If an instance of the activity already exists at the top of the target task, the system routes the intent to that instance through a call to its onNewIntent() method, rather than creating a new instance of the activity.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="singleTask">
+				<xs:annotation>
+					<xs:documentation>The system creates the activity at the root of a new task and routes the intent to it. However, if an instance of the activity already exists, the system routes the intent to existing instance through a call to its onNewIntent() method, rather than creating a new one.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="singleInstance">
+				<xs:annotation>
+					<xs:documentation>Same as "singleTask", except that the system doesn't launch any other activities into the task holding the instance. The activity is always the single and only member of its task.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ScreenOrientationEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="unspecified">
+				<xs:annotation>
+					<xs:documentation>The default value. The system chooses the orientation. The policy it uses, and therefore the choices made in specific contexts, may differ from device to device.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="behind">
+				<xs:annotation>
+					<xs:documentation>The same orientation as the activity that's immediately beneath it in the activity stack.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="landscape">
+				<xs:annotation>
+					<xs:documentation>Landscape orientation (the display is wider than it is tall).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="portrait">
+				<xs:annotation>
+					<xs:documentation>Portrait orientation (the display is taller than it is wide).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="reverseLandscape">
+				<xs:annotation>
+					<xs:documentation>Landscape orientation in the opposite direction from normal landscape.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="reversePortrait">
+				<xs:annotation>
+					<xs:documentation>Portrait orientation in the opposite direction from normal portrait.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sensorLandscape">
+				<xs:annotation>
+					<xs:documentation>Landscape orientation, but can be either normal or reverse landscape based on the device sensor</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sensorPortrait">
+				<xs:annotation>
+					<xs:documentation>Portrait orientation, but can be either normal or reverse portrait based on the device sensor. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="userLandscape">
+				<xs:annotation>
+					<xs:documentation>Landscape orientation, but can be either normal or reverse landscape based on the device sensor and the user's sensor preference. If the user has locked sensor-based rotation, this behaves the same as landscape, otherwise it behaves the same as sensorLandscape.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="userPortrait">
+				<xs:annotation>
+					<xs:documentation>Portrait orientation, but can be either normal or reverse portrait based on the device sensor and the user's sensor preference. If the user has locked sensor-based rotation, this behaves the same as portrait, otherwise it behaves the same as sensorPortrait.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sensor">
+				<xs:annotation>
+					<xs:documentation>The orientation is determined by the device orientation sensor. The orientation of the display depends on how the user is holding the device; it changes when the user rotates the device. Some devices, though, will not rotate to all four possible orientations, by default. To allow all four orientations, use "fullSensor".</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="fullSensor">
+				<xs:annotation>
+					<xs:documentation>The orientation is determined by the device orientation sensor for any of the 4 orientations. This is similar to "sensor" except this allows any of the 4 possible screen orientations, regardless of what the device will normally do (for example, some devices won't normally use reverse portrait or reverse landscape, but this enables those).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="nosensor">
+				<xs:annotation>
+					<xs:documentation>The orientation is determined without reference to a physical orientation sensor. The sensor is ignored, so the display will not rotate based on how the user moves the device. Except for this distinction, the system chooses the orientation using the same policy as for the "unspecified" setting.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="user">
+				<xs:annotation>
+					<xs:documentation>The user's current preferred orientation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="fullUser">
+				<xs:annotation>
+					<xs:documentation>If the user has locked sensor-based rotation, this behaves the same as user, otherwise it behaves the same as fullSensor and allows any of the 4 possible screen orientations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="locked">
+				<xs:annotation>
+					<xs:documentation>Locks the orientation to its current rotation, whatever that is</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WindowSoftInputModeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="stateUnspecified">
+				<xs:annotation>
+					<xs:documentation>The state of the soft keyboard (whether it is hidden or visible) is not specified. The system will choose an appropriate state or rely on the setting in the theme. This is the default setting for the behavior of the soft keyboard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="stateUnchanged">
+				<xs:annotation>
+					<xs:documentation>The soft keyboard is kept in whatever state it was last in, whether visible or hidden, when the activity comes to the fore.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="stateHidden">
+				<xs:annotation>
+					<xs:documentation>The soft keyboard is hidden when the user chooses the activity — that is, when the user affirmatively navigates forward to the activity, rather than backs into it because of leaving another activity.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="stateAlwaysHidden">
+				<xs:annotation>
+					<xs:documentation>The soft keyboard is always hidden when the activity's main window has input focus.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="stateVisible">
+				<xs:annotation>
+					<xs:documentation>he soft keyboard is visible when that's normally appropriate (when the user is navigating forward to the activity's main window).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="stateAlwaysVisible">
+				<xs:annotation>
+					<xs:documentation>The soft keyboard is made visible when the user chooses the activity — that is, when the user affirmatively navigates forward to the activity, rather than backs into it because of leaving another activity.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="adjustUnspecified">
+				<xs:annotation>
+					<xs:documentation>It is unspecified whether the activity's main window resizes to make room for the soft keyboard, or whether the contents of the window pan to make the current focus visible on-screen. The system will automatically select one of these modes depending on whether the content of the window has any layout views that can scroll their contents. If there is such a view, the window will be resized, on the assumption that scrolling can make all of the window's contents visible within a smaller area. This is the default setting for the behavior of the main window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="adjustResize">
+				<xs:annotation>
+					<xs:documentation>The activity's main window is always resized to make room for the soft keyboard on screen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="adjustPan">
+				<xs:annotation>
+					<xs:documentation>The activity's main window is not resized to make room for the soft keyboard. Rather, the contents of the window are automatically panned so that the current focus is never obscured by the keyboard and users can always see what they are typing. This is generally less desirable than resizing, because the user may need to close the soft keyboard to get at and interact with obscured parts of the window.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MetadataType">
+		<xs:annotation>
+			<xs:documentation>The MetadataType specifies a name-value pair for an item of additional, arbitrary data that can be supplied to the parent component. A component field can contain any number of meta-data subfields. The values from all of them are collected in a single Bundle object and made available to the component as the PackageItemInfo.metaData field.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies a unique name for the item. To ensure that the name is unique, use a Java-style naming convention — for example, "com.example.project.activity.fred".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="resource" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The resource field specifies a reference to a resource. The ID of the resource is the value assigned to the item. The ID can be retrieved from the meta-data Bundle by the Bundle.getInt() method.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The value field specifies the value assigned to the item.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IntentFilterType">
+		<xs:annotation>
+			<xs:documentation>The IntentFilterType specifies the types of intents that an activity, service, or broadcast receiver can respond to. An intent filter declares the capabilities of its parent component — what an activity or service can do and what types of broadcasts a receiver can handle. It opens the component to receiving intents of the advertised type, while filtering out those that are not meaningful for the component.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="action" type="AndroidManifestObj:ActionType"/>
+			<xs:element minOccurs="0" name="category" type="AndroidManifestObj:CategoryType"/>
+			<xs:element minOccurs="0" name="data" type="AndroidManifestObj:DataType"/>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies an icon that represents the parent activity, service, or broadcast receiver when that component is presented to the user as having the capability described by the filter. This element must be set as a reference to a drawable resource containing the image definition. The default value is the icon set by the parent component's icon element. If the parent does not specify an icon, the default is the icon set by the application element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a user-readable label for the parent component. This label, rather than the one set by the parent component, is used when the component is presented to the user as having the capability described by the filter. The label should be set as a reference to a string resource, so that it can be localized like other strings in the user interface. However, as a convenience while you're developing the application, it can also be set as a raw string. The default value is the label set by the parent component. If the parent does not specify a label, the default is the label set by the application element's label element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="priority" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The priority field specifies the priority that should be given to the parent component with regard to handling intents of the type described by the filter. This element has meaning for both activities and broadcast receivers: It provides information about how able an activity is to respond to an intent that matches the filter, relative to other activities that could also respond to the intent. When an intent could be handled by multiple activities with different priorities, Android will consider only those with higher priority values as potential targets for the intent. It controls the order in which broadcast receivers are executed to receive broadcast messages. Those with higher priority values are called before those with lower values. (The order applies only to synchronous messages; it's ignored for asynchronous messages.) Use this element only if you really need to impose a specific order in which the broadcasts are received, or want to force Android to prefer one activity over others. The value must be an integer, such as "100". Higher numbers have a higher priority. The default value is 0. The value must be greater than -1000 and less than 1000.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ActionType">
+		<xs:annotation>
+			<xs:documentation>The ActionType captures an action that was added to an intent filter. An intent-filter field must contain one or more action elements. If it doesn't contain any, no Intent objects will get through the filter.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the action. Some standard actions are defined in the Intent class as ACTION_string constants. To assign one of these actions to this element, prepend "android.intent.action." to the string that follows ACTION_. For example, for ACTION_MAIN, use "android.intent.action.MAIN" and for ACTION_WEB_SEARCH, use "android.intent.action.WEB_SEARCH". For actions you define, it's best to use the package name as a prefix to ensure uniqueness.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CategoryType">
+		<xs:annotation>
+			<xs:documentation>The CategoryType captures a category name that was added to an intent filter.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the category. Standard categories are defined in the Intent class as CATEGORY_name constants. The name assigned here can be derived from those constants by prefixing "android.intent.category." to the name that follows CATEGORY_. For example, the string value for CATEGORY_LAUNCHER is "android.intent.category.LAUNCHER".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DataType">
+		<xs:annotation>
+			<xs:documentation>The DataType captures a data specification that was added to an intent filter. The specification can be just a data type (the mimeType element), just a URI, or both a data type and a URI. A URI is specified by separate fields for each of its parts: scheme://host:port/[path|pathPrefix|pathPattern] These elements that specify the URL format are optional, but also mutually dependent: If a scheme is not specified for the intent filter, all the other URI fields are ignored. If a host is not specified for the filter, the port field and all the path fields are ignored. All the data fields contained within the same intent-filter field contribute to the same filter. You can place any number of data fields inside an intent-filter to give it multiple data options. None of its fields have default values.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="scheme" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The scheme field specifies the scheme part of a URI. This is the minimal essential element for specifying a URI; at least one scheme element must be set for the filter, or none of the other URI elements are meaningful. A scheme is specified without the trailing colon (for example, http, rather than http:). If the filter has a data type set (the mimeType element) but no scheme, the content: and file: schemes are assumed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="port" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The port field specifies the port part of a URI authority. This element is meaningful only if the scheme and host elements are also specified for the filter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The path field specifies a complete path that is matched against the complete path in an Intent object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pathPattern" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The pathPattern field specifies a complete path that is matched against the complete path in the Intent object, but it can contain the following wildcards: An asterisk ('*') matches a sequence of 0 to many occurrences of the immediately preceding character. A period followed by an asterisk (".*") matches any sequence of 0 to many characters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pathPrefix" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The pathPrefix field specifies a partial path that is matched against only the initial part of the path in the Intent object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mimeType" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The mimeType field specifies a MIME media type, such as image/jpeg or audio/mpeg4-generic. The subtype can be the asterisk wildcard (*) to indicate that any subtype matches. It's common for an intent filter to declare a data that includes only the android:mimeType element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ActivityAliasType">
+		<xs:annotation>
+			<xs:documentation>The ActivityAliasType captures an alias for an activity, named by the targetActivity field. The target must be in the same application as the alias and it must be declared before the alias in the manifest. The alias presents the target activity as a independent entity. It can have its own set of intent filters, and they, rather than the intent filters on the target activity itself, determine which intents can activate the target through the alias and how the system treats the alias. For example, the intent filters on the alias may specify the "android.intent.action.MAIN" and "android.intent.category.LAUNCHER" flags, causing it to be represented in the application launcher, even though none of the filters on the target activity itself set these flags. With the exception of targetActivity, activity-alias elements are a subset of activity elements. For elements in the subset, none of the values set for the target carry over to the alias. However, for elements not in the subset, the values set for the target activity also apply to the alias.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="intent-filter" type="AndroidManifestObj:IntentFilterType"/>
+			<xs:element minOccurs="0" name="meta-data" type="AndroidManifestObj:MetadataType"/>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies an icon for the target activity when presented to users through the alias. See the activity element's icon element for more information.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a user-readable label for the alias when presented to users through the alias. See the activity element's label element for more information.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies a unique name for the alias. The name should resemble a fully qualified class name. But, unlike the name of the target activity, the alias name is arbitrary; it does not refer to an actual class.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="permission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The permission field specifies the name of a permission that clients must have to launch the target activity or get it to do something via the alias. If a caller of startActivity() or startActivityForResult() has not been granted the specified permission, the target activity will not be activated. This element supplants any permission set for the target activity itself. If it is not set, a permission is not needed to activate the target through the alias.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetActivity" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The targetActivity field specifies the name of the activity that can be activated through the alias. This name must match the name element of an activity element that precedes the alias in the manifest.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="enabled" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The enabled field specifies whether or not the target activity can be instantiated by the system through this alias — "true" if it can be, and "false" if not. The default value is "true". The application element has its own enabled element that applies to all application components, including activity aliases. The application and activity-alias elements must both be "true" for the system to be able to instantiate the target activity through the alias. If either is "false", the alias does not work.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="exported" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The exported field specifies whether or not components of other applications can launch the target activity through this alias — "true" if they can, and "false" if not. If "false", the target activity can be launched through the alias only by components of the same application as the alias or applications with the same user ID. The default value depends on whether the alias contains intent filters. The absence of any filters means that the activity can be invoked through the alias only by specifying the exact name of the alias. This implies that the alias is intended only for application-internal use (since others would not know its name) — so the default value is "false". On the other hand, the presence of at least one filter implies that the alias is intended for external use — so the default value is "true".</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ServiceType">
+		<xs:annotation>
+			<xs:documentation>The ServiceType declares a service (a Service subclass) as one of the application's components. Unlike activities, services lack a visual user interface. They're used to implement long-running background operations or a rich communications API that can be called by other applications. All services must be represented by service fields in the manifest file. Any that are not declared there will not be seen by the system and will never be run.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="intent-filter" type="AndroidManifestObj:IntentFilterType"/>
+			<xs:element minOccurs="0" name="meta-data" type="AndroidManifestObj:MetadataType"/>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>An icon representing the service. This element must be set as a reference to a drawable resource containing the image definition. If it is not set, the icon specified for the application as a whole is used instead (see the application element's icon element). The service's icon — whether set here or by the application element — is also the default icon for all the service's intent filters (see the intent-filter element's icon element).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isolatedProcess" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The isolatedProcess field specifies that if set to true, this service will run under a special process that is isolated from the rest of the system and has no permissions of its own. The only communication with it is through the Service API (binding and starting).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a name for the service that can be displayed to users. If this element is not set, the label set for the application as a whole is used instead (see the application element's label element). The service's label — whether set here or by the application element — is also the default label for all the service's intent filters (see the intent-filter element's label element). The label should be set as a reference to a string resource, so that it can be localized like other strings in the user interface. However, as a convenience while you're developing the application, it can also be set as a raw string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the Service subclass that implements the service. This should be a fully qualified class name (such as, "com.example.project.RoomService"). However, as a shorthand, if the first character of the name is a period (for example, ".RoomService"), it is appended to the package name specified in the manifest element. Once you publish your application, you should not change this name (unless you've set android:exported="false"). There is no default. The name must be specified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="permission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The permission field specifies the name of a permission that that an entity must have in order to launch the service or bind to it. If a caller of startService(), bindService(), or stopService(), has not been granted this permission, the method will not work and the Intent object will not be delivered to the service. If this element is not set, the permission set by the application element's permission element applies to the service. If neither element is set, the service is not protected by a permission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="process" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The process field specifies the name of the process where the service is to run. Normally, all components of an application run in the default process created for the application. It has the same name as the application package. The application element's process element can set a different default for all components. But component can override the default with its own process element, allowing you to spread your application across multiple processes. If the name assigned to this element begins with a colon (':'), a new process, private to the application, is created when it's needed and the service runs in that process. If the process name begins with a lowercase character, the service will run in a global process of that name, provided that it has permission to do so. This allows components in different applications to share a process, reducing resource usage.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="enbaled" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The enabled field specifies whether or not the service can be instantiated by the system — "true" if it can be, and "false" if not. The default value is "true". The application element has its own enabled element that applies to all application components, including services. The application and service elements must both be "true" (as they both are by default) for the service to be enabled. If either is "false", the service is disabled; it cannot be instantiated.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="exported" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The exported field specifies whether or not components of other applications can invoke the service or interact with it — "true" if they can, and "false" if not. When the value is "false", only components of the same application or applications with the same user ID can start the service or bind to it. The default value depends on whether the service contains intent filters. The absence of any filters means that it can be invoked only by specifying its exact class name. This implies that the service is intended only for application-internal use (since others would not know the class name). So in this case, the default value is "false". On the other hand, the presence of at least one filter implies that the service is intended for external use, so the default value is "true". This element is not the only way to limit the exposure of a service to other applications. You can also use a permission to limit the external entities that can interact with the service (see the permission element).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ReceiverType">
+		<xs:annotation>
+			<xs:documentation>The ReceiverType declares a broadcast receiver (a BroadcastReceiver subclass) as one of the application's components. Broadcast receivers enable applications to receive intents that are broadcast by the system or by other applications, even when other components of the application are not running. There are two ways to make a broadcast receiver known to the system: One is declare it in the manifest file with this field. The other is to create the receiver dynamically in code and register it with the Context.registerReceiver() method. See the BroadcastReceiver class description for more on dynamically created receivers.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="intent-filter" type="AndroidManifestObj:IntentFilterType"/>
+			<xs:element minOccurs="0" name="meta-data" type="AndroidManifestObj:MetadataType"/>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies an icon representing the broadcast receiver. This element must be set as a reference to a drawable resource containing the image definition. If it is not set, the icon specified for the application as a whole is used instead (see the application element's icon element). The broadcast receiver's icon — whether set here or by the application element — is also the default icon for all the receiver's intent filters (see the intent-filter element's icon element).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a user-readable label for the broadcast receiver. If this element is not set, the label set for the application as a whole is used instead (see the application element's label element). The broadcast receiver's label — whether set here or by the application element — is also the default label for all the receiver's intent filters (see the intent-filter element's label element). The label should be set as a reference to a string resource, so that it can be localized like other strings in the user interface. However, as a convenience while you're developing the application, it can also be set as a raw string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the class that implements the broadcast receiver, a subclass of BroadcastReceiver. This should be a fully qualified class name (such as, "com.example.project.ReportReceiver"). However, as a shorthand, if the first character of the name is a period (for example, ". ReportReceiver"), it is appended to the package name specified in the manifest element. Once you publish your application, you should not change this name (unless you've set android:exported="false"). There is no default. The name must be specified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="permission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The permission field specifies the name of a permission that broadcasters must have to send a message to the broadcast receiver. If this element is not set, the permission set by the application element's permission element applies to the broadcast receiver. If neither element is set, the receiver is not protected by a permission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="process" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The process field specifies the name of the process in which the broadcast receiver should run. Normally, all components of an application run in the default process created for the application. It has the same name as the application package. The application element's process element can set a different default for all components. But each component can override the default with its own process element, allowing you to spread your application across multiple processes. If the name assigned to this element begins with a colon (':'), a new process, private to the application, is created when it's needed and the broadcast receiver runs in that process. If the process name begins with a lowercase character, the receiver will run in a global process of that name, provided that it has permission to do so. This allows components in different applications to share a process, reducing resource usage.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="enabled" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The enabled field specifies whether or not the broadcast receiver can be instantiated by the system — "true" if it can be, and "false" if not. The default value is "true". The application element has its own enabled element that applies to all application components, including broadcast receivers. The application and receiver elements must both be "true" for the broadcast receiver to be enabled. If either is "false", it is disabled; it cannot be instantiated.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="exported" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The exported field specifies whether or not the broadcast receiver can receive messages from sources outside its application — "true" if it can, and "false" if not. If "false", the only messages the broadcast receiver can receive are those sent by components of the same application or applications with the same user ID. The default value depends on whether the broadcast receiver contains intent filters. The absence of any filters means that it can be invoked only by Intent objects that specify its exact class name. This implies that the receiver is intended only for application-internal use (since others would not normally know the class name). So in this case, the default value is "false". On the other hand, the presence of at least one filter implies that the broadcast receiver is intended to receive intents broadcast by the system or other applications, so the default value is "true". This element is not the only way to limit a broadcast receiver's external exposure. You can also use a permission to limit the external entities that can send it messages (see the permission element).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ProviderType">
+		<xs:annotation>
+			<xs:documentation>The ProviderType declares a content provider component. A content provider is a subclass of ContentProvider that supplies structured access to data managed by the application. All content providers in your application must be defined in a provider field in the manifest file; otherwise, the system is unaware of them and doesn't run them. You only declare content providers that are part of your application. Content providers in other applications that you use in your application should not be declared. The Android system stores references to content providers according to an authority string, part of the provider's content URI. For example, suppose you want to access a content provider that stores information about health care professionals. To do this, you call the method ContentResolver.query(), which among other arguments takes a URI that identifies the provider: content://com.example.project.healthcareprovider/nurses/rn The content: scheme identifies the URI as a content URI pointing to an Android content provider. The authority com.example.project.healthcareprovider identifies the provider itself; the Android system looks up the authority in its list of known providers and their authorities. The substring nurses/rn is a path, which the content provider can use to identify subsets of the provider data. Notice that when you define your provider in the provider field, you don't include the scheme or the path in the android:name argument, only the authority.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="meta-data" type="AndroidManifestObj:MetadataType"/>
+			<xs:element minOccurs="0" name="grant-uri-permission" type="AndroidManifestObj:GrantUriPermissionType"/>
+			<xs:element minOccurs="0" name="path-permission" type="AndroidManifestObj:PathPermissionType"/>
+			<xs:element name="authorities" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The authorities field specifies a list of one or more URI authorities that identify data offered by the content provider. Multiple authorities are listed by separating their names with a semicolon. To avoid conflicts, authority names should use a Java-style naming convention (such as com.example.provider.cartoonprovider). Typically, it's the name of the ContentProvider subclass that implements the provider. There is no default. At least one authority must be specified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies an icon representing the content provider. This element must be set as a reference to a drawable resource containing the image definition. If it is not set, the icon specified for the application as a whole is used instead </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="initOrder" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The initOrder field specifies the order in which the content provider should be instantiated, relative to other content providers hosted by the same process. When there are dependencies among content providers, setting this element for each of them ensures that they are created in the order required by those dependencies. The value is a simple integer, with higher numbers being initialized first.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a user-readable label for the content provided. If this element is not set, the label set for the application as a whole is used instead (see the application element's label element). The label should be set as a reference to a string resource, so that it can be localized like other strings in the user interface. However, as a convenience while you're developing the application, it can also be set as a raw string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the class that implements the content provider, a subclass of ContentProvider. This should be a fully qualified class name (such as, "com.example.project.TransportationProvider"). However, as a shorthand, if the first character of the name is a period, it is appended to the package name specified in the manifest element. There is no default. The name must be specified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="permission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The permission field specifies the name of a permission that clients must have to read or write the content provider's data. This element is a convenient way of setting a single permission for both reading and writing. However, the readPermission and writePermission elements take precedence over this one. If the readPermission element is also set, it controls access for querying the content provider. And if the writePermission element is set, it controls access for modifying the provider's data.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="process" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The process field specifies the name of the process in which the content provider should run. Normally, all components of an application run in the default process created for the application. It has the same name as the application package. The application element's process element can set a different default for all components. But each component can override the default with its own process element, allowing you to spread your application across multiple processes. If the name assigned to this element begins with a colon (':'), a new process, private to the application, is created when it's needed and the activity runs in that process. If the process name begins with a lowercase character, the activity will run in a global process of that name, provided that it has permission to do so. This allows components in different applications to share a process, reducing resource usage.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="readPermission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The readPermission field specifies a permission that clients must have to query the content provider. See also the permission and writePermission elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="writePermission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The writePermission field specifies a permission that clients must have to make changes to the data controlled by the content provider. See also the permission and readPermission elements.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="enabled" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The enabled field specifies whether the content provider is available for other applications to use: true: The provider is available to other applications. Any application can use the provider's content URI to access it, subject to the permissions specified for the provider. false: The provider is not available to other applications. Set android:exported="false" to limit access to the provider to your applications. Only applications that have the same user ID (UID) as the provider will have access to it.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="grantUriPermission" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The grantUriPermission field specifies whether or not those who ordinarily would not have permission to access the content provider's data can be granted permission to do so, temporarily overcoming the restriction imposed by the readPermission, writePermission, and permission elements — "true" if permission can be granted, and "false" if not. If "true", permission can be granted to any of the content provider's data. If "false", permission can be granted only to the data subsets listed in grant-uri-permission subelements, if any. The default value is "false". Granting permission is a way of giving an application component one-time access to data protected by a permission. For example, when an e-mail message contains an attachment, the mail application may call upon the appropriate viewer to open it, even though the viewer doesn't have general permission to look at all the content provider's data. In such cases, permission is granted by FLAG_GRANT_READ_URI_PERMISSION and FLAG_GRANT_WRITE_URI_PERMISSION flags in the Intent object that activates the component. </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="multiprocess" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The multiprocess field specifies whether or not an instance of the content provider can be created in every client process — "true" if instances can run in multiple processes, and "false" if not. The default value is "false". Normally, a content provider is instantiated in the process of the application that defined it. However, if this flag is set to "true", the system can create an instance in every process where there's a client that wants to interact with it, thus avoiding the overhead of interprocess communication.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="syncable" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The syncable field specifies whether or not the data under the content provider's control is to be synchronized with data on a server — "true" if it is to be synchronized, and "false" if not.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="GrantUriPermissionType">
+		<xs:annotation>
+			<xs:documentation>The GrantUriPermissionType specifies which data subsets of the parent content provider permission can be granted for. Data subsets are indicated by the path part of a content: URI. (The authority part of the URI identifies the content provider.) Granting permission is a way of enabling clients of the provider that don't normally have permission to access its data to overcome that restriction on a one-time basis. If a content provider's grantUriPermissions field is "true", permission can be granted for any the data under the provider's purview. However, if that field is "false", permission can be granted only to data subsets that are specified by this field. A provider can contain any number of grant-uri-permission fields. Each one can specify only one path (only one of the three possible elements).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The path field specifies a complete path; permission can be granted only to the particular data subset identified by that path.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pathPattern" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The pathPattern field specifies a complete path, but one that can contain the following wildcards: An asterisk ('*') matches a sequence of 0 to many occurrences of the immediately preceding character. A period followed by an asterisk (".*") matches any sequence of 0 to many characters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pathPrefix" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The pathPrefix field specifies the initial part of a path; permission can be granted to all data subsets with paths that share that initial part.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PathPermissionType">
+		<xs:annotation>
+			<xs:documentation>The PathPermissionType defines the path and required permissions for a specific subset of data within a content provider. This field can be specified multiple times to supply multiple paths.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="path" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The path field specifies a complete URI path for a subset of content provider data. Permission can be granted only to the particular data identified by this path. When used to provide search suggestion content, it must be appended with "/search_suggest_query".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pathPrefix" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The pathPrefix field specifies the initial part of a URI path for a subset of content provider data. Permission can be granted to all data subsets with paths that share this initial part.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pathPattern" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The pathPattern field specifies a complete URI path for a subset of content provider data, but one that can use the following wildcards: An asterisk ('*'). This matches a sequence of 0 to many occurrences of the immediately preceding character. A period followed by an asterisk (".*"). This matches any sequence of 0 or more characters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="permission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The permission field specifies the name of a permission that clients must have in order to read or write the content provider's data. This element is a convenient way of setting a single permission for both reading and writing. However, the readPermission and writePermission elements take precedence over this one.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="readPermission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The readPermission field specifies a permission that clients must have in order to query the content provider.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="writePermission" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The writePermission field specifies a permission that clients must have in order to make changes to the data controlled by the content provider.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UsesLibraryType">
+		<xs:annotation>
+			<xs:documentation>The UsesLibraryType specifies a shared library that the application must be linked against. This element tells the system to include the library's code in the class loader for the package. All of the android packages (such as android.app, android.content, android.view, and android.widget) are in the default library that all applications are automatically linked against. However, some packages (such as maps) are in separate libraries that are not automatically linked. Consult the documentation for the packages you're using to determine which library contains the package code.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the library. The name is provided by the documentation for the package you are using. An example of this is "android.test.runner", a package that contains Android test classes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="required" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The required field represents a Boolean value that indicates whether the application requires the library specified by android:name: "true": The application does not function without this library. The system will not allow the application on a device that does not have the library. "false": The application can use the library if present, but is designed to function without it if necessary. The system will allow the application to be installed, even if the library is not present. If you use "false", you are responsible for checking at runtime that the library is available. To check for a library, you can use reflection to determine if a particular class is available.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="UsesPermissionType">
+		<xs:sequence>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the permission. It can be a permission defined by the application with the permission element, a permission defined by another application, or one of the standard system permissions, such as "android.permission.CAMERA" or "android.permission.READ_CONTACTS". As these examples show, a permission name typically includes the package name as a prefix.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maxSdkVersion" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The maxSdkVersion field specifies the highest API level at which this permission should be granted to your app. Setting this element is useful if the permission your app requires is no longer needed beginning at a certain API level. For example, beginning with Android 4.4 (API level 19), it's no longer necessary for your app to request the WRITE_EXTERNAL_STORAGE permission when your app wants to write to its own application-specific directories on external storage (the directories provided by getExternalFilesDir()). However, the permission is required for API level 18 and lower. So you can declare that this permission is needed only up to API level 18</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PermissionType">
+		<xs:sequence>
+			<xs:element name="description" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The description field specifies a user-readable description of the permission, longer and more informative than the label. It may be displayed to explain the permission to the user — for example, when the user is asked whether to grant the permission to another application. This element must be set as a reference to a string resource; unlike the label element, it cannot be a raw string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies a reference to a drawable resource for an icon that represents the permission.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a name for the permission, one that can be displayed to users. As a convenience, the label can be directly set as a raw string while you're developing the application. However, when the application is ready to be published, it should be set as a reference to a string resource, so that it can be localized like other strings in the user interface.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the permission. This is the name that will be used in code to refer to the permission — for example, in a uses-permission element and the permission elements of application components. The name must be unique, so it should use Java-style scoping — for example, "com.example.project.PERMITTED_ACTION".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="permissionGroup" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The permissionGroup field specifies a group that this permission is assigned to. The value of this element is the name of the group, which must be declared with the permission-group element in this or another application. If this element is not set, the permission does not belong to a group.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="protectionLevel" type="AndroidManifestObj:ProtectionLevelEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The protectionLevel field characterizes the potential risk implied in the permission and indicates the procedure the system should follow when determining whether or not to grant the permission to an application requesting it.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PermissionTreeType">
+		<xs:sequence>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies an icon representing all the permissions in the tree. This element must be set as a reference to a drawable resource containing the image definition.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a user-readable name for the group. As a convenience, the label can be directly set as a raw string for quick and dirty programming. However, when the application is ready to be published, it should be set as a reference to a string resource, so that it can be localized like other strings in the user interface.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name that's at the base of the permission tree. It serves as a prefix to all permission names in the tree. Java-style scoping should be used to ensure that the name is unique. The name must have more than two period-separated segments in its path — for example, com.example.base is OK, but com.example is not.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PermissionGroupType">
+		<xs:sequence>
+			<xs:element name="description" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The description field specifies user-readable text that describes the group. The text should be longer and more explanatory than the label. This element must be set as a reference to a string resource. Unlike the label element, it cannot be a raw string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies an icon representing the permission. This element must be set as a reference to a drawable resource containing the image definition.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The label field specifies a user-readable name for the group. As a convenience, the label can be directly set as a raw string while you're developing the application. However, when the application is ready to be published, it should be set as a reference to a string resource, so that it can be localized like other strings in the user interface.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the group. This is the name that can be assigned to a permission element's permissionGroup element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InstrumentationType">
+		<xs:sequence>
+			<xs:element name="icon" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The icon field specifies an icon that represents the Instrumentation class. This element must be set as a reference to a drawable resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="label" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A user-readable label for the Instrumentation class. The label can be set as a raw string or a reference to a string resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies the name of the Instrumentation subclass. This should be a fully qualified class name (such as, "com.example.project.StringInstrumentation"). However, as a shorthand, if the first character of the name is a period, it is appended to the package name specified in the manifest element. There is no default. The name must be specified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetPackage" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The targetPackage field specifies the application that the Instrumentation object will run against. An application is identified by the package name assigned in its manifest file by the manifest element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="functionalTest" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The functionalTest field specifies whether or not the Instrumentation class should run as a functional test — "true" if it should, and "false" if not. The default value is "false".</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="handleProfiling" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The handleProfiling field specifies whether or not the Instrumentation object will turn profiling on and off — "true" if it determines when profiling starts and stops, and "false" if profiling continues the entire time it is running. A value of "true" enables the object to target profiling at a specific set of operations. The default value is "false".</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="SDKVersionType">
+		<xs:sequence>
+			<xs:element name="minSdkVersion" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The minSdkVersion field specifies an integer designating the minimum API Level required for the application to run. The Android system will prevent the user from installing the application if the system's API Level is lower than the value specified in this element. You should always declare this element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetSdkVersion" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The targetSdkVersion field specifies an integer designating the API Level that the application targets. If not set, the default value equals that given to minSdkVersion. This element informs the system that you have tested against the target version and the system should not enable any compatibility behaviors to maintain your app's forward-compatibility with the target version. The application is still able to run on older versions (down to minSdkVersion). As Android evolves with each new version, some behaviors and even appearances might change. However, if the API level of the platform is higher than the version declared by your app's targetSdkVersion, the system may enable compatibility behaviors to ensure that your app continues to work the way you expect. You can disable such compatibility behaviors by specifying targetSdkVersion to match the API level of the platform on which it's running. For example, setting this value to "11" or higher allows the system to apply a new default theme (Holo) to your app when running on Android 3.0 or higher and also disables screen compatibility mode when running on larger screens (because support for API level 11 implicitly supports larger screens). There are many compatibility behaviors that the system may enable based on the value you set for this element. Several of these behaviors are described by the corresponding platform versions in the Build.VERSION_CODES reference. To maintain your application along with each Android release, you should increase the value of this element to match the latest API level, then thoroughly test your application on the corresponding platform version.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maxSdkVersion" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The maxSdkVersion field specifies an integer designating the maximum API Level on which the application is designed to run. In Android 1.5, 1.6, 2.0, and 2.0.1, the system checks the value of this element when installing an application and when re-validating the application after a system update. In either case, if the application's maxSdkVersion element is lower than the API Level used by the system itself, then the system will not allow the application to be installed. In the case of re-validation after system update, this effectively removes your application from the device. To illustrate how this element can affect your application after system updates, consider the following example: An application declaring maxSdkVersion="5" in its manifest is published on Google Play. A user whose device is running Android 1.6 (API Level 4) downloads and installs the app. After a few weeks, the user receives an over-the-air system update to Android 2.0 (API Level 5). After the update is installed, the system checks the application's maxSdkVersion and successfully re-validates it. The application functions as normal. However, some time later, the device receives another system update, this time to Android 2.0.1 (API Level 6). After the update, the system can no longer re-validate the application because the system's own API Level (6) is now higher than the maximum supported by the application (5). The system prevents the application from being visible to the user, in effect removing it from the device. Future versions of Android (beyond Android 2.0.1) will no longer check or enforce the maxSdkVersion element during installation or re-validation. Google Play will continue to use the element as a filter, however, when presenting users with applications available for download.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConfigurationType">
+		<xs:sequence>
+			<xs:element name="reqKeyboardType" type="AndroidManifestObj:KeyboardEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The reqKeyboardType field specifies the type of keyboard the application requires, if any at all. This element does not distinguish between hardware and software keyboards. If a hardware keyboard of a certain type is required, specify the type here and also set the reqHardKeyboard element to "true".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reqNavigation" type="AndroidManifestObj:NavigationEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The reqNavigiation field specifies the navigation device required by the application, if any. If an application requires a navigational control, but the exact type of control doesn't matter, it can set the reqFiveWayNav element to "true" rather than set this one.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reqTouchScreen" type="AndroidManifestObj:TouchScreenEnum" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The reqTouchScreen field specifies the type of touch screen the application requires, if any at all. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="reqFiveWayNav" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The reqFiveWayNav field specifies whether or not the application requires a five-way navigation control — "true" if it does, and "false" if not. A five-way control is one that can move the selection up, down, right, or left, and also provides a way of invoking the current selection. It could be a D-pad (directional pad), trackball, or other device. If an application requires a directional control, but not a control of a particular type, it can set this element to "true" and ignore the reqNavigation element. However, if it requires a particular type of directional control, it can ignore this element and set reqNavigation instead.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="reqHardKeyboard" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The reqHardKeyboard field specifies whether or not the application requires a hardware keyboard — "true" if it does, and "false" if not.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="FeatureType">
+		<xs:sequence>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies a single hardware or software feature used by the application, as a descriptor string. Valid descriptor values are listed in the Hardware features and Software features tables, below. Descriptor string values are case-sensitive.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="glEsVersion" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The glEsVersion field specifies the OpenGL ES version required by the application. The higher 16 bits represent the major number and the lower 16 bits represent the minor number. For example, to specify OpenGL ES version 2.0, you would set the value as "0x00020000", or to specify OpenGL ES 3.0, you would set the value as "0x00030000". An application should specify at most one android:glEsVersion element in its manifest. If it specifies more than one, the android:glEsVersion with the numerically highest value is used and any other values are ignored. If an application does not specify an android:glEsVersion element, then it is assumed that the application requires only OpenGL ES 1.0, which is supported by all Android-powered devices. An application can assume that if a platform supports a given OpenGL ES version, it also supports all numerically lower OpenGL ES versions. Therefore, an application that requires both OpenGL ES 1.0 and OpenGL ES 2.0 must specify that it requires OpenGL ES 2.0. An application that can work with any of several OpenGL ES versions should only specify the numerically lowest version of OpenGL ES that it requires. (It can check at run-time whether a higher level of OpenGL ES is available.)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="required" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The required field represents a Boolean value that indicates whether the application requires the feature specified in android:name. When you declare "android:required="true" for a feature, you are specifying that the application cannot function, or is not designed to function, when the specified feature is not present on the device. When you declare "android:required="false" for a feature, it means that the application prefers to use the feature if present on the device, but that it is designed to function without the specified feature, if necessary.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ScreenSupportType">
+		<xs:sequence>
+			<xs:element name="requiresSmallestWidthDp" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The requiresSmallestWidthDp field specifies the minimum smallestWidth required. The smallestWidth is the shortest dimension of the screen space (in dp units) that must be available to your application UI—that is, the shortest of the available screen's two dimensions. So, in order for a device to be considered compatible with your application, the device's smallestWidth must be equal to or greater than this value. (Usually, the value you supply for this is the "smallest width" that your layout supports, regardless of the screen's current orientation.) For example, a typical handset screen has a smallestWidth of 320dp, a 7" tablet has a smallestWidth of 600dp, and a 10" tablet has a smallestWidth of 720dp. These values are generally the smallestWidth because they are the shortest dimension of the screen's available space. The size against which your value is compared takes into account screen decorations and system UI. For example, if the device has some persistent UI elements on the display, the system declares the device's smallestWidth as one that is smaller than the actual screen size, accounting for these UI elements because those are screen pixels not available for your UI. Thus, the value you use should be the minimum width required by your layout, regardless of the screen's current orientation. If your application properly resizes for smaller screen sizes (down to the small size or a minimum width of 320dp), you do not need to use this element. Otherwise, you should use a value for this element that matches the smallest value used by your application for the smallest screen width qualifier</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="compatibleWidthLimitDp" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The compatibleWidthLimitDp field allows you to enable screen compatibility mode as a user-optional feature by specifying the maximum "smallest screen width" for which your application is designed. If the smallest side of a device's available screen is greater than your value here, users can still install your application, but are offered to run it in screen compatibility mode. By default, screen compatibility mode is disabled and your layout is resized to fit the screen as usual, but a button is available in the system bar that allows the user to toggle screen compatibility mode on and off. If your application is compatible with all screen sizes and its layout properly resizes, you do not need to use this element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="largestWidthLimitDp" type="cyboxCommon:IntegerObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The largestWidthLimitDp field allows you to force-enable screen compatibility mode by specifying the maximum "smallest screen width" for which your application is designed. If the smallest side of a device's available screen is greater than your value here, the application runs in screen compatibility mode with no way for the user to disable it. If your application is compatible with all screen sizes and its layout properly resizes, you do not need to use this element. Otherwise, you should first consider using the android:compatibleWidthLimitDp element. You should use the android:largestWidthLimitDp element only when your application is functionally broken when resized for larger screens and screen compatibility mode is the only way that users should use your application.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="resizeable" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The resizeable field indicates whether the application is resizeable for different screen sizes. This element is true, by default. If set false, the system will run your application in screen compatibility mode on large screens. This element is deprecated. It was introduced to help applications transition from Android 1.5 to 1.6, when support for multiple screens was first introduced. You should not use it.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="smallScreens" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The smallScreens field indicates whether the application supports smaller screen form-factors. A small screen is defined as one with a smaller aspect ratio than the "normal" (traditional HVGA) screen. An application that does not support small screens will not be available for small screen devices from external services (such as Google Play), because there is little the platform can do to make such an application work on a smaller screen. This is "true" by default.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="normalScreens" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The normalScreens field indicates whether an application supports the "normal" screen form-factors. Traditionally this is an HVGA medium density screen, but WQVGA low density and WVGA high density are also considered to be normal. This element is "true" by default.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="largeScreens" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The largeScreens field indicates whether the application supports larger screen form-factors. A large screen is defined as a screen that is significantly larger than a "normal" handset screen, and thus might require some special care on the application's part to make good use of it, though it may rely on resizing by the system to fill the screen. The default value for this actually varies between some versions, so it's better if you explicitly declare this element at all times. Beware that setting it "false" will generally enable screen compatibility mode.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="xlargeScreens" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The xlargeScreens field indicates whether the application supports extra large screen form-factors. An xlarge screen is defined as a screen that is significantly larger than a "large" screen, such as a tablet (or something larger) and may require special care on the application's part to make good use of it, though it may rely on resizing by the system to fill the screen. The default value for this actually varies between some versions, so it's better if you explicitly declare this element at all times. Beware that setting it "false" will generally enable screen compatibility mode.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="anyDensity" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The anyDensity field indicates whether the application includes resources to accommodate any screen density. For applications that support Android 1.6 (API level 4) and higher, this is "true" by default and you should not set it "false" unless you're absolutely certain that it's necessary for your application to work. The only time it might be necessary to disable this is if your app directly manipulates bitmaps (see the Supporting Multiple Screens document for more information).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CompatibleScreensType">
+		<xs:sequence>
+			<xs:element minOccurs="1" name="screen" maxOccurs="unbounded" type="AndroidManifestObj:ScreenConfigurationType">
+				<xs:annotation>
+					<xs:documentation>The screen field specifies a single screen configuration with which the application is compatible. At least one instance of this element must be placed inside the compatible-screens element. This element must include both the android:screenSize and android:screenDensity elements (if you do not declare both elements, then the element is ignored).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ScreenConfigurationType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="screenSize" type="AndroidManifestObj:ScreenSizeEnum">
+				<xs:annotation>
+					<xs:documentation>Specifies the screen size for this screen configuration</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="screenDensity" type="AndroidManifestObj:ScreenDensityEnum">
+				<xs:annotation>
+					<xs:documentation>Specifies the screen density for this screen configuration</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GLTextureType">
+		<xs:sequence>
+			<xs:element name="name" type="cyboxCommon:StringObjectPropertyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name field specifies a single GL texture compression format supported by the application, as a descriptor string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
