@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:AndroidAPKObj="http://cybox.mitre.org/objects#AndroidAPKObject-1" xmlns:ArchiveFileObj="http://cybox.mitre.org/objects#ArchiveFileObject-1" xmlns:AndroidManifestObj="http://cybox.mitre.org/objects#AndroidManifestObject-1" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#AndroidAPKObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:AndroidAPKObj="http://cybox.mitre.org/objects#AndroidAPKObject-1" xmlns:ArchiveFileObj="http://cybox.mitre.org/objects#ArchiveFileObject-1" xmlns:AndroidManifestObj="http://cybox.mitre.org/objects#AndroidManifestObject-1" xmlns:X509CertificateObj="http://cybox.mitre.org/objects#X509CertificateObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/objects#AndroidAPKObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 	<xs:annotation>
 		<xs:documentation>Based on schema developed for App Testing Portal (https://atp.transapps.net/).</xs:documentation>
 		<xs:appinfo>
@@ -13,22 +13,112 @@
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#ArchiveFileObject-1" schemaLocation="Archive_File_Object.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#AndroidManifestObject-1" schemaLocation="Android_Manifest_Object.xsd"/>
+	<xs:import namespace="http://cybox.mitre.org/objects#X509CertificateObject-2" schemaLocation="X509_Certificate_Object.xsd"/>
 	<xs:element name="Android_APK_File" type="AndroidAPKObj:AndroidAPKObjectType">
 		<xs:annotation>
-			<xs:documentation>The Android APK object is intended to specify an Android application package (APK) file.</xs:documentation>
+			<xs:documentation>The Android_APK_File field is intended to characterize an Android application package (APK) file.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="AndroidAPKObjectType">
+		<xs:annotation>
+			<xs:documentation>The AndroidAPKObjectType is intended to characterize Android application package (APK) files.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ArchiveFileObj:ArchiveFileObjectType">
 				<xs:sequence>
+					<xs:element minOccurs="0" name="Certificate" type="X509CertificateObj:X509CertificateObjectType">
+						<xs:annotation>
+							<xs:documentation>The Certificate field characterizes the certificate used to sign the Android application.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Resources" type="AndroidAPKObj:AndroidResourceListType">
+						<xs:annotation>
+							<xs:documentation>The Resources field characterizes the resources found in the Android application.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element minOccurs="0" name="Manifest" type="AndroidManifestObj:AndroidManifestObjectType">
 						<xs:annotation>
-							<xs:documentation>The Manifest field characterizes the contents of the manifest included with the APK.</xs:documentation>
+							<xs:documentation>The Manifest field characterizes the contents of the manifest included with the Android APK file.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="AndroidResourceType">
+		<xs:annotation>
+			<xs:documentation>The AndroidResourceType is intended to characterize Android resources.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Type" type="AndroidAPKObj:AndroidResourceTypeEnum">
+				<xs:annotation>
+					<xs:documentation>The Type field captures the type of the resource (i.e. depending on the resource directory that it is stored in).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ID" type="cyboxCommon:StringObjectPropertyType">
+				<xs:annotation>
+					<xs:documentation>The ID field captures the ID assigned to the resource (if applicable).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AndroidResourceListType">
+		<xs:annotation>
+			<xs:documentation>The AndroidResourceListType is intended to capture a list of Android resources.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="Resource" type="AndroidAPKObj:AndroidResourceType">
+				<xs:annotation>
+					<xs:documentation>The Resource field characterizes a single Android resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="AndroidResourceTypeEnum">
+		<xs:annotation>
+			<xs:documentation>The AndroidResourceTypeEnum is intended to serve as a non-exhaustive enumeration of Android resource types.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="animation">
+				<xs:annotation>
+					<xs:documentation>The 'animation' value specifies a pre-determined animation resource. Tween animations are saved in res/anim/ and accessed from the R.anim class. Frame animations are saved in res/drawable/ and accessed from the R.drawable class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="color state list">
+				<xs:annotation>
+					<xs:documentation>The 'color state list' value specifies a color list resource that changes based on the View state. Such resources are saved in res/color/ and accessed from the R.color class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="drawable">
+				<xs:annotation>
+					<xs:documentation>The 'drawable' value specifies a graphics resource represented as bitmaps or XML. Such resources are saved in res/drawable/ and accessed from the R.drawable class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="layout">
+				<xs:annotation>
+					<xs:documentation>The 'layout' value specifies a layout resource for the application's UI. Such resources are saved in res/layout/ and accessed from the R.layout class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="menu">
+				<xs:annotation>
+					<xs:documentation>The 'menu' value specifies a resource that defines the contents of the application's menus. Such resources are saved in res/menu/ and accessed from the R.menu class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="string">
+				<xs:annotation>
+					<xs:documentation>The 'string' value specifies a resource that defines strings, string arrays, and plurals (and include string formatting and styling). Such resources are saved in res/values/ and accessed from the R.string, R.array, and R.plurals classes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="style">
+				<xs:annotation>
+					<xs:documentation>The 'style' value specifies a resource that defines the look and format for UI elements. Such resources are saved in res/values/ and accessed from the R.style class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="other">
+				<xs:annotation>
+					<xs:documentation>The 'other' value specifies resources that define values such as booleans, integers, dimensions, colors, and other arrays. Such resources are saved in res/values/ but each accessed from unique R sub-classes (such as R.bool, R.integer, R.dimen, etc.).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
