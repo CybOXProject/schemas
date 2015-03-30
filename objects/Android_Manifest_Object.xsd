@@ -671,7 +671,7 @@ The value must be set as an integer, such as "100". You can define it however yo
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
-		<xs:attribute name="enbaled" type="xs:boolean">
+		<xs:attribute name="enabled" type="xs:boolean">
 			<xs:annotation>
 				<xs:documentation>The enabled field specifies whether or not the service can be instantiated by the system — "true" if it can be, and "false" if not. The default value is "true". The application element has its own enabled element that applies to all application components, including services. The application and service elements must both be "true" (as they both are by default) for the service to be enabled. If either is "false", the service is disabled; it cannot be instantiated.</xs:documentation>
 			</xs:annotation>
