@@ -323,7 +323,7 @@ The value must be set as an integer, such as "100". You can define it however yo
 					<xs:documentation>A drawable resource providing an extended graphical banner for its associated item. Use with the activity tag to supply a default banner for a specific activity, or with the application tag to supply a banner for all application activities. The system uses the banner to represent an app in the Android TV home screen. Since the banner is displayed only in the home screen, it should only be specified by applications with an activity that handles the CATEGORY_LEANBACK_LAUNCHER intent. This element must be set as a reference to a drawable resource containing the image (for example "@drawable/banner"). There is no default banner.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="configChanges" type="AndroidManifestObj:ConfigChangesEnum"
+			<xs:element name="configChanges" type="AndroidManifestObj:ConfigChangesType"
 				minOccurs="0">
 				<xs:annotation>
 					<!-- TODO What is the best way to handle this type.  a simple restriction won't be sufficient, but what I have currently. -->
@@ -1170,80 +1170,6 @@ The value must be set as an integer, such as "100". You can define it however yo
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="ConfigChangesEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="mcc">
-				<xs:annotation>
-					<xs:documentation>The IMSI mobile country code (MCC) has changed — a SIM has been detected and updated the MCC.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="mnc">
-				<xs:annotation>
-					<xs:documentation>The IMSI mobile network code (MNC) has changed — a SIM has been detected and updated the MNC.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="locale">
-				<xs:annotation>
-					<xs:documentation>The locale has changed — the user has selected a new language that text should be displayed in.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="touchscreen">
-				<xs:annotation>
-					<xs:documentation>The touchscreen has changed</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="keyboard">
-				<xs:annotation>
-					<xs:documentation>The keyboard type has changed — for example, the user has plugged in an external keyboard.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="keyboardHidden">
-				<xs:annotation>
-					<xs:documentation>The keyboard accessibility has changed — for example, the user has revealed the hardware keyboard.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="navigation">
-				<xs:annotation>
-					<xs:documentation>The navigation type (trackball/dpad) has changed. (This should never normally happen.)</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="screenLayout">
-				<xs:annotation>
-					<xs:documentation>The screen layout has changed — this might be caused by a different display being activated.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="fontScale">
-				<xs:annotation>
-					<xs:documentation>The font scaling factor has changed — the user has selected a new global font size.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="uiMode">
-				<xs:annotation>
-					<xs:documentation>The user interface mode has changed — this can be caused when the user places the device into a desk/car dock or when the night mode changes.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="orientation">
-				<xs:annotation>
-					<xs:documentation>The screen orientation has changed — the user has rotated the device.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="screenSize">
-				<xs:annotation>
-					<xs:documentation>The current available screen size has changed. This represents a change in the currently available size, relative to the current aspect ratio, so will change when the user switches between landscape and portrait. However, if your application targets API level 12 or lower, then your activity always handles this configuration change itself (this configuration change does not restart your activity, even when running on an Android 3.2 or higher device).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="smallestScreenSize">
-				<xs:annotation>
-					<xs:documentation>The physical screen size has changed. This represents a change in size regardless of orientation, so will only change when the actual physical screen size has changed such as switching to an external display. A change to this configuration corresponds to a change in the smallestWidth configuration. However, if your application targets API level 12 or lower, then your activity always handles this configuration change itself (this configuration change does not restart your activity, even when running on an Android 3.2 or higher device).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="layoutDirection">
-				<xs:annotation>
-					<xs:documentation>The layout direction has changed. For example, changing from left-to-right (LTR) to right-to-left (RTL).</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="DocumentLaunchModeEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="intoExisting">
@@ -1573,6 +1499,13 @@ The value must be set as an integer, such as "100". You can define it however yo
 					<xs:documentation>The application prefers to be installed on the external storage (SD card). There is no guarantee that the system will honor this request. The application might be installed on internal storage if the external media is unavailable or full. Once installed, the user can move the application to either internal or external storage through the system settings.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConfigChangesType">
+		<xs:restriction base="xs:string">
+			<xs:pattern
+				value="((mcc|mnc|locale|touchscreen|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection|keyboard)\|?)+"
+			/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
