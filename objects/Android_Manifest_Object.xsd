@@ -19,7 +19,7 @@
 	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:element name="Android_Manifest" type="AndroidManifestObj:AndroidManifestObjectType">
 		<xs:annotation>
-			<xs:documentation>The Android APK object is intended to specify an Android application package (APK) file.</xs:documentation>
+			<xs:documentation>The Android Manifest Object is intended to characterize an Android manifest file.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="AndroidManifestObjectType">
