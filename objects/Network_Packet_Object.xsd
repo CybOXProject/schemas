@@ -1649,17 +1649,17 @@
 			</xs:enumeration>
 			<xs:enumeration value="ICMP(1)">
 				<xs:annotation>
-					<xs:documentation>Indicates the Internet Control Message protocol (HOPOPT).</xs:documentation>
+					<xs:documentation>Indicates the Internet Control Message protocol (ICMP).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="IGMP(2)">
 				<xs:annotation>
-					<xs:documentation>Indicates the Internet Control Message protocol (HOPOPT).</xs:documentation>
+					<xs:documentation>Indicates the Internet Gateway Management Protocol (IGMP).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="GGP(3)">
 				<xs:annotation>
-					<xs:documentation>Indicates the Gateway-to-Gateway protocol (HOPOPT).</xs:documentation>
+					<xs:documentation>Indicates the Gateway-to-Gateway protocol (GGP).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="IPv4Encapsulation(4)">
