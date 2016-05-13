@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" xmlns:PacketObj="http://cybox.mitre.org/objects#PacketObject-2" xmlns:AddressObj="http://docs.oasis-open.org/cti/ns/cybox/objects/address-2" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" targetNamespace="http://cybox.mitre.org/objects#PacketObject-2" elementFormDefault="qualified" version="2.1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" xmlns:PacketObj="http://docs.oasis-open.org/cti/ns/cybox/objects/network-packet-2" xmlns:AddressObj="http://docs.oasis-open.org/cti/ns/cybox/objects/address-2" xmlns:PortObj="http://docs.oasis-open.org/cti/ns/cybox/objects/port-2" targetNamespace="http://docs.oasis-open.org/cti/ns/cybox/objects/network-packet-2" elementFormDefault="qualified" version="2.1.1">
 	<xs:annotation>
 		<xs:documentation> CybOX[TM] Version 2.1.1. Committee Specification Draft 01 / Public Review Draft 01</xs:documentation>
 		<xs:appinfo>
@@ -18,7 +18,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/address-2" schemaLocation="Address_Object.xsd"/>
-	<xs:import namespace="http://cybox.mitre.org/objects#PortObject-2" schemaLocation="Port_Object.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/port-2" schemaLocation="Port_Object.xsd"/>
 	<xs:element name="Network_Packet" type="PacketObj:NetworkPacketObjectType">
 		<xs:annotation>
 			<xs:documentation>The Network_Packet object provides the definition of a network packet based on the TCP/IP model/Internet protocol suite. In the TCP/IP stack, "packet" is generally defined as IP header plus payload, but we also include the LinkLayer from the OSI model, which defines the physical network interfaces and routing protocols. The application layer has not yet been defined.</xs:documentation>

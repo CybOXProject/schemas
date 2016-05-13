@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:VolumeObj="http://cybox.mitre.org/objects#VolumeObject-2" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" targetNamespace="http://cybox.mitre.org/objects#VolumeObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:VolumeObj="http://docs.oasis-open.org/cti/ns/cybox/objects/volume-2" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" targetNamespace="http://docs.oasis-open.org/cti/ns/cybox/objects/volume-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">
 	<xs:annotation>
 		<xs:documentation> CybOX[TM] Version 2.1.1. Committee Specification Draft 01 / Public Review Draft 01</xs:documentation>
 		<xs:appinfo>

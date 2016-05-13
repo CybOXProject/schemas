@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinSystemObj="http://cybox.mitre.org/objects#WinSystemObject-2" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" xmlns:WinHandleObj="http://cybox.mitre.org/objects#WinHandleObject-2" xmlns:SystemObj="http://cybox.mitre.org/objects#SystemObject-2" targetNamespace="http://cybox.mitre.org/objects#WinSystemObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinSystemObj="http://docs.oasis-open.org/cti/ns/cybox/objects/win-system-2" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" xmlns:WinHandleObj="http://docs.oasis-open.org/cti/ns/cybox/objects/win-handle-2" xmlns:SystemObj="http://docs.oasis-open.org/cti/ns/cybox/objects/system-2" targetNamespace="http://docs.oasis-open.org/cti/ns/cybox/objects/win-system-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">
 	<xs:annotation>		
 		<xs:documentation> CybOX[TM] Version 2.1.1. Committee Specification Draft 01 / Public Review Draft 01</xs:documentation>
 		<xs:appinfo>
@@ -16,8 +16,8 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://cybox.mitre.org/objects#WinHandleObject-2" schemaLocation="Win_Handle_Object.xsd"/>
-	<xs:import namespace="http://cybox.mitre.org/objects#SystemObject-2" schemaLocation="System_Object.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/win-handle-2" schemaLocation="Win_Handle_Object.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/system-2" schemaLocation="System_Object.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:element name="Windows_System" type="WinSystemObj:WindowsSystemObjectType">
 		<xs:annotation>

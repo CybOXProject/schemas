@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:SocketAddressObj="http://cybox.mitre.org/objects#SocketAddressObject-1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:AddressObj="http://docs.oasis-open.org/cti/ns/cybox/objects/address-2" xmlns:HostnameObj="http://docs.oasis-open.org/cti/ns/cybox/objects/hostname-1" xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" targetNamespace="http://cybox.mitre.org/objects#SocketAddressObject-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">
+<xs:schema xmlns:SocketAddressObj="http://docs.oasis-open.org/cti/ns/cybox/objects/socket-address-1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:AddressObj="http://docs.oasis-open.org/cti/ns/cybox/objects/address-2" xmlns:HostnameObj="http://docs.oasis-open.org/cti/ns/cybox/objects/hostname-1" xmlns:PortObj="http://docs.oasis-open.org/cti/ns/cybox/objects/port-2" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" targetNamespace="http://docs.oasis-open.org/cti/ns/cybox/objects/socket-address-1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">
 	<xs:annotation>
 		<xs:documentation> CybOX[TM] Version 2.1.1. Committee Specification Draft 01 / Public Review Draft 01</xs:documentation>
 		<xs:appinfo>
@@ -19,7 +19,7 @@
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/address-2" schemaLocation="Address_Object.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/hostname-1" schemaLocation="Hostname_Object.xsd"/>
-	<xs:import namespace="http://cybox.mitre.org/objects#PortObject-2" schemaLocation="Port_Object.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/port-2" schemaLocation="Port_Object.xsd"/>
 	<xs:element name="Socket_Address" type="SocketAddressObj:SocketAddressObjectType">
 		<xs:annotation>
 			<xs:documentation>The Socket_Address element is intended to characterize a single network socket address.</xs:documentation>

@@ -1689,7 +1689,7 @@
 	<xs:complexType name="LocationType">
 		<xs:annotation>
 			<xs:documentation>The LocationType is used to express geographic location information.</xs:documentation>
-			<xs:documentation>This type is extended through the xsi:type mechanism. The default type is CIQAddress3.0InstanceType in the http://cybox.mitre.org/extensions/Address#CIQAddress3.0-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address_3.0/1.0/ciq_address_3.0.xsd.</xs:documentation>	
+			<xs:documentation>This type is extended through the xsi:type mechanism. The default type is CIQAddress3.0InstanceType in the http://docs.oasis-open.org/cti/ns/cybox/address/ciq-address-3.0-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address_3.0/1.0/ciq_address_3.0.xsd.</xs:documentation>	
 			<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field of this type.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -2164,7 +2164,7 @@
 	<xs:complexType name="PlatformSpecificationType">
 		<xs:annotation>
 			<xs:documentation>PlatformSpecificationType is a modularized data type intended for providing a consistent approach to uniquely specifying the identity of a specific platform.</xs:documentation>
-			<xs:documentation>In addition to capturing basic information, this type is intended to be extended to enable the structured description of a platform instance using the XML Schema extension feature. The CybOX default extension uses the Common Platform Enumeration (CPE) Applicability Language schema to do so. The extension that defines this is captured in the CPE23PlatformSpecificationType in the http://cybox.mitre.org/extensions/platform#CPE2.3-1 namespace. This type is defined in the extensions/platform/cpe2.3.xsd file.</xs:documentation>
+			<xs:documentation>In addition to capturing basic information, this type is intended to be extended to enable the structured description of a platform instance using the XML Schema extension feature. The CybOX default extension uses the Common Platform Enumeration (CPE) Applicability Language schema to do so. The extension that defines this is captured in the CPE23PlatformSpecificationType in the http://docs.oasis-open.org/cti/ns/cybox/platform/cpe-2.3-1 namespace. This type is defined in the extensions/platform/cpe2.3.xsd file.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Description" type="cyboxCommon:StructuredTextType" minOccurs="0">
