@@ -24,14 +24,14 @@
 			<xs:element name="Information_Source_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Information_Source_Type field is optional and utilizes a standardized controlled vocabulary to identify the type of information source leveraged for this cyber observation source.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is InformationSourceTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is InformationSourceTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Tool_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Tool_Type field is optional and (when tools are used) enables identification of the type of tool leveraged as part of this cyber observation source, via a standardized controlled vocabulary.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ToolTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ToolTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -53,7 +53,7 @@
 			<xs:element name="Observation_Location" type="cyboxCommon:LocationType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Observation_Location field specifies a relevant physical location for the observation measurement of the associated Observable.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://docs.oasis-open.org/cti/ns/cybox/address/ciq-address-3.0-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/ciq_address_3.0.xsd.</xs:documentation>
 					<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -80,7 +80,7 @@
 			<xs:element name="Observable_Location" type="cyboxCommon:LocationType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Observable_Location field specifies a relevant physical location for the associated Observable.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://cybox.mitre.org/extensions/Identity#CIQAddress-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address/1.0/ciq_address_3.0.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type extension mechanism. The default type is CIQAddressInstanceType in the http://docs.oasis-open.org/cti/ns/cybox/address/ciq-address-3.0-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/ciq_address_3.0.xsd.</xs:documentation>
 					<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1689,7 +1689,7 @@
 	<xs:complexType name="LocationType">
 		<xs:annotation>
 			<xs:documentation>The LocationType is used to express geographic location information.</xs:documentation>
-			<xs:documentation>This type is extended through the xsi:type mechanism. The default type is CIQAddress3.0InstanceType in the http://docs.oasis-open.org/cti/ns/cybox/address/ciq-address-3.0-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://cybox.mitre.org/XMLSchema/extensions/location/ciq_address_3.0/1.0/ciq_address_3.0.xsd.</xs:documentation>	
+			<xs:documentation>This type is extended through the xsi:type mechanism. The default type is CIQAddress3.0InstanceType in the http://docs.oasis-open.org/cti/ns/cybox/address/ciq-address-3.0-1 namespace. This type is defined in the extensions/location/ciq_address_3.0.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/ciq_address_3.0.xsd.</xs:documentation>	
 			<xs:documentation>Those who wish to express a simple name may also do so by not specifying an xsi:type and using the Name field of this type.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -1757,7 +1757,7 @@
 			<xs:element name="Encoding" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Encoding field refers to the encoding method used for the string extracted from the CybOX object, via a standardized controlled vocabulary.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is CharacterEncodingVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is CharacterEncodingVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -2014,7 +2014,7 @@
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Type field utilizes a standardized controlled vocabulary to capture the type of hash used in the Simple_Hash_Value or Fuzzy_Hash_Value elements.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is HashNameVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://cybox.mitre.org/XMLSchema/default_vocabularies/2.0.1/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is HashNameVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
