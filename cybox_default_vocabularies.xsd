@@ -27,7 +27,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ActionTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#ActionTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -603,7 +603,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionNameEnum-1.1"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action Names"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#DefinedActionNameVocab-1.1"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#DefinedActionNameVocab-1.1"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -1535,7 +1535,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionNameEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action Names"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#DefinedActionNameVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#DefinedActionNameVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -2461,7 +2461,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionArgumentNameEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action Argument Names"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#DefinedArgumentNameVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#DefinedArgumentNameVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -2747,7 +2747,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionObjectAssociationTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action-Object Association Names"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ActionObjectAssociationTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#ActionObjectAssociationTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -2788,7 +2788,7 @@
 					<xs:union memberTypes="cyboxVocabs:ActionRelationshipTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Action-Action Relationships"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ActionRelationshipTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#ActionRelationshipTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -2844,7 +2844,7 @@
 					<xs:union memberTypes="cyboxVocabs:EventTypeEnum-1.0.1"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Event Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#EventTypeVocab-1.0.1"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#EventTypeVocab-1.0.1"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -3054,7 +3054,7 @@
 					<xs:union memberTypes="cyboxVocabs:EventTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Event Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#EventTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#EventTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -3265,7 +3265,7 @@
 					<xs:union memberTypes="cyboxVocabs:ObjectRelationshipEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Object-Object Relationships"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ObjectRelationshipVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#ObjectRelationshipVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -3951,7 +3951,7 @@
 					<xs:union memberTypes="cyboxVocabs:ObjectRelationshipEnum-1.1"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Object-Object Relationships"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ObjectRelationshipVocab-1.1"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#ObjectRelationshipVocab-1.1"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -4652,7 +4652,7 @@
 					<xs:union memberTypes="cyboxVocabs:ObjectStateEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Object States"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ObjectStateVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#ObjectStateVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -4723,7 +4723,7 @@
 					<xs:union memberTypes="cyboxVocabs:CharacterEncodingEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Character Encodings"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#CharacterEncodingVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#CharacterEncodingVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -4809,7 +4809,7 @@
 					<xs:union memberTypes="cyboxVocabs:InformationSourceTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Information Source Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#InformationSourceTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#InformationSourceTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -4890,7 +4890,7 @@
 					<xs:union memberTypes="cyboxVocabs:HashNameEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Hashing Algorithm Names"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#HashNameVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#HashNameVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -4951,7 +4951,7 @@
 					<xs:union memberTypes="cyboxVocabs:ToolTypeEnum-1.0"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Tool Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ToolTypeVocab-1.0"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#ToolTypeVocab-1.0"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -5052,7 +5052,7 @@
 					<xs:union memberTypes="cyboxVocabs:ToolTypeEnum-1.1"/>
 				</xs:simpleType>
 				<xs:attribute name="vocab_name" type="xs:string" use="optional" fixed="CybOX Default Tool Types"/>
-				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd#ToolTypeVocab-1.1"/>
+				<xs:attribute name="vocab_reference" type="xs:anyURI" use="optional" fixed="http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox-default-vocabularies.xsd#ToolTypeVocab-1.1"/>
 			</xs:restriction>
 		</xs:simpleContent>
 	</xs:complexType>
