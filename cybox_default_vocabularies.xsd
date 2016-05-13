@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2" targetNamespace="http://cybox.mitre.org/default_vocabularies-2" elementFormDefault="qualified" version="2.1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" xmlns:cyboxVocabs="http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2" targetNamespace="http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2" elementFormDefault="qualified" version="2.1.1">
 	<xs:annotation>
 		<xs:documentation> CybOX[TM] Version 2.1.1. Committee Specification Draft 01 / Public Review Draft 01</xs:documentation>
 		<xs:appinfo>
@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="cybox_common.xsd"/>
 	<xs:complexType name="ActionTypeVocab-1.0">
 		<xs:annotation>
 			<xs:documentation>The ActionTypeVocab is the default CybOX vocabulary for Action Types, captured via the ActionType/Type element in CybOX Core.</xs:documentation>

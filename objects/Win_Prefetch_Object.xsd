@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinPrefetchObj="http://cybox.mitre.org/objects#WinPrefetchObject-2" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" xmlns:DeviceObj="http://cybox.mitre.org/objects#DeviceObject-2" xmlns:WinVolumeObj="http://cybox.mitre.org/objects#WinVolumeObject-2" targetNamespace="http://cybox.mitre.org/objects#WinPrefetchObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WinPrefetchObj="http://cybox.mitre.org/objects#WinPrefetchObject-2" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" xmlns:DeviceObj="http://docs.oasis-open.org/cti/ns/cybox/objects/device-2" xmlns:WinVolumeObj="http://cybox.mitre.org/objects#WinVolumeObject-2" targetNamespace="http://cybox.mitre.org/objects#WinPrefetchObject-2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">
 	<xs:annotation>
 		<xs:documentation> CybOX[TM] Version 2.1.1. Committee Specification Draft 01 / Public Review Draft 01</xs:documentation>
 		<xs:appinfo>
@@ -16,9 +16,9 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
 	<xs:import namespace="http://cybox.mitre.org/objects#WinVolumeObject-2" schemaLocation="Win_Volume_Object.xsd"/>
-	<xs:import namespace="http://cybox.mitre.org/objects#DeviceObject-2" schemaLocation="Device_Object.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/device-2" schemaLocation="Device_Object.xsd"/>
 	<xs:element name="Windows_Prefetch_Entry" type="WinPrefetchObj:WindowsPrefetchObjectType">
 		<xs:annotation>
 			<xs:documentation>The Windows_Prefetch_Entry object is intended to characterize entries in the Windows prefetch files. Starting with Windows XP, prefetching was introduced to speed up application startup. The prefetch object draws upon the descriptions and XML sample at http://www.forensicswiki.org/wiki/Prefetch_XML.</xs:documentation>

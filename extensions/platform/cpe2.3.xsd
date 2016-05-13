@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://cybox.mitre.org/extensions/platform#CPE2.3-1" xmlns:cpe23="http://cpe.mitre.org/language/2.0" xmlns:cyboxCommon="http://cybox.mitre.org/common-2" targetNamespace="http://cybox.mitre.org/extensions/platform#CPE2.3-1" elementFormDefault="qualified" version="2.1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://cybox.mitre.org/extensions/platform#CPE2.3-1" xmlns:cpe23="http://cpe.mitre.org/language/2.0" xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2" targetNamespace="http://cybox.mitre.org/extensions/platform#CPE2.3-1" elementFormDefault="qualified" version="2.1.1">
     <xs:annotation>
         <xs:documentation> CybOX[TM] Version 2.1.1. Committee Specification Draft 01 / Public Review Draft 01</xs:documentation>
         <xs:appinfo>
@@ -19,7 +19,7 @@
     </xs:annotation>
     
     <xs:import namespace="http://cpe.mitre.org/language/2.0" schemaLocation="../../external/cpe_2.3/cpe-language_2.3.xsd"/>
-    <xs:import namespace="http://cybox.mitre.org/common-2" schemaLocation="../../cybox_common.xsd"/>
+    <xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../../cybox_common.xsd"/>
     
     <xs:complexType name="CPE23PlatformSpecificationType">
         <xs:annotation>
