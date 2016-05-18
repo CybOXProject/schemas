@@ -7,7 +7,7 @@
     xsi:schemaLocation="
     http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
     http://cybox.mitre.org/objects#X509CertificateObject-2 ../objects/X509_Certificate_Object.xsd"
-    cybox_major_version="2" cybox_minor_version="1" cybox_update_version="0">
+    cybox_major_version="2" cybox_minor_version="1" cybox_update_version="1">
     <cybox:Observable id="example:Observable-72b7b0b3-a95f-4bb8-b42b-f5f86e1370b9">
         <cybox:Description>
             This Observable specifies an example pattern against an X509 Certificate Object,

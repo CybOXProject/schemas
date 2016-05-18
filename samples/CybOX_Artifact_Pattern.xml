@@ -7,7 +7,7 @@
     xsi:schemaLocation="
     http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
     http://cybox.mitre.org/objects#ArtifactObject-2 ../objects/Artifact_Object.xsd"
-    cybox_major_version="2" cybox_minor_version="1" cybox_update_version="0">
+    cybox_major_version="2" cybox_minor_version="1" cybox_update_version="1">
     <cybox:Observable id="example:Observable-cdcf44b5-317b-4ae5-99e0-b601fe90fe3d">
         <cybox:Description>
             This Observable specifies an example pattern against an Artifact object,

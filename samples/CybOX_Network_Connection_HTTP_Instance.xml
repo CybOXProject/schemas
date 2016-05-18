@@ -11,7 +11,7 @@
     xsi:schemaLocation="
     http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
     http://cybox.mitre.org/objects#NetworkConnectionObject-2 ../objects/Network_Connection_Object.xsd"
-    cybox_major_version="2" cybox_minor_version="1" cybox_update_version="0">
+    cybox_major_version="2" cybox_minor_version="1" cybox_update_version="1">
     <cybox:Observable id="example:Observable-1b427720-98d7-4735-b125-754c7e08f285">
         <cybox:Description>
             This Observable specifies an example instance of a Network Connection Object with an HTTP Session.

@@ -6,7 +6,7 @@
     xmlns:example="http://example.com/"
     xsi:schemaLocation="http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
     http://cybox.mitre.org/objects#AddressObject-2 ../objects/Address_Object.xsd"
-    cybox_major_version="2" cybox_minor_version="1" cybox_update_version="0">
+    cybox_major_version="2" cybox_minor_version="1" cybox_update_version="1">
     <cybox:Observable id="example:Observable-0b9af309-0d5a-4c44-bdd7-aea3d99f13b6">
         <cybox:Object id="example:Object-15be6630-c2df-4bf9-8750-3f45ca9e19cf">
             <cybox:Properties xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
