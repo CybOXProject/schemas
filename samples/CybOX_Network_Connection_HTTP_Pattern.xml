@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cybox:Observables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:cybox="http://cybox.mitre.org/cybox-2"
-    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
-    xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
-    xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2"
-    xmlns:SocketAddressObj="http://cybox.mitre.org/objects#SocketAddressObject-1"
-    xmlns:NetworkConnectionObj="http://cybox.mitre.org/objects#NetworkConnectionObject-2"
-    xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2"
+    xmlns:cybox="http://docs.oasis-open.org/cti/ns/cybox/core-2"
+    xmlns:cyboxCommon="http://docs.oasis-open.org/cti/ns/cybox/common-2"
+    xmlns:AddressObj="http://docs.oasis-open.org/cti/ns/cybox/objects/address-2"
+    xmlns:PortObj="http://docs.oasis-open.org/cti/ns/cybox/objects/port-2"
+    xmlns:SocketAddressObj="http://docs.oasis-open.org/cti/ns/cybox/objects/socket-address-1"
+    xmlns:NetworkConnectionObj="http://docs.oasis-open.org/cti/ns/cybox/objects/network-connection-2"
+    xmlns:HTTPSessionObj="http://docs.oasis-open.org/cti/ns/cybox/objects/http-session-2"
     xmlns:example="http://example.com/"
     xsi:schemaLocation="
-    http://cybox.mitre.org/cybox-2 ../cybox_core.xsd
-    http://cybox.mitre.org/objects#NetworkConnectionObject-2 ../objects/Network_Connection_Object.xsd"
+    http://docs.oasis-open.org/cti/ns/cybox/core-2 ../cybox_core.xsd
+    http://docs.oasis-open.org/cti/ns/cybox/objects/network-connection-2 ../objects/Network_Connection_Object.xsd"
     cybox_major_version="2" cybox_minor_version="1" cybox_update_version="1">
     <cybox:Observable id="example:Observable-1b427720-98d7-4735-b125-754c7e08f285">
         <cybox:Description>
