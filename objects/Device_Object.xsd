@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Device" type="DeviceObj:DeviceObjectType">
 		<xs:annotation>
 			<xs:documentation>The Device_Object object is intended to characterize a specific Device.</xs:documentation>

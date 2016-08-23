@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Product" type="ProductObj:ProductObjectType">
 		<xs:annotation>
 			<xs:documentation>The Product object is intended to characterize software or hardware products.</xs:documentation>

@@ -9,7 +9,7 @@
     xmlns:HTTPSessionObj="http://docs.oasis-open.org/cti/ns/cybox/objects/http-session-2"
     xmlns:example="http://example.com/"
     xsi:schemaLocation="
-    http://docs.oasis-open.org/cti/ns/cybox/core-2 ../cybox_core.xsd
+    http://docs.oasis-open.org/cti/ns/cybox/core-2 ../core.xsd
     http://docs.oasis-open.org/cti/ns/cybox/objects/network-connection-2 ../objects/Network_Connection_Object.xsd"
     cybox_major_version="2" cybox_minor_version="1" cybox_update_version="1">
     <cybox:Observable id="example:Observable-1b427720-98d7-4735-b125-754c7e08f285">

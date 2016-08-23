@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Pipe" type="PipeObj:PipeObjectType">
 		<xs:annotation>
 			<xs:documentation>The Pipe object is intended to characterize generic system pipes.</xs:documentation>

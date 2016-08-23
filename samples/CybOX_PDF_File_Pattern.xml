@@ -5,7 +5,7 @@
     xmlns:PDFFileObj="http://docs.oasis-open.org/cti/ns/cybox/objects/pdf-file-1"
     xmlns:example="http://example.com/"
     xsi:schemaLocation="
-    http://docs.oasis-open.org/cti/ns/cybox/core-2 ../cybox_core.xsd
+    http://docs.oasis-open.org/cti/ns/cybox/core-2 ../core.xsd
     http://docs.oasis-open.org/cti/ns/cybox/objects/pdf-file-1 ../objects/PDF_File_Object.xsd"
     cybox_major_version="2" cybox_minor_version="1" cybox_update_version="1">
     <cybox:Observable id="example:Observable-343961d3-8e62-4150-a701-4ade0afd1f69">

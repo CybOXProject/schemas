@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Hostname" type="HostnameObj:HostnameObjectType">
 		<xs:annotation>
 			<xs:documentation>The Hostname object is intended to specify a particular network hostname.</xs:documentation>

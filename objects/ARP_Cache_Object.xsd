@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/address-2" schemaLocation="Address_Object.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/system-2" schemaLocation="System_Object.xsd"/>
 	<xs:element name="ARP_Cache" type="ARPCacheObj:ARPCacheObjectType">

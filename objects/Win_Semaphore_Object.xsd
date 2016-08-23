@@ -18,7 +18,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/win-handle-2" schemaLocation="Win_Handle_Object.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/semaphore-2" schemaLocation="Semaphore_Object.xsd"/>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Win_Semaphore" type="WinSemaphoreObj:WindowsSemaphoreObjectType">
 		<xs:annotation>
 			<xs:documentation>Windows_Semaphore object is intended to characterize Windows Semaphore (synchronization) objects. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/ms685129(v=vs.85).aspx.</xs:documentation>

@@ -10,11 +10,11 @@
     xmlns:cyboxVocabs="http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2" 
     xmlns:example="http://example.com/" 
     xsi:schemaLocation="
-    http://docs.oasis-open.org/cti/ns/cybox/core-2 ../cybox_core.xsd
+    http://docs.oasis-open.org/cti/ns/cybox/core-2 ../core.xsd
     http://docs.oasis-open.org/cti/ns/cybox/objects/uri-2 ../objects/URI_Object.xsd
     http://docs.oasis-open.org/cti/ns/cybox/objects/file-2 ../objects/File_Object.xsd
     http://docs.oasis-open.org/cti/ns/cybox/objects/email-message-2 ../objects/Email_Message_Object.xsd
-    http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 ../cybox_default_vocabularies.xsd" cybox_major_version="2" cybox_minor_version="1"  cybox_update_version="1">
+    http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 ../default_vocabularies.xsd" cybox_major_version="2" cybox_minor_version="1"  cybox_update_version="1">
     <!-- This collection of observables were observed as part of the widespread "Iran-Oil" (among many other names used) attack campaign in March 2012 -->
     <cybox:Observable id="example:Observable-1a937ec2-90ab-4e0e-a37c-db9b2e66a58e">
         <!-- Receive "Iran-Oil" attack campaign email message -->

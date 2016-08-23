@@ -17,7 +17,7 @@
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/win-file-2" schemaLocation="Win_File_Object.xsd"/>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Windows_Executable_File" type="WinExecutableFileObj:WindowsExecutableFileObjectType">
 		<xs:annotation>
 			<xs:documentation>The Windows_Executable_File object is intended to characterize Windows PE (Portable Executable) files. Sources of information: Matt Pietrik's articles in MSDN Magazine (http://msdn.microsoft.com/en-us/magazine/cc301805.aspx and http://msdn.microsoft.com/en-us/magazine/cc301808.aspx); Microsoft's specification of PE and COFF (http://msdn.microsoft.com/library/windows/hardware/gg463125); LUEVELSMEYER's description (http://webster.cs.ucr.edu/Page_TechDocs/pe.txt).</xs:documentation>

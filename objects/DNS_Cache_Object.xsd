@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/dns-record-2" schemaLocation="DNS_Record_Object.xsd"/>
 	<xs:element name="DNS_Cache" type="DNSCacheObj:DNSCacheObjectType">
 		<xs:annotation>

@@ -10,10 +10,10 @@
     xmlns:EmailMessageObj="http://docs.oasis-open.org/cti/ns/cybox/objects/email-message-2" 
     xmlns:example="http://example.com/" 
     xsi:schemaLocation="
-    http://docs.oasis-open.org/cti/ns/cybox/core-2 ../cybox_core.xsd
+    http://docs.oasis-open.org/cti/ns/cybox/core-2 ../core.xsd
     http://docs.oasis-open.org/cti/ns/cybox/objects/file-2 ../objects/File_Object.xsd
     http://docs.oasis-open.org/cti/ns/cybox/objects/email-message-2 ../objects/Email_Message_Object.xsd
-    http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 ../cybox_default_vocabularies.xsd" 
+    http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 ../default_vocabularies.xsd" 
     cybox_major_version="2" cybox_minor_version="1" cybox_update_version="1">
     <cybox:Observable id="example:Obervable-298376a2-cf65-4778-9894-ed9a95b5441d">
         <cybox:Object id="example:Object-f9769431-db6b-448f-b34e-72eb3c3e07d1">

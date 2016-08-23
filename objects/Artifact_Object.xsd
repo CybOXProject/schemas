@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Artifact" type="ArtifactObj:ArtifactObjectType">
 		<xs:annotation>
 			<xs:documentation>The Artifact object is intended to encapsulate and convey the content of a Raw Artifact.</xs:documentation>

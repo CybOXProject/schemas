@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Windows_Kernel" type="WinKernelObj:WindowsKernelObjectType">
 		<xs:annotation>
 			<xs:documentation>The Windows_Kernel object is intended to characterize Windows Kernel structures.</xs:documentation>

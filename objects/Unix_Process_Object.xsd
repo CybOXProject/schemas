@@ -17,7 +17,7 @@
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/process-2" schemaLocation="Process_Object.xsd"/>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Unix_Process" type="UnixProcessObj:UnixProcessObjectType">
 		<xs:annotation>
 			<xs:documentation>The Unix_Process object is intended to characterize Unix processes.</xs:documentation>

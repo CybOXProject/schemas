@@ -18,7 +18,7 @@
 	</xs:annotation>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/win-handle-2" schemaLocation="Win_Handle_Object.xsd"/>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/pipe-2" schemaLocation="Pipe_Object.xsd"/>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 
 	<xs:element name="Windows_Pipe" type="WinPipeObj:WindowsPipeObjectType">
 		<xs:annotation>

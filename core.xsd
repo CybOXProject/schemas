@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="common.xsd"/>
 	<xs:element name="Observables" type="cybox:ObservablesType">
 		<xs:annotation>
 			<xs:documentation>The Observables construct represents a collection of cyber observables.</xs:documentation>
@@ -175,7 +175,7 @@
 				<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>The Type field uses a standardized controlled vocabulary to capture what type of Event this is.</xs:documentation>
-						<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is EventTypeVocab-1.0.1 in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
+						<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is EventTypeVocab-1.0.1 in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/default_vocabularies.xsd.</xs:documentation>
 						<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
@@ -281,14 +281,14 @@
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Type field is optional and utilizes a standardized controlled vocabulary to specify the basic type of the action that was performed.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/default_vocabularies.xsd.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Name" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Name field is optional and utilizes a standardized controlled vocabulary to identify/characterize the specific name of the action that was performed.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionNameVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionNameVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/default_vocabularies.xsd.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -463,7 +463,7 @@
 			<xs:element name="Argument_Name" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Argument_Name field is optional and utilizes a standardized controlled vocabulary to identify/characterize the specific action argument utilized.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionArgumentNameVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionArgumentNameVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/default_vocabularies.xsd.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -496,7 +496,7 @@
 					<xs:element name="Association_Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Association_Type field utilizes a standardized controlled vocabulary to specify the kind of association this Object holds for this Action.</xs:documentation>
-							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionObjectAssociationTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
+							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionObjectAssociationTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/default_vocabularies.xsd.</xs:documentation>
 							<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -556,7 +556,7 @@
 			<xs:element name="Type" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The Type field utilizes a standardized controlled vocabulary to describe the nature of the relationship between this Action and the related Action.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionRelationshipTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ActionRelationshipTypeVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/default_vocabularies.xsd.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -594,7 +594,7 @@
 			<xs:element name="State" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>The State field enables the description of the current state of the object, through a standardized controlled vocabulary.</xs:documentation>
-					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectStateVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
+					<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectStateVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/default_vocabularies.xsd.</xs:documentation>
 					<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -680,7 +680,7 @@
 					<xs:element name="Relationship" type="cyboxCommon:ControlledVocabularyStringType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The Relationship field uses a standardized controlled vocabulary to capture the nature of the relationship between this Object and the Related_Object.</xs:documentation>
-							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectRelationshipVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the cybox_default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/cybox_default_vocabularies.xsd.</xs:documentation>
+							<xs:documentation>This field is implemented through the xsi:type controlled vocabulary extension mechanism. The default vocabulary type is ObjectRelationshipVocab in the http://docs.oasis-open.org/cti/ns/cybox/vocabularies-2 namespace. This type is defined in the default_vocabularies.xsd file or at the URL http://docs.oasis-open.org/cti/cybox-2.1.1-xml-binding/v1.0/csd01/schemas/default_vocabularies.xsd.</xs:documentation>
 							<xs:documentation>Users may also define their own vocabulary using the type extension mechanism (by specifying a vocabulary name and/or reference using the vocab_name and vocab_reference attributes, respectively) or simply use this as a string field.</xs:documentation>
 							<xs:documentation>When idref is specified, by design, an instance may declare a Relationship child.</xs:documentation>
 						</xs:annotation>

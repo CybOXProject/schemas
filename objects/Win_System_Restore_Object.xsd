@@ -16,7 +16,7 @@
             </terms_of_use>
 		</xs:appinfo>
 	</xs:annotation>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="Windows_System_Restore_Entry" type="WinSystemRestoreObj:WindowsSystemRestoreObjectType">
 		<xs:annotation>
 			<xs:documentation>Windows_System_Restore_Entry object is intended to characterize Windows system restore points. See also: http://msdn.microsoft.com/en-us/library/windows/desktop/dd408121(v=vs.85).aspx.</xs:documentation>

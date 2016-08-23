@@ -17,7 +17,7 @@
         </xs:appinfo>
     </xs:annotation>
     <xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/uri-2" schemaLocation="URI_Object.xsd"/>
-    <xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+    <xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
     <xs:element name="Link" type="LinkObj:LinkObjectType">
         <xs:annotation>
             <xs:documentation>The Link Object is intended to characterize links, such as those on a webpage or in an e-mail message.</xs:documentation>

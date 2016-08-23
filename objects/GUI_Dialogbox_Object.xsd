@@ -17,7 +17,7 @@
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/objects/gui-2" schemaLocation="GUI_Object.xsd"/>
-	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../cybox_common.xsd"/>
+	<xs:import namespace="http://docs.oasis-open.org/cti/ns/cybox/common-2" schemaLocation="../common.xsd"/>
 	<xs:element name="GUI_Dialogbox" type="GUIDialogBoxObj:GUIDialogboxObjectType">
 		<xs:annotation>
 			<xs:documentation>The GUI_Dialogbox object is intended to characterize GUI dialog boxes.</xs:documentation>
