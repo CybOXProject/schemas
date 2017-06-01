@@ -2600,11 +2600,6 @@
 					<xs:documentation>Specifies an argument called APC Address.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Base Address">
-				<xs:annotation>
-					<xs:documentation>Specifies an argument called Base Address.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="Protection">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Protection.</xs:documentation>
@@ -2628,11 +2623,6 @@
 			<xs:enumeration value="Function Ordinal">
 				<xs:annotation>
 					<xs:documentation>Specifies an argument called Function Ordinal.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Function Name">
-				<xs:annotation>
-					<xs:documentation>Specifies an argument called Function Name.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Hook Type">
