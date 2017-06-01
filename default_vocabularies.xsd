@@ -1072,11 +1072,6 @@
 					<xs:documentation>Specifies the defined action of getting the service status.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Get System Global Flags">
-				<xs:annotation>
-					<xs:documentation>Specifies the defined action of getting the system global flags.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="Get System Local Time">
 				<xs:annotation>
 					<xs:documentation>Specifies the defined action of getting the local time on a system.</xs:documentation>
